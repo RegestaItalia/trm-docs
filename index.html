@@ -2,36 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>TRM Docs - Transport Request Manager</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
+  <meta name="description" content="TRM (Transport Request Manager) Documentation">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="https://trmregistry.com/favicon.ico">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <style>
+	:root {
+		--base-font-size: 14px;
+		--theme-color   : #0084E0;
+	}
+	.resizeAppName, .app-name {
+		width: 50% !important;
+	}
+  </style>
 </head>
 <body>
   <div id="app">Loading...</div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="https://unpkg.com/docsify-copy-code@2"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"></script>
   <script>
+    var repoUrl = 'https://github.com/RegestaItalia/trm-docs';
     window.$docsify = {
       logo: '/_media/logo.png',
+	  relativePath: true,
 	  loadFooter: true,
 	  mergeNavbar: true,
 	  loadSidebar: true,
 	  loadNavbar: true,
+	  subMaxLevel: 2,
       name: 'TRM',
-      repo: 'https://github.com/RegestaItalia/trm-docs',
+      repo: repoUrl,
+	  alias: {
+		'/server/(.*)': 'https://raw.githubusercontent.com/RegestaItalia/trm-server/main/$1',
+	  },
 	  search: {
         placeholder: 'Search',
       },
 	  plugins: [
-        EditOnGithubPlugin.create('https://github.com/RegestaItalia/trm-docs/blob/main/', null, 'Edit on Github')
+        EditOnGithubPlugin.create(repoUrl + '/blob/main/', null, 'Edit on Github')
       ]
     }
   </script>
-  <!-- Docsify v4 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@alertbox/docsify-footer/dist/docsify-footer.min.js"></script>
-  <script src="https://unpkg.com/docsify-copy-code@2"></script>
+  <script src="./removeSection.js"></script>
+  <script src="./fixRoute.js"></script>
 </body>
 </html>
