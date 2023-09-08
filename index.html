@@ -37,13 +37,15 @@
       name: 'TRM',
       repo: repoUrl,
 	  alias: {
-		'/server/(.*)': 'https://raw.githubusercontent.com/RegestaItalia/trm-server/main/$1',
+		  '(.*)/CODE_OF_CONDUCT': 'CODE_OF_CONDUCT.md',
+		  '(.*)/CONTRIBUTING': 'CONTRIBUTING.md',
+		  '/server/(.*)': 'https://raw.githubusercontent.com/RegestaItalia/trm-server/main/$1'
 	  },
 	  search: {
         placeholder: 'Search',
       },
 	  plugins: [
-        EditOnGithubPlugin.create(repoUrl + '/blob/main/', null, 'Edit on Github')
+        EditOnGithubPlugin.create(repoUrl + '/blob/main/', null, '✏️ Edit on Github')
       ]
     }
   </script>

@@ -1,5 +1,11 @@
 # TRM - Transport Request Manager
 
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-1.3.0-4baaaa.svg)](code_of_conduct.md)
+![trm-client version](https://img.shields.io/npm/v/trm-client?label=trm-client)
+![trm-server version](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/version?package=trm-server&label=trm-server)
+![trm-core version](https://img.shields.io/npm/v/trm-core?label=trm-core)
+![trm-registry-types version](https://img.shields.io/npm/v/trm-registry-types?label=trm-registry-types)
+
 TRM is a software designed to make transports between SAP OnPremise systems easy.
 
 In order to start using TRM, all of these three components must be setup:
