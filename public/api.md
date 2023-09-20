@@ -2,7 +2,7 @@
 
 The public registry exposes REST APIs that may be used to perform actions programmatically.
 
-Each of these endpoints requires authentication.
+Each of these endpoints requires [authentication](authentication.md).
 
 ## /updateUser
 - Method `POST`
