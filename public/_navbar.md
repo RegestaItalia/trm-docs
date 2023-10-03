@@ -1,2 +1,0 @@
-- [Authentication](authentication.md)
-- [API](api.md)

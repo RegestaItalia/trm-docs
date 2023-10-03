@@ -28,14 +28,13 @@
     var repoUrl = 'https://github.com/RegestaItalia/trm-docs';
     window.$docsify = {
       logo: '/_media/logo.png',
-	  relativePath: true,
 	  loadFooter: true,
 	  mergeNavbar: true,
 	  loadSidebar: true,
 	  loadNavbar: true,
-	  subMaxLevel: 2,
-      name: 'TRM',
-      repo: repoUrl,
+	  subMaxLevel: 3,
+    name: 'TRM',
+    repo: repoUrl,
 	  alias: {
 		  '(.*)/CODE_OF_CONDUCT': 'CODE_OF_CONDUCT.md',
 		  '(.*)/CONTRIBUTING': 'CONTRIBUTING.md',
@@ -51,7 +50,7 @@
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/@alertbox/docsify-footer/dist/docsify-footer.min.js"></script>
-  <script src="./removeSection.js"></script>
-  <script src="./fixRoute.js"></script>
+  <!--<script src="./removeSection.js"></script>
+  <script src="./fixRoute.js"></script>-->
 </body>
 </html>

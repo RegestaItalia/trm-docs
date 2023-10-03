@@ -3,7 +3,7 @@
 
 While most of the endpoints exposed by the public registry allow authentication with a bearer token provided by the OAuth 2.0 flow, it is recommended to use the TRM token instead.
 
-> Endpoints may not allow authentication with a bearer token at any time.
+> Api and registry endpoints may not allow authentication with a bearer token at any time.
 
 ## Generating a TRM Token
 
@@ -17,7 +17,7 @@ To generate a new TRM Token, first [log into your account](https://trmregistry.c
 
 Navigate to the **API/Registry Tokens** section and press **Generate new token**.
 
-> Each user can generate up to five tokens for security reasons. You may revoke a token at any time.
+> Each user can generate only one token for security reasons. You may revoke a token at any time.
 
 Once the login is completed, you will be brought back to the manage page, and the token will appear in the list.
 
