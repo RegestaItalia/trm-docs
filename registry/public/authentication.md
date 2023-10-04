@@ -3,7 +3,8 @@
 
 While most of the endpoints exposed by the public registry allow authentication with a bearer token provided by the OAuth 2.0 flow, it is recommended to use the TRM token instead.
 
-> Api and registry endpoints may not allow authentication with a bearer token at any time.
+> **Warning**
+Api and registry endpoints may not allow authentication with a bearer token at any time.
 
 ## Generating a TRM Token
 
@@ -29,4 +30,10 @@ At this point, **this is your only chance to copy the generated token**.
 
 Press on the token generated to copy the value to your clipboard and store it in a safe place.
 
-This token has a validity of 10 years and gives you access to all endpoints.
+This token is linked to the user, has a validity of 10 years and gives access to all endpoints.
+
+## API Header
+
+In order to authenticate, the token generated in the step above must be provided in the Authorization header like this:
+
+`Authorization`: `token <<YOUR_TOKEN>>`

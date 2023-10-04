@@ -1,2 +1,0 @@
-- [Authentication](public/authentication.md)
-- [API](public/api.md)
