@@ -28,35 +28,35 @@ Allows the currently authenticated user to edit one or more of its own propertie
 - Method `POST`
 - Content type `multipart/form-data`
 - Request body
-    - contactEmail - `string`
-   
-        User contact email
-       
-    - website - `string`
-   
-        User website link
-       
-    - github - `string`
-   
-        User Github profile link
-       
-    - linkedin - `string`
-   
-        User Linkedin profile link
-       
-    - sapblog - `string`
-   
-        User SAP Blog profile link
-       
-    - removeAvatar - `boolean`
-   
-        Remove profile avatar
-       
-    - avatar - `file`
-   
-        User profile avatar.
-       
-        Has no effect if removeAvatar is set to `true`.
+- contactEmail - `string`
+
+    User contact email
+
+    - website - `string`
+
+    User website link
+
+    - github - `string`
+
+    User Github profile link
+
+    - linkedin - `string`
+
+    User Linkedin profile link
+
+    - sapblog - `string`
+
+    User SAP Blog profile link
+
+    - removeAvatar - `boolean`
+
+    Remove profile avatar
+
+        - avatar - `file`
+
+    User profile avatar.
+
+    Has no effect if removeAvatar is set to `true`.
 - Response type `application/json`
 - Response
     - Code `200`

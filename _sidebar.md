@@ -1,4 +1,4 @@
-- [Getting started](/README.md)
+- Getting started
 	- [Setup Server](/server/docs/setup.md)
 		- [Install](/server/docs/setup.md#first-install)
 		- [Check installation](/server/docs/setup.md#check-installation)
