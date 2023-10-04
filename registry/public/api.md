@@ -72,6 +72,23 @@ Allows the currently authenticated user to edit one or more of its own propertie
         Returns user data.
 
 
+## /updateReadme
+
+
+Update package readme.
+
+
+- Method `POST`
+- Content type `application/json`
+- Request body
+- rawText - `string`
+
+    Valid markdown. If empty, readme will be cleared.
+
+- Response type `application/json`
+- Response
+    - Code `200`
+
 ## /revokeToken
 
 
