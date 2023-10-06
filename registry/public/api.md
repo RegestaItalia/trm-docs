@@ -59,35 +59,49 @@ Allows the currently authenticated user to edit one or more of its own propertie
     Has no effect if removeAvatar is set to `true`.
 - Response type `application/json`
 - Response
-    - Code `200`
+
+    - Code `304`
+
+        No changes applied.
+
+    - Code `200`
+
+        Returns updated user data.
 
 
-        Returns updated user data.
-   
-    - Code `304`
+## /updatePackage
 
 
-        No changes applied.
-       
-        Returns user data.
-
-
-## /updateReadme
-
-
-Update package readme.
+Update package data.
 
 
 - Method `POST`
 - Content type `application/json`
 - Request body
-- rawText - `string`
+    - readme - `string`
 
-    Valid markdown. If empty, readme will be cleared.
+        Valid markdown.
+
+    - packageMaintainers - `array`
+
+        - Object
+
+            ```
+            {
+                username: string,
+                canEditReleases: boolean,
+                canEditPackage: boolean,
+                canEditUsers: boolean
+            }
+            ```
+        Valid username must be provided for each object.
 
 - Response type `application/json`
 - Response
-    - Code `200`
+
+    - Code `200`
+
+        Package updated.
 
 ## /revokeToken
 
@@ -101,18 +115,19 @@ The authenticated user **must** be the owner of the token to revoke.
 - Method `POST`
 - Content type `application/json`
 - Request body
-    - tokenId - **required** - `string`
-   
-        ID of the token to revoke.
 
+    - tokenId - **required** - `string`
+
+        ID of the token to revoke.
 
 - Response type `application/json`
 - Response
-    - Code `200`
-
-
-        Token has been revoked.
+    
+    - Code `200`
+        
+        Token has been revoked.
    
+
 ## /deleteUser
 
 
@@ -127,7 +142,7 @@ Use with caution.
 - Method `POST`
 - Response type `application/json`
 - Response
-    - Code `200`
 
+    - Code `200`
 
-        User has been deleted.
+        User has been deleted.
