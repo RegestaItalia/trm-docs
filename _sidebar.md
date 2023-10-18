@@ -3,6 +3,13 @@
 		- [Install](/server/docs/setup.md#first-install)
 		- [Check installation](/server/docs/setup.md#check-installation)
 	- [Setup Client](/client/docs/setup.md)
+		- [Install requirements](/client/docs/setup.md#trm-client-requirements)
+		- [Install cli](/client/docs/setup.md#trm-client-install)
+		- [Commands](/client/docs/commands.md)
+	- [Installing your first package](/client/docs/installHelloWorld.md)
+	- [Publishing your first package](/client/docs/publishPackages.md)
+	- CI/CD
+		- [Integrate with abapGit & Github Actions](some)
 - [Client](/client/README.md)
 - [Server](/server/README.md)
 - [Registry](/registry/README.md#trm-registry)

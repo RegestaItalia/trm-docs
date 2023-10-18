@@ -1,1 +1,4 @@
-- [Install](/client/install.md)
+- [Setup](/client/docs/setup.md)
+- [Commands](/client/docs/commands.md)
+- [Installing your first package](/client/docs/installHelloWorld.md)
+- [Publishing your first package](/client/docs/publishPackages.md)
