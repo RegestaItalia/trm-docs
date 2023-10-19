@@ -176,9 +176,13 @@ Use this command anytime you want to check a user can access trm-server RFC Func
 
 ## Registry
 
-Out of the box, trm-client, is configured to work by default with the public registry, however it is possible to add as many custom (or private) registries as you want.
+Out of the box, trm-client is configured to work with the [public registry](https://trmregistry.com).
 
-Registries data are saved in **plain text** in the AppData `registry.ini` file.
+It is, however, possible to add as many private registries as you want.
+
+To learn more about private registries, [visit the documentation](https://docs.trmregistry.com).
+
+Registry data is saved in **plain text** in the AppData `registry.ini` file.
 
 ### Login
 
@@ -232,7 +236,27 @@ Log out of the registry.
 
         If one or more registries are found, and this option is not provided, it will prompt for a registry selection.
 
+### Add private registry
+
+- Command `trm addRegistry <<REGISTRY_NAME>>`
+- Options
+    - `-e, --endpoint <<ENDPOINT_URL>>` - `string`
+
+        Base url of the registry.
+
+    - `-a, --authentication <<JSON>>` - `string`
+
+        Authentication object.
+
+### Remove private registry
+
+- Command `trm removeRegistry <<REGISTRY_NAME>>`
+
 ## Packages
+
+TRM identifies a package as the composition of its TRM transports and the manifest.
+
+> To avoid confusion, whenever TRM refeers to SAP packages, they are called Devclasses
 
 ### Publish package from a system
 
@@ -490,7 +514,74 @@ Log out of the registry.
 
 > If the direct connection options are incomplete you'll be prompted to fill in the required values.
 
+### Check package on a system
+
+- Command `trm check <<PACKAGE_NAME>>`
+- Options
+    - `-a, --systemAlias <<SYSTEM_ALIAS>>` - `string`
+
+        Alias of the system to connect.
+    
+    - `-d, --dest <<SYSTEM_ID>>` - `string`
+
+        System ID of the system to connect.
+
+        Ignored in conjunction with alias option.
+
+    - `-h, --ashost <<APPLICATION_SERVER_ADDRESS>>` - `string`
+
+        Application server address of the system to connect.
+
+        Ignored in conjunction with alias option.
+
+    - `-n, --sysnr <<INSTANCE_NUMBER>>` - `string`
+
+        Instance number of the system to connect.
+
+        Ignored in conjunction with alias option.
+
+    - `-s, --sapRouter <<SAP_ROUTER>>` - `string`
+
+        SAP Router of the system to connect.
+
+        Ignored in conjunction with alias option.
+
+    - `-s, --sapRouter <<SAP_ROUTER>>` - `string`
+
+        SAP Router string of the system to connect.
+
+        Ignored in conjunction with alias option.
+
+    - `-c, --client <<CLIENT>>` - `string`
+
+        System logon client.
+
+        Ignored in conjunction with alias option.
+
+    - `-u, --user <<USER>>` - `string`
+
+        System logon user.
+
+        Ignored in conjunction with alias option.
+
+    - `-u, --user <<USER>>` - `string`
+
+        System logon user.
+
+        Ignored in conjunction with alias option.
+
+    - `-p, --passwd <<PASSWORD>>` - `string`
+
+        System logon user password.
+
+        Ignored in conjunction with alias option.
+
+> If the direct connection options are incomplete you'll be prompted to fill in the required values.
+
 ### Compare package between multiple systems
 
 - Command `trm compare <<PACKAGE_NAME>>`
+- Options
+    - `-c, --connections <<JSON_ARRAY>>` - `string`
 
+        Array of aliases to compare.
