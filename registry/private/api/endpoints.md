@@ -109,6 +109,29 @@ The client makes requests to this endpoint whenever a package needs to be publis
 
         Package has been published.
 
+## /unpublish
+
+The client makes requests to this endpoint whenever a package needs to be published.
+
+- Method `POST`
+- Content type `application/json`
+- Request body
+    - package - **required** - `string`
+
+        Package full name. (If scoped `@<<SCOPE>>/<<PACKAGE_NAME>>`).
+    
+    - version - **required** - `string`
+    
+        Version to unpublish.
+
+        Only specific versions are allowed.
+
+- Response type `application/json`
+- Response
+    - Code `200`
+
+        Package has been unpublished.
+
 ## /install
 
 The client makes a request to this endpoint each time a package needs to be installed.

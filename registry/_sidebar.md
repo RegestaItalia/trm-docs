@@ -1,6 +1,7 @@
 - [Public Registry](/registry/README.md#public-registry)
     - [Roadmap](/registry/public/roadmap.md)
     - [Authentication](/registry/public/authentication.md)
+    - [Usage](/registry/public/usage.md)
     - [API](/registry/public/api.md)
     - [Badges](/registry/public/badges.md)
 - [Private Registry](/registry/README.md#private-registry)

@@ -125,4 +125,31 @@ Use with caution.
 
         User has been deleted.
 
-        
+## /deletePackage
+
+Remove a package release from the registry.
+
+Authenticated user must have edit privileges on the specified package.
+
+> **Warning**
+This has immediate effect and will delete the release forever!
+Use with caution.
+
+- Method `POST`
+- Content type `application/json`
+- Request body
+    - package - **required** - `string`
+
+        Package full name. (If scoped `@<<SCOPE>>/<<PACKAGE_NAME>>`).
+
+    - version - **required** - `string`
+    
+        Version to unpublish.
+
+        Only specific versions are allowed.
+
+- Response type `application/json`
+- Response
+    - Code `200`
+
+        Release deleted.
