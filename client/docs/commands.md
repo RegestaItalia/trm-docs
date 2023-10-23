@@ -262,6 +262,12 @@ TRM identifies a package as the composition of its TRM transports and the manife
 
 - Command `trm publish <<PACKAGE_NAME>>`
 - Options
+    - `-r, --registry <<REGISTRY_NAME>>` - `string`
+
+        If no private registries are found, it will default to the public registry.
+
+        If one or more registries are found, and this option is not provided, it will prompt for a registry selection.
+
     - `-a, --systemAlias <<SYSTEM_ALIAS>>` - `string`
 
         Alias of the system to connect.
@@ -322,10 +328,34 @@ TRM identifies a package as the composition of its TRM transports and the manife
 
 > If the direct connection options are incomplete you'll be prompted to fill in the required values.
 
+### Unpublish package from registry
+
+This command will only remove the package from the registry.
+
+If installed on any of your systems, it will remain without any changes.
+
+- Command `trm unpublish <<PACKAGE_NAME>>`
+- Options
+    - `-v, --version <<VERSION>>` - **required** - `string`
+
+        Version of the release to unpublish.
+        
+    - `-r, --registry <<REGISTRY_NAME>>` - `string`
+
+        If no private registries are found, it will default to the public registry.
+
+        If one or more registries are found, and this option is not provided, it will prompt for a registry selection.
+
 ### Install package on a system
 
 - Command `trm install <<PACKAGE_NAME>>`
 - Options
+    - `-r, --registry <<REGISTRY_NAME>>` - `string`
+
+        If no private registries are found, it will default to the public registry.
+
+        If one or more registries are found, and this option is not provided, it will prompt for a registry selection.
+
     - `-a, --systemAlias <<SYSTEM_ALIAS>>` - `string`
 
         Alias of the system to connect.
@@ -454,6 +484,12 @@ TRM identifies a package as the composition of its TRM transports and the manife
 
 - Command `trm view <<PACKAGE_NAME>>`
 - Options
+    - `-r, --registry <<REGISTRY_NAME>>` - `string`
+
+        If no private registries are found, it will default to the public registry.
+
+        If one or more registries are found, and this option is not provided, it will prompt for a registry selection.
+
     - `-a, --systemAlias <<SYSTEM_ALIAS>>` - `string`
 
         Alias of the system to connect.
@@ -582,6 +618,12 @@ TRM identifies a package as the composition of its TRM transports and the manife
 
 - Command `trm compare <<PACKAGE_NAME>>`
 - Options
+    - `-r, --registry <<REGISTRY_NAME>>` - `string`
+
+        If no private registries are found, it will default to the public registry.
+
+        If one or more registries are found, and this option is not provided, it will prompt for a registry selection.
+
     - `-c, --connections <<JSON_ARRAY>>` - `string`
 
         Array of aliases to compare.
