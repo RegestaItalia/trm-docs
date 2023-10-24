@@ -90,3 +90,13 @@ If all of the requirements are met, running the command
 `trm`
 
 in your CLI should output all of the possible commands.
+
+# Virtual System
+
+It's highly recommended to make use of Virtual Systems in order to release transports without worrying about leaving them in queues.
+
+Ideally, you should setup the Virtual System on your central development system, and every time you publish, the Virtual System should be targeted.
+
+Here's a guide on how to [setup a Virtual System](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-us/44/b4a0db7acc11d1899e0000e829fbbd/content.htm?no_cache=true).
+
+The setup should be performed by your BASIS team.
