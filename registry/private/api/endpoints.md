@@ -4,6 +4,8 @@ All of the following endpoints should be reached from the same base URL.
 
 > The implementation of the endpoint is up to the maintainer of the registry, and the descriptions provided below are generic.
 
+> Errors, unless specified, are handled as generic by the clients.
+
 ## /ping
 
 This is the first request made by the client in order to
@@ -63,6 +65,18 @@ The client makes a request to this endpoint each time a package data is requeste
 
 - Response type `application/json`
 - Response
+    - Code `400`
+
+        Package not found.
+        
+        Returns [View](/registry/private/api/types/responses.md#view), where all properties should be ignored except for `userAuthorizations`, that shall provide authorization data on the package with the requested values.
+
+    - Code `404`
+
+        Package not found and, with the requested data, will never be available (blacklisted package name/version, package name similar to others...).
+        
+        Returns [View](/registry/private/api/types/responses.md#view), where all properties should be ignored except for `userAuthorizations`, that shall provide authorization data on the package with the requested values.
+
     - Code `200`
         
         Returns [View](/registry/private/api/types/responses.md#view).
