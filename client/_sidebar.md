@@ -1,4 +1,5 @@
 - [Setup](/client/docs/setup.md)
 - [Commands](/client/docs/commands.md)
-- [Installing your first package](/client/docs/installHelloWorld.md)
-- [Publishing your first package](/client/docs/publishPackages.md)
+- [Installing your first package](/client/docs/examples/installHelloWorld.md)
+- [Publishing your first package](/client/docs/examples/publishPackages.md)
+- [Integrate with abapGit & Github Actions](/client/examples/docs/githubActions.md)
