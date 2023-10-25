@@ -13,19 +13,19 @@ Your profile is public, and anyone can see its data.
 To manage your profile, first [log into your account](https://trmregistry.com/profile) and visit the **Profile** section.
 
 <p align="center">
-  <img src="../_media/profile_dropdown.png" />
+  <img src="/_media/profile_dropdown.png" />
 </p>
 
 Next, press on the **Edit** button.
 
 <p align="center">
-  <img src="../_media/profile_edit_header.png" />
+  <img src="/_media/profile_edit_header.png" />
 </p>
 
 Now, you should be able to edit your profile data.
 
 <p align="center">
-  <img src="../_media/profile_edit.png" />
+  <img src="/_media/profile_edit.png" />
 </p>
 
 > The email is only visible to you. You can set a "Contact Email" if you want to share it publicly.
@@ -49,7 +49,7 @@ Releases can be deleted **one at the time**, once a version is deleted, it canno
 First, open a package where you have edit privileges.
 
 <p align="center">
-  <img src="../_media/package_edit_header.png" />
+  <img src="/_media/package_edit_header.png" />
 </p>
 
 Next, press on **Delete** to confirm the action.
@@ -66,7 +66,7 @@ Manifest values cannot be changed; [delete the package](#delete-a-package) and r
 First, open a package where you have edit privileges.
 
 <p align="center">
-  <img src="../_media/package_edit_header.png" />
+  <img src="/_media/package_edit_header.png" />
 </p>
 
 Next, press on **Edit**.
@@ -80,13 +80,13 @@ If you have edit maintainers privileges on a package, you can add maintainers.
 Head over to the **Maintainers** section and press on the **Add** button on the top right of the table.
 
 <p align="center">
-  <img src="../_media/package_maintainers_section.png" />
+  <img src="/_media/package_maintainers_section.png" />
 </p>
 
 The new maintainer username **must** be unique (in the package context), it's case insensitive and **must** be a valid username.
 
 <p align="center">
-  <img src="../_media/package_maintainers_add.png" />
+  <img src="/_media/package_maintainers_add.png" />
 </p>
 
 ### Edit package maintainers
@@ -96,7 +96,7 @@ If you have edit maintainers privileges on a package, you can edit and remove ma
 Head over to the **Maintainers** section and press on the trash bin button to **Delete** or the pencil button to **Edit**, next to the maintainer username.
 
 <p align="center">
-  <img src="../_media/package_maintainers_section.png" />
+  <img src="/_media/package_maintainers_section.png" />
 </p>
 
 ## Search a package
@@ -106,7 +106,7 @@ You can search for packages available on the registry.
 Next to your profile avatar (or the login icon, if not logged in), press on the **Search** button.
 
 <p align="center">
-  <img src="../_media/profile_dropdown.png" />
+  <img src="/_media/profile_dropdown.png" />
 </p>
 
 This will open the search bar.

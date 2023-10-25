@@ -12,7 +12,7 @@ TRM Tokens allow users to call any public registry endpoint, including APIs and 
 To generate a new TRM Token, first [log into your account](https://trmregistry.com/profile) and visit the **Manage** section.
 
 <p align="center">
-  <img src="../_media/profile_dropdown.png" />
+  <img src="/_media/profile_dropdown.png" />
 </p>
 
 Navigate to the **API/Registry Tokens** section and press **Generate new token**.
@@ -22,7 +22,7 @@ Navigate to the **API/Registry Tokens** section and press **Generate new token**
 Once the login is completed, you will be brought back to the manage page, and the token will appear in the list.
 
 <p align="center">
-  <img src="../_media/token_generation.png" />
+  <img src="/_media/token_generation.png" />
 </p>
 
 At this point, **this is your only chance to copy the generated token**.
