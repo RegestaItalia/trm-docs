@@ -18,11 +18,11 @@ A person may be able to download a package without the need of an account.
 
 Restrictions on the account are based on its plan. Differences between plans can be seen [here](https://trmregistry.com/#/plans).
 
-The public registry exposes [REST APIs](registry/public/api.md) that may be used to perform actions programmatically.
+The public registry exposes [REST APIs](/registry/public/api.md) that may be used to perform actions programmatically.
 
 ## Roadmap
 
-TRM Public Registry roadmap is explained [here](registry/public/roadmap.md).
+TRM Public Registry roadmap is explained [here](/registry/public/roadmap.md).
 
 # Private registry
 
