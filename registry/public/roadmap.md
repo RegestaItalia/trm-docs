@@ -10,7 +10,7 @@ You'll notice that these roadmap milestones don't have specific dates, but rathe
 
 To stay up to date with the developments and get notified whenever a milestone date is updated, sign up to [TRM Public Registry](https://trmregistry.com), and make sure to keep the notifications turned on in your profile management page.
 
-For any question, you can create a Github issue [here](https://github.com/RegestaItalia/trm-docs) or write an email to [support@trmregistry.com](mailto:support@trmregistry.com)
+For any question, you can create a Github issue [here](https://github.com/RegestaItalia/trm-docs) or write an email to [support@trmregistry.com](mailto:support@trmregistry.com).
 
 ## Stage 1 - Alpha
 
