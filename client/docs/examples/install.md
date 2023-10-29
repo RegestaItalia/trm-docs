@@ -81,7 +81,7 @@ Once a package is installed with TRM, the transports across the landscape is **d
 
 Take a look at the install log and you'll see that a new transport has been generated.
 
-> If you've lost the install log, you can run either the view or list command to see the generated transport again.
+> If you've lost the install log, check transaction `SE01`
 
 It contain all of the objects in the TRM package and it can be used for transport across the landscape.
 
@@ -98,4 +98,9 @@ In this case, run `trm compare hello-world` and, when asked, connect to both DEV
 
 You should see that in both systems you have the same version of `hello-world` installed.
 
-> Try comparing trm-server too!
+> Try comparing other packages too!
+
+# Dependencies
+
+We're now going to see what happens when installing packages with dependencies.
+
