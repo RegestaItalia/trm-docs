@@ -190,3 +190,11 @@ or, if you want to be more specific:
 before install, TRM will check if the system contains this record in its table.
 
 This check can be skipped by the user, but might lead to inconsistencies.
+
+## Manifest and transport request
+
+TRM makes use of transport requests **documentations** to store the package manifest.
+
+You can execute transaction `SE01` and open a TRM transport (generated after install) to see the package manifest.
+
+In transport request documentations, the `manifest.json` file is transformed into XML.
