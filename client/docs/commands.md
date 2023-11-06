@@ -251,6 +251,10 @@ Log out of the registry.
 ## Remove private registry
 
 - Command `trm removeRegistry <<REGISTRY_NAME>>`
+- Options
+    - `-f, --force` - `boolean`
+
+        Skip confirm prompt.
 
 # Packages
 
@@ -307,12 +311,6 @@ TRM identifies a package as the composition of its TRM transports and the manife
     - `-om, --overwriteManifest` - `boolean`
 
         Overwrite manifest values. By default, it falls back to the previously published manifest.
-
-        Default: `false`.
-
-    - `-ss, --skipSapEntries` - `boolean`
-
-        Skip SAP entries search.
 
         Default: `false`.
 
@@ -497,7 +495,7 @@ The expected object should have these values defined:
 
     Each table record should contain the required field/value combination needed in order to extract the required record.
 
-The `dependencies` and `sapEntries` values of the manifest are calculated at runtime (unless running with the `-ss, --skipSapEntries` or `-sd, --skipDependencies` flags) and values from the `-m, --manifest <<JSON>>` json are then merged.
+The `dependencies` and `sapEntries` values of the manifest are calculated at runtime (unless running with the `-sd, --skipDependencies` flag) and values from the `-m, --manifest <<JSON>>` json are then merged.
 
 Unless running with the `-om, --overwriteManifest` flag, release-indipendent values are kept the same, and not prompted (unless running with `-fm, --forceManifest` flag). 
 
@@ -505,7 +503,7 @@ Unless running with the `-om, --overwriteManifest` flag, release-indipendent val
 
 This command will only remove the package from the registry.
 
-If installed on any of your systems, it will remain without any changes.
+If installed on any of your systems, **it will remain without any changes**.
 
 - Command `trm unpublish <<PACKAGE_NAME>>`
 - Options
