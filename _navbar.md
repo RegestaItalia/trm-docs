@@ -1,4 +1,5 @@
 * [🏠 Home](https://www.trmregistry.com)
+* [🤔 FAQ](faq.md)
 * [❓ Incidents](incidents.md)
 * [📜 Code of conduct](CODE_OF_CONDUCT.md)
 * [🧩 Contributing](CONTRIBUTING.md)
