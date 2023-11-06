@@ -579,6 +579,12 @@ If installed on any of your systems, **it will remain without any changes**.
 
         See [Install package replacements](#install-package-replacements) for the detailed explaination.
 
+    - `-swb, --skipWorkbenchTransport` - `boolean`
+
+        Skip generation of workbench transport after install.
+
+        Default: `false` - Transport is generated/updated.
+
     - `-r, --registry <<REGISTRY_NAME>>` - `string`
 
         If no private registries are found, it will default to the public registry.
