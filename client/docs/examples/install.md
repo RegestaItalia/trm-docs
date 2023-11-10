@@ -41,7 +41,7 @@ you'll be prompted with
 
     Now, you should input the name of the devclass (SAP Package) that will be created on your development system. Inside, the content of the sample package will be placed.
 
-    For his demo, you can use a temporary package names **$TRM_HELLOWORLD**.
+    For this demo, you can use a temporary package named **$TRM_HELLOWORLD**.
 
 The `hello-world` package should now be installed into your system.
 
@@ -70,6 +70,10 @@ Suppose you install a package, usually it's destined to be transported across yo
 ## Prerequisites
 
 For this demo you'll need [step 1](#part-1-install) completed and atleast another system in your landscape.
+
+If you want to run this demo, make sure you installed the *hello-world* package with a namespace (**NOT $**) because, obviously, you can't transport a temporary package.
+
+> Packages can be re-installed, and the devclass can be changed.
 
 ### Do I need trm-server?
 
@@ -100,7 +104,7 @@ You should see that in both systems you have the same version of `hello-world` i
 
 > Try comparing other packages too!
 
-# Dependencies
+# Part 3: Install with dependencies
 
 We're now going to see what happens when installing packages with dependencies.
 

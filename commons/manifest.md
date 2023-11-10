@@ -86,6 +86,12 @@ A manifest has the following properties:
 
         Semver valid version or range of the dependency package.
 
+    - `integrity`
+
+        SHA512 of the dependency package.
+
+        Learn more [here](#dependency-intergity-check).
+
     - `registry`
 
         Registry endpoint of the dependency.
@@ -157,6 +163,17 @@ Remember, Package A is already installed in the system, with version **1.0.1**.
 This means that, if we want to install Package C, **we need to update** to atleast version 1.1.0: in order to guarantee Package B won't have drawbacks from this upgrade, the `backwardsCompatible` flag inside Package A manifest is checked.
 
 Having this flag set to `true` means that between version 1.0.1 and 1.1.0, Package A doesn't have destructive changes.
+
+## Dependency intergity check
+
+When automatically installing a dependency, you want to be sure its content is:
+
+- The same the publisher expected during publish of the dependant
+- Not compromised
+
+To make sure the content is valid, its SHA512 value is compared before install.
+
+If the comparison fails, the install is aborted because its content is considered unsafe.
 
 ## SAP Entries
 
