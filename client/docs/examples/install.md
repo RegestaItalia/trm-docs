@@ -45,7 +45,15 @@ you'll be prompted with
 
 The `hello-world` package should now be installed into your system.
 
+<p align="center">
+  <img src="/_media/sample_install.png" />
+</p>
+
 You can view it with transaction `SE80`, and test the program `ZTRM_HELLOWORLD` with transaction `SE38`.
+
+<p align="center">
+  <img src="/_media/sample_install_se80.png" />
+</p>
 
 ## List and view command
 
@@ -57,11 +65,21 @@ Other commands you can try after installing the `hello-world` package are **list
 
     After connecting to the system (like we did earlier) you should see the list of packages.
 
+    <p align="center">
+        <img src="/_media/sample_list.png" />
+    </p>
+
 - With the [view command](https://docs.trmregistry.com/#/client/commands?id=view-package-on-a-system) you'll have more details about a package, like its manifest values.
 
     Run `trm view hello-world`
 
     and connect to your development system again to see the command in action.
+
+    <p align="center">
+        <img src="/_media/sample_view.png" />
+    </p>
+
+    Notice how it's also comparing the installed version with the latest available on the registry.
 
 # Part 2: TRM in your landscape
 
@@ -85,12 +103,27 @@ Once a package is installed with TRM, the transports across the landscape is **d
 
 Take a look at the install log and you'll see that a new transport has been generated.
 
+<p align="center">
+    <img src="/_media/sample_reinstall.png" />
+</p>
+
 > If you've lost the install log, check transaction `SE01`
 
 It contain all of the objects in the TRM package and it can be used for transport across the landscape.
 
+Before releasing, **make sure the package transport layers are correct and manually change the transport target system if necessary**.
+
 1. Release and import the transport into your QUA system.
+
+<p align="center">
+    <img src="/_media/sample_transport.png" />
+</p>
+
 2. Run the list or view command with QUA system connection.
+
+<p align="center">
+    <img src="/_media/sample_view_after_transport.png" />
+</p>
 
 You'll notice that, although trm-server is not installed into QUA, TRM is capable of detecting that the `hello-world` package is installed.
 
@@ -99,6 +132,10 @@ You'll notice that, although trm-server is not installed into QUA, TRM is capabl
 The [compare command](https://docs.trmregistry.com/#/client/commands?id=compare-package-between-multiple-systems) can be used to compare the same packages between 2 or more systems.
 
 In this case, run `trm compare hello-world` and, when asked, connect to both DEV and QUA.
+
+<p align="center">
+    <img src="/_media/sample_compare.png" />
+</p>
 
 You should see that in both systems you have the same version of `hello-world` installed.
 
