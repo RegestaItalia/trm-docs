@@ -46,7 +46,8 @@ Its [manifest](https://docs.trmregistry.com/#/commons/manifest) will have a dedi
 "dependencies": [
     {
       "name": "trm-dependency",
-      "version": "^1.0.0"
+      "version": "^1.0.0",
+      "integrity": "..."
     }
 ]
 ```
@@ -58,6 +59,10 @@ Its [manifest](https://docs.trmregistry.com/#/commons/manifest) will have a dedi
 - `version` - **required** - `string`
     
     Semver valid version or range of the dependency package.
+
+- `integrity` - **required** - `string`
+
+    SHA512 of the dependency package.
 
 - `registry` - `string`
     
