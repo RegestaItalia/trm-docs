@@ -12,7 +12,7 @@ You can check out the package source code in its Github repository [here](https:
 
 ## Prerequisites
 
-For this demo you need to have an OnPremise development system, with a user allowed to make developments.
+For this demo you need to have an ECC/S4 development system, with a user allowed to make developments.
 
 You'll also need to have [trm-server](https://docs.trmregistry.com/#/server/README) installed on that system and [trm-client](https://docs.trmregistry.com/#/client/README) on your computer.
 

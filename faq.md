@@ -4,6 +4,16 @@ This document will be updated with the most frequently asked question by the com
 
 Before asking general questions about TRM or the public registry, read this document.
 
++ Do I need TRM? +
+
+    Depending on who you are, TRM can be used in different ways.
+
+    If you are an **SAP Open Source developer**, you can make your software and use TRM for **publishing**. With TRM, installing a package is as easy as running a CLI command like most of the other software development languages.
+
+    If you are an **SAP partner** with customers, TRM is useful for **modularizing your developments**. Each of your modules is a library or a product and **delivering** one or more of these modules to your customers is still a CLI one-command job.
+
+    If you are none of these options, it's still a good idea to always **make releases** of your software once it reaches a stable state.
+
 + Im not sure I want to invest time into TRM, what's the roadmap? +
 
     There are two separated roadmaps:
@@ -64,3 +74,49 @@ Before asking general questions about TRM or the public registry, read this docu
     trm-server should only be used by a set of authoried users.
     
     To do this, [follow the user maintenance guide](https://docs.trmregistry.com/#/server/docs/setup?id=user-authorization-maintenance).
+
++ Can I manually install a TRM package? +
+    
+    Although **not recommended**, it's possible, but there's alot of **manual steps** that need to be done in order to say the package is installed properly for TRM.
+
+    The required manual steps are not documented.
+
++ Can I use TRM for CD (Continuous Deployment)? +
+
+    Yes you can.
+
+    The documentation of the publish and install commands will tell you all the options available in order to avoid human interaction with the CLI.
+
+    If running in Github, there's an example of CD workflow [here](/client/docs/examples/githubActions.md).
+
++ Does TRM support object translations? +
+
+    Not yet, but it's planned.
+
+    Check out the [Roadmap for the project](/commons/roadmap.md).
+
+ + Does TRM support customizing? +
+
+    Not yet, but it's planned.
+
+    Check out the [Roadmap for the project](/commons/roadmap.md).
+
+ + I installed a package with dependencies, and TRM correctly generated a transport for each of the dependencies. How do I figure out the transport release order? +
+    
+    SAP does have a standard way for [defining dependencies between transports](https://help.sap.com/docs/SUPPORT_CONTENT/basis/3354611666.html), but because CTS Projects must be defined, TRM does **not** support it.
+
+    It is planned, for the future, a command that will tell you the correct release order.
+
+    Check out the [Roadmap for the project](/commons/roadmap.md).
+
+ + Are there any USER EXITs I can use to extend TRM? +
+    
+    Not yet, but it's planned.
+
+    Check out the [Roadmap for the project](/commons/roadmap.md).
+
+ + How do I compare a package between multiple systems? +
+    
+    You can use the [compare command](/client/docs/commands.md#compare-package-between-multiple-systems).
+
+    This command can be used to check which version is installed on which system, and it works without the need of trm-server (it can be used to **compare packages between development and productive systems**).

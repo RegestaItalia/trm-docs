@@ -1,3 +1,5 @@
+> Current stage: Stage 1 - Alpha
+
 # TRM Roadmap
 
 This roadmap contains the features of:

@@ -8,11 +8,11 @@ in your CLI.
 
 # System alias
 
-Because a connection to an SAP OnPremise system has a quite a few parameters, connecting to a system by typing all of them via CLI can be challenging.
+Because a connection to an SAP ECC/S4 system has a quite a few parameters, connecting to a system by typing all of them via CLI can be challenging.
 
 To solve this problem, you can create a system alias.
 
-A system alias is an easy way to store all of the connection attributes, including login data, of an SAP OnPremise system.
+A system alias is an easy way to store all of the connection attributes, including login data, of an SAP ECC/S4 system.
 
 System aliases are saved in **plain text** in the AppData `systems.ini` file.
 
