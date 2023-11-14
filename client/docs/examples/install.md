@@ -1,6 +1,6 @@
 # Hello world!
 
-In this demo we're going to install the sample package `hello-world`.
+In this demo we're going to install the sample package [hello-world](https://www.trmregistry.com/#/package/hello-world).
 
 This package contains a simple report that, when executed, will print an hello world string.
 
@@ -141,7 +141,47 @@ You should see that in both systems you have the same version of `hello-world` i
 
 > Try comparing other packages too!
 
-# Part 3: Install with dependencies
+# Install with dependencies
 
-We're now going to see what happens when installing packages with dependencies.
+In this demo we're going to install the sample package [trm-dependant](https://www.trmregistry.com/#/package/trm-dependant).
 
+This package contains a simple report that, when executed, will print a string returned from a class method of another TRM package ([trm-dependency](https://www.trmregistry.com/#/package/trm-dependency)).
+
+You can check out both packages source code in their Github repositories:
+- [trm-dependant](https://github.com/RegestaItalia/trm-dependant)
+- [trm-dependency](https://github.com/RegestaItalia/trm-dependency)
+
+> This package is the perfect candidate for seeing how TRM handles dependencies during install.ù
+
+## Installing
+
+This package is publicly available on [the public registry](https://trmregistry.com/#/package/trm-dependant).
+
+To start, run [the command](https://docs.trmregistry.com/#/client/commands?id=install-package-on-a-system)
+`
+trm install trm-dependant
+`
+
+just like before, you'll be asked the target system connection details.
+
+This time, you'll see that a dependency is detected and a confirm action (confirm install of the dependency) is expected.
+
+<p align="center">
+    <img src="/_media/sample_dependency_install.png" />
+</p>
+
+Confirming, will **first** install `trm-dependency` and **then** continue with the install of `trm-dependant`.
+
+## List and view command
+
+Running the `list` command now should show both `trm-dependency` and `trm-dependant` packages installed into your system.
+
+## Transporting
+
+If you check transaction `SE01` you should see two new transports, one for each of the TRM packages installed (installed as transportable):
+
+<p align="center">
+    <img src="/_media/sample_dependency_se01.png" />
+</p>
+
+To transport `trm-dependant`, you should transport `trm-dependency` first, to avoid any syntax errors or create a new transport of copies that includes both transports contents.
