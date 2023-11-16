@@ -20,10 +20,9 @@ You'll also need to have [trm-server](https://docs.trmregistry.com/#/server/READ
 
 This package is publicly available on [the public registry](https://trmregistry.com/#/package/hello-world).
 
-To start, run [the command](https://docs.trmregistry.com/#/client/commands?id=install-package-on-a-system)
-`
-trm install hello-world
-`
+To start, run [the command](/client/docs/commands.md#install-package-on-a-system):
+
+`trm install hello-world`
 
 you'll be prompted with
 
