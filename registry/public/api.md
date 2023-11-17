@@ -63,6 +63,8 @@ Allows the currently authenticated user to edit one or more of its own propertie
 
 Update package data.
 
+User calling the API must have package maintainers edit enabled.
+
 - Method `POST`
 - Content type `application/json`
 - Request body
@@ -83,8 +85,6 @@ Update package data.
                 canEditUsers?: boolean
             }
             ```
-
-            User calling the API must have package maintainers edit enabled.
 
             Valid username must be provided for each object.
 
