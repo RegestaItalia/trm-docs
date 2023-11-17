@@ -77,11 +77,14 @@ Update package data.
             ```
             {
                 username: string,
-                canEditReleases: boolean,
-                canEditPackage: boolean,
-                canEditUsers: boolean
+                remove?: boolean,
+                canEditReleases?: boolean,
+                canEditPackage?: boolean,
+                canEditUsers?: boolean
             }
             ```
+
+            User calling the API must have package maintainers edit enabled.
 
             Valid username must be provided for each object.
 
