@@ -585,6 +585,20 @@ If installed on any of your systems, **it will remain without any changes**.
 
         Default: `false` - Transport is generated/updated.
 
+    - `-ts, --targetSystem` - `string`
+
+        Workbench transport target system.
+
+        Doesn't have effect in conjunction with `skipWorkbenchTransport` flag set to `true`.
+
+        Default: blank.
+
+    - `-tl, --transportLayer` - `string`
+
+        Devclass transport layer.
+
+        Default: system's default transport layer.
+
     - `-r, --registry <<REGISTRY_NAME>>` - `string`
 
         If no private registries are found, it will default to the public registry.
