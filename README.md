@@ -1,10 +1,12 @@
 # TRM - Transport Request Manager
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-1.3.0-4baaaa.svg)](code_of_conduct.md)
+
 [![trm-client version](https://img.shields.io/npm/v/trm-client?label=trm-client)](https://www.npmjs.com/package/trm-client)
 [![trm-server version](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/version?package=trm-server&label=trm-server)](https://trmregistry/#/package/trm-server)
 [![trm-core version](https://img.shields.io/npm/v/trm-core?label=trm-core)](https://www.npmjs.com/package/trm-core)
 [![trm-registry-types version](https://img.shields.io/npm/v/trm-registry-types?label=trm-registry-types)](https://www.npmjs.com/package/trm-registry-types)
+
 [![trm roadmap stage](https://img.shields.io/badge/trm%20roadmap%20stage-alpha-blue)](/commons/roadmap.md)
 [![trm-registry roadmap stage](https://img.shields.io/badge/public%20registry%20roadmap%20stage-alpha-blue)](/registry/public/roadmap.md)
 
