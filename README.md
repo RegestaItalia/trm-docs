@@ -16,6 +16,10 @@
 
 TRM (Transport Request Manager) is a software designed to **make transports** between SAP ECC/S4 systems **easy**.
 
+<p align="center">
+  <img src="./_media/banner_small.jpg" height="250" />
+</p>
+
 In order to start using TRM, all three of these components must be setup:
 - [Client](client/README.md)
 - [Server](server/README.md)
