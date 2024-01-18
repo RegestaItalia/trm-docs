@@ -91,9 +91,7 @@ Before asking general questions about TRM or the public registry, read this docu
 
 + Does TRM support object translations? +
 
-    Not yet, but it's planned.
-
-    Check out the [Roadmap for the project](/commons/roadmap.md).
+    Yes, translation is supported.
 
  + Does TRM support customizing? +
 

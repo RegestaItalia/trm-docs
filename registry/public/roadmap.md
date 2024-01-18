@@ -16,7 +16,7 @@ For any question, you can create a Github issue [here](https://github.com/Regest
 
 - **Name**: Alpha
 - **Start date**: November 2023
-- **End date**: Between February 2024 and March 2024
+- **End date**: Between April 2024 and June 2024
 - **What to expect**:
 
     | Feature           | Expected progress | Notes                                                   |
@@ -58,8 +58,8 @@ For any question, you can create a Github issue [here](https://github.com/Regest
 ## Stage 2 - Beta
 
 - **Name**: Beta
-- **Start date**: February/March 2024
-- **End date**: Between October 2024 and December 2024
+- **Start date**: April/June 2024
+- **End date**: Between February 2025 and March 2025
 - **What to expect**:
 
     | Feature           | Expected progress | Notes                                                   |
@@ -93,7 +93,7 @@ For any question, you can create a Github issue [here](https://github.com/Regest
 ## Stage 3 - Production
 
 - **Name**: Production
-- **Start date**: December 2024
+- **Start date**: March 2025
 - **What to expect**:
 
     | Feature           | Expected progress | Notes                                                   |

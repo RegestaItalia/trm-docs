@@ -32,3 +32,7 @@ This type of transports is not imported by TRM because it only contains devclass
 A TADIR transport contains all of the objects of a package (and its subpackages) excluding DEVCs (included in [DEVC](#devc)).
 
 Transports also include two comments (object type **ZTRM**) that indicate the package manifest keys (name and version).
+
+## LANG
+
+A LANG transport contains object translations.
