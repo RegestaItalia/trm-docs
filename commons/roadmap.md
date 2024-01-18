@@ -18,11 +18,12 @@ For any question, you can create a Github issue in one of the repositories liste
 
 - **Name**: Alpha
 - **Start date**: November 2023
-- **End date**: December 2023
+- **End date**: April 2024
 - **What to expect**:
 
     | Feature                  | Expected progress | Notes                                                   |
     | ------------------------ | ----------------- | ------------------------------------------------------- |
+    | Translations             | 100%              | Objects with translations                               |
     | Usage                    | 70%               | Basic usage, simple tests                               |
     | Dependency detection     | 20%               | Working for a selected number of object types           |
     | Support                  | 90%               | Issues, enhancements, blogs                             |
@@ -30,7 +31,6 @@ For any question, you can create a Github issue in one of the repositories liste
     | Guides                   | 100%              |                                                         |
     | CLI Features             | 50%               |                                                         |
     | Customizing              | 0%                |                                                         |
-    | Translations             | 0%                |                                                         |
 - **General notes**:
     
     This is the **Alpha** stage.
@@ -48,8 +48,8 @@ For any question, you can create a Github issue in one of the repositories liste
 ## Stage 2 - Beta
 
 - **Name**: Beta
-- **Start date**: January 2024
-- **End date**: March/April 2024
+- **Start date**: April 2024
+- **End date**: August/September 2024
 - **What to expect**:
 
     | Feature                  | Expected progress | Notes                                                   |
@@ -79,7 +79,7 @@ For any question, you can create a Github issue in one of the repositories liste
 ## Stage 3 - Production
 
 - **Name**: Production
-- **Start date**: March/April 2024
+- **Start date**: August/September 2024
 - **What to expect**:
 
     | Feature                  | Expected progress | Notes                                                                             |
