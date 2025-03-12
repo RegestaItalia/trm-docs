@@ -11,7 +11,7 @@
 
 > Current registry stage: Stage 3 - Production. Learn more about the [TRM Registry Roadmap](/registry/public/roadmap.md).
 
-TRM (Transport Request Manager) is a software designed to **make transports** between SAP ECC/S4 systems **easy**.
+TRM (Transport Request Manager) is a software designed to **make transports** between SAP ECC/S4 OnPremise systems **easy**.
 
 <p align="center">
   <img src="./_media/banner_small.jpg" height="250" />
@@ -32,3 +32,9 @@ If you just wish to run your first demos and see TRM in action, navigate to the 
 The registry documentation is only needed if you decide to create your own private registry, otherwise **TRM Client is already configured to work** with the [Public Registry](https://trmregistry.com).
 
 If you wish to integrate your applications with the [Public Registry](https://trmregistry.com), you may visit its [API Documentation](/registry/public/api.md).
+
+# Contributors
+
+[Thanks go to these wonderful people 🫂:](https://trmregistry.com/public/contributors?viewAll=true ':include :type=iframe width="100%" height="1000px"')
+
+[![View contributors on documentation website](https://trmregistry.com/public/contributors?image=true)](https://docs.trmregistry.com/#/contributors) <!-- {docsify-remove} -->
