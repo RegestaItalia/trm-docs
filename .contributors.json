@@ -9,6 +9,8 @@
         "🧪": "Pipeline/Unit test",
         "🚀": "Testing"
     },
+    "maxColumns": 4,
+    "maxContributors": 24,
     "contributors": [{
         "handle": "simonegaffurini",
         "highlight": true,
@@ -37,5 +39,13 @@
         "handle": "MirkoAgueli-Reg",
         "highlight": false,
         "emoji": ["🚀"]
+    }, {
+        "handle": "MonicaMenolfi-Reg",
+        "highlight": false,
+        "emoji": ["💻"]
+    }, {
+        "handle": "amarvin",
+        "highlight": false,
+        "emoji": ["💻"]
     }]
 }
