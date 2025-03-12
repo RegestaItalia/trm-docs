@@ -7,12 +7,9 @@
 [![trm-core version](https://img.shields.io/npm/v/trm-core?label=trm-core)](https://www.npmjs.com/package/trm-core)
 [![trm-registry-types version](https://img.shields.io/npm/v/trm-registry-types?label=trm-registry-types)](https://www.npmjs.com/package/trm-registry-types)
 
-[![trm roadmap stage](https://img.shields.io/badge/trm%20roadmap%20stage-alpha-blue)](/commons/roadmap.md)
-[![trm-registry roadmap stage](https://img.shields.io/badge/public%20registry%20roadmap%20stage-alpha-blue)](/registry/public/roadmap.md)
+[![trm-registry roadmap stage](https://img.shields.io/badge/public%20registry%20roadmap%20stage-production-green)](/registry/public/roadmap.md)
 
-> Current TRM stage: Stage 1 - Alpha. Learn more about the [TRM Roadmap](/commons/roadmap.md).
-
-> Current registry stage: Stage 1 - Alpha. Learn more about the [TRM Registry Roadmap](/registry/public/roadmap.md).
+> Current registry stage: Stage 3 - Production. Learn more about the [TRM Registry Roadmap](/registry/public/roadmap.md).
 
 TRM (Transport Request Manager) is a software designed to **make transports** between SAP ECC/S4 systems **easy**.
 
