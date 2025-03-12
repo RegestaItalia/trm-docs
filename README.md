@@ -35,6 +35,6 @@ If you wish to integrate your applications with the [Public Registry](https://tr
 
 # Contributors
 
-[Thanks go to these wonderful people 🫂:](https://trmregistry.com/public/contributors?viewAll=true ':include :type=iframe width="100%" height="1000px"')
+<!-- {docsify-add CONTRIBUTORS} -->
 
 [![View contributors on documentation website](https://trmregistry.com/public/contributors?image=true)](https://docs.trmregistry.com/#/contributors) <!-- {docsify-remove} -->
