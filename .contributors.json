@@ -1,0 +1,41 @@
+{
+    "legend": {
+        "👑": "Owner",
+        "⭐": "Team",
+        "📅": "Project manager/planner",
+        "💻": "Developer",
+        "🔬": "Research",
+        "📣": "Speaker/Blog post",
+        "🧪": "Pipeline/Unit test",
+        "🚀": "Testing"
+    },
+    "contributors": [{
+        "handle": "simonegaffurini",
+        "highlight": true,
+        "emoji": ["👑", "⭐", "📅", "💻", "🔬", "📣"]
+    }, {
+        "handle": "RegMTS",
+        "highlight": true,
+        "emoji": ["⭐", "📅", "🔬"]
+    }, {
+        "handle": "paderniv",
+        "highlight": true,
+        "emoji": ["⭐", "📣"]
+    }, {
+        "handle": "leopelle",
+        "highlight": true,
+        "emoji": ["⭐"]
+    }, {
+        "handle": "CoraBonetta-Reg",
+        "highlight": false,
+        "emoji": ["🧪"]
+    }, {
+        "handle": "GiorgioAderenti-Reg",
+        "highlight": false,
+        "emoji": ["🚀"]
+    }, {
+        "handle": "MirkoAgueli-Reg",
+        "highlight": false,
+        "emoji": ["🚀"]
+    }]
+}
