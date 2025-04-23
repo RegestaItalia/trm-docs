@@ -11,7 +11,6 @@
 	- CI/CD
 		- [Integrate with abapGit & Github Actions](/client/docs/examples/githubActions.md)
 - Roadmap
-	- [Project](/commons/roadmap.md)
 	- [Registry](/registry/public/roadmap.md)
 - [Manifest](/commons/manifest.md)
 - [Artifact](/commons/artifact.md)

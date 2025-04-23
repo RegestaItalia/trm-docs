@@ -1,4 +1,4 @@
-# Contributing to trm
+# Contributing to TRM (Transport Request Manager)
 
 First off, thanks for taking the time to contribute! ❤️
 

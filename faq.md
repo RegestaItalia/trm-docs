@@ -16,9 +16,7 @@ Before asking general questions about TRM or the public registry, read this docu
 
 + Im not sure I want to invest time into TRM, what's the roadmap? +
 
-    There are two separated roadmaps:
-    1. [Roadmap for the project](/commons/roadmap.md)
-    2. [Roadmap for the public registry](/registry/public/roadmap.md)
+    [Roadmap for the public registry](/registry/public/roadmap.md)
 
 + Is TRM an SAP product? +
 
@@ -95,9 +93,7 @@ Before asking general questions about TRM or the public registry, read this docu
 
  + Does TRM support customizing? +
 
-    Not yet, but it's planned.
-
-    Check out the [Roadmap for the project](/commons/roadmap.md).
+    Yes, customizing is supported.
 
  + I installed a package with dependencies, and TRM correctly generated a transport for each of the dependencies. How do I figure out the transport release order? +
     
@@ -105,13 +101,9 @@ Before asking general questions about TRM or the public registry, read this docu
 
     It is planned, for the future, a command that will tell you the correct release order.
 
-    Check out the [Roadmap for the project](/commons/roadmap.md).
-
  + Are there any USER EXITs I can use to extend TRM? +
     
     Not yet, but it's planned.
-
-    Check out the [Roadmap for the project](/commons/roadmap.md).
 
  + How do I compare a package between multiple systems? +
     
