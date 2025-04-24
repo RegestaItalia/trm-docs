@@ -37,4 +37,4 @@ If you wish to integrate your applications with the [Public Registry](https://tr
 
 <!-- {docsify-add CONTRIBUTORS} -->
 
-[![View contributors on documentation website](https://trmregistry.com/public/contributors?image=true)](https://docs.trmregistry.com/#/contributors) <!-- {docsify-remove} -->
+[![View contributors on documentation website](https://trmregistry.com/public/contributors?image=true)]([https://docs.trmregistry.com/#/contributors](https://docs.trmregistry.com/#/?id=contributors)) <!-- {docsify-remove} -->
