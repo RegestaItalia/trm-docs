@@ -1,35 +1,42 @@
-> Current stage: Stage 1 - Alpha
+> **Current Stage**: Stage 3 – ✅ **Production**
 
 # Roadmap
 
-Nobody likes projects without a clear roadmap.
+Nobody likes projects without a clear direction — here's a detailed roadmap for the **TRM Public Registry**.
 
-Here is an explanation in detail of what to expect from TRM Public Registry.
+Unlike rigid timelines, TRM uses **time-based milestones** with estimated durations instead of fixed dates. This approach ensures flexibility without compromising transparency.
 
-You'll notice that these roadmap milestones don't have specific dates, but rather an estimated amount of time.
+To stay informed about updates, including milestone changes, sign up at [TRM Public Registry](https://trmregistry.com) and enable notifications in your profile settings.
 
-To stay up to date with the developments and get notified whenever a milestone date is updated, sign up to [TRM Public Registry](https://trmregistry.com), and make sure to keep the notifications turned on in your profile management page.
+If you have questions or feedback, feel free to:
+- [Open a GitHub issue](https://github.com/RegestaItalia/trm-docs)
+- Email us at [support@trmregistry.com](mailto:support@trmregistry.com)
 
-For any question, you can create a Github issue [here](https://github.com/RegestaItalia/trm-docs) or write an email to [support@trmregistry.com](mailto:support@trmregistry.com).
+---
 
-## Stage 3 - Production
+## Stage 3 – ✅ Production
 
-- **Name**: Production
-- **Start date**: March 2025
-- **What to expect**:
+- **Name**: Production  
+- **Start Date**: March 2025
 
-    | Feature           | Expected progress | Notes                                                   |
-    | ----------------- | ----------------- | ------------------------------------------------------- |
-    | Support           | 95%               | Issues, enhancements, blogs                             |
-    | Website UI        | 95%               | Better UI                                               |
-    | Registry uptime   | 95%               | Scheduled maintenance                                   |
-- **General notes**:
+### What to Expect
 
-    This is the **Production** stage.
-    
-    This stage has no ending; progress will continue with scheduled maintenance.
-    
-    Support will be increased.
-- **NOTES 12/03/2025***
+| Feature         | Expected Progress | Notes                       |
+|-----------------|-------------------|-----------------------------|
+| Support         | 95%               | Active issue & enhancement support, regular blog updates |
+| Website UI      | 95%               | Ongoing improvements to user experience                  |
+| Registry Uptime | 95%               | High availability with scheduled maintenance             |
 
-    Paid subscriptions are still on-hold as of 12/03/2025.
+### General Notes
+
+This is the **Production** stage of the TRM Public Registry.
+
+- There is **no defined end** to this stage.
+- Development continues with scheduled feature releases and maintenance.
+- Support channels and documentation will continue to improve.
+
+---
+
+### Notes – 12/03/2025
+
+⚠️ Paid subscriptions are **still on hold** as of March 12, 2025.

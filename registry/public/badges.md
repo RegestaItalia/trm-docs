@@ -1,62 +1,77 @@
 # Badges
 
-Badges can be used in your project documentation for concise and easy to read information about a release.
+Badges provide a clean, readable way to display key package information in your project’s documentation — such as version, license, and download count.
 
-The public registry badges can be used in conjunction with [Shields.io](https://shields.io/).
+TRM Public Registry supports badge generation via [Shields.io](https://shields.io/), a popular service for custom badge endpoints.
 
-For more details about Shields.io, read its documentation [here](https://shields.io/badges).
+> ⚠️ Packages **must be public** to use badges. If the package is private, badge endpoints will return an error.
 
-Packages visibility **must** be public, otherwise the endpoints will just respond with an error.
+For more details on badge customization, see the [Shields.io badge documentation](https://shields.io/badges).
 
-## Version
+Add these badges to your repository README or docs to quickly inform users about your package status.
 
-This badge can be used to display the latest published version of a package on the registry.
+---
 
-Usage:
+## Latest Version Badge
+
+Displays the **latest published version** of a package from the TRM Public Registry.
+
+### Example Badge
+
+![Latest package version](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/version?package=trm-server)
+
+### Markdown Usage
 
 ```markdown
 ![Latest package version](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/version?package=trm-server)
 ```
 
-- Endpoint: `https://trmregistry.com/public/shieldio/version`
-- Example badge: ![Example](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/version?package=trm-server)
-- Query parameters
-    - package - **required** `string`
+### API Details
 
-        Name of the package.
+- **Endpoint**: `https://trmregistry.com/public/shieldio/version`
+- **Query Parameters**:
+  - `package` (required): Name of the package (e.g., `trm-server`)
 
-## License
+---
 
-This badge can be used to display the license of a package on the registry.
+## License Badge
 
-Usage:
+Displays the **license** declared by the package.
+
+### Example Badge
+
+![Package license](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/license?package=trm-server)
+
+### Markdown Usage
 
 ```markdown
 ![Package license](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/license?package=trm-server)
 ```
 
-- Endpoint: `https://trmregistry.com/public/shieldio/license`
-- Example badge: ![Example](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/license?package=trm-server)
-- Query parameters
-    - package - **required** `string`
+### API Details
 
-        Name of the package.
+- **Endpoint**: `https://trmregistry.com/public/shieldio/license`
+- **Query Parameters**:
+  - `package` (required): Name of the package
 
-## Downloads counter
+---
 
-This badge can be used to display the amount of downloads of a package on the registry.
+## Downloads Badge
 
-This value indicates the downloads of all the releases.
+Displays the **total number of downloads** for all versions of the package.
 
-Usage:
+### Example Badge
+
+![Package downloads](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/downloads?package=trm-server)
+
+### Markdown Usage
 
 ```markdown
 ![Package downloads](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/downloads?package=trm-server)
 ```
 
-- Endpoint: `https://trmregistry.com/public/shieldio/downloads`
-- Example badge: ![Example](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/downloads?package=trm-server)
-- Query parameters
-    - package - **required** `string`
+### API Details
 
-        Name of the package.
+- **Endpoint**: `https://trmregistry.com/public/shieldio/downloads`
+- **Query Parameters**:
+  - `package` (required): Name of the package

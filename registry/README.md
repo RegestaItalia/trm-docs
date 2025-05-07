@@ -1,54 +1,62 @@
 # TRM Registry
 
-TRM relies on a registry where packages are published and downloaded.
+TRM uses a **registry** to publish and download packages.
 
-Out of the box, it is already configured to work with the public registry, and no other action is required.
+By default, TRM is configured to work with the **public registry**, and no additional setup is required unless you wish to use or host a private registry.
 
-> Any TRM Registry implementation besides the [public registry](https://trmregistry.com) is considered "private".
+> 💡 Any TRM registry other than the [official public registry](https://trmregistry.com) is considered a **private registry**.
 
-It is, however, possible to declare multiple "private" registries.
+---
 
-# Public Registry
+## Public Registry
 
-TRM Public Registry is the official TRM registry implementation.
+The **TRM Public Registry** is the official registry service provided by TRM.
 
-By default, each TRM client is set up to work with the public registry.
+- **Default Behavior**: All TRM clients are preconfigured to use it.
+- **Anonymous Access**: Package downloads can often be done without an account.
+- **Plans & Permissions**: Access levels and limits are determined by the user’s subscription plan. You can compare plans [here](https://trmregistry.com/#/plans).
+- **Programmatic Access**: The registry exposes [REST APIs](/registry/public/api.md) for automation and integrations.
 
-A person may be able to download a package without the need of an account.
+### Roadmap
 
-Restrictions on the account are based on its plan. Differences between plans can be seen [here](https://trmregistry.com/#/plans).
+You can find the roadmap for the public registry [here](/registry/public/roadmap.md).
 
-The public registry exposes [REST APIs](/registry/public/api.md) that may be used to perform actions programmatically.
+---
 
-## Roadmap
+## Private Registry
 
-TRM Public Registry roadmap is explained [here](/registry/public/roadmap.md).
+You can configure one or more **private registries** to use with TRM.
 
-# Private registry
+### How to Add a Private Registry
 
-In order to configure a private registry, the endpoint should be provided to the end-user.
+You can add a private registry in two ways:
 
-To add a private registry to your TRM local installation you can:
+---
 
-- Manually add the private registry
-    
-    Navigate to your system AppData folder and open the "trm" folder.
-    
-    > In order to see the "trm" folder, the cli must be installed and a command executed at least once.
-    
-    Open or create the `registry.ini` file.
-    
-    Here the registry should be declared like this:
-    
-    ```ini
-        [<<REGISTRY_NAME>>]
-        endpointUrl=<<REGISTRY_ENDPOINT>>
-    ```
+### 🔧 Option 1: Manually via File
 
-    Optionally to the `endpointUrl` parameter, you could also declare an `auth` property and provide, in JSON format, the authentication needed for the registry.
+1. Navigate to your system's `AppData` folder:
+   - Go to the `trm` directory (created after running any CLI command once).
+2. Open or create a file named `registry.ini`.
+3. Add your private registry in the following format:
 
-- Add the registry via CLI
+```ini
+[<<REGISTRY_NAME>>]
+endpointUrl=<<REGISTRY_ENDPOINT>>
+```
 
-    Run the command
+> ✅ You may also optionally include an `auth` property containing a JSON-formatted authentication payload if your registry requires credentials.
 
-    `trm addRegistry <<REGISTRY_NAME>>`
+---
+
+### 💻 Option 2: Using the CLI
+
+You can also add a registry with a single command:
+
+```bash
+trm addRegistry <<REGISTRY_NAME>>
+```
+
+TRM will prompt you for the registry endpoint and any optional authentication configuration.
+
+---

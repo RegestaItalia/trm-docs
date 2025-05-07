@@ -1,114 +1,128 @@
 # Generate a TRM Token
 
-TRM Tokens are used by TRM Clients to authenticate.
+TRM tokens are used by TRM clients to authenticate securely.
 
-Full explaination of TRM Tokens and how to use them is [here](/registry/public/authentication.md#generating-a-trm-token).
+For a complete explanation on how TRM tokens work and how to use them, see the [Authentication Guide](/registry/public/authentication.md#generating-a-trm-token).
 
-# Profile
+---
 
-## Manage public data
+# Profile Management
 
-Your profile is public, and anyone can see its data.
+## Manage Public Profile Data
 
-To manage your profile, first [log into your account](https://trmregistry.com/profile) and visit the **Profile** section.
+Your TRM profile is **public**, meaning anyone can view your basic details.
 
-<p align="center">
-  <img src="/_media/profile_dropdown.png" />
-</p>
+To manage your profile:
 
-Next, press on the **Edit** button.
-
-<p align="center">
-  <img src="/_media/profile_edit_header.png" />
-</p>
-
-Now, you should be able to edit your profile data.
+1. [Log into your account](https://trmregistry.com/profile)
+2. Go to the **Profile** section.
 
 <p align="center">
-  <img src="/_media/profile_edit.png" />
+  <img src="/_media/profile_dropdown.png" alt="Profile dropdown" />
 </p>
 
-> The email is only visible to you. You can set a "Contact Email" if you want to share it publicly.
-
-You can also edit your **avatar**; if you wish to remove your existing avatar, simply press on the "Remove avatar" checkbox.
-
-When you're done editing, press the **Save** button to make the changes permanent.
-
-# Packages
-
-##  Publishing a package
-
-Packages can only be published by using the registry APIs.
-
-## Delete a package
-
-Packages can be deleted if you are authorized by its maintainers.
-
-Releases can be deleted **one at the time**, once a version is deleted, it cannot be republished.
-
-First, open a package where you have edit privileges.
+3. Click the **Edit** button.
 
 <p align="center">
-  <img src="/_media/package_edit_header.png" />
+  <img src="/_media/profile_edit_header.png" alt="Edit profile header" />
 </p>
 
-Next, press on **Delete** to confirm the action.
-
-> Warning
-Deleting a package is a permanent and non-reversible action!
-
-## Edit a package
-
-Packages can be edited if you are authorized by their maintainers.
-
-Manifest values cannot be changed; [delete the package](#delete-a-package) and republish a newer version with a different manifest instead.
-
-First, open a package where you have edit privileges.
+4. Modify your profile data as needed.
 
 <p align="center">
-  <img src="/_media/package_edit_header.png" />
+  <img src="/_media/profile_edit.png" alt="Edit profile screen" />
 </p>
 
-Next, press on **Edit**.
+> 💡 **Note**: Your email address is private by default. If you want to share it publicly, you can specify a separate **Contact Email**.
 
-When you're done editing, press the **Save** button to make the changes permanent.
+You can also update your **avatar**. To remove the current one, simply check the **Remove avatar** box.
 
-### Add package maintainers
+When finished, click **Save** to apply the changes.
 
-If you have edit maintainers privileges on a package, you can add maintainers.
+---
 
-Head over to the **Maintainers** section and press on the **Add** button on the top right of the table.
+# Package Management
+
+## Deleting a Package
+
+You can delete a package only if you are authorized by its maintainers.
+
+- Releases must be deleted **one version at a time**
+- Once a version is deleted, it **cannot** be republished
+
+To delete:
+
+1. Open the package where you have edit access.
 
 <p align="center">
-  <img src="/_media/package_maintainers_section.png" />
+  <img src="/_media/package_edit_header.png" alt="Edit package header" />
 </p>
 
-The new maintainer username **must** be unique (in the package context), it's case insensitive and **must** be a valid username.
+2. Click the **Delete** button to confirm.
+
+> ⚠️ **Warning**: Deleting a package is **permanent and irreversible**.
+
+---
+
+## Editing a Package
+
+You can edit a package only if you are an authorized maintainer.
+
+- **Manifest values cannot be edited**. If changes are needed, [delete the package](#deleting-a-package) and publish a new version.
+
+1. Open the package you wish to edit.
 
 <p align="center">
-  <img src="/_media/package_maintainers_add.png" />
+  <img src="/_media/package_edit_header.png" alt="Edit package header" />
 </p>
 
-### Edit package maintainers
+2. Click the **Edit** button.
+3. After making your changes, click **Save**.
 
-If you have edit maintainers privileges on a package, you can edit and remove maintainers.
+---
 
-Head over to the **Maintainers** section and press on the trash bin button to **Delete** or the pencil button to **Edit**, next to the maintainer username.
+### Add Package Maintainers
+
+If you have the proper permissions, you can add maintainers to a package.
+
+1. Navigate to the **Maintainers** section.
+2. Click the **Add** button in the top right of the table.
 
 <p align="center">
-  <img src="/_media/package_maintainers_section.png" />
+  <img src="/_media/package_maintainers_section.png" alt="Maintainers section" />
 </p>
 
-## Search a package
-
-You can search for packages available on the registry.
-
-Next to your profile avatar (or the login icon, if not logged in), press on the **Search** button.
+3. Enter a unique, valid username (case-insensitive) for the new maintainer.
 
 <p align="center">
-  <img src="/_media/profile_dropdown.png" />
+  <img src="/_media/package_maintainers_add.png" alt="Add maintainer form" />
 </p>
 
-This will open the search bar.
+---
 
-Public packages can be found with the search bar, as well as private packages where you have view access (if logged in).
+### Edit or Remove Maintainers
+
+You can also manage maintainers if you have the required privileges.
+
+1. In the **Maintainers** section, use the **trash bin** icon to remove a maintainer or the **pencil** icon to edit their details.
+
+<p align="center">
+  <img src="/_media/package_maintainers_section.png" alt="Maintainers controls" />
+</p>
+
+---
+
+## Search for a Package
+
+To search for packages:
+
+1. Click the **Search** button next to your avatar (or the login icon if you're not signed in).
+
+<p align="center">
+  <img src="/_media/profile_dropdown.png" alt="Search entry point" />
+</p>
+
+2. Use the search bar to find:
+
+- Public packages
+- Private packages where you have view access (if logged in)

@@ -1,12 +1,14 @@
 # TRM Artifact
 
-A TRM artifact is a file with extension `.trm`.
+A **TRM artifact** is a file with the `.trm` extension. It is an archive that packages **transports** along with a **manifest** file describing the TRM package.
 
-It's an archive that bundles **transports** and the package **manifest**.
+## Structure
 
-A typical artifact structure might look something like this:
+A typical TRM artifact has the following directory layout:
 
 ```
+├── src
+│   ├── .abapgit.xml
 ├── dist
 │   ├── TRMK100001
 │   │   ├── K100001.TRM
@@ -15,24 +17,40 @@ A typical artifact structure might look something like this:
 │   │   ├── K100002.TRM
 │   │   ├── R100002.TRM
 ├── manifest.json
+├── sap_entries.json
 ```
 
-# Transport types
+# Transport Types
 
-Transports are marked with different types in order to have a more specific publish/install procedure.
+Each transport in a TRM artifact is categorized by type, guiding its publish and install behavior. TRM-relevant transports also include two ZTRM comment objects that specify the package name and version from the manifest.
 
 ## DEVC
 
-A DEVC transport contains R3TR objects of type DEVC.
-
-This type of transports is not imported by TRM because it only contains devclasses, which are instead generated.
+- **Description**: Contains R3TR objects of type `DEVC` (ABAP package definitions).
+- **Usage**: Typically *not* imported by TRM, as ABAP packages are usually generated dynamically. However, users may choose to install original DEVC objects from a TRM package if needed.
 
 ## TADIR
 
-A TADIR transport contains all of the objects of a package (and its subpackages) excluding DEVCs (included in [DEVC](#devc)).
-
-Transports also include two comments (object type **ZTRM**) that indicate the package manifest keys (name and version).
+- **Description**: Contains all objects from the package and its subpackages, *excluding* DEVC objects.
+- **Role**: It includes the package manifest.
+- **Purpose**: Workbench objects.
 
 ## LANG
 
-A LANG transport contains object translations.
+- **Description**: Includes translation objects.
+- **Purpose**: Ensures multilingual support by providing translated content.
+
+## CUST
+
+- **Description**: Contains customizing data.
+- **Purpose**: Used to transport table data.
+
+If you want to publish a TRM package with customizing transports, make sure to read the [customizing guidelines](customizing_guidelines.md) first.
+
+# Source code
+
+When available in the publisher system, ABAPGit is used to serialize the package source code and it's bundled inside the artifact.
+
+# Manifest and SAP Entries
+
+Read more about [manifest](manifest.md) and [SAP Entries](sap_entries.md).
