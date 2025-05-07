@@ -1,217 +1,128 @@
 # Manifest
 
-The manifest is a document that contains information about a package. Its values can be defined during publishing.
+The **manifest** is a JSON document that contains metadata about a TRM package. It is created during publishing and is included in the `.trm` artifact under the name `manifest.json`.
 
-Manifest values are used by registries to **index packages**, and its bundled inside the `.trm` artifact with the name `manifest.json`.
+Manifest values are used by registries to **index, verify, and resolve** packages.
 
-A manifest has the following properties:
+---
 
-- `name`
+## Manifest Structure
 
-    Full name of the package.
+Below are the properties defined in `manifest.json`:
 
-- `version`
+### `name`
+- **Description**: Full name (including scope) of the package.
 
-    Semver valid version of the package
+### `version`
+- **Description**: [SemVer](https://semver.org/) compliant version string.
 
-- `private`
+### `private`
+- **Description**: Boolean flag indicating package visibility.
+- **Usage**: Private packages are typically accessible only to specific registry users.
 
-    Indicates package visibility.
+### `registry`
+- **Description**: URL of the package registry.
+- **Default**: [public](https://trmregistry.com) if left blank.
 
-    A private package is typically visible to a restricted group of members of a registry.
+### `distFolder`
+- **Description**: Name of the distribution folder in the `.trm` artifact (typically `dist`).
 
-- `registry`
+### `backwardsCompatible`
+- **Description**: Indicates whether the current version is backwards compatible with previous versions.
+- **Details**: More on [backwards compatibility](#backwards-compatibility).
 
-    Package registry endpoint.
+### `description`
+- **Description**: Short description of the package.
 
-    When blank, TRM defaults to [the public registry](https://trmregistry.com).
+### `git`
+- **Description**: URL of the package's source repository.
 
-- `distFolder`
+### `website`
+- **Description**: Link to the project or documentation website.
 
-    Indicates the name of the dist folder in the `.trm` artifact.
+### `license`
+- **Description**: License identifier (must be [OSI approved](https://opensource.org/licenses/)).
 
-- `backwardsCompatible`
+### `authors`
+- **Description**: List of authors.
+- **Format**: Array of objects with the following fields:
+  - `name`: Author's full name.
+  - `email`: Contact email.
 
-    Indicates if the current version of the package is backwards compatible with other package versions.
+### `keywords`
+- **Description**: Array of keywords to improve searchability.
 
-    More on backwards compatibility [here](#backwards-compatibility)
+### `dependencies`
+- **Description**: List of required TRM packages.
+- **Format**: Array of objects with the following fields:
+  - `name`: Name of the dependency package.
+  - `version`: Valid SemVer version or range.
+  - `integrity`: SHA512 checksum of the package. [Details](#dependency-integrity-check).
+  - `registry`: Registry endpoint (optional, [public](https://trmregistry.com) is blank).
 
-- `description`
+### `postActivities`
+- **Description**: List of activities to run automatically after installation.
+- **More info**: See [post activities section](post_activities.md)
 
-    Short description of the package.
+### `namespace`
+- **Description**: SAP namespace in use by the TRM package.
+- **Structure**:
+  - `ns`: Namespace.
+  - `replicense`: Namespace repair key.
+  - `texts`: Array of objects with the following fields:
+    - `description`: Namespace description.
+    - `owner`: Namespace owner.
+    - `language`: Texts language.
 
-- `git`
+---
 
-    Link to the package git repository, typically containing its source code.
+## Backwards Compatibility
 
-- `website`
+The `backwardsCompatible` flag determines whether a version upgrade is safe for packages that depend on this package.
 
-    Link to project website.
+### Example
 
-- `license`
+Suppose we have the following packages:
 
-    Package license.
+- **Package A**
+  - Versions: `1.0.0`, `1.0.1`, `1.1.0`
+  - No dependencies
 
-    Allowed values from [OSI Approved Licenses](https://opensource.org/licenses/).
+- **Package B**
+  - Version: `1.0.0`
+  - Depends on: `Package A@^1.0.0`
 
-- `authors`
+- **Package C**
+  - Version: `1.0.0`
+  - Depends on: `Package A@^1.1.0`
 
-    Package authors.
+### Installation Scenario
 
-    Represented as an array of objects with the following properties:
-    -  `name`
+1. Install **Package B**:
+   - Resolves `Package A` version `1.0.1` (latest in `^1.0.0` range)
+2. Install **Package C**:
+   - Requires at least `Package A` version `1.1.0`
 
-        Name of the author.
+Since `Package A` is already installed at `1.0.1`, upgrading to `1.1.0` is required.  
+TRM checks the `backwardsCompatible` flag in version `1.1.0` to confirm the upgrade won't break existing dependencies (like Package B).
 
-    - `email`
+---
 
-        Contact email of the author.
+## Dependency Integrity Check
 
-- `keywords`
+To ensure a dependency is:
 
-    Package keywords.
+- The same version expected by the publisher
+- Uncompromised or unaltered
 
-    Represented as an array of strings.
+TRM compares the SHA512 checksum (`integrity`) of the downloaded package before installing it.
 
-- `dependencies`
+If the checksum doesn't match, the installation is **aborted** to protect against corrupted or tampered content.
 
-    List of the necessary TRM packages needed in order to avoid dependency errors.
+---
 
-    Represented as an array of objects with the following properties:
-    - `name`
+## Manifest in Transport Requests
 
-        Dependency package full name.
-    
-    - `version`
+TRM embeds the `manifest.json` content inside transport request documentation (viewable in transaction `SE01`).
 
-        Semver valid version or range of the dependency package.
-
-    - `integrity`
-
-        SHA512 of the dependency package.
-
-        Learn more [here](#dependency-intergity-check).
-
-    - `registry`
-
-        Registry endpoint of the dependency.
-
-
-- `sapEntries`
-
-    List of required table records needed in order to avoid runtime errors.
-
-    Typically, indicates the TADIR dependencies with standard SAP objects.
-
-    Represented as an objects with properties matching the requires SAP DDIC table names.
-
-    The value of each of these properties is an array containing object, with the field and its value.
-
-    More on SAP Entries [here](#sap-entries)
-
-## Backwards compatibility
-
-Backwards compatibility is a flag inside the `manifest.json` file that indicates if the current release is compatible with its previous releases.
-
-This flag is foundamental for TRM package dependants, take a look at this example:
-
-suppose we have the following situation with
-
-- Package A
-
-    Available releases: 1.0.0, 1.0.1, 1.1.0
-
-    Dependencies: **None**
-
-- Package B
-
-    Available releases: 1.0.0
-
-    Dependencies:
-
-    | Dependency name | Version |
-    | --------------- | ------- |
-    | Package A       | ^1.0.0  |
-
-- Package C
-
-    Available releases: 1.0.0
-
-    Dependencies:
-
-    | Dependency name | Version |
-    | --------------- | ------- |
-    | Package A       | ^1.1.0  |
-
-When we attempting to install **Package B** (version 1.0.0) its dependencies are checked and the registry is asked to retrieve a **Package A** version matching the **^1.0.0** range defined in Package B manifest.
-
-The registry will respond with Package A version **1.0.1** as it's **the latest matching version** of range ^1.0.0.
-
-The system now has:
-
-| Package name | Version |
-| ------------ | ------- |
-| Package B    | 1.0.0   |
-| Package A    | 1.0.1   |
-
-Now, attempting to install **Package C** (version 1.0.0) will act the same as before; the registry is asked to retrieve a **Package A** version matching the **^1.1.0** range defined in Package C manifest.
-
-The registry will respond with Package A version **1.1.0**.
-
-Remember, Package A is already installed in the system, with version **1.0.1**.
-
-This means that, if we want to install Package C, **we need to update** to atleast version 1.1.0: in order to guarantee Package B won't have drawbacks from this upgrade, the `backwardsCompatible` flag inside Package A manifest is checked.
-
-Having this flag set to `true` means that between version 1.0.1 and 1.1.0, Package A doesn't have destructive changes.
-
-## Dependency intergity check
-
-When automatically installing a dependency, you want to be sure its content is:
-
-- The same the publisher expected during publish of the dependant
-- Not compromised
-
-To make sure the content is valid, its SHA512 value is compared before install.
-
-If the comparison fails, the install is aborted because its content is considered unsafe.
-
-## SAP Entries
-
-The property `sapEntries` is used to indicate the necessary entries in tables in order to avoid runtime or syntax errors.
-
-Suppose we want to publish a package with a report that calls the standard function module `CONVERSION_EXIT_ALPHA_INPUT`, function group `ALFA`.
-
-To inform users that the package makes use of that function module, we can define `sapEntries`:
-
-```json
-    {
-        "TADIR": {
-            "PGMID": "R3TR",
-            "OBJECT": "FUGR",
-            "OBJ_NAME": "ALFA"
-        }
-    }
-```
-
-or, if you want to be more specific:
-
-```json
-    {
-        "TFIDR": {
-            "FUNCNAME": "CONVERSION_EXIT_ALPHA_INPUT",
-            "PNAME": "SAPLALFA"
-        }
-    }
-```
-
-before install, TRM will check if the system contains this record in its table.
-
-This check can be skipped by the user, but might lead to inconsistencies.
-
-## Manifest and transport request
-
-TRM makes use of transport requests **documentations** to store the package manifest.
-
-You can execute transaction `SE01` and open a TRM transport (generated after install) to see the package manifest.
-
-In transport request documentations, the `manifest.json` file is transformed into XML.
+For SAP transport documentation, the JSON is transformed into an **XML** format, making it visible directly within the transport logs after package installation.

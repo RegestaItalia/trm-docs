@@ -1,21 +1,20 @@
-# Dependency recognition
+# Dependency Recognition
 
-TRM is capable to automatically detect the necessary TRM package dependencies in order to avoid syntax and runtime errors.
+TRM can automatically detect the dependencies required by a TRM package to prevent syntax and runtime errors.
 
-This automatic recognition is subject to the type of objects used inside of the package.
+This detection is based on the types of objects used within the package. As support for additional object types may be needed over time, you can request support by opening an issue [here](https://github.com/RegestaItalia/trm-core/issues).
 
-Support for more object types can be requested with and issue [here](https://github.com/RegestaItalia/trm-core/issues).
+## Supported Object Types
 
 | Object | Supported | Notes |
-| ------ | --------- | ----- |
-| CLAS   | Yes       |       |
-| DTEL   | Yes       |       |
-| FUGR   | Yes       |       |
-| PROG   | Yes       |       |
-| TABL   | Yes       |       |
-| VIEW   | Yes       |       |
-| VIEW   | Yes       |       |
+|--------|-----------|-------|
+| CLAS   | ✅ Yes   |       |
+| DTEL   | ✅ Yes   |       |
+| FUGR   | ✅ Yes   |       |
+| PROG   | ✅ Yes   |       |
+| TABL   | ✅ Yes   |       |
+| VIEW   | ✅ Yes   |       |
 
 ## SAP Objects
 
-Whenever a dependency with an object is detected and its package is standard (SAP), the dependency will be included in the TADIR SAP entries requirements.
+If a dependency is identified and the referenced object belongs to a **standard SAP package**, TRM includes the requirement as part of the **TADIR SAP entries**. This ensures that references to standard objects are properly managed without bundling SAP-owned code.

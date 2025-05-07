@@ -1,95 +1,106 @@
-> Current stage: Stage 1 - Alpha
+> **Current Stage**: Stage 3 – ✅ **Production**
 
 # TRM Roadmap
 
-This roadmap contains the features of:
-- [trm-server](https://github.com/RegestaItalia/trm-server): Server side component
-- [trm-client](https://github.com/RegestaItalia/trm-client): Client (CLI)
-- [trm-core](https://github.com/RegestaItalia/trm-core): Core library
-- [trm-registry-types](https://github.com/RegestaItalia/trm-registry-types): Object type definition of registry
-- [trm-action-publish](https://github.com/RegestaItalia/trm-action-publish): Github action for publishing
-- [trm-action-install](https://github.com/RegestaItalia/trm-action-install): Github action for installing
+This roadmap outlines the development stages and feature progress of the following TRM components:
 
-You can view the public registry roadmap [here](/registry/public/roadmap.md).
+- [trm-commons](https://github.com/RegestaItalia/trm-commons): Shared utilities and data structures
+- [trm-registry-types](https://github.com/RegestaItalia/trm-registry-types): Registry object type definitions
+- [trm-core](https://github.com/RegestaItalia/trm-core): Core functionality and internal logic
+- [trm-client](https://github.com/RegestaItalia/trm-client): CLI interface for interacting with TRM
+- [trm-server](https://github.com/RegestaItalia/trm-server): Server-side RFC component
+- [trm-rest](https://github.com/RegestaItalia/trm-rest): Server-side REST API
+- [trm-action-publish](https://github.com/RegestaItalia/trm-action-publish): GitHub Action for publishing
+- [trm-action-install](https://github.com/RegestaItalia/trm-action-install): GitHub Action for installing
+- [trm-ui](https://github.com/RegestaItalia/trm-ui): Web-based UI interface
 
-For any question, you can create a Github issue in one of the repositories listed above or write an email to [support@trmregistry.com](mailto:support@trmregistry.com).
+You can also view the [public registry roadmap](/registry/public/roadmap.md).
 
-## Stage 1 - Alpha
+For questions or support, please open an issue in any of the above repositories or email [support@trmregistry.com](mailto:support@trmregistry.com).
 
-- **Name**: Alpha
-- **Start date**: November 2023
+---
+
+## Stage 1 – 🎉 Alpha
+
+- **Start date**: November 2023  
 - **End date**: April 2024
-- **What to expect**:
 
-    | Feature                  | Expected progress | Notes                                                   |
-    | ------------------------ | ----------------- | ------------------------------------------------------- |
-    | Translations             | 100%              | Objects with translations                               |
-    | Usage                    | 70%               | Basic usage, simple tests                               |
-    | Dependency detection     | 20%               | Working for a selected number of object types           |
-    | Support                  | 90%               | Issues, enhancements, blogs                             |
-    | Documentation            | 80%               |                                                         |
-    | Guides                   | 100%              |                                                         |
-    | CLI Features             | 50%               |                                                         |
-    | Customizing              | 0%                |                                                         |
-- **General notes**:
-    
-    This is the **Alpha** stage.
-    
-    TRM as a whole is announced. In this phase, it should **NOT** be used in **production** environment.
-    
-    The expected use is for testing the capabilities of TRM and allowing users to understand how it works and whether they should invest time in the project.
-    
-    Bugs/fixes are expected in the first period of time. This means **frequent maintenance**.
+### Feature Progress
 
-- **Goals for next stage**:
+| Feature              | Expected Progress | Notes                                                 |
+|----------------------|-------------------|-------------------------------------------------------|
+| Translations         | 100%              | Full support for translated objects                   |
+| Usage                | 70%               | Basic usage, simple testing supported                 |
+| Dependency Detection | 20%               | Limited to specific object types                      |
+| Support              | 90%               | Issues, enhancements, blogs available                 |
+| Documentation        | 80%               | Nearly complete                                       |
+| Guides               | 100%              | Fully available                                       |
+| CLI Features         | 50%               | Partial implementation                                |
+| Customizing          | 0%                | Not yet available                                     |
 
-    The main goal is to increase the usage progress to atleast 90%.
+### General Notes
 
-## Stage 2 - Beta
+This is the **Alpha** stage of TRM.
 
-- **Name**: Beta
-- **Start date**: April 2024
+TRM is publicly announced, but **not intended for production** use.  
+The focus is on early testing, exploration, and initial feedback.  
+Expect rapid updates and bug fixes during this phase.
+
+### Goals for Next Stage
+
+- Increase **usage support** to at least **90%**
+
+---
+
+## Stage 2 – 🚧 Beta
+
+- **Start date**: April 2024  
 - **End date**: August/September 2024
-- **What to expect**:
 
-    | Feature                  | Expected progress | Notes                                                   |
-    | ------------------------ | ----------------- | ------------------------------------------------------- |
-    | Usage                    | 90%               | Getting ready for the next stage                        |
-    | Dependency detection     | 50%               | Working for a selected number of object types           |
-    | Support                  | 90%               | Issues, enhancements, blogs                             |
-    | Documentation            | 100%              |                                                         |
-    | User EXITs               | 100%              |                                                         |
-    | CLI Features             | 100%              |                                                         |
-    | Customizing              | 100%              |                                                         |
-    | Translations             | 100%              |                                                         |
-- **General notes**:
-    
-    This is the **Beta** stage.
-    
-    TRM is getting ready to enter the production stage, so new features are expected, mainly:
+### Feature Progress
 
-    - User EXITs
-    - Customizing
-    - Translations
+| Feature              | Expected Progress | Notes                                                 |
+|----------------------|-------------------|-------------------------------------------------------|
+| Usage                | 90%               | Getting ready for production                          |
+| Dependency Detection | 50%               | Improved but not exhaustive                          |
+| Support              | 90%               | Continued community and issue support                |
+| Documentation        | 100%              | Complete documentation coverage                      |
+| User EXITs           | 100%              | Fully implemented                                     |
+| CLI Features         | 100%              | Full CLI functionality                                |
+| Customizing          | 100%              | Full customizing support                              |
+| Translations         | 100%              | Full translation support                              |
 
-- **Goals for next stage**:
+### General Notes
 
-    Consolidate TRM for production use.
+This is the **Beta** stage.
 
-## Stage 3 - Production
+TRM is close to production readiness.  
+Key features such as **User EXITs**, **Customizing**, and **Translations** are introduced and stabilized.
 
-- **Name**: Production
-- **Start date**: August/September 2024
-- **What to expect**:
+### Goals for Next Stage
 
-    | Feature                  | Expected progress | Notes                                                                             |
-    | ------------------------ | ----------------- | --------------------------------------------------------------------------------- |
-    | Usage                    | 100%              | New features expected periodically but handled with Github issues/Support request |
-    | Dependency detection     | 80%               | Main objects should all be mapped for dependency detection                        |
-    | Support                  | 95%               | Issues, enhancements, blogs                                                       |
-- **General notes**:
+- Finalize production-readiness and long-term stability
 
-    This is the **Production** stage.
-    
-    This stage has no ending; New features expected periodically but handled with Github issues/Support request.
-    
+---
+
+## Stage 3 – ✅ Production 
+
+- **Start date**: August/September 2024  
+- **End date**: _Ongoing_
+
+### Feature Progress
+
+| Feature              | Expected Progress | Notes                                                                 |
+|----------------------|-------------------|-----------------------------------------------------------------------|
+| Usage                | 100%              | Fully functional; feature requests via GitHub issues/support channels |
+| Dependency Detection | 80%               | Most object types are supported                                       |
+| Support              | 95%               | Mature support through issues, enhancements, and documentation        |
+
+### General Notes
+
+This is the **Production** stage and does not have a set end date.
+
+New features will continue to be introduced and handled via community support and GitHub issues. The project is considered stable and suitable for use in real-world environments.
+
+---
+

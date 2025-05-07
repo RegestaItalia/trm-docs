@@ -1,20 +1,21 @@
-- Getting Started
-	- [Setup Server](/server/docs/setup.md)
-		- [Install](/server/docs/setup.md#first-install)
-		- [Check installation](/server/docs/setup.md#check-installation)
-	- [Setup Client](/client/docs/setup.md)
-		- [Install requirements](/client/docs/setup.md#trm-client-requirements)
-		- [Install cli](/client/docs/setup.md#trm-client-install)
-		- [Commands](/client/docs/commands.md)
-	- [Installing your first package](/client/docs/examples/install.md)
-	- [Publishing your first package](/client/docs/examples/publish.md)
-	- CI/CD
-		- [Integrate with abapGit & Github Actions](/client/docs/examples/githubActions.md)
-- Roadmap
+- 🎉 Getting Started
+	- [Setup ABAP server-side component](/server/docs/setup.md)
+	- [Setup TRM CLI Client](/client/docs/setup.md)
+		- [Learn CLI Commands](/client/docs/commands.md)
+	- [Install your first TRM package](/client/docs/examples/install.md)
+	- [Publish your first TRM package](/client/docs/examples/publish.md)
+	- ⚙️ CI/CD
+		- [Setup Github Actions](/client/docs/examples/githubActions.md)
+- 🚀 Roadmap
+	- [Project](/commons/roadmap.md)
 	- [Registry](/registry/public/roadmap.md)
-- [Manifest](/commons/manifest.md)
 - [Artifact](/commons/artifact.md)
+- [Customizing Guidelines](/commons/customizing_guidelines.md)
+- [Manifest](/commons/manifest.md)
+- [Post Activities](/commons/post_activities.md)
+- [SAP Entries](/commons/sap_entries.md)
 - [Dependencies](/commons/dependencies.md)
-- [Client](/client/README.md)
-- [Server](/server/README.md)
-- [Registry](/registry/README.md#trm-registry)
+- 🎓 Learning hub
+	- [TRM CLI Client](/client/README.md)
+	- [TRM ABAP Server-side component](/server/README.md)
+	- [TRM Public Registry](/registry/README.md#trm-registry)

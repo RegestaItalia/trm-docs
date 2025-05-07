@@ -1,38 +1,56 @@
 # Authentication
 
-While most of the endpoints exposed by the public registry allow authentication with a bearer token provided by the OAuth 2.0 flow, it is recommended to use the TRM token instead.
+While most endpoints in the TRM Public Registry support **OAuth 2.0 bearer tokens**, it is **recommended** to use a **TRM Token** for authentication — especially for automation and API usage.
 
-> **Warning**
-Api and registry endpoints may not allow authentication with a bearer token at any time.
+> ⚠️ **Warning**  
+> Use a TRM token for full compatibility.
+
+---
 
 ## Generating a TRM Token
 
-TRM Tokens allow users to call any public registry endpoint, including APIs and registry.
+A **TRM Token** allows secure access to all TRM Public Registry endpoints, including REST APIs and registry operations.
 
-To generate a new TRM Token, first [log into your account](https://trmregistry.com/profile) and visit the **Manage** section.
+### Steps to Generate a Token
 
-<p align="center">
-  <img src="/_media/profile_dropdown.png" />
-</p>
-
-Navigate to the **API/Registry Tokens** section and press **Generate new token**.
-
-> Each user can generate only one token for security reasons. You may revoke a token at any time.
-
-Once the login is completed, you will be brought back to the manage page, and the token will appear in the list.
+1. [Log into your account](https://trmregistry.com/profile)
+2. Go to the **Manage** section.
 
 <p align="center">
-  <img src="/_media/token_generation.png" />
+  <img src="/_media/profile_dropdown.png" alt="Profile menu dropdown" />
 </p>
 
-At this point, **this is your only chance to copy the generated token**.
+3. Navigate to the **API/Registry Tokens** section and click **Generate new token**.
 
-Press on the token generated to copy the value to your clipboard and store it in a safe place.
+> ✅ Each user may generate **only one token** at a time for security reasons.  
+> You can revoke and regenerate the token at any time.
 
-This token is linked to the user, has a validity of 10 years, and gives access to all endpoints.
+Once the token is generated, it will appear in your token list.
 
-## API Header
+<p align="center">
+  <img src="/_media/token_generation.png" alt="TRM token generation screen" />
+</p>
 
-In order to authenticate, the token generated in the step above must be provided in the Authorization header like this:
+> ⚠️ **Important**  
+> This is your **only chance** to copy the token. Make sure to save it securely. Copy is done by clicking on the generated token.
 
-`Authorization`: `token <<YOUR_TOKEN>>`
+The generated token is:
+- **User-specific**
+- **Valid for 10 years**
+- Grants access to **all public registry endpoints**
+
+---
+
+## Using the Token (API Header)
+
+To authenticate API requests, include the TRM token in the `Authorization` header:
+
+```
+Authorization: token <<YOUR_TOKEN>>
+```
+
+Replace `<<YOUR_TOKEN>>` with the actual token string you copied during generation.
+
+---
+
+Keep your token secure and never share it in public repositories or exposed environments.
