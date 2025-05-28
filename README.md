@@ -9,6 +9,11 @@
 
 [![trm-registry roadmap stage](https://img.shields.io/badge/public%20registry%20roadmap%20stage-production-green)](/registry/public/roadmap.md)
 
+| 🚀 This project is funded and maintained by 🏦 | 🔗                                                             |
+|-------------------------------------------------|----------------------------------------------------------------|
+| Regesta S.p.A.                                  | [https://www.regestaitalia.eu/](https://www.regestaitalia.eu/) |
+| Clarex S.r.l.                                   | [https://www.clarex.it/](https://www.clarex.it/)               |
+
 > **Current Stage**: Stage 3 – ✅ **Production**. Learn more about the [TRM Registry Roadmap](/registry/public/roadmap.md).
 
 **TRM (Transport Request Manager)** is a modern DevOps-inspired solution that makes managing ABAP transports between **SAP ECC** and **S/4HANA On-Premise** systems simple, reliable, and scalable.
