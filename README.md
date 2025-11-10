@@ -66,6 +66,13 @@ Each package includes a `manifest.json` that declares:
 
 # Contributors
 
-<!-- {docsify-add CONTRIBUTORS} -->
+Like every other TRM open-source projects, contributions are always welcomed ❤️. <!-- {docsify-remove} -->
 
+Make sure to open an issue first. <!-- {docsify-remove} -->
+
+Contributions will be merged upon approval. <!-- {docsify-remove} -->
+
+[Click here](https://docs.trmregistry.com/#/CONTRIBUTING) for the full list of TRM contribution guidelines. <!-- {docsify-remove} -->
+
+<!-- {docsify-add CONTRIBUTORS} -->
 [<img src="https://trmregistry.com/public/contributors?image=true">](https://docs.trmregistry.com/#/?id=contributors) <!-- {docsify-remove} -->
