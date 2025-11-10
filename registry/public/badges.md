@@ -10,47 +10,47 @@ For more details on badge customization, see the [Shields.io badge documentation
 
 Add these badges to your repository README or docs to quickly inform users about your package status.
 
-## Latest Version Badge
+## Version Badge
 
-Displays the **latest published version** of a package from the TRM Public Registry.
+Displays the **version** of a release.
 
 ### Example Badge
 
-![Latest package version](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/version?package=trm-server)
+![Latest package version](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/version/trm-server?version=latest)
 
 ### Markdown Usage
 
 ```markdown
-![Latest package version](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/version?package=trm-server)
+![Latest package version](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/version/trm-server?version=latest)
 ```
 
 ### API Details
 
-- **Endpoint**: `https://trmregistry.com/public/shieldio/version`
+- **Endpoint**: `https://trmregistry.com/public/shieldio/version/<package name>`
 - **Query Parameters**:
-  - `package` (required): Name of the package (e.g., `trm-server`)
+  - `version` (optiona): Specific version or tag (default: 'latest')
 
 ---
 
 ## License Badge
 
-Displays the **license** declared by the package.
+Displays the **license** of a release.
 
 ### Example Badge
 
-![Package license](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/license?package=trm-server)
+![Package license](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/license/trm-server?version=latest)
 
 ### Markdown Usage
 
 ```markdown
-![Package license](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/license?package=trm-server)
+![Package license](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/license/trm-server?version=latest)
 ```
 
 ### API Details
 
-- **Endpoint**: `https://trmregistry.com/public/shieldio/license`
+- **Endpoint**: `https://trmregistry.com/public/shieldio/license/<package name>`
 - **Query Parameters**:
-  - `package` (required): Name of the package
+  - `version` (optiona): Specific version or tag (default: 'latest')
 
 ---
 
@@ -60,16 +60,16 @@ Displays the **total number of downloads** for all versions of the package.
 
 ### Example Badge
 
-![Package downloads](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/downloads?package=trm-server)
+![Package downloads](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/downloads/trm-server?version=latest)
 
 ### Markdown Usage
 
 ```markdown
-![Package downloads](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/downloads?package=trm-server)
+![Package downloads](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/downloads/trm-server?version=latest)
 ```
 
 ### API Details
 
-- **Endpoint**: `https://trmregistry.com/public/shieldio/downloads`
+- **Endpoint**: `https://trmregistry.com/public/shieldio/license/<package name>`
 - **Query Parameters**:
-  - `package` (required): Name of the package
+  - `version` (optiona): Specific version or tag (default: 'latest')
