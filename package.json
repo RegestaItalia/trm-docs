@@ -1,0 +1,26 @@
+{
+  "name": "trm-docs",
+  "version": "1.0.0",
+  "description": "TRM (Transport Request Manager) Documentation",
+  "keywords": [
+    "trm",
+    "abap",
+    "docs"
+  ],
+  "homepage": "https://www.trmregistry.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RegestaItalia/trm-client.git"
+  },
+  "author": {
+    "name": "Simone Gaffurini",
+    "email": "simone.gaffurini@regestaitalia.it"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "docsify serve ."
+  },
+  "devDependencies": {
+    "docsify-cli": "^4.4.2"
+  }
+}

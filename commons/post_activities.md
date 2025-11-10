@@ -43,10 +43,10 @@ The post activity class `ZCL_TRM_PA_NO_RANGE_INTERVAL` creates a number range in
 
 | Parameter           | Required | Description                                        |
 |---------------------|----------|----------------------------------------------------|
-| `object`            | ✅ Yes   | Number range object                                |
-| `subobject`         | ✅ Yes   | Subobject value                                    |
-| `nrrangenr`         | ✅ Yes   | Number range number                                |
-| `toyear`            | ✅ Yes   | To fiscal year                                     |
+| `object`            | **Yes**  | Number range object                                |
+| `subobject`         | **Yes**  | Subobject value                                    |
+| `nrrangenr`         | **Yes**  | Number range number                                |
+| `toyear`            | **Yes**  | To fiscal year                                     |
 | `fromnumber`        | No       | Starting number of the range                       |
 | `tonumber`          | No       | Ending number of the range                         |
 | `nrlevel`           | No       | Current status of the number range                 |

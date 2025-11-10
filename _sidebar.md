@@ -1,21 +1,25 @@
-- 🎉 Getting Started
-	- [Setup ABAP server-side component](/server/docs/setup.md)
-	- [Setup TRM CLI Client](/client/docs/setup.md)
-		- [Learn CLI Commands](/client/docs/commands.md)
-	- [Install your first TRM package](/client/docs/examples/install.md)
-	- [Publish your first TRM package](/client/docs/examples/publish.md)
-	- ⚙️ CI/CD
-		- [Setup Github Actions](/client/docs/examples/githubActions.md)
-- 🚀 Roadmap
+- Getting Started
+	- [Setup server](/server/docs/setup.md)
+	- [Setup CLI](/client/docs/setup.md)
+		- [CLI Commands](/client/docs/commands.md)
+		- [Install your first TRM package](/client/docs/examples/install.md)
+		- [Publish your first TRM package](/client/docs/examples/publish.md)
+- CI/CD
+	- [Github Actions](/commons/github_actions.md)
+- Roadmaps
 	- [Project](/commons/roadmap.md)
 	- [Registry](/registry/public/roadmap.md)
 - [Artifact](/commons/artifact.md)
 - [Customizing Guidelines](/commons/customizing_guidelines.md)
 - [Manifest](/commons/manifest.md)
+- [Dependencies](/commons/dependencies.md)
+- [Lockfile](/commons/lockfile.md)
 - [Post Activities](/commons/post_activities.md)
 - [SAP Entries](/commons/sap_entries.md)
-- [Dependencies](/commons/dependencies.md)
-- 🎓 Learning hub
-	- [TRM CLI Client](/client/README.md)
-	- [TRM ABAP Server-side component](/server/README.md)
-	- [TRM Public Registry](/registry/README.md#trm-registry)
+- Examples
+	- [Publishing a package with dependencies](/examples/publishing_a_package_with_dependencies.md)
+	- [Installing a package with a lockfile](/examples/installing_a_package_with_a_lockfile.md)
+	- [Publishing a release candidate](/examples/publishing_a_release_candidate.md)
+	- [Package version compare in landscape](/examples/package_version_compare_in_landscape.md)
+	- [Working with TRM offline](/examples/working_with_trm_offline.md)
+	- [ABAP Github Actions CI/CD](/examples/abap_github_actions_ci_cd.md)

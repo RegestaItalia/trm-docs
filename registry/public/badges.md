@@ -1,16 +1,14 @@
 # Badges
 
-Badges provide a clean, readable way to display key package information in your project’s documentation — such as version, license, and download count.
+Badges provide a clean, readable way to display key package information in your project’s documentation, such as version, license, and download count.
 
 TRM Public Registry supports badge generation via [Shields.io](https://shields.io/), a popular service for custom badge endpoints.
 
-> ⚠️ Packages **must be public** to use badges. If the package is private, badge endpoints will return an error.
+> Packages **must be public** to use badges. If the package is private, badge endpoints will return an error.
 
 For more details on badge customization, see the [Shields.io badge documentation](https://shields.io/badges).
 
 Add these badges to your repository README or docs to quickly inform users about your package status.
-
----
 
 ## Latest Version Badge
 
