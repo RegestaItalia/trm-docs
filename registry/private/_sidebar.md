@@ -1,6 +1,0 @@
-- [Implementing a private TRM Registry](/registry/private/README.md)
-    - REST API
-        - [Types](/registry/private/api/types.md)
-            - [Request types](/registry/private/api/types/requests.md)
-            - [Response types](/registry/private/api/types/responses.md)
-        - [Endpoints](/registry/private/api/endpoints.md)

@@ -1,9 +1,6 @@
 (function () {
   var removeSection = function (hook, vm) {
     hook.beforeEach(function (markdown) {
-      /*var regex = /(^|\n)(#{1,6}.*?)(<!-- {docsify-remove} -->\n([\s\S]*?)(?=(\n#{1,6}|$)))/g;
-      var cleanedMarkdown = markdown.replace(regex, '');
-      return cleanedMarkdown;*/
       var lines = markdown.split('\n');
       var result = [];
       var skipSection = false;

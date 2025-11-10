@@ -6,76 +6,52 @@ Before asking general questions about TRM or the public registry, please read th
 
 + Do I need TRM? +
 
-    Depending on who you are, TRM can be useful in different ways:
+    TRM provides value as a versioning and packaging tool:
 
-    - If you are an **SAP open source developer**, you can use TRM to **publish** your software. Installing a package becomes as simple as running a CLI command—just like in many modern development ecosystems.
-    - If you are an **SAP partner**, TRM helps you **modularize your developments**. Each module can be treated as a library or product. Delivering these to customers is a one-command process using the CLI.
-    - Even if you don’t fit the above categories, TRM still provides value as a versioning and packaging tool — you can **release stable versions** of your code with minimal effort.
-
-+ I'm not sure I want to invest time into TRM. What's the roadmap? +
-
-    You can view the [public registry roadmap](/registry/public/roadmap.md).
+    - As a **SAP open source developer**, you can use TRM to **publish** your code. For the end users, installing a package becomes as simple as running a CLI command, just like in many modern development ecosystems.
+    - As a **SAP partner**, TRM helps you **modularize your developments**. Each module can be treated as a library or product. Delivering these to customers is a one-command process using the CLI.
 
 + Is TRM an SAP product? +
 
     **No.** TRM is not endorsed, sponsored, or affiliated with SAP in any way.
 
-+ I want to request a new feature or report a bug. What should I do? +
++ Who owns TRM? +
 
-    You can open an issue in the appropriate GitHub repository.  
-    If you're unsure where to report, feel free to email us at [support@trmregistry.com](mailto:support@trmregistry.com).
+    TRM is owned, funded and activly maintained by [Regesta S.p.A.](https://www.regestaitalia.eu/) and [Clarex S.r.l.](https://www.clarex.it/).
 
-+ Is it safe to download packages from the public registry? +
++ I need support, who should i contact? +
 
-    Yes, but you should exercise caution:
+    Check out the [incident](/incidents.md) section.
 
-    - Packages published by **unverified users** are clearly marked.
-    - **Verified publishers** are vetted by TRM maintainers.
++ Is it safe to import open source ABAP packages into my customer system? +
+
+    You should exercise caution:
+
     - Always check the package’s **Git repository and source code**.
     - Community feedback is a useful indicator of reliability.
-    - For additional safety, consider running the `R3Trans` program to inspect the package content.
+    - Inspect the package content transports content.
 
-+ I want to use TRM in my organization. Can I publish private packages? +
++ I'm an SAP partner and want to publish private packages, what should I do? +
 
-    Yes. You can either:
-    
-    - Use the **public registry** (a subscription upgrade is required for private packages), or  
-    - Set up your **own private registry**.
+    [Upgrading your plan](https://trmregistry.com/plans) allows you to publish private packages and have priority support.
 
-+ Can I use a private registry instead of the public one? +
++ Can I implement my own private registry? +
 
-    Yes. TRM is open source, and you can configure a private registry.  
-    See the implementation guide [here](/registry/private/README.md).
+    Yes. TRM is open source, and you can implement your custom private registry. 
 
-+ Are dependencies handled? +
++ How does TRM handle dependencies? +
 
-    Yes, **TRM handles dependencies** automatically and manually.
+    During publish, TRM automatically detects dependencies with other TRM packages, custom objects and standard SAP objects.
 
-    - Dependencies can include TRM packages, SAP standard objects, and customizing records.
-    - During publishing, TRM detects dependencies automatically (based on supported object types).
-    - You can also manually edit the detected dependencies.
-    - During installation, TRM ensures that:
-        - SAP objects/customizing records are present.
+    During install, TRM ensures that:
+        - SAP objects used exists.
         - Required TRM packages are installed and up to date.
 
     More info: [Dependency recognition](/commons/dependencies.md#dependency-recognition)
 
 + Does TRM support cloud developments? +
 
-    No. TRM does **not** currently support cloud-based development, and there are **no plans to support cloud** at this time.
-
-+ How can I secure the RFC functions exposed by `trm-server`? +
-
-    Some RFC-enabled function modules can be misused if not secured.
-
-    - `trm-server` should only be accessible to **authorized users**.
-    - Follow the [user authorization setup guide](https://docs.trmregistry.com/#/server/docs/setup?id=user-authorization-maintenance) for best practices.
-
-+ Can I manually install a TRM package? +
-
-    Although it's **possible**, manual installation is **not recommended** due to the complexity and number of steps involved.
-
-    Manual installation steps are not documented, and proper integration with TRM features may not be guaranteed.
+    There's currently **no support** for cloud developments, but research has started and updates on the topic will follow.
 
 + Can I use TRM for CD (Continuous Deployment)? +
 
@@ -83,7 +59,7 @@ Before asking general questions about TRM or the public registry, please read th
 
     - TRM supports automation through the CLI.
     - All publish/install commands support non-interactive execution.
-    - For GitHub Actions, see the [CD workflow example](/client/docs/examples/githubActions.md).
+    - For GitHub Actions, see the [CD workflow example](/examples/abap_github_actions_ci_cd.md).
 
 + Does TRM support object translations? +
 
@@ -91,23 +67,8 @@ Before asking general questions about TRM or the public registry, please read th
 
 + Does TRM support customizing? +
 
-    Yes, TRM supports customizing data.
+    Yes, TRM supports customizing.
 
 + I installed a package with dependencies, and TRM generated multiple transports. How do I determine the correct release order? +
 
-    SAP supports defining [transport dependencies via CTS projects](https://help.sap.com/docs/SUPPORT_CONTENT/basis/3354611666.html), but TRM does **not** currently support this.
-
-    A future CLI command is planned to assist in determining the correct release order.
-
-+ Are there any USER EXITs I can use to extend TRM? +
-
-    Not yet, but this is a planned feature.
-
-+ How do I compare a package across multiple systems? +
-
-    Use the `compare` command to check package versions across systems.
-
-    See: [Compare command documentation](/client/docs/commands.md#compare-package-between-multiple-systems)
-
-    - It works without `trm-server`
-    - Ideal for comparing development and production systems
+    SAP supports defining [transport dependencies via CTS projects](https://help.sap.com/docs/SUPPORT_CONTENT/basis/3354611666.html), but TRM does not currently support this.
