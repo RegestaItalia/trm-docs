@@ -65,6 +65,8 @@ The new release is published. A few things to notice:
 - The dependency on another TRM package was detected ➡️ We’ll confirm this on the registry website, but it already shows “**1 TRM package dependency**”.
 - Some values were proposed as defaults, like the SAP package name and some manifest fields.
 
+> 💡 Tip: by default TRM proposes the next patch version of a release when no version is specified, but you can change the increment with option --increment <increment>
+
 <div style="display:flex; justify-content:center;">
   <img src="/_media/2_9_package_with_dependencies.png" alt="Release on registry" style="max-width:100%; height:auto; border-radius:8px;">
 </div>
