@@ -153,7 +153,7 @@ SAP entries are **checked silently**, and then we’re prompted to install the T
 
 For testing purposes, let’s try deleting the FM `SPELL_AMOUNT` from my development system and see how TRM reacts when installing `@trmsamples/doc-demo` version `1.0.2`.
 
-> I'm doing this on A4h (ABAP Developer Trial), don't try this at home...
+> I'm doing this on A4H (ABAP Developer Trial), don't try this at home...
 
 <div style="display:flex; justify-content:center;">
   <img src="/_media/2_19_package_with_dependencies.png" alt="Install with missing SAP entries" style="max-width:100%; height:auto; border-radius:8px;">
