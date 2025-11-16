@@ -1,11 +1,6 @@
 - Getting Started
 	- [Setup server](/server/docs/setup.md)
 	- [Setup CLI](/client/docs/setup.md)
-		- [CLI Commands](/client/docs/commands.md)
-		- [Install your first TRM package](/client/docs/examples/install.md)
-		- [Publish your first TRM package](/client/docs/examples/publish.md)
-- CI/CD
-	- [Github Actions](/commons/github_actions.md)
 - Roadmaps
 	- [Project](/commons/roadmap.md)
 	- [Registry](/registry/public/roadmap.md)
@@ -16,6 +11,9 @@
 - [Lockfile](/commons/lockfile.md)
 - [Post Activities](/commons/post_activities.md)
 - [SAP Entries](/commons/sap_entries.md)
+- [Registry](/registry/README.md)
+    - [Authentication](/registry/public/authentication.md)
+    - [Badges](/registry/public/badges.md)
 - Examples
 	- [1. Publish and install](/examples/1_publish_and_install.md)
 	- [2. Package with dependencies](/examples/2_package_with_dependencies.md)
@@ -23,3 +21,4 @@
 	- [4. Dealing with release candidates](/examples/4_dealing_with_release_candidates.md)
 	- [5. Working with TRM offline](/examples/5_working_with_trm_offline.md)
 	- [6. ABAP Github Actions CI/CD](/examples/6_abap_github_actions_ci_cd.md)
+	- [7. Package across landscape](/examples/7_package_across_landscape.md)
