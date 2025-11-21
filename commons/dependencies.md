@@ -15,7 +15,8 @@ This table answers the question: does TRM automatically find objects used by obj
 | DDLS | Data Definition Language Source | ✅ |  |
 | DDLX | CDS metadata extension | ✅ |  |
 | DTEL | Data Element | ✅ |  |
-| FUGR | Function Group | ✅ |  |
+| FUGR | Function Group | ✅ | Read [ABAP Objects note](#abap-objects-note) |
+| INTF | Interface (ABAP Objects) | ✅ | |
 | PROG | Program | ✅ | Read [ABAP Objects note](#abap-objects-note) |
 | TABL | Table | ✅ |  |
 | VIEW | View | ✅ |  |
@@ -563,7 +564,6 @@ This table answers the question: does TRM automatically find objects used by obj
 | ILTP | Logical Transport Object for Relationship Types | ❓ | Not tested yet |
 | INA1 | InA Service | ❓ | Not tested yet |
 | INSP | IQM Inspection Plan (BI) | ❓ | Not tested yet |
-| INTF | Interface (ABAP Objects) | ❓ | Not tested yet |
 | INTM | Intelligent Scenario Model | ❓ | Not tested yet |
 | INTS | Intelligent Scenario | ❓ | Not tested yet |
 | IOBC | InfoObject catalog | ❓ | Not tested yet |
