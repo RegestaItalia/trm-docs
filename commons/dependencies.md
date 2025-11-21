@@ -13,6 +13,7 @@ This table answers the question: does TRM automatically find objects used by obj
 |---|---|---|---|
 | CLAS | Class (ABAP Objects) | ✅ | Read [ABAP Objects note](#abap-objects-note) |
 | DDLS | Data Definition Language Source | ✅ |  |
+| DDLX | CDS metadata extension | ✅ |  |
 | DTEL | Data Element | ✅ |  |
 | FUGR | Function Group | ✅ |  |
 | PROG | Program | ✅ | Read [ABAP Objects note](#abap-objects-note) |
@@ -357,7 +358,6 @@ This table answers the question: does TRM automatically find objects used by obj
 | DDIL | ABAP Dictionary: Trigger CBDA Persistence Update (Ini. Load) | ❓ | Not tested yet |
 | DDLA | CDS Annotation Definition | ❓ | Not tested yet |
 | DDLV | CDS Variant | ❓ | Not tested yet |
-| DDLX | CDS metadata extension | ❓ | Not tested yet |
 | DDMM | DataMining Model (Shipped Version) | ❓ | Not tested yet |
 | DDMO | Data Flow (SAP Shipment) | ❓ | Not tested yet |
 | DDOC | Documents Application (SAP Delivery) | ❓ | Not tested yet |
