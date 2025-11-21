@@ -19,6 +19,7 @@ This table answers the question: does TRM automatically find objects used by obj
 | INTF | Interface (ABAP Objects) | ✅ | |
 | PROG | Program | ✅ | Read [ABAP Objects note](#abap-objects-note) |
 | TABL | Table | ✅ |  |
+| TTYP | Table | ✅ |  |
 | VIEW | View | ✅ |  |
 | 1APP | BPC: APPLICATION | ❓ | Not tested yet |
 | AABC | BPC APA Global Bands & KPI Category Setting | ❓ | Not tested yet |
@@ -1135,7 +1136,6 @@ This table answers the question: does TRM automatically find objects used by obj
 | TRUC | Transformation Rule (Client Dependent) | ❓ | Not tested yet |
 | TRUL | Transformation Rule | ❓ | Not tested yet |
 | TTPL | Transaction Templates for Activity Groups | ❓ | Not tested yet |
-| TTYP | Table Type | ❓ | Not tested yet |
 | TUSE | TLOGO for Client Provisioning Include List | ❓ | Not tested yet |
 | TVNS | Variant Group Definition | ❓ | Not tested yet |
 | TVUS | Assignment User - Variant Group | ❓ | Not tested yet |
