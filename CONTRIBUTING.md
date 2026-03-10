@@ -16,6 +16,7 @@ TRM has many repositories and creating the issue in the right one is the first s
 
 Here's a list of all TRM Github repositories:
 
+- [trm-commons](https://github.com/RegestaItalia/trm-commons): For issues regarding the shared between modules
 - [trm-client](https://github.com/RegestaItalia/trm-client): For issues regarding the CLI
 - [trm-server](https://github.com/RegestaItalia/trm-server): For issues regarding the ABAP Server side
 - [trm-core](https://github.com/RegestaItalia/trm-core): For issues regarding the core functionalities of TRM
@@ -23,6 +24,7 @@ Here's a list of all TRM Github repositories:
 - [trm-registry-types](https://github.com/RegestaItalia/trm-registry-types): For issues regarding the core - server request/response objects
 - [trm-action-publish](https://github.com/RegestaItalia/trm-action-publish): For issues regarding the Github action "Publish"
 - [trm-action-install](https://github.com/RegestaItalia/trm-action-install): For issues regarding the Github action "Install"
+- [trm-ui](https://github.com/RegestaItalia/trm-ui): For issues regarding the UI
 
 ## I Have a Question
 

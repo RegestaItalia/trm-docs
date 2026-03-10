@@ -37,13 +37,13 @@ trm lock <package name>
 > 💡 Tip: run this command inside of a folder so that when the file is generated you can easily locate it
 
 <div style="display:flex; justify-content:center;">
-  <img src="/_media/3_1_install_with_a_lockfile.png" alt="Generating the lockfile" style="max-width:100%; height:auto; border-radius:8px;">
+  <img src="/examples/media/3_1_install_with_a_lockfile.png" alt="Generating the lockfile" style="max-width:100%; height:auto; border-radius:8px;">
 </div>
 
 Let's open the `trm-lock.json` file
 
 <div style="display:flex; justify-content:center;">
-  <img src="/_media/3_2_install_with_a_lockfile.png" alt="Generating the lockfile" style="max-width:100%; height:auto; border-radius:8px;">
+  <img src="/examples/media/3_2_install_with_a_lockfile.png" alt="Generating the lockfile" style="max-width:100%; height:auto; border-radius:8px;">
 </div>
 
 As you can see, for the package `@trmsamples/doc-demo` TRM flatted all of its dependencies (in this case just one) and for each returned their exact version, registry address and integrity.
@@ -55,13 +55,13 @@ I'll now publish version `1.0.1` of `@trmsamples/doc-utility` (the dependency us
 The reason why I decide to publish `1.0.1` is quite important for this demo: `@trmsamples/doc-demo` wants `@trmsamples/doc-utility` as a dependency with the version range `^1.0.0`, meaning that once i publish `1.0.1`, when an end user installs `@trmsamples/doc-demo` version `1.0.2` they would install `@trmsamples/doc-utility` version `1.0.1`, as it's the latest in range.
 
 <div style="display:flex; justify-content:center;">
-  <img src="/_media/3_3_install_with_a_lockfile.png" alt="Publishing a new release of the package" style="max-width:100%; height:auto; border-radius:8px;">
+  <img src="/examples/media/3_3_install_with_a_lockfile.png" alt="Publishing a new release of the package" style="max-width:100%; height:auto; border-radius:8px;">
 </div>
 
 Let's confirm this by installing `@trmsamples/doc-demo` in a fresh instance.
 
 <div style="display:flex; justify-content:center;">
-  <img src="/_media/3_4_install_with_a_lockfile.png" alt="Publishing a new release of the package" style="max-width:100%; height:auto; border-radius:8px;">
+  <img src="/examples/media/3_4_install_with_a_lockfile.png" alt="Publishing a new release of the package" style="max-width:100%; height:auto; border-radius:8px;">
 </div>
 
 As you can see, it shows that it's ready to install `1.0.1`, as it's the latest in range `^1.0.0`.
@@ -77,7 +77,7 @@ trm clean-install <package name>
 ```
 
 <div style="display:flex; justify-content:center;">
-  <img src="/_media/3_5_install_with_a_lockfile.png" alt="Publishing a new release of the package" style="max-width:100%; height:auto; border-radius:8px;">
+  <img src="/examples/media/3_5_install_with_a_lockfile.png" alt="Publishing a new release of the package" style="max-width:100%; height:auto; border-radius:8px;">
 </div>
 
 As you can see, it installed version `1.0.0` of `@trmsamples/doc-utility` as that's the one used at the time the lock file was generated.

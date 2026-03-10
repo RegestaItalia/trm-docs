@@ -1,6 +1,6 @@
 - Getting Started
-	- [Setup server](/server/docs/setup.md)
-	- [Setup CLI](/client/docs/setup.md)
+	- [Setup server](/server/setup.md)
+	- [Setup CLI](/client/setup.md)
 - Roadmaps
 	- [Project](/commons/roadmap.md)
 	- [Registry](/registry/public/roadmap.md)

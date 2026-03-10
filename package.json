@@ -1,6 +1,6 @@
 {
   "name": "trm-docs",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "TRM (Transport Request Manager) Documentation",
   "keywords": [
     "trm",
@@ -21,6 +21,6 @@
     "start": "docsify serve ."
   },
   "devDependencies": {
-    "docsify-cli": "^4.4.2"
+    "docsify-cli": "^4.4.4"
   }
 }
