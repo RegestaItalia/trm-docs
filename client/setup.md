@@ -1,204 +1,135 @@
-# CLI Client setup
+# Client setup
 
-This document guides you through the installation of all required components to run [trm-client](https://www.npmjs.com/package/trm-client).
+**trm-client** is the client component of TRM.
 
-## Downloading from SAP Support Portal
-
-Whenever downloading from SAP Support Portal is mentioned in this document, make sure to download for the appropriate OS.
-
-<p align="center">
-  <img src="/client/media/sapme_os.png" alt="SAP.me OS dropdown" />
-</p>
+It acts as the CLI bridge between the **user** and **TRM server**.
 
 ---
 
-## Node.js & npm
+# Dockerized version (Recommended)
 
-TRM client is distributed via npm.  
-To install **Node.js** and **npm**, follow this official guide:
+If you are using [Docker](https://www.docker.com/), the recommended approach is to use [trm-docker](https://github.com/RegestaItalia/trm-docker).
 
-➡ [Install Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm#using-a-node-version-manager-to-install-nodejs-and-npm)
+## Download Docker Run Script
 
-### Post-install Check
+This script is a small utility used to run TRM inside Docker. After installing the required SAP proprietary tools, the script can be moved into a directory included in your `PATH` so that it can be executed from anywhere.
 
-After installation:
+1. Go to the [trm-docker repository](https://github.com/RegestaItalia/trm-docker)
+2. Download the script corresponding to your operating system:
+   - **Windows**: download [win.cmd](https://raw.githubusercontent.com/RegestaItalia/trm-docker/refs/heads/main/win.cmd) and rename it to `trm.cmd`
+   - **macOS / Linux**: download [macos](https://raw.githubusercontent.com/RegestaItalia/trm-docker/refs/heads/main/macos), rename it to `trm`, and make it executable:
+     ```bash
+     chmod +x trm
+     ```
+3. In the same directory where you placed the script, create a folder named `init`.
 
-- Run:
-  ```bash
-  npm
-  ```
+This `init` folder will later contain the SAP proprietary files required by TRM.
 
-  You should see a list of available npm commands.
+## Download SAPCAR and SAPEXE and Extract Required Files
 
----
+SAPCAR is used to extract `.SAR` archives downloaded from SAP Software Center.
 
-## SAP NW RFC SDK (Optional)
+### Download SAPCAR
 
-> [!NOTE] 
-> Starting from `trm-core@6.0.0` (December 2024), the **SAP NW RFC SDK is optional** due to the deprecation of the `node-rfc` library ([GitHub Issue #329](https://github.com/SAP/node-rfc/issues/329)).
-
-The SDK is used only if you're connecting to SAP systems via **RFC**.
-
-➡ [RFC SDK Installation Guide](https://github.com/SAP/node-rfc/blob/main/doc/installation.md#sap-nwrfc-sdk-installation)
-
-### Windows Setup
-
-1. Download the SDK from the [SAP Support Portal](https://support.sap.com/en/product/connectors/nwrfcsdk.html)
-2. Create `C:\nwrfcsdk` and extract the SDK into it
-3. Make sure `C:\nwrfcsdk\bin` contains required DLLs like `icudt*.dll`. If not, copy them from `bin\lib`
-4. Run `rfcexec` inside the bin folder to verify functionality
-5. Set `SAPNWRFC_HOME = C:\nwrfcsdk`
-6. Add `C:\nwrfcsdk\bin` to your system `PATH`
-7. Restart your terminal session (if open) after setting environment variables.
-8. Run:
-   ```bash
-   npm install node-rfc -g
-   ```
-   
-### MacOS Setup
-
-1. Download the SDK from the [SAP Support Portal](https://support.sap.com/en/product/connectors/nwrfcsdk.html)
-2. Create `/usr/local/sap/nwrfcsdk` and extract the SDK into it
-3. Make sure `/usr/local/sap/nwrfcsdk/lib` exists
-4. Run command `echo $SHELL`
-5. If previous command output was `/bin/zsh`, execute `nano ~/.zshrc`. If output was `/bin/bash`, execute `nano ~/.bash_profile` (or `nano ~/.bashrc`)
-6. Add new line `export SAPNWRFC_HOME=/usr/local/sap/nwrfcsdk` and save
-7. Create a file called `paths_fix.sh` and copy and paste the [code written here](https://raw.githubusercontent.com/SAP/fundamental-tools/refs/heads/main/docker/sap_nwrfcsdk_utils/paths_fix.sh)
-8. Run:
-   ```bash
-   ./paths_fix.sh
-   ```
-9. Run:
-   ```bash
-   npm install node-rfc -g
-   ```
-
----
-
-## TRM REST API Support (Optional)
-
-Starting with `trm-core@6.0.0`, you can also connect to SAP via **REST APIs**, using [`trm-rest`](https://github.com/RegestaItalia/trm-rest).
-
-➡ [trm-rest Installation Guide](https://github.com/RegestaItalia/trm-rest)
-
-## ICU Common Library
-
-> If you installed the [SAP NW RFC SDK](#sap-nw-rfc-sdk-optional) or running on **MacOS**, you can **skip this step**.
-
-### Windows
-
-To install ICU manually, extract them from the **SAPEXE** archive using **SAPCAR**.
-
-#### Download SAPCAR
-
-1. Go to [SAP Software Center](https://me.sap.com/softwarecenter)
+1. Log in to the [SAP Software Center](https://me.sap.com/softwarecenter)
 2. Click **SUPPORT PACKAGES & PATCHES**
 3. Expand **By Alphabetical Index (A–Z)** and select **S**
-4. Click on **SAPCAR**
-5. Choose the latest version
-6. Download the **SAPCAR** file
-
-#### Download SAPEXE
-
-1. Go back to [SAP Software Center](https://me.sap.com/softwarecenter)
-2. Click **SUPPORT PACKAGES & PATCHES**
-3. Expand **By Alphabetical Index (A–Z)** and click **K**
-4. Select a **64-bit SAP kernel** version (e.g., *SAP KERNEL 7.89 64-BIT UNICODE*)
-5. Download the **SAPEXE.SAR** file
-
-#### Extract ICU DLLs from SAPEXE
-
-Run:
-
-```bash
-sapcar -xvf SAPEXE_<version>.SAR
-```
-
-1. Create `C:\ICU`
-2. Move the following files into it:
-    - `icuuc*.dll`
-    - `icudt*.dll`
-    - `icuin*.dll`
-3. Add `C:\ICU` to your system `PATH`
-
----
-
-## R3trans Program
-
-TRM Client uses `R3trans` to unpack transport files in downloaded `.trm` packages.
-
-### MacOS
-
-If running on MacOS, [follow this guide](https://github.com/RegestaItalia/node-r3trans?tab=readme-ov-file#docker-image-build) which will get you started on creating a dockerized version of R3trans.
-
-### Windows
-
-> Requires either [RFC SDK](#sap-nw-rfc-sdk-optional) or [ICU Libraries](#icu-common-library) installed.
-
-#### Download SAPCAR
-
-1. Go to [SAP Software Center](https://me.sap.com/softwarecenter)
-2. Click **SUPPORT PACKAGES & PATCHES**
-3. Expand **By Alphabetical Index (A–Z)** and select **S**
-4. Click on **SAPCAR**
-5. Choose the latest version
-6. Download the **SAPCAR** file
-
-#### Download R3trans
-
-1. Go to [SAP Software Center](https://me.sap.com/softwarecenter)
-2. Click **SUPPORT PACKAGES & PATCHES**
-3. Expand **By Alphabetical Index (A–Z)** and click **K**
-4. Choose a **64-bit SAP kernel** (e.g., *SAP KERNEL 7.89 64-BIT UNICODE*)
-5. Download the **R3trans.SAR** file
-
-#### Extract R3trans
-
-```bash
-sapcar -xvf R3trans_<version>.SAR
-```
-
-1. Create `C:\R3Trans`
-2. Move the extracted `R3trans.exe` into that folder
-3. Run:
+4. Click **SAPCAR**
+5. Choose the **latest version**
+6. On the download page select your operating system:
+   - **WINDOWS ON X64 64BIT**
+   - **MACOS ON ARM64BIT**
+   - **MACOS X 64-BIT**
+7. Download:
+   - **Windows** → latest `.EXE`
+   - **macOS** → latest `.ZIP`
+8. If using macOS, extract the archive and make the binary executable:
    ```bash
-   cd C:\R3Trans
+   chmod +x SAPCAR
+   ```
+
+### Download SAP Kernel Files
+
+1. Go back to **SUPPORT PACKAGES & PATCHES**
+2. Expand **By Alphabetical Index (A–Z)** and select **K**
+3. Click **SAP KERNEL 64-BIT**
+4. Choose the **latest version**
+5. On the download page select **LINUX ON X86_64 64BIT**
+6. Download the latest **SAPEXE** archive  
+   (file name similar to `SAPEXE_###-########.SAR`)
+
+### Extract the Required Files
+
+1. Place the downloaded `SAPEXE_*.SAR` file in the same directory as `SAPCAR`.
+2. Extract it:
+
+   **Windows**
+   ```bash
+   SAPCAR -xvf SAPEXE_###-########.SAR
+   ```
+
+   **macOS / Linux**
+   ```bash
+   ./SAPCAR -xvf SAPEXE_###-########.SAR
+   ```
+
+3. After extraction, move the following files into the previously created `init` folder:
+
+   ```
    R3trans
+   libicudata##.so
+   libicui18n##.so
+   libicuuc##.so
    ```
-   You should see usage output
-4. Set `R3TRANS_HOME = C:\R3Trans`
 
----
+4. *(Optional)* If you want RFC functionality available in TRM, also move the following files into the `init` folder:
 
-## Install `trm-client`
+   ```
+   startrfc
+   rfcexec
+   libsapnwrfc.so
+   libsapucum.so
+   ```
 
-> Restart your terminal session (if open) after setting environment variables.
+## Initial Installation via Script
 
-Install globally:
+Once the `init` folder is populated and the `trm` script is ready, run the script from the directory where it is located.
 
+**Windows**
 ```bash
-npm install trm-client -g
+trm
 ```
 
-Verify:
+**macOS / Linux**
+```bash
+./trm
+```
+
+The first execution performs the initial setup of the Docker environment.\
+After the installation completes, you may move the script to a directory included in your system `PATH` so it can be executed from anywhere.
+
+**Windows**
+```
+C:\Windows\System32
+```
+
+**macOS / Linux**
+```
+/usr/local/bin
+```
+
+After this step, you can simply run:
 
 ```bash
 trm
 ```
 
-This will show all available CLI commands.
-
-➡ [trm-client on npm](https://www.npmjs.com/package/trm-client)
+from any directory.
 
 ---
 
-## Virtual System (Recommended)
+# Install via Npm
 
-SAP recommends using **Virtual Systems** to avoid leaving transports stuck in queues.
+With [Node.js and npm](https://nodejs.org/en/download) installed, you can install [trm-client](https://www.npmjs.com/package/trm-client) via npm, as it is distributed as a Node.js package.
 
-- Set this up on your **central development system**
-- Each TRM release should target the virtual system
-
-➡ [SAP Guide – Virtual System Setup](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-us/44/b4a0db7acc11d1899e0000e829fbbd/content.htm?no_cache=true)
-
-> Setup should be done by your BASIS team
+## TODO

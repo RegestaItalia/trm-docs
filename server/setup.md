@@ -49,7 +49,7 @@ OR
 
 -   Open the GitHub repository page:\
     https://github.com/RegestaItalia/trm-server
-    1.  Click **"\<\> Code"**\
+    1.  Click **"\<\> Code"**
     2.  Click **"Download ZIP"**
 
 Save the ZIP file locally (usually named `trm-server-main.zip`).
