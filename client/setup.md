@@ -91,17 +91,16 @@ SAPCAR is used to extract `.SAR` archives downloaded from SAP Software Center.
    libsapucum.so
    ```
 
-## Pull docker image
+# Pull docker image
 
-Execute this command to pull the latest docker image
-
+With Docker running on your system, pull the [abaptrm/docker](https://hub.docker.com/r/abaptrm/docker) image:
 ```bash
 docker pull abaptrm/docker
 ```
 
-## Initial Installation via Script
+# Initial Installation via Script
 
-Once the `init` folder is populated and the `trm` script is ready, run the script from the directory where it is located.
+Once the `init` folder is populated, docker image is pulled and the `trm` script is ready, run the script from the directory where it is located.
 
 **Windows**
 ```bash
