@@ -1,6 +1,8 @@
 - Getting Started
 	- [Setup server](/server/setup.md)
 	- [Setup CLI](/client/setup.md)
+- Business Cases
+	- [Managing core developments](/business_cases/1_managing_core_developments.md)
 - Roadmaps
 	- [Project](/commons/roadmap.md)
 	- [Registry](/registry/public/roadmap.md)
