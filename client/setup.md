@@ -95,7 +95,7 @@ SAPCAR is used to extract `.SAR` archives downloaded from SAP Software Center.
 
 With Docker running on your system, pull the [abaptrm/docker](https://hub.docker.com/r/abaptrm/docker) image:
 ```bash
-docker pull abaptrm/docker
+docker pull --platform=linux/amd64 abaptrm/docker
 ```
 
 # Initial Installation via Script
