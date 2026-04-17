@@ -134,20 +134,20 @@ The online installation is only possible if your system is allowed to connect to
 To verify that a user has access to RFC functions:
 
 1.  Log into the system as the user you want to test
-2.  Execute function module `ZTRM_PING`
+2.  Execute function module `/ATRM/PING`
 
 If the user is authorized, no errors should occur. If not authorized,
 access will be denied.
 
 ## Install with abapGit
 
-Because this package is in namespace **/ATRM/**, install via [abapgit](https://docs.abapgit.org/) needs a system with this namespace installed.
+Because this package is in namespace **/ATRM/**, install via [abapGit](https://docs.abapgit.org/) needs a system with this namespace installed.
 
 ### Demo systems
 
 If you are running a **demo system**, you can use the following keys
 
-**Development key**: 18531191373370851361
+**Development key**: 18531191373370851361\
 **Repair key**: 00211665563784583720
 
 ### Other systems
