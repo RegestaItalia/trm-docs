@@ -15,6 +15,7 @@ The following is a list of objects and scenarios where such dependencies can sti
 | Object Type | Description | Usage |
 | ----------- | ----------- | ----- |
 | NROB | Number Range Object | Whenever called by function module `NUMBER_GET_NEXT` |
+| DOCV | Documentation (independent) | Type `DT`: Whenever called by function module `POPUP_DISPLAY_TEXT` |
 
 ## Object types that can be detected
 
