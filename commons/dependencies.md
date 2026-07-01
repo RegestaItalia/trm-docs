@@ -119,9 +119,6 @@ This list was auto-generated: feel free to update it and remove any that do not 
 | BCCH | Business Configuration Check | No |
 | BCCU | Business Configuration Check Units | No |
 | BGQC | Background Processing Context | No |
-| BMFR | Application Component | No |
-| BMPC | Software Module | No |
-| BMPV | Software Variant | No |
 | BOBF | BOPF: Business Object Model | No |
 | BOBX | BOPF: Business Object Model Extension | No |
 | CASP | SCC: Check Aspect | No |
@@ -161,7 +158,6 @@ This list was auto-generated: feel free to update it and remove any that do not 
 | DSFI | CDS Scalar Function Implementation Reference | No |
 | DTDC | Dictionary Tuning: Dynamic Cache | No |
 | DTEB | Entity Buffer | No |
-| DTF1 | Date Functions | No |
 | ECAT | eCATT Test Script | No |
 | ECSD | eCATT System Data Container | No |
 | ECSP | eCATT Start Profile | No |
@@ -176,14 +172,12 @@ This list was auto-generated: feel free to update it and remove any that do not 
 | EEEC | Enterprise Event Enablement - Event Consumer | No |
 | ENSC | Composite Enhancement Spot | No |
 | FDT0 | FDT/BRFplus: System Application | No |
-| FTGL | Feature toggle | No |
 | FUGS | Function Group with Customer Include: SAP Part | No |
 | G4BA | SAP Gateway OData V4 Backend Service Group & Assignments | No |
 | G4BS | SAP Gateway OData V4 Backend Service | No |
 | GCCV | Cross-Client Validation Check | No |
 | GCPM | SAP Gateway OData Client Proxy - Proxy Model | No |
 | GSMP | Generic Simple Metric Provider | No |
-| GURL | Predefined URL | No |
 | HOTA | Full Package (SAP HANA Transport for ABAP) | No |
 | HTTP | HTTP Service | No |
 | IAML | Language-Dependent IAC Binary Data | No |
@@ -203,19 +197,15 @@ This list was auto-generated: feel free to update it and remove any that do not 
 | IWVB | SAP Gateway Business Suite Enablement -Vocabulary Annotation | No |
 | JOBD | Technical Job Definition | No |
 | LRCC | LRepository cross-client content | No |
-| MSAG | Message Class | No |
 | NHDU | HANA Transport Container | No |
 | NROB | Number Range Object | No |
 | OA2P | OAuth 2.0 Client Profile | No |
-| OA2S | OAuth2 Scope | No |
 | OCAO | OCAO | No |
 | OMLM | Output Management: T100 Longtext Link Mapping | No |
 | OTGR | Object type group | No |
-| PARA | SPA/GPA Parameters | No |
 | PDAC | Standard rule | No |
 | PDTS | Standard Task | No |
 | PDWS | Workflow template | No |
-| PRAG | Pragma in ABAP Source Code | No |
 | PT01 | Migration Project Template - Direct Transfer | No |
 | PT02 | Migration Object Template - Direct Transfer | No |
 | RMTC | RMTC | No |
@@ -259,8 +249,6 @@ This list was auto-generated: feel free to update it and remove any that do not 
 | SMTG | OM: Email Template | No |
 | SOD1 | Api Package | No |
 | SOD2 | API Package Assignment | No |
-| SOTR | All Concepts (OTR) of a Package - Short Texts | No |
-| SOTS | All Concepts (OTR) of a Package - Long Texts | No |
 | SPRX | Proxy Object | No |
 | SPSE | Security: PSE Definition | No |
 | SQAQ | Question | No |
@@ -284,7 +272,6 @@ This list was auto-generated: feel free to update it and remove any that do not 
 | SUSH | Assignment: Service --> Authorization Objects | No |
 | SXCI | Business Add-Ins - Implementations | No |
 | SXSD | Business Add-Ins - Definitions | No |
-| SYAG | System Log Messages | No |
 | TOBJ | Definition of a Maintenance and Transport Object | No |
 | TRUL | Transformation Rule | No |
 | UCSA | Unified Connectivity Service Assembly | No |
