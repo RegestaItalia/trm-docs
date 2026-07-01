@@ -105,193 +105,193 @@ This is a list of objects that are currently not supported. If automatic depende
 Some objects in this list **may be irrelevant** (for example, if no dependencies are possible).
 This list was auto-generated: feel free to update it and remove any that do not apply.
 
-| Object Type | Description | Supported |
-| ----------- | ----------- | --------- |
-| ACID | Checkpoint Group | No |
-| ADVC | App Variant (LRep cross-client content) | No |
-| AMSD | Logical Database Schema | No |
-| AOBJ | Archiving Object | No |
-| APIC | API Catalog | No |
-| APIS | API Release State of Objects | No |
-| APLO | Application Log Object | No |
-| AVAR | Activation Variants for Assertions and Breakpoints | No |
-| AVAS | Classification | No |
-| BCCH | Business Configuration Check | No |
-| BCCU | Business Configuration Check Units | No |
-| BGQC | Background Processing Context | No |
-| BOBF | BOPF: Business Object Model | No |
-| BOBX | BOPF: Business Object Model Extension | No |
-| CASP | SCC: Check Aspect | No |
-| CASV | SCC: Check Aspect Value | No |
-| CCAC | CDM Catalog (LREP cross-client content) | No |
-| CCFG | SCC: Check Configuration | No |
-| CCPR | Client Copy Profile | No |
-| CFD1 | Custom fields: IDoc Type Registry | No |
-| CFDA | Custom Logic Registration | No |
-| CFDB | Custom Fields: Business Context Registry | No |
-| CFDC | Custom Fields: CDS View Registry | No |
-| CFDF | Custom Field | No |
-| CFDG | Custom Fields: SAP GUI Registry | No |
-| CFDM | Custom fields: Function Module Registry | No |
-| CFDO | Custom Fields: OData Model Registry | No |
-| CFDP | Custom fields: SOAP Service Interface Registry | No |
-| CFDR | Custom Fields: Association Target | No |
-| CFDS | Custom Fields: Business Scenario Registry | No |
-| CFDT | Custom Fields: Data Transfer Registry | No |
-| CFDY | Custom Fields: Abstract Entity Registry | No |
-| CGRC | CDM Group (LREP cross-client content) | No |
-| CHAR | Object characteristic | No |
-| CHDO | Change Document Object | No |
-| CHKE | Check Exemptions | No |
-| CMHC | Cloud Management Health Check | No |
-| CMOD | Customer enhancement projects | No |
-| CMPT | Code Composer Template | No |
-| CUS0 | Customizing IMG Activity | No |
-| DDLA | CDS Annotation Definition | No |
-| DDLV | CDS Variant | No |
-| DEVC | Package | No |
-| DOBJ | Data Destruction Object | No |
-| DRTY | CDS Type Definitions | No |
-| DRUL | Dependency Rule | No |
-| DSEL | Selection View | No |
-| DSFD | CDS Scalar Function Definition | No |
-| DSFI | CDS Scalar Function Implementation Reference | No |
-| DTDC | Dictionary Tuning: Dynamic Cache | No |
-| DTEB | Entity Buffer | No |
-| ECAT | eCATT Test Script | No |
-| ECSD | eCATT System Data Container | No |
-| ECSP | eCATT Start Profile | No |
-| ECTC | eCATT Test Configuration | No |
-| ECTD | eCATT Test Data Container | No |
-| ECVO | eCATT Validation Object | No |
-| EDCC | EDCC | No |
-| EDOI | EDOI | No |
-| EDOM | EDOM | No |
-| EDOP | EDOP | No |
-| EDOT | EDOT | No |
-| EEEC | Enterprise Event Enablement - Event Consumer | No |
-| ENSC | Composite Enhancement Spot | No |
-| FDT0 | FDT/BRFplus: System Application | No |
-| FUGS | Function Group with Customer Include: SAP Part | No |
-| G4BA | SAP Gateway OData V4 Backend Service Group & Assignments | No |
-| G4BS | SAP Gateway OData V4 Backend Service | No |
-| GCCV | Cross-Client Validation Check | No |
-| GCPM | SAP Gateway OData Client Proxy - Proxy Model | No |
-| GSMP | Generic Simple Metric Provider | No |
-| HOTA | Full Package (SAP HANA Transport for ABAP) | No |
-| HTTP | HTTP Service | No |
-| IAML | Language-Dependent IAC Binary Data | No |
-| IAMU | Language-Independent IAC Binary Data | No |
-| IARP | Parameters of IAC Language Resource | No |
-| IATL | Language-Dependent IAC Templates | No |
-| IAXU | ITS: XML Templates for HTML Templates | No |
-| ILMB | ILM Object | No |
-| INA1 | InA Service | No |
-| INTM | Intelligent Scenario Model | No |
-| INTS | Intelligent Scenario | No |
-| IWMO | SAP Gateway Business Suite Enablement - Model | No |
-| IWOM | SAP Gateway: Model Metadata | No |
-| IWPR | SAP Gateway BSE - Service Builder Project | No |
-| IWSG | SAP Gateway: Service Groups Metadata | No |
-| IWSV | SAP Gateway Business Suite Enablement - Service | No |
-| IWVB | SAP Gateway Business Suite Enablement -Vocabulary Annotation | No |
-| JOBD | Technical Job Definition | No |
-| LRCC | LRepository cross-client content | No |
-| NHDU | HANA Transport Container | No |
-| NROB | Number Range Object | No |
-| OA2P | OAuth 2.0 Client Profile | No |
-| OCAO | OCAO | No |
-| OMLM | Output Management: T100 Longtext Link Mapping | No |
-| OTGR | Object type group | No |
-| PDAC | Standard rule | No |
-| PDTS | Standard Task | No |
-| PDWS | Workflow template | No |
-| PT01 | Migration Project Template - Direct Transfer | No |
-| PT02 | Migration Object Template - Direct Transfer | No |
-| RMTC | RMTC | No |
-| RONT | RESTful ABAP Programming Model: Object (Node) Type | No |
-| RPDF | Report definition for the classification tool-set | No |
-| SAJC | Application Job Catalog Entry | No |
-| SAJT | Application Job Template | No |
-| SAMC | ABAP Messaging Channel Application | No |
-| SAPC | ABAP Push Channel Application | No |
-| SBCL | Semantic Business Configuration Lock Definition | No |
-| SBLE | Customer Extension of Business Logic with restricted ABAP | No |
-| SCAT | Test case | No |
-| SCBO | Custom Business Object | No |
-| SCCL | Custom Code List | No |
-| SCCV | Custom CDS Views | No |
-| SCGR | Service Consumer Group | No |
-| SCP1 | BC Set or Customizing Profile | No |
-| SCP2 | Switch BC Sets | No |
-| SCRL | Custom Reuse Library | No |
-| SDAT | SAP Delivered Table Authorization Group Assignments | No |
-| SFKX | Foreign Key Check Exception | No |
-| SFPF | Form Object: Form | No |
-| SFPI | Form Object: Interface | No |
-| SHMA | Shared Objects: Defined Area Attributes | No |
-| SICF | ICF Service | No |
-| SITB | SITB | No |
-| SITO | SITO | No |
-| SMBC | Business Configuration Object | No |
-| SMD1 | Definition of an R-LOIO class | No |
-| SMD2 | Definition of a V-LOIO class | No |
-| SMD3 | Definition of an R-PHIO class | No |
-| SMD4 | Definition of a V-PHIO class | No |
-| SMD5 | Definition of an R-RELA class | No |
-| SMD6 | Definition of a V-RELA class | No |
-| SMDA | Definition of an IO attribute | No |
-| SMDC | IO class link area | No |
-| SMDK | Definition of a context class | No |
-| SMDM | Document model area | No |
-| SMIM | Info Object from the MIME Repository | No |
-| SMOD | SAP enhancements | No |
-| SMTG | OM: Email Template | No |
-| SOD1 | Api Package | No |
-| SOD2 | API Package Assignment | No |
-| SPRX | Proxy Object | No |
-| SPSE | Security: PSE Definition | No |
-| SQAQ | Question | No |
-| SQL1 | SQL Service Binding (SQL1) | No |
-| SQSC | Database Procedure Proxy | No |
-| SRFA | SRFA | No |
-| SRFC | RFC Service | No |
-| SRFP | SRFP | No |
-| SRFQ | SRFQ | No |
-| SRFR | SRFR | No |
-| SRFS | SRFS | No |
-| SRVB | Service Binding | No |
-| SRVC | Service Consumption Model | No |
-| SRVD | Service Definition | No |
-| STC1 | Configuration Entity | No |
-| STCS | TC Task List | No |
-| STYC | Embedded Analytics Story | No |
-| SUCD | Scenario for Switchable Authorization Check (Definition) | No |
-| SUCK | Header Data for General Authorization Groups | No |
-| SUSC | Authorization object class | No |
-| SUSH | Assignment: Service --> Authorization Objects | No |
-| SXCI | Business Add-Ins - Implementations | No |
-| SXSD | Business Add-Ins - Definitions | No |
-| TOBJ | Definition of a Maintenance and Transport Object | No |
-| TRUL | Transformation Rule | No |
-| UCSA | Unified Connectivity Service Assembly | No |
-| UIAC | Fiori Launchpad Technical Catalog | No |
-| UIAD | Fiori Launchpad App Descriptor Item | No |
-| VCMD | VCMD | No |
-| VKOI | VKOI | No |
-| VKOS | VKOS | No |
-| VTRM | Verticalization Terminology | No |
-| VTRR | Verticalization: Text repository Registration | No |
-| WDCA | Web Dynpro Application Configuration | No |
-| WDCC | Web Dynpro Component Configuration | No |
-| WDCP | Web Dynpro CHIP | No |
-| WEBI | Virtual End Point | No |
-| WEBS | Web Services | No |
-| WGRP | Object Type Group (ABAP Workbench / R3TR) | No |
-| WTAG | BSP Extension | No |
-| WTHM | O2: Topics for BSP Application | No |
-| XINX | Ext. Index | No |
-| XSLT | Transformation | No |
+| Object Type | Description | Supported | Issue |
+| ----------- | ----------- | --------- | ---- |
+| ACID | Checkpoint Group | No | [#64](https://github.com/RegestaItalia/trm-server/issues/64) |
+| ADVC | App Variant (LRep cross-client content) | No | [#88](https://github.com/RegestaItalia/trm-server/issues/88) |
+| AMSD | Logical Database Schema | No | [#89](https://github.com/RegestaItalia/trm-server/issues/89) |
+| AOBJ | Archiving Object | No | [#90](https://github.com/RegestaItalia/trm-server/issues/90) |
+| APIC | API Catalog | No | [#91](https://github.com/RegestaItalia/trm-server/issues/91) |
+| APIS | API Release State of Objects | No | [#92](https://github.com/RegestaItalia/trm-server/issues/92) |
+| APLO | Application Log Object | No | [#93](https://github.com/RegestaItalia/trm-server/issues/93) |
+| AVAR | Activation Variants for Assertions and Breakpoints | No | [#94](https://github.com/RegestaItalia/trm-server/issues/94) |
+| AVAS | Classification | No | [#95](https://github.com/RegestaItalia/trm-server/issues/95) |
+| BCCH | Business Configuration Check | No | [#96](https://github.com/RegestaItalia/trm-server/issues/96) |
+| BCCU | Business Configuration Check Units | No | [#97](https://github.com/RegestaItalia/trm-server/issues/97) |
+| BGQC | Background Processing Context | No | [#98](https://github.com/RegestaItalia/trm-server/issues/98) |
+| BOBF | BOPF: Business Object Model | No | [#99](https://github.com/RegestaItalia/trm-server/issues/99) |
+| BOBX | BOPF: Business Object Model Extension | No | [#103](https://github.com/RegestaItalia/trm-server/issues/103) |
+| CASP | SCC: Check Aspect | No | [#100](https://github.com/RegestaItalia/trm-server/issues/100) |
+| CASV | SCC: Check Aspect Value | No | [#101](https://github.com/RegestaItalia/trm-server/issues/101) |
+| CCAC | CDM Catalog (LREP cross-client content) | No | [#102](https://github.com/RegestaItalia/trm-server/issues/102) |
+| CCFG | SCC: Check Configuration | No | [#104](https://github.com/RegestaItalia/trm-server/issues/104) |
+| CCPR | Client Copy Profile | No | [#105](https://github.com/RegestaItalia/trm-server/issues/105) |
+| CFD1 | Custom fields: IDoc Type Registry | No | [#106](https://github.com/RegestaItalia/trm-server/issues/106) |
+| CFDA | Custom Logic Registration | No | [#107](https://github.com/RegestaItalia/trm-server/issues/107) |
+| CFDB | Custom Fields: Business Context Registry | No | [#108](https://github.com/RegestaItalia/trm-server/issues/108) |
+| CFDC | Custom Fields: CDS View Registry | No | [#109](https://github.com/RegestaItalia/trm-server/issues/109) |
+| CFDF | Custom Field | No | [#110](https://github.com/RegestaItalia/trm-server/issues/110) |
+| CFDG | Custom Fields: SAP GUI Registry | No | [#111](https://github.com/RegestaItalia/trm-server/issues/111) |
+| CFDM | Custom fields: Function Module Registry | No | [#112](https://github.com/RegestaItalia/trm-server/issues/112) |
+| CFDO | Custom Fields: OData Model Registry | No | [#113](https://github.com/RegestaItalia/trm-server/issues/113) |
+| CFDP | Custom fields: SOAP Service Interface Registry | No | [#114](https://github.com/RegestaItalia/trm-server/issues/114) |
+| CFDR | Custom Fields: Association Target | No | [#115](https://github.com/RegestaItalia/trm-server/issues/115) |
+| CFDS | Custom Fields: Business Scenario Registry | No | [#116](https://github.com/RegestaItalia/trm-server/issues/116) |
+| CFDT | Custom Fields: Data Transfer Registry | No | [#117](https://github.com/RegestaItalia/trm-server/issues/117) |
+| CFDY | Custom Fields: Abstract Entity Registry | No | [#118](https://github.com/RegestaItalia/trm-server/issues/118) |
+| CGRC | CDM Group (LREP cross-client content) | No | [#119](https://github.com/RegestaItalia/trm-server/issues/119) |
+| CHAR | Object characteristic | No | [#120](https://github.com/RegestaItalia/trm-server/issues/120) |
+| CHDO | Change Document Object | No | [#121](https://github.com/RegestaItalia/trm-server/issues/121) |
+| CHKE | Check Exemptions | No | [#122](https://github.com/RegestaItalia/trm-server/issues/122) |
+| CMHC | Cloud Management Health Check | No | [#65](https://github.com/RegestaItalia/trm-server/issues/65) |
+| CMOD | Customer enhancement projects | No | [#123](https://github.com/RegestaItalia/trm-server/issues/123) |
+| CMPT | Code Composer Template | No | [#66](https://github.com/RegestaItalia/trm-server/issues/66) |
+| CUS0 | Customizing IMG Activity | No | [#124](https://github.com/RegestaItalia/trm-server/issues/124) |
+| DDLA | CDS Annotation Definition | No | [#125](https://github.com/RegestaItalia/trm-server/issues/125) |
+| DDLV | CDS Variant | No | [#126](https://github.com/RegestaItalia/trm-server/issues/126) |
+| DEVC | Package | No | [#127](https://github.com/RegestaItalia/trm-server/issues/127) |
+| DOBJ | Data Destruction Object | No | [#128](https://github.com/RegestaItalia/trm-server/issues/128) |
+| DRTY | CDS Type Definitions | No | [#129](https://github.com/RegestaItalia/trm-server/issues/129) |
+| DRUL | Dependency Rule | No | [#130](https://github.com/RegestaItalia/trm-server/issues/130) |
+| DSEL | Selection View | No | [#131](https://github.com/RegestaItalia/trm-server/issues/131) |
+| DSFD | CDS Scalar Function Definition | No | [#132](https://github.com/RegestaItalia/trm-server/issues/132) |
+| DSFI | CDS Scalar Function Implementation Reference | No | [#133](https://github.com/RegestaItalia/trm-server/issues/133) |
+| DTDC | Dictionary Tuning: Dynamic Cache | No | [#134](https://github.com/RegestaItalia/trm-server/issues/134) |
+| DTEB | Entity Buffer | No | [#135](https://github.com/RegestaItalia/trm-server/issues/135) |
+| ECAT | eCATT Test Script | No | [#136](https://github.com/RegestaItalia/trm-server/issues/136) |
+| ECSD | eCATT System Data Container | No | [#137](https://github.com/RegestaItalia/trm-server/issues/137) |
+| ECSP | eCATT Start Profile | No | [#138](https://github.com/RegestaItalia/trm-server/issues/138) |
+| ECTC | eCATT Test Configuration | No | [#139](https://github.com/RegestaItalia/trm-server/issues/139) |
+| ECTD | eCATT Test Data Container | No | [#140](https://github.com/RegestaItalia/trm-server/issues/140) |
+| ECVO | eCATT Validation Object | No | [#141](https://github.com/RegestaItalia/trm-server/issues/141) |
+| EDCC | EDCC | No | [#67](https://github.com/RegestaItalia/trm-server/issues/67) |
+| EDOI | EDOI | No | [#68](https://github.com/RegestaItalia/trm-server/issues/68) |
+| EDOM | EDOM | No | [#69](https://github.com/RegestaItalia/trm-server/issues/69) |
+| EDOP | EDOP | No | [#70](https://github.com/RegestaItalia/trm-server/issues/70) |
+| EDOT | EDOT | No | [#71](https://github.com/RegestaItalia/trm-server/issues/71) |
+| EEEC | Enterprise Event Enablement - Event Consumer | No | [#142](https://github.com/RegestaItalia/trm-server/issues/142) |
+| ENSC | Composite Enhancement Spot | No | [#143](https://github.com/RegestaItalia/trm-server/issues/143) |
+| FDT0 | FDT/BRFplus: System Application | No | [#144](https://github.com/RegestaItalia/trm-server/issues/144) |
+| FUGS | Function Group with Customer Include: SAP Part | No | [#145](https://github.com/RegestaItalia/trm-server/issues/145) |
+| G4BA | SAP Gateway OData V4 Backend Service Group & Assignments | No | [#146](https://github.com/RegestaItalia/trm-server/issues/146) |
+| G4BS | SAP Gateway OData V4 Backend Service | No | [#147](https://github.com/RegestaItalia/trm-server/issues/147) |
+| GCCV | Cross-Client Validation Check | No | [#148](https://github.com/RegestaItalia/trm-server/issues/148) |
+| GCPM | SAP Gateway OData Client Proxy - Proxy Model | No | [#149](https://github.com/RegestaItalia/trm-server/issues/149) |
+| GSMP | Generic Simple Metric Provider | No | [#72](https://github.com/RegestaItalia/trm-server/issues/72) |
+| HOTA | Full Package (SAP HANA Transport for ABAP) | No | [#150](https://github.com/RegestaItalia/trm-server/issues/150) |
+| HTTP | HTTP Service | No | [#151](https://github.com/RegestaItalia/trm-server/issues/151) |
+| IAML | Language-Dependent IAC Binary Data | No | [#152](https://github.com/RegestaItalia/trm-server/issues/152) |
+| IAMU | Language-Independent IAC Binary Data | No | [#153](https://github.com/RegestaItalia/trm-server/issues/153) |
+| IARP | Parameters of IAC Language Resource | No | [#154](https://github.com/RegestaItalia/trm-server/issues/154) |
+| IATL | Language-Dependent IAC Templates | No | [#155](https://github.com/RegestaItalia/trm-server/issues/155) |
+| IAXU | ITS: XML Templates for HTML Templates | No | [#156](https://github.com/RegestaItalia/trm-server/issues/156) |
+| ILMB | ILM Object | No | [#157](https://github.com/RegestaItalia/trm-server/issues/157) |
+| INA1 | InA Service | No | [#158](https://github.com/RegestaItalia/trm-server/issues/158) |
+| INTM | Intelligent Scenario Model | No | [#159](https://github.com/RegestaItalia/trm-server/issues/159) |
+| INTS | Intelligent Scenario | No | [#160](https://github.com/RegestaItalia/trm-server/issues/160) |
+| IWMO | SAP Gateway Business Suite Enablement - Model | No | [#161](https://github.com/RegestaItalia/trm-server/issues/161) |
+| IWOM | SAP Gateway: Model Metadata | No | [#162](https://github.com/RegestaItalia/trm-server/issues/162) |
+| IWPR | SAP Gateway BSE - Service Builder Project | No | [#163](https://github.com/RegestaItalia/trm-server/issues/163) |
+| IWSG | SAP Gateway: Service Groups Metadata | No | [#164](https://github.com/RegestaItalia/trm-server/issues/164) |
+| IWSV | SAP Gateway Business Suite Enablement - Service | No | [#165](https://github.com/RegestaItalia/trm-server/issues/165) |
+| IWVB | SAP Gateway Business Suite Enablement -Vocabulary Annotation | No | [#166](https://github.com/RegestaItalia/trm-server/issues/166) |
+| JOBD | Technical Job Definition | No | [#167](https://github.com/RegestaItalia/trm-server/issues/167) |
+| LRCC | LRepository cross-client content | No | [#168](https://github.com/RegestaItalia/trm-server/issues/168) |
+| NHDU | HANA Transport Container | No | [#169](https://github.com/RegestaItalia/trm-server/issues/169) |
+| NROB | Number Range Object | No | [#170](https://github.com/RegestaItalia/trm-server/issues/170) |
+| OA2P | OAuth 2.0 Client Profile | No | [#171](https://github.com/RegestaItalia/trm-server/issues/171) |
+| OCAO | OCAO | No | [#73](https://github.com/RegestaItalia/trm-server/issues/73) |
+| OMLM | Output Management: T100 Longtext Link Mapping | No | [#172](https://github.com/RegestaItalia/trm-server/issues/172) |
+| OTGR | Object type group | No | [#173](https://github.com/RegestaItalia/trm-server/issues/173) |
+| PDAC | Standard rule | No | [#174](https://github.com/RegestaItalia/trm-server/issues/174) |
+| PDTS | Standard Task | No | [#175](https://github.com/RegestaItalia/trm-server/issues/175) |
+| PDWS | Workflow template | No | [#176](https://github.com/RegestaItalia/trm-server/issues/176) |
+| PT01 | Migration Project Template - Direct Transfer | No | [#177](https://github.com/RegestaItalia/trm-server/issues/177) |
+| PT02 | Migration Object Template - Direct Transfer | No | [#178](https://github.com/RegestaItalia/trm-server/issues/178) |
+| RMTC | RMTC | No | [#74](https://github.com/RegestaItalia/trm-server/issues/74) |
+| RONT | RESTful ABAP Programming Model: Object (Node) Type | No | [#179](https://github.com/RegestaItalia/trm-server/issues/179) |
+| RPDF | Report definition for the classification tool-set | No | [#75](https://github.com/RegestaItalia/trm-server/issues/75) |
+| SAJC | Application Job Catalog Entry | No | [#180](https://github.com/RegestaItalia/trm-server/issues/180) |
+| SAJT | Application Job Template | No | [#181](https://github.com/RegestaItalia/trm-server/issues/181) |
+| SAMC | ABAP Messaging Channel Application | No | [#182](https://github.com/RegestaItalia/trm-server/issues/182) |
+| SAPC | ABAP Push Channel Application | No | [#183](https://github.com/RegestaItalia/trm-server/issues/183) |
+| SBCL | Semantic Business Configuration Lock Definition | No | [#184](https://github.com/RegestaItalia/trm-server/issues/184) |
+| SBLE | Customer Extension of Business Logic with restricted ABAP | No | [#185](https://github.com/RegestaItalia/trm-server/issues/185) |
+| SCAT | Test case | No | [#186](https://github.com/RegestaItalia/trm-server/issues/186) |
+| SCBO | Custom Business Object | No | [#187](https://github.com/RegestaItalia/trm-server/issues/187) |
+| SCCL | Custom Code List | No | [#188](https://github.com/RegestaItalia/trm-server/issues/188) |
+| SCCV | Custom CDS Views | No | [#189](https://github.com/RegestaItalia/trm-server/issues/189) |
+| SCGR | Service Consumer Group | No | [#190](https://github.com/RegestaItalia/trm-server/issues/190) |
+| SCP1 | BC Set or Customizing Profile | No | [#191](https://github.com/RegestaItalia/trm-server/issues/191) |
+| SCP2 | Switch BC Sets | No | [#192](https://github.com/RegestaItalia/trm-server/issues/192) |
+| SCRL | Custom Reuse Library | No | [#193](https://github.com/RegestaItalia/trm-server/issues/193) |
+| SDAT | SAP Delivered Table Authorization Group Assignments | No | [#194](https://github.com/RegestaItalia/trm-server/issues/194) |
+| SFKX | Foreign Key Check Exception | No | [#195](https://github.com/RegestaItalia/trm-server/issues/195) |
+| SFPF | Form Object: Form | No | [#196](https://github.com/RegestaItalia/trm-server/issues/196) |
+| SFPI | Form Object: Interface | No | [#197](https://github.com/RegestaItalia/trm-server/issues/197) |
+| SHMA | Shared Objects: Defined Area Attributes | No | [#198](https://github.com/RegestaItalia/trm-server/issues/198) |
+| SICF | ICF Service | No | [#199](https://github.com/RegestaItalia/trm-server/issues/199) |
+| SITB | SITB | No | [#76](https://github.com/RegestaItalia/trm-server/issues/76) |
+| SITO | SITO | No | [#77](https://github.com/RegestaItalia/trm-server/issues/77) |
+| SMBC | Business Configuration Object | No | [#200](https://github.com/RegestaItalia/trm-server/issues/200) |
+| SMD1 | Definition of an R-LOIO class | No | [#201](https://github.com/RegestaItalia/trm-server/issues/201) |
+| SMD2 | Definition of a V-LOIO class | No | [#202](https://github.com/RegestaItalia/trm-server/issues/202) |
+| SMD3 | Definition of an R-PHIO class | No | [#203](https://github.com/RegestaItalia/trm-server/issues/203) |
+| SMD4 | Definition of a V-PHIO class | No | [#204](https://github.com/RegestaItalia/trm-server/issues/204) |
+| SMD5 | Definition of an R-RELA class | No | [#205](https://github.com/RegestaItalia/trm-server/issues/205) |
+| SMD6 | Definition of a V-RELA class | No | [#206](https://github.com/RegestaItalia/trm-server/issues/206) |
+| SMDA | Definition of an IO attribute | No | [#207](https://github.com/RegestaItalia/trm-server/issues/207) |
+| SMDC | IO class link area | No | [#209](https://github.com/RegestaItalia/trm-server/issues/209) |
+| SMDK | Definition of a context class | No | [#208](https://github.com/RegestaItalia/trm-server/issues/208) |
+| SMDM | Document model area | No | [#210](https://github.com/RegestaItalia/trm-server/issues/210) |
+| SMIM | Info Object from the MIME Repository | No | [#211](https://github.com/RegestaItalia/trm-server/issues/211) |
+| SMOD | SAP enhancements | No | [#212](https://github.com/RegestaItalia/trm-server/issues/212) |
+| SMTG | OM: Email Template | No | [#213](https://github.com/RegestaItalia/trm-server/issues/213) |
+| SOD1 | Api Package | No | [#214](https://github.com/RegestaItalia/trm-server/issues/214) |
+| SOD2 | API Package Assignment | No | [#215](https://github.com/RegestaItalia/trm-server/issues/215) |
+| SPRX | Proxy Object | No | [#216](https://github.com/RegestaItalia/trm-server/issues/216) |
+| SPSE | Security: PSE Definition | No | [#217](https://github.com/RegestaItalia/trm-server/issues/217) |
+| SQAQ | Question | No | [#78](https://github.com/RegestaItalia/trm-server/issues/78) |
+| SQL1 | SQL Service Binding (SQL1) | No | [#218](https://github.com/RegestaItalia/trm-server/issues/218) |
+| SQSC | Database Procedure Proxy | No | [#219](https://github.com/RegestaItalia/trm-server/issues/219) |
+| SRFA | SRFA | No | [#79](https://github.com/RegestaItalia/trm-server/issues/79) |
+| SRFC | RFC Service | No | [#220](https://github.com/RegestaItalia/trm-server/issues/220) |
+| SRFP | SRFP | No | [#80](https://github.com/RegestaItalia/trm-server/issues/80) |
+| SRFQ | SRFQ | No | [#81](https://github.com/RegestaItalia/trm-server/issues/81) |
+| SRFR | SRFR | No | [#82](https://github.com/RegestaItalia/trm-server/issues/82) |
+| SRFS | SRFS | No | [#83](https://github.com/RegestaItalia/trm-server/issues/83) |
+| SRVB | Service Binding | No | [#221](https://github.com/RegestaItalia/trm-server/issues/221) |
+| SRVC | Service Consumption Model | No | [#222](https://github.com/RegestaItalia/trm-server/issues/222) |
+| SRVD | Service Definition | No | [#223](https://github.com/RegestaItalia/trm-server/issues/223) |
+| STC1 | Configuration Entity | No | [#224](https://github.com/RegestaItalia/trm-server/issues/224) |
+| STCS | TC Task List | No | [#225](https://github.com/RegestaItalia/trm-server/issues/225) |
+| STYC | Embedded Analytics Story | No | [#226](https://github.com/RegestaItalia/trm-server/issues/226) |
+| SUCD | Scenario for Switchable Authorization Check (Definition) | No | [#227](https://github.com/RegestaItalia/trm-server/issues/227) |
+| SUCK | Header Data for General Authorization Groups | No | [#228](https://github.com/RegestaItalia/trm-server/issues/228) |
+| SUSC | Authorization object class | No | [#229](https://github.com/RegestaItalia/trm-server/issues/229) |
+| SUSH | Assignment: Service --> Authorization Objects | No | [#230](https://github.com/RegestaItalia/trm-server/issues/230) |
+| SXCI | Business Add-Ins - Implementations | No | [#231](https://github.com/RegestaItalia/trm-server/issues/231) |
+| SXSD | Business Add-Ins - Definitions | No | [#232](https://github.com/RegestaItalia/trm-server/issues/232) |
+| TOBJ | Definition of a Maintenance and Transport Object | No | [#233](https://github.com/RegestaItalia/trm-server/issues/233) |
+| TRUL | Transformation Rule | No | [#234](https://github.com/RegestaItalia/trm-server/issues/234) |
+| UCSA | Unified Connectivity Service Assembly | No | [#235](https://github.com/RegestaItalia/trm-server/issues/235) |
+| UIAC | Fiori Launchpad Technical Catalog | No | [#236](https://github.com/RegestaItalia/trm-server/issues/236) |
+| UIAD | Fiori Launchpad App Descriptor Item | No | [#237](https://github.com/RegestaItalia/trm-server/issues/237) |
+| VCMD | VCMD | No | [#84](https://github.com/RegestaItalia/trm-server/issues/84) |
+| VKOI | VKOI | No | [#85](https://github.com/RegestaItalia/trm-server/issues/85) |
+| VKOS | VKOS | No | [#86](https://github.com/RegestaItalia/trm-server/issues/86) |
+| VTRM | Verticalization Terminology | No | [#238](https://github.com/RegestaItalia/trm-server/issues/238) |
+| VTRR | Verticalization: Text repository Registration | No | [#239](https://github.com/RegestaItalia/trm-server/issues/239) |
+| WDCA | Web Dynpro Application Configuration | No | [#240](https://github.com/RegestaItalia/trm-server/issues/240) |
+| WDCC | Web Dynpro Component Configuration | No | [#241](https://github.com/RegestaItalia/trm-server/issues/241) |
+| WDCP | Web Dynpro CHIP | No | [#242](https://github.com/RegestaItalia/trm-server/issues/242) |
+| WEBI | Virtual End Point | No | [#243](https://github.com/RegestaItalia/trm-server/issues/243) |
+| WEBS | Web Services | No | [#244](https://github.com/RegestaItalia/trm-server/issues/244) |
+| WGRP | Object Type Group (ABAP Workbench / R3TR) | No | [#245](https://github.com/RegestaItalia/trm-server/issues/245) |
+| WTAG | BSP Extension | No | [#246](https://github.com/RegestaItalia/trm-server/issues/246) |
+| WTHM | O2: Topics for BSP Application | No | [#247](https://github.com/RegestaItalia/trm-server/issues/247) |
+| XINX | Ext. Index | No | [#248](https://github.com/RegestaItalia/trm-server/issues/248) |
+| XSLT | Transformation | No | [#249](https://github.com/RegestaItalia/trm-server/issues/249) |
 
 ## SAP Objects
 
