@@ -1,34 +1,34 @@
-# Dealing with release candidates
+# Dealing with release candidates
 
 A release candidate (RC) is a version of a package that is almost ready to become a final release.
 It’s basically a “preview” version meant for testing before the official release goes out to everyone.
 
-Release candidates are a good way to move your product from the central development system to a customer development system where there might better data to test the new features, in a stage where human tests are done before declaring the release is ready and definitive.
+Release candidates are a useful way to move your product from the central development system to a customer's development system, where better test data may be available. This creates a stage for manual testing before the release is declared final.
 
-## Release tags
+## Release tags
 
-Tags are particolary useful with release candidates.
+Tags are particularly useful for release candidates.
 A tag is simply a label that points to a release of the package.
 
-> We've been using tags up until now without noticing... the latest keyword is a tag itself that points to the latest release of the package!
+> We've been using tags all along without noticing: the `latest` keyword is itself a tag that points to the latest release of the package.
 
-Adding a tag to a release candidate (common tags are `rc`, `alpha`, `dev`...) allows the end user (or who is in charge of the human tests) to install the latest available release candidate.
+Adding a tag to a release candidate (common tags include `rc`, `alpha`, and `dev`) allows end users or testers to install the latest available release candidate.
 
 ## Publishing a release candidate
 
-There's really not much changing in the publish steps of a release candidate, except maybe for the version of the release.
-When it comes to versioning, it's good practice to indicate a prerelease by adding it to the version itself, like `1.0.3-rc.0` (release candidate build 0).
-This makes it clear to end users that the release is still not ready for production.
+The steps for publishing a release candidate are largely the same; the main difference is the release version.
+It is good practice to indicate a prerelease in the version itself, as in `1.0.3-rc.0` (release candidate build 0).
+This makes it clear to end users that the release is not yet ready for production.
 
-> 💡 Tip: just like publishing without indicating a version TRM proposes an increase of the latest available version, you can also do that with prereleases, by using --prerelease and --pre-release-identifier <identifier>
+> 💡 Tip: When you publish without specifying a version, TRM proposes an increment of the latest available version. You can do the same for prereleases by using `--prerelease` and `--pre-release-identifier <identifier>`.
 
-Let's publish the first release candidate of `@trmsamples/doc-demo` version `1.0.3`, and tagging it `rc`.
+Let's publish the first release candidate of `@trmsamples/doc-demo` version `1.0.3` and tag it `rc`.
 
 <div style="display:flex; justify-content:center;">
   <img src="/examples/media/4_1_dealing_with_release_candidates.png" alt="Publishing with a tag" style="max-width:100%; height:auto; border-radius:8px;">
 </div>
 
-> Notice TRM indicates the release is tagged with `rc`
+> Notice that TRM indicates the release is tagged with `rc`.
 
 If we go to the registry website we can confirm the `rc` tag is in place:
 
@@ -36,8 +36,8 @@ If we go to the registry website we can confirm the `rc` tag is in place:
   <img src="/examples/media/4_2_dealing_with_release_candidates.png" alt="Publishing with a tag" style="max-width:100%; height:auto; border-radius:8px;">
 </div>
 
-This clearly shows that the `latest` tag still points to version `1.0.2` and if an end user was to install the latest stable version, they'd get version `1.0.2`.
-However a release candidate exists, and it's tagged with `rc` pointing to version `1.0.3-rc.0`.
+This shows that the `latest` tag still points to version `1.0.2`. If an end user installs the latest stable version, they receive version `1.0.2`.
+However, a release candidate exists, and its `rc` tag points to version `1.0.3-rc.0`.
 
 ## Installing a release candidate and promoting to latest
 
@@ -48,9 +48,9 @@ Just like any install, we can point to a specific version or to a tag. In this c
 </div>
 
 As you can see, `rc` installed `1.0.3-rc.0`.
-At this point, now release candidates of version `1.0.3` can be published (`1.0.3-rc.1`, `1.0.3-rc.2` and so on) and the `rc` tag can be moved to the latest release candidate available.
+Additional release candidates for version `1.0.3` can now be published (`1.0.3-rc.1`, `1.0.3-rc.2`, and so on), and the `rc` tag can be moved to the latest available release candidate.
 
-Once we're ready to release `1.0.3`, we can either re-publish the latest release candidate (essentially cleaning the semantic versioning from `1.0.3-rc.0` to `1.0.3`) or simply reassign the `latest` tag and delete the `rc` tag.
+Once we're ready to release `1.0.3`, we can either republish the latest release candidate with the final semantic version (`1.0.3` instead of `1.0.3-rc.0`) or simply reassign the `latest` tag and delete the `rc` tag.
 
 <div style="display:flex; justify-content:center;">
   <img src="/examples/media/4_4_dealing_with_release_candidates.png" alt="Retagging the release" style="max-width:100%; height:auto; border-radius:8px;">

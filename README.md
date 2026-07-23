@@ -15,7 +15,7 @@
 | Regesta S.p.A.                                  | [https://www.regestaitalia.eu/](https://www.regestaitalia.eu/) |
 | Clarex S.r.l.                                   | [https://www.clarex.it/](https://www.clarex.it/)               |
 
-**TRM (Transport Request Manager)** is a package manager inspired solution built leveraging CTS that simplifies SAP ABAP transports.
+**TRM (Transport Request Manager)** is a package-manager-inspired solution built on CTS that simplifies SAP ABAP transports.
 
 <p align="center">
   <img src="logo.png" alt="TRM Logo" />
@@ -27,7 +27,7 @@ TRM introduces **package-based software delivery** to the SAP ecosystem, bringin
 
 # What is TRM?
 
-TRM is a software that transforms how custom ABAP developments are published, installed, and maintained across SAP landscapes.
+TRM is software that transforms how custom ABAP developments are published, installed, and maintained across SAP landscapes.
 Inspired by modern package managers, TRM introduces a declarative, version-controlled, and automated way to manage your SAP transports.
 
 With TRM, you can:
@@ -35,7 +35,7 @@ With TRM, you can:
 - **Define a manifest** for each ABAP package (similar to `package.json` with Node.js or `pom.xml` with Maven)
 - **Version your products** ([SemVer](https://semver.org/) compliance)
 - **Declare dependencies** (to other TRM packages, SAP standard objects, or customizing data)
-- **Automate post-install activities**, such as client dependant customizing, cache invalidation etc.
+- **Automate post-install activities**, such as client-dependent customizing and cache invalidation
 - **Validate system requirements** prior to installation
 - **Compare versions** of the same product across multiple SAP systems (in or outside the same landscape)
 - **Distribute** your product release to the public or to a restricted number of users:
@@ -45,7 +45,7 @@ With TRM, you can:
 ## Modern approach for ABAP
 
 - Publish ABAP packages from a **central development system**
-- Deliver packages to target systems (outside of the original landscape e.g. customers development system) using a single CLI command (or in a pipeline)
+- Deliver packages to target systems (outside the original landscape, such as a customer's development system) using a single CLI command or pipeline
 - Full support for **workbench objects**, **customizing**, and **translations**
 
 ## Structured Manifest
@@ -69,7 +69,7 @@ Each package includes a `manifest.json` that declares:
 
 # Contributors
 
-Like every other TRM open-source projects, contributions are always welcomed ❤️. <!-- {docsify-remove} -->
+Like every other TRM open-source project, we always welcome contributions ❤️. <!-- {docsify-remove} -->
 
 Make sure to open an issue first. <!-- {docsify-remove} -->
 

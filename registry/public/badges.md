@@ -28,7 +28,7 @@ Displays the **version** of a release.
 
 - **Endpoint**: `https://trmregistry.com/public/shieldio/version/<package name>`
 - **Query Parameters**:
-  - `version` (optiona): Specific version or tag (default: 'latest')
+  - `version` (optional): Specific version or tag (default: `latest`)
 
 ---
 
@@ -50,7 +50,7 @@ Displays the **license** of a release.
 
 - **Endpoint**: `https://trmregistry.com/public/shieldio/license/<package name>`
 - **Query Parameters**:
-  - `version` (optiona): Specific version or tag (default: 'latest')
+  - `version` (optional): Specific version or tag (default: `latest`)
 
 ---
 
@@ -70,6 +70,6 @@ Displays the **total number of downloads** for all versions of the package.
 
 ### API Details
 
-- **Endpoint**: `https://trmregistry.com/public/shieldio/license/<package name>`
+- **Endpoint**: `https://trmregistry.com/public/shieldio/downloads/<package name>`
 - **Query Parameters**:
-  - `version` (optiona): Specific version or tag (default: 'latest')
+  - `version` (optional): Specific version or tag (default: `latest`)

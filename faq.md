@@ -8,7 +8,7 @@ Before asking general questions about TRM or the public registry, please read th
 
     TRM provides value as a versioning and packaging tool:
 
-    - As a **SAP open source developer**, you can use TRM to **publish** your code. For the end users, installing a package becomes as simple as running a CLI command, just like in many modern development ecosystems.
+    - As an **SAP open-source developer**, you can use TRM to **publish** your code. For end users, installing a package becomes as simple as running a CLI command, just as it is in many modern development ecosystems.
     - As a **SAP partner**, TRM helps you **modularize your developments**. Each module can be treated as a library or product. Delivering these to customers is a one-command process using the CLI.
 
 + Is TRM an SAP product? +
@@ -17,9 +17,9 @@ Before asking general questions about TRM or the public registry, please read th
 
 + Who owns TRM? +
 
-    TRM is owned, funded and activly maintained by [Regesta S.p.A.](https://www.regestaitalia.eu/) and [Clarex S.r.l.](https://www.clarex.it/).
+    TRM is owned, funded, and actively maintained by [Regesta S.p.A.](https://www.regestaitalia.eu/) and [Clarex S.r.l.](https://www.clarex.it/).
 
-+ I need support, who should i contact? +
++ I need support. Whom should I contact? +
 
     Check out the [incident](/incidents.md) section.
 
@@ -29,9 +29,9 @@ Before asking general questions about TRM or the public registry, please read th
 
     - Always check the package’s **Git repository and source code**.
     - Community feedback is a useful indicator of reliability.
-    - Inspect the package content transports content.
+    - Inspect the contents of the package's transports.
 
-+ I'm an SAP partner and want to publish private packages, what should I do? +
++ I'm an SAP partner and want to publish private packages. What should I do? +
 
     [Upgrading your plan](https://trmregistry.com/plans) allows you to publish private packages and have priority support.
 
@@ -41,17 +41,17 @@ Before asking general questions about TRM or the public registry, please read th
 
 + How does TRM handle dependencies? +
 
-    During publish, TRM automatically detects dependencies with other TRM packages, custom objects and standard SAP objects.
+    During publishing, TRM automatically detects dependencies on other TRM packages, custom objects, and standard SAP objects.
 
-    During install, TRM ensures that:
-        - SAP objects used exists.
+    During installation, TRM ensures that:
+        - The SAP objects used exist.
         - Required TRM packages are installed and up to date.
 
     More info: [Dependency recognition](/commons/dependencies.md#dependency-recognition)
 
 + Does TRM support cloud developments? +
 
-    There's currently **no support** for cloud developments, but research has started and updates on the topic will follow.
+    Cloud development is **not currently supported**, but research has begun and updates will follow.
 
 + Can I use TRM for CD (Continuous Deployment)? +
 
@@ -59,7 +59,7 @@ Before asking general questions about TRM or the public registry, please read th
 
     - TRM supports automation through the CLI.
     - All publish/install commands support non-interactive execution.
-    - For GitHub Actions, see the [CD workflow example](/examples/abap_github_actions_ci_cd.md).
+    - For GitHub Actions, see the [CD workflow example](/examples/6_abap_github_actions_ci_cd.md).
 
 + Does TRM support object translations? +
 

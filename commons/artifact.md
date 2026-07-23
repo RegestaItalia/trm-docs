@@ -49,7 +49,7 @@ If you want to publish a TRM package with customizing transports, make sure to r
 
 # Source code
 
-When available in the publisher system, ABAPGit is used to serialize the package source code and it's bundled inside the artifact.
+When abapGit is available in the publisher system, it serializes the package's source code, which is then bundled inside the artifact.
 
 # Manifest and SAP Entries
 

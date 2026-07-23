@@ -12,19 +12,19 @@ All types of contributions are encouraged and valued. Please make sure to read t
 
 # Finding the right project
 
-TRM has many repositories and creating the issue in the right one is the first step needed to keep the project as clean as possible.
+TRM has many repositories. Creating an issue in the correct one is the first step toward keeping the project organized.
 
-Here's a list of all TRM Github repositories:
+Here is a list of all TRM GitHub repositories:
 
-- [trm-commons](https://github.com/RegestaItalia/trm-commons): For issues regarding the shared between modules
+- [trm-commons](https://github.com/RegestaItalia/trm-commons): For issues regarding code shared between modules
 - [trm-client](https://github.com/RegestaItalia/trm-client): For issues regarding the CLI
-- [trm-server](https://github.com/RegestaItalia/trm-server): For issues regarding the ABAP Server side
-- [trm-core](https://github.com/RegestaItalia/trm-core): For issues regarding the core functionalities of TRM
+- [trm-server](https://github.com/RegestaItalia/trm-server): For issues regarding the ABAP server component
+- [trm-core](https://github.com/RegestaItalia/trm-core): For issues regarding TRM's core functionality
 - [trm-docs](https://github.com/RegestaItalia/trm-docs): For issues regarding the documentation (anything that doesn't have a repository or [the docs website](https://docs.trmregistry.com))
-- [trm-registry-types](https://github.com/RegestaItalia/trm-registry-types): For issues regarding the core - server request/response objects
-- [trm-action-publish](https://github.com/RegestaItalia/trm-action-publish): For issues regarding the Github action "Publish"
-- [trm-action-install](https://github.com/RegestaItalia/trm-action-install): For issues regarding the Github action "Install"
-- [trm-ui](https://github.com/RegestaItalia/trm-ui): For issues regarding the UI
+- [trm-registry-types](https://github.com/RegestaItalia/trm-registry-types): For issues regarding the core-to-server request and response objects
+- [trm-action-publish](https://github.com/RegestaItalia/trm-action-publish): For issues regarding the "Publish" GitHub Action
+- [trm-action-install](https://github.com/RegestaItalia/trm-action-install): For issues regarding the "Install" GitHub Action
+- [trm-gui](https://github.com/RegestaItalia/trm-gui): For issues regarding the GUI
 
 ## I Have a Question
 

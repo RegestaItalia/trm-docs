@@ -8,8 +8,8 @@ These developments typically include shared frameworks, utilities, integrations,
 Traditionally, distributing these developments required **manual transport management** or ad-hoc solutions. When a new customer project started, the partner had to:
 
 - Export transport files containing the core developments.
-- Import them into the customer's development system landscape.
-- Manually execute some post import activities
+- Import them into the customer's development system.
+- Manually perform post-import activities.
 - Repeat this process whenever updates or bug fixes were released.
 
 This approach introduced several challenges:
@@ -17,9 +17,9 @@ This approach introduced several challenges:
 - **Manual and error-prone distribution** of shared components.
 - **Difficult (if not impossible) version tracking** across different customers.
 - **Complex dependency management** between internal libraries.
-- **Time consuming** activities.
+- **Time-consuming** activities.
 
-As the number of customers increases, maintaining these shared developments becomes progressively more complex and time-consuming...
+As the number of customers increases, maintaining these shared developments becomes progressively more complex and time-consuming.
 
 ## With TRM
 
@@ -36,10 +36,10 @@ TRM automatically:
 
 - Resolves dependencies.
 - Installs compatible versions.
-- Executes the necessary post activities
+- Executes the necessary post-install activities.
 
 Updating shared developments becomes straightforward: the partner publishes a new version, and customer systems can **upgrade in a controlled and traceable way**.\
-What was once a time consuming and error prone activity, becomes a **simple command**.
+What was once a time-consuming and error-prone activity becomes a **simple command**.
 
 ## TRM in the Development Lifecycle
 
