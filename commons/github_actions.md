@@ -1,3 +1,3 @@
-# Github Actions
+# GitHub Actions
 
 This documentation will be updated soon.

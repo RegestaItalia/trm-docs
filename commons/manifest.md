@@ -56,11 +56,11 @@ Below are the properties defined in `manifest.json`:
 - **Format**: Array of objects with the following fields:
   - `name`: Name of the dependency package.
   - `version`: Valid SemVer version or range.
-  - `registry`: Registry endpoint (optional, [public](https://trmregistry.com/registry/) is blank).
+  - `registry`: Registry endpoint (optional; a blank value indicates the [public registry](https://trmregistry.com/registry/)).
 
 ### `postActivities`
 - **Description**: List of activities to run automatically after installation.
-- **More info**: See [post activities section](post_activities.md)
+- **More info**: See the [post-activities section](post_activities.md).
 
 ### `namespace`
 - **Description**: SAP namespace in use by the TRM package.

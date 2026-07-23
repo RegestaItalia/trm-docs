@@ -22,5 +22,5 @@
 	- [3. Install with a lockfile](/examples/3_install_with_a_lockfile.md)
 	- [4. Dealing with release candidates](/examples/4_dealing_with_release_candidates.md)
 	- [5. Working with TRM offline](/examples/5_working_with_trm_offline.md)
-	- [6. ABAP Github Actions CI/CD](/examples/6_abap_github_actions_ci_cd.md)
+	- [6. ABAP GitHub Actions CI/CD](/examples/6_abap_github_actions_ci_cd.md)
 	- [7. Package across landscape](/examples/7_package_across_landscape.md)

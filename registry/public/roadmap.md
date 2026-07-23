@@ -2,7 +2,7 @@
 
 # Roadmap
 
-Nobody likes projects without a clear direction, here's a detailed roadmap for the **TRM Public Registry**.
+Nobody likes projects without a clear direction, so here is a detailed roadmap for the **TRM Public Registry**.
 
 Unlike rigid timelines, TRM uses **time-based milestones** with estimated durations instead of fixed dates. This approach ensures flexibility without compromising transparency.
 

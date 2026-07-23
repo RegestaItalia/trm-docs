@@ -4,17 +4,17 @@
 
 It acts as the secure bridge between the **SAP application server** and the **TRM client**.
 
-It exposes the APIs that allow TRM to import/export transports, and, as a consequence, it must be installed **only** on source and target systems, as its not required on any other system in the landscape.
+It exposes the APIs that allow TRM to import and export transports. Consequently, it must be installed **only** on source and target systems; it is not required on any other system in the landscape.
 
 ## First Installation
 
 The first installation must be performed using the [standalone installer](https://raw.githubusercontent.com/RegestaItalia/trm-server/refs/heads/main/ztrm_installer.prog.abap).
 
 The **standalone installer** is a self-contained ABAP report that allows the installation of **trm-server** and **trm-rest**.\
-The installer will import trm-server transports (and eventually trm-rest transports too, if necessary) into your system and automatically move its objects into the temporary package `$TRM` (which will also be generated).\
-The installer does not import the **/ATRM/** namespace, as trm-server and trm-rest are intended to be used as-is. If you need to modify its objects, consider [installing them via abapGit](#install-with-abapgit) instead.
+The installer imports trm-server transports (and trm-rest transports, if necessary) into your system and automatically moves their objects into the temporary package `$TRM`, which it also creates.\
+The installer does not import the **/ATRM/** namespace because trm-server and trm-rest are intended to be used as-is. If you need to modify their objects, consider [installing them via abapGit](#install-with-abapgit) instead.
 
-After the initial installation, it is recommended to install subsequent theit updates via TRM.
+After the initial installation, we recommend installing subsequent updates through TRM.
 
 1. Download the report source code from [here](https://raw.githubusercontent.com/RegestaItalia/trm-server/refs/heads/main/ztrm_installer.prog.abap)
 2. Open transaction `SE38` and create a new report called `ZTRM_INSTALLER`
@@ -23,7 +23,7 @@ After the initial installation, it is recommended to install subsequent theit up
     <img src="https://docs.trmregistry.com/server/images/se38_1.png" alt="SE38">
 </p>
 
-3. Give it a title and make sure to set the type to "Executable program"
+3. Give it a title and set the type to "Executable program"
 
 <p align="center">
     <img src="https://docs.trmregistry.com/server/images/se38_2.png" alt="SE38">
@@ -35,7 +35,7 @@ After the initial installation, it is recommended to install subsequent theit up
     <img src="https://docs.trmregistry.com/server/images/se38_3.png" alt="SE38">
 </p>
 
-5. Copy and paste the source code of the report (or upload) and activate
+5. Paste or upload the report's source code, then activate it
 
 <p align="center">
     <img src="https://docs.trmregistry.com/server/images/se38_4.png" alt="SE38">
@@ -46,11 +46,11 @@ After the initial installation, it is recommended to install subsequent theit up
 #### Download the releases
 
 1. Go to [https://trmregistry.com](https://trmregistry.com) and search for [trm-server](https://trmregistry.com/package/trm-server)
-2. In the release page, press the **Download** button
+2. On the release page, select **Download**
 3. Download [trm-rest](https://trmregistry.com/package/trm-rest) too, if needed
 4. Open SE38 and run `ZTRM_INSTALLER`
 5. Select the file(s) downloaded
-6. Execute and wait for install to complete (~ 5 minutes)
+6. Execute the report and wait for the installation to complete (approximately five minutes)
 
 <p align="center">
     <img src="https://docs.trmregistry.com/server/images/offline.png" alt="ZTRM_INSTALLER">
@@ -69,10 +69,10 @@ The online installation is only possible if your system is allowed to connect to
 
 ##### Option A - Chrome
 
-1. Using Google Chrome to go to [https://trmregistry.com](https://trmregistry.com)
-2. Click on the lock icon near the address bar, then click on "Connection is secure"
-3. On the Security tab, click on "Certificate is valid"
-4. Go to the "Details" tab and select "Export..." to download the certificate to a file
+1. Use Google Chrome to go to [https://trmregistry.com](https://trmregistry.com)
+2. Select the lock icon near the address bar, then select "Connection is secure"
+3. On the Security tab, select "Certificate is valid"
+4. Go to the "Details" tab and select "Export..." to download the certificate
 5. In the "Certification hierarchy" box, select the parent node of the GitHub certificate and export it as well. Repeat the same with the root node.
 
 <p align="center">
@@ -82,14 +82,14 @@ The online installation is only possible if your system is allowed to connect to
 ##### Option B - Firefox
 
 1. Use Firefox to go to [https://trmregistry.com](https://trmregistry.com)
-2. Click on the lock icon and then "More Information ..." and there "View Certificate"
-3. Switch to the Details Tab, choose the first certificate of the hierarchy and click Export
+2. Select the lock icon, then "More Information..." and "View Certificate"
+3. Switch to the Details tab, choose the first certificate in the hierarchy, and select "Export"
 4. Do the same for the next certificate in the hierarchy
 
 ##### Option C - Safari
 
 1. Use Safari to go to [https://trmregistry.com](https://trmregistry.com)
-2. Click on the lock icon and then "View Certificate"
+2. Select the lock icon and then "View Certificate"
 3. In the certificate hierarchy, select the root certificate
 4. Holding down the Option key (⌥), drag the large certificate icon into a text editor
 5. Save the document as a `.PEM` file
@@ -98,15 +98,15 @@ The online installation is only possible if your system is allowed to connect to
 
 *This paragraph is courtesy of abapGit.org*
 
-1. Install the certificates in transaction `STRUST`:
-2. Open the "SSL client Client SSL Client (Anonymous)" folder
+1. Open transaction `STRUST`
+2. Open the "SSL Client (Anonymous)" folder
 
 <p align="center">
     <img src="https://docs.trmregistry.com/server/images/strust_1.png" alt="STRUST">
 </p>
 
-3. Click on the Change button
-4. In the third box called "Certificate", click on the bottom-left button "Import certificate" to bring the certificate into the system
+3. Select "Change"
+4. In the third box, labeled "Certificate," select "Import certificate" in the bottom-left corner to import the certificate
 5. Select "Add to certificate list"
 6. Repeat the process for all downloaded certificates
 
@@ -119,8 +119,8 @@ The online installation is only possible if your system is allowed to connect to
 #### Execute TRM Installer online
 
 1. Open SE38 and run `ZTRM_INSTALLER`
-2. In the report you can configure connection settings (if needed) and select/deselect `trm-rest` install
-3. Execute and wait for install to complete (~ 5 minutes)
+2. In the report, configure the connection settings if needed and choose whether to install `trm-rest`
+3. Execute the report and wait for the installation to complete (approximately five minutes)
 
 <p align="center">
     <img src="https://docs.trmregistry.com/server/images/online.png" alt="ZTRM_INSTALLER">
@@ -147,11 +147,11 @@ access will be denied.
 
 ## Install with abapGit
 
-Because this package is in namespace **/ATRM/**, install via [abapgit](https://docs.abapGit.org/) needs a system with this namespace installed.
+Because this package uses the **/ATRM/** namespace, installation through [abapGit](https://docs.abapGit.org/) requires a system with this namespace installed.
 
 ### Demo systems
 
-If you are running a **demo system**, you can use the following keys
+If you are running a **demo system**, you can use the following keys:
 
 **Development key**: 18531191373370851361\
 **Repair key**: 00211665563784583720
