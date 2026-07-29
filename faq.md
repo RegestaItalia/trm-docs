@@ -51,7 +51,7 @@ Before asking general questions about TRM or the public registry, please read th
 
 + Does TRM support cloud developments? +
 
-    Cloud development is **not currently supported**, but research has begun and updates will follow.
+    Cloud development is **currently not supported**.
 
 + Can I use TRM for CD (Continuous Deployment)? +
 

@@ -60,7 +60,7 @@ Below are the properties defined in `manifest.json`:
 
 ### `postActivities`
 - **Description**: List of activities to run automatically after installation.
-- **More info**: See the [post-activities section](post_activities.md).
+- **More info**: See the [post-activities section](/commons/post_activities.md).
 
 ### `namespace`
 - **Description**: SAP namespace in use by the TRM package.

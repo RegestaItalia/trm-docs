@@ -60,7 +60,7 @@ To host a private registry, implement the required endpoints described in the
 [TRM Registry API reference](registry/openapi.md).
 
 The API contract is also available as a machine-readable
-[OpenAPI schema](openapi.yaml).
+[OpenAPI schema](https://raw.githubusercontent.com/RegestaItalia/trm-docs/refs/heads/main/registry/openapi.yaml).
 
 TypeScript definitions for the request and response payloads are available in
 the [`trm-registry-types` npm package](https://www.npmjs.com/package/trm-registry-types).

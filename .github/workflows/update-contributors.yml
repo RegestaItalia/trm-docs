@@ -1,0 +1,142 @@
+name: Update contributors
+
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+      timezone: "Europe/Rome"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: update-contributors
+  cancel-in-progress: false
+
+jobs:
+  update-contributors:
+    name: Update contributors
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.CI_GITHUB_TOKEN }}
+
+      - name: Fetch and merge contributors
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.CI_GITHUB_TOKEN }}
+          script: |
+            const fs = require("fs");
+
+            const owner = "RegestaItalia";
+            const repositories = [
+              "trm-commons",
+              "trm-client",
+              "trm-server",
+              "trm-core",
+              "trm-docs",
+              "trm-registry-types",
+              "trm-action-publish",
+              "trm-action-install",
+              "trm-gui"
+            ];
+            const excludedHandles = new Set(["reg-github"]);
+            const discoveredHandles = new Map();
+
+            for (const repo of repositories) {
+              const contributors = await github.paginate(
+                github.rest.repos.listContributors,
+                {
+                  owner,
+                  repo,
+                  per_page: 100,
+                  anon: "false"
+                }
+              );
+
+              for (const contributor of contributors) {
+                if (!contributor.login) {
+                  continue;
+                }
+
+                const normalizedHandle = contributor.login.toLowerCase();
+                const isBot =
+                  contributor.type === "Bot" ||
+                  normalizedHandle.endsWith("[bot]");
+
+                if (isBot || excludedHandles.has(normalizedHandle)) {
+                  continue;
+                }
+
+                if (!discoveredHandles.has(normalizedHandle)) {
+                  discoveredHandles.set(normalizedHandle, contributor.login);
+                }
+              }
+            }
+
+            const contributorsPath = ".contributors.json";
+            const contributorsSource = fs.readFileSync(contributorsPath, "utf8");
+            const contributorsConfig = JSON.parse(contributorsSource);
+            const existingHandles = new Set(
+              contributorsConfig.contributors.map(({ handle }) =>
+                handle.toLowerCase()
+              )
+            );
+            const newHandles = [...discoveredHandles.entries()]
+              .filter(([normalizedHandle]) => !existingHandles.has(normalizedHandle))
+              .map(([, handle]) => handle)
+              .sort((left, right) =>
+                left.toLowerCase().localeCompare(right.toLowerCase())
+              );
+
+            if (newHandles.length === 0) {
+              core.info("No new contributors found.");
+              return;
+            }
+
+            const contributorsArrayEnd = contributorsSource.lastIndexOf("\n    }]");
+
+            if (contributorsArrayEnd === -1) {
+              throw new Error(
+                "Could not find the contributors array terminator in .contributors.json."
+              );
+            }
+
+            const insertionPoint = contributorsArrayEnd + "\n    }".length;
+            const additions = newHandles
+              .map(
+                handle =>
+                  `, {\n` +
+                  `        "handle": ${JSON.stringify(handle)},\n` +
+                  `        "highlight": false,\n` +
+                  `        "emoji": ["💻"]\n` +
+                  `    }`
+              )
+              .join("");
+            const updatedSource =
+              contributorsSource.slice(0, insertionPoint) +
+              additions +
+              contributorsSource.slice(insertionPoint);
+
+            JSON.parse(updatedSource);
+            fs.writeFileSync(contributorsPath, updatedSource);
+            core.info(`Added ${newHandles.length} contributor(s): ${newHandles.join(", ")}`);
+
+      - name: Commit and push changes
+        shell: bash
+        run: |
+          if git diff --quiet -- .contributors.json; then
+            echo "No contributor changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .contributors.json
+          git commit -m "chore: update contributors"
+          git push origin HEAD:main
