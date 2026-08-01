@@ -146,33 +146,6 @@ Implement this operation only when ping reports `OAUTH2` authentication.
 | basicAuth |  |
 | bearerAuth |  |
 
-### [GET] /package/deltaCustomizing/{package}
-**Get delta-customizing values for a release**
-
-#### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ------ |
-| package | path | A package identifier appended exactly as supplied by RegistryV2. It may contain path separators; do not percent-encode `/` within the identifier. | Yes | string |
-| version | query | Release version. | Yes | string |
-
-#### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | Delta-customizing values | **application/json**: [ string ]<br> |
-| 400 | Request failed | **application/json**: [Error](#error-schema)<br> |
-| 404 | Request failed | **application/json**: [Error](#error-schema)<br> |
-| default | Request failed | **application/json**: [Error](#error-schema)<br> |
-
-##### Security
-
-| Security Schema | Scopes |
-| --------------- | ------ |
-
-| basicAuth |  |
-| bearerAuth |  |
-
 ### [PUT] /package/tag/{package}
 **Assign a tag to a package version**
 

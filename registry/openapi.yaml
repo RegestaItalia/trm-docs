@@ -119,25 +119,6 @@ paths:
         '400': { $ref: '#/components/responses/Error' }
         '404': { $ref: '#/components/responses/Error' }
         default: { $ref: '#/components/responses/Error' }
-  /package/deltaCustomizing/{package}:
-    parameters:
-      - $ref: '#/components/parameters/Package'
-      - $ref: '#/components/parameters/RequiredVersion'
-    get:
-      operationId: getDeltaCustomizing
-      summary: Get delta-customizing values for a release
-      security: [{}, { basicAuth: [] }, { bearerAuth: [] }]
-      responses:
-        '200':
-          description: Delta-customizing values
-          content:
-            application/json:
-              schema:
-                type: array
-                items: { type: string }
-        '400': { $ref: '#/components/responses/Error' }
-        '404': { $ref: '#/components/responses/Error' }
-        default: { $ref: '#/components/responses/Error' }
   /package/tag/{package}:
     parameters:
       - $ref: '#/components/parameters/Package'
