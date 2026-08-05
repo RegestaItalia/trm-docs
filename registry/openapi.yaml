@@ -119,6 +119,73 @@ paths:
         '400': { $ref: '#/components/responses/Error' }
         '404': { $ref: '#/components/responses/Error' }
         default: { $ref: '#/components/responses/Error' }
+  /transport/{trkorr}:
+    description: Optional endpoint for registry transport.
+    parameters:
+      - name: trkorr
+        in: path
+        required: true
+        description: Registry transport
+        schema:
+          type: string
+          pattern: '^[A-Z0-9]{3}K[0-9A-Z]{6}$'
+      - name: target
+        in: query
+        required: false
+        description: Optional destination transport request allocated by the target SAP system. When omitted, the canonical transport is downloaded unchanged.
+        schema:
+          type: string
+          pattern: '^[A-Z0-9]{3}K[A-Z0-9]{6}$'
+    get:
+      operationId: downloadTransport
+      summary: Package transport download
+      description: Downloads the canonical transports.
+      security: [{ basicAuth: [] }, { bearerAuth: [] }]
+      responses:
+        '200':
+          description: The transport is ready to download
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TransportDownload' }
+        '400': { $ref: '#/components/responses/Error' }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+        '502': { $ref: '#/components/responses/Error' }
+        '503': { $ref: '#/components/responses/Error' }
+        '504': { $ref: '#/components/responses/Error' }
+        default: { $ref: '#/components/responses/Error' }
+  /delete:
+    post:
+      operationId: createDeletionTransport
+      description: Optional endpoint for deletion transport.
+      security: [{ basicAuth: [] }, { bearerAuth: [] }]
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema: { $ref: '#/components/schemas/DeleteTransportRequest' }
+      responses:
+        '200':
+          description: The deletion transport is ready to download
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TransportDownload' }
+        '400': { $ref: '#/components/responses/Error' }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '413': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+        '502': { $ref: '#/components/responses/Error' }
+        '503': { $ref: '#/components/responses/Error' }
+        '504': { $ref: '#/components/responses/Error' }
+        default: { $ref: '#/components/responses/Error' }
   /package/tag/{package}:
     parameters:
       - $ref: '#/components/parameters/Package'
@@ -389,6 +456,51 @@ components:
         checksum:
           type: string
           description: Base64-encoded SHA-512 digest of the exact artifact bytes returned by `download_link`.
+        transports:
+          type: array
+          description: Transports available in the selected release.
+          items: { $ref: '#/components/schemas/Transport' }
+    Transport:
+      type: object
+      required: [trkorr, type, description]
+      properties:
+        trkorr:
+          type: string
+          pattern: '^[0-9A-Z]{3}K[0-9A-Z]{6}$'
+        type:
+          type: string
+          enum: [TADIR, DEVC, LANG, CUST]
+        description: { type: string }
+    TransportDownload:
+      type: object
+      required: [download_link, download_link_expiry, checksum]
+      properties:
+        download_link:
+          type: string
+          format: uri
+          description: A URL that returns a ZIP containing the K and R transport files.
+        download_link_expiry:
+          type: integer
+          format: int64
+          description: Unix epoch milliseconds.
+        checksum:
+          type: string
+          description: Base64-encoded SHA-512 digest of the exact ZIP bytes returned by `download_link`.
+    DeleteTransportRequest:
+      type: object
+      required: [transport, package, version]
+      properties:
+        transport:
+          type: string
+          format: binary
+          contentMediaType: application/octet-stream
+          description: A URL that returns a ZIP containing the K and R transport files.
+        package:
+          type: string
+          description: Package identifier whose installed contents are being removed.
+        version:
+          type: string
+          description: Installed package version.
     PackageContents:
       type: object
       required: [tdevc, tdevct, tadir, e071]
@@ -432,6 +544,12 @@ components:
           type: string
           format: binary
           description: Optional Markdown or plain-text changelog for this release.
+        retainedCustomizing:
+          type: string
+          maxLength: 2048
+          description: JSON-encoded array of up to 100 unique CUST TRKORRs from the immediately preceding published release to retain by reference.
+          examples:
+            - '["TRMK900012", "TRMK900013"]'
     Publish:
       type: object
       required: [progress_pool_url, steps, current_step]
