@@ -146,6 +146,76 @@ Implement this operation only when ping reports `OAUTH2` authentication.
 | basicAuth |  |
 | bearerAuth |  |
 
+### [GET] /transport/{trkorr}
+**Package transport download**
+
+Downloads the canonical transports.
+
+#### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| trkorr | path | Registry transport | Yes | string |
+| target | query | Optional destination transport request allocated by the target SAP system. When omitted, the canonical transport is downloaded unchanged. | No | string |
+
+#### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | The transport is ready to download | **application/json**: [TransportDownload](#transportdownload-schema)<br> |
+| 400 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 401 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 403 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 404 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 409 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 422 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 429 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 502 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 503 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 504 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| default | Request failed | **application/json**: [Error](#error-schema)<br> |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| basicAuth |  |
+| bearerAuth |  |
+
+### [POST] /delete
+Optional endpoint for deletion transport.
+
+#### Request Body
+
+| Required | Schema |
+| -------- | ------ |
+|  Yes | **multipart/form-data**: [DeleteTransportRequest](#deletetransportrequest-schema)<br> |
+
+#### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | The deletion transport is ready to download | **application/json**: [TransportDownload](#transportdownload-schema)<br> |
+| 400 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 401 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 403 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 404 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 409 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 413 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 422 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 429 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 502 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 503 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 504 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| default | Request failed | **application/json**: [Error](#error-schema)<br> |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| basicAuth |  |
+| bearerAuth |  |
+
 ### [PUT] /package/tag/{package}
 **Assign a tag to a package version**
 
@@ -387,6 +457,31 @@ Implement this operation only when ping reports `OAUTH2` authentication.
 | download_link | string (uri) | A URL that returns the package `.trm` artifact as `application/octet-stream`. RegistryV2 follows redirects when downloading it. | Yes |
 | download_link_expiry | long | Unix epoch milliseconds. | No |
 | checksum | string | Base64-encoded SHA-512 digest of the exact artifact bytes returned by `download_link`. | Yes |
+| transports | [ [Transport](#transport-schema) ] | Transports available in the selected release. | No |
+
+#### Transport Schema
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| trkorr | string |  | Yes |
+| type | string, <br>**Available values:** "TADIR", "DEVC", "LANG", "CUST" | *Enum:* `"TADIR"`, `"DEVC"`, `"LANG"`, `"CUST"` | Yes |
+| description | string |  | Yes |
+
+#### TransportDownload Schema
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| download_link | string (uri) | A URL that returns a ZIP containing the K and R transport files. | Yes |
+| download_link_expiry | long | Unix epoch milliseconds. | Yes |
+| checksum | string | Base64-encoded SHA-512 digest of the exact ZIP bytes returned by `download_link`. | Yes |
+
+#### DeleteTransportRequest Schema
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| transport | binary | A URL that returns a ZIP containing the K and R transport files. | Yes |
+| package | string | Package identifier whose installed contents are being removed. | Yes |
+| version | string | Installed package version. | Yes |
 
 #### PackageContents Schema
 
@@ -422,6 +517,7 @@ Implement this operation only when ping reports `OAUTH2` authentication.
 | artifact | binary | Package artifact. | Yes |
 | readme | binary | Optional Markdown or plain-text README. | No |
 | changelog | binary | Optional Markdown or plain-text changelog for this release. | No |
+| retainedCustomizing | string | JSON-encoded array of up to 100 unique CUST TRKORRs from the immediately preceding published release to retain by reference. | No |
 
 #### Publish Schema
 
