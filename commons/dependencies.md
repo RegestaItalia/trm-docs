@@ -21,6 +21,9 @@ The following is a list of objects and scenarios where such dependencies can sti
 
 Assuming the analyzed object type is supported, the following is a list of possible object types that may be encountered.
 
+- Yes: custom object handler with full support or standard repository environment (assuming it covers all cases)
+- Partial: custom object handler
+
 If an object type is supported but one of its dependencies cannot be found, please open an [incident](/incidents.md).
 
 | Object Type | Description | Supported |
@@ -37,6 +40,7 @@ If an object type is supported but one of its dependencies cannot be found, plea
 | CUS0 | Customizing IMG Activity | Yes |
 | DCLS | ABAP Data Control Language Sources | Yes |
 | DDLS | Data Definition Language Source | Yes |
+| DDLX | Data Definition Language Extension | Partial; Referenced entity |
 | DEVC | Package | Yes |
 | DIAL | Dialog Module | Yes |
 | DOMA | Domain | Yes |
@@ -72,6 +76,7 @@ If an object type is supported but one of its dependencies cannot be found, plea
 | SFSW | Switch + Assignment of Objects to the Switch | Yes |
 | SHI3 | General structure storage: Definition of a structure | Yes |
 | SHLP | Search Help | Yes |
+| SICF | ICF Service | Yes | Partial; Parent nodes, handlers |
 | SMIM | Info Object from the MIME Repository | Yes |
 | SOBJ | Business object types | Yes |
 | SOD1 | Api Package | Yes |
@@ -230,7 +235,6 @@ This list was auto-generated: feel free to update it and remove any that do not 
 | SFPF | Form Object: Form | No | [#196](https://github.com/RegestaItalia/trm-server/issues/196) |
 | SFPI | Form Object: Interface | No | [#197](https://github.com/RegestaItalia/trm-server/issues/197) |
 | SHMA | Shared Objects: Defined Area Attributes | No | [#198](https://github.com/RegestaItalia/trm-server/issues/198) |
-| SICF | ICF Service | No | [#199](https://github.com/RegestaItalia/trm-server/issues/199) |
 | SITB | SITB | No | [#76](https://github.com/RegestaItalia/trm-server/issues/76) |
 | SITO | SITO | No | [#77](https://github.com/RegestaItalia/trm-server/issues/77) |
 | SMBC | Business Configuration Object | No | [#200](https://github.com/RegestaItalia/trm-server/issues/200) |
