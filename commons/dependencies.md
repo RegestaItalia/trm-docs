@@ -1,114 +1,108 @@
 # Dependency Recognition
 
-TRM can automatically detect the dependencies required by a TRM package to prevent syntax and runtime errors.
+TRM automatically detects dependencies required by objects in a TRM package, helping prevent syntax and runtime errors.
 
-This detection is based on the types of objects used within the package. As support for additional object types may be needed over time, you can request support by opening an [incident](/incidents.md)
+Dependency detection depends on the object types contained in the package. If support for another object type is required, open an [incident](/incidents.md).
 
-## Objects with ABAP source code
+## Objects containing ABAP source code
 
-Some objects (such as classes, function modules, programs, and includes) fall into the category of ABAP objects, meaning they contain ABAP source code.
+Some repository objects, such as classes, function modules, programs, and includes, contain ABAP source code.
 
-In ABAP, certain dependencies can be subtle: the system may not raise a syntax error even if a referenced object is missing or inactive. Instead, these issues only surface at runtime, for example when using dynamic calls or string-based object references.
+Some ABAP dependencies are not detected by syntax checks when a referenced object is missing or inactive. These issues may surface only at runtime, particularly with dynamic calls or string-based object references.
 
-The following is a list of objects and scenarios where such dependencies can still be detected:
+The following table lists objects and scenarios in which TRM can still detect these dependencies:
 
 | Object Type | Description | Usage |
 | ----------- | ----------- | ----- |
-| NROB | Number Range Object | Whenever called by function module `NUMBER_GET_NEXT` |
-| DOCV | Documentation (independent) | Type `DT`: Whenever called by function module `POPUP_DISPLAY_TEXT` |
+| NROB | Number Range Object | When referenced through function module `NUMBER_GET_NEXT` |
+| DOCV | Documentation (independent) | Type `DT`: when referenced through function module `POPUP_DISPLAY_TEXT` |
 
-## Object types that can be detected
+## Supported object types
 
-Assuming the analyzed object type is supported, the following is a list of possible object types that may be encountered.
-
-- Yes: custom object handler with full support or standard repository environment (assuming it covers all cases)
-- Partial: custom object handler
-
-If an object type is supported but one of its dependencies cannot be found, please open an [incident](/incidents.md).
+If TRM fails to detect a dependency for a supported object type, open an [incident](/incidents.md).
 
 | Object Type | Description | Supported |
 | ----------- | ----------- | --------- |
-| ACID | Checkpoint Group | Yes |
-| AUTH | Authorization Check Fields | Yes |
-| AVAS | Classification | Yes |
-| BDEF | Behavior Definition | Yes |
-| BMFR | Application Component | Yes |
-| CFDM | Custom fields: Function Module Registry | Yes |
-| CHAR | Object characteristic | Yes |
-| CLAS | Class (ABAP Objects) | Yes |
-| CMHC | Cloud Management Health Check | Yes |
-| CUS0 | Customizing IMG Activity | Yes |
-| DCLS | ABAP Data Control Language Sources | Yes |
-| DDLS | Data Definition Language Source | Yes |
-| DDLX | Data Definition Language Extension | Partial; Referenced entity |
-| DEVC | Package | Yes |
-| DIAL | Dialog Module | Yes |
-| DOMA | Domain | Yes |
-| DRTY | CDS Type Definitions | Yes |
-| DSFD | CDS Scalar Function Definition | Yes |
-| DTEL | Data Element | Yes |
-| ENHC | Composite Enhancement Implementation | Yes |
-| ENHO | Enhancement Implementation | Yes |
-| ENHS | Enhancement Spot | Yes |
-| ENQU | Lock Object | Yes |
-| ENSC | Composite Enhancement Spot | Yes |
-| FUGR | Function Group | Yes |
-| IASP | Parameters of an IAC service | Yes |
-| IATU | Language-Independent IAC Templates | Yes |
-| INTF | Interface (ABAP Objects) | Yes |
-| IWPR | SAP Gateway BSE - Service Builder Project | Yes |
-| JOBD | Technical Job Definition | Yes |
-| LDBA | Logical Database | Yes |
-| MSAG | Message Class | Yes |
-| NROB | Number Range Object | Yes |
-| OA2P | OAuth 2.0 Client Profile | Yes |
-| PARA | SPA/GPA Parameters | Yes |
-| PDTS | Standard Task | Yes |
-| PDWS | Workflow template | Yes |
-| PINF | Package interface | Yes |
-| PROG | Program | Yes |
-| SAMC | ABAP Messaging Channel Application | Yes |
-| SCGR | Service Consumer Group | Yes |
-| SFBF | Business Function + Assignment | Yes |
-| SFBS | Business Function Set + Assignment | Yes |
-| SFPF | Form Object: Form | Yes |
-| SFPI | Form Object: Interface | Yes |
-| SFSW | Switch + Assignment of Objects to the Switch | Yes |
-| SHI3 | General structure storage: Definition of a structure | Yes |
-| SHLP | Search Help | Yes |
-| SICF | ICF Service | Yes | Partial; Parent nodes, handlers |
-| SMIM | Info Object from the MIME Repository | Yes |
-| SOBJ | Business object types | Yes |
-| SOD1 | Api Package | Yes |
-| SOD2 | API Package Assignment | Yes |
-| SOTR | All Concepts (OTR) of a Package - Short Texts | Yes |
-| SPRX | Proxy Object | Yes |
-| SRVB | Service Binding | Yes |
-| STOB | Structured Object | Yes |
-| SUSO | Authorization object | Yes |
-| SXCI | Business Add-Ins - Implementations | Yes |
-| TABL | Table | Yes |
-| TOBJ | Definition of a Maintenance and Transport Object | Yes |
-| TRAN | Transaction | Yes |
-| TTYP | Table Type | Yes |
-| TYPE | Type Group | Yes |
-| UDMO | Data model | Yes |
-| UENO | Entity type | Yes |
-| VIEW | View | Yes |
-| WAPA | BSP (Business Server Pages) Application | Yes |
-| WDYA | Web Dynpro Application | Yes |
-| WDYN | Web Dynpro Component | Yes |
-| WEBI | Virtual End Point | Yes |
-| WGRP | Object Type Group (ABAP Workbench / R3TR) | Yes |
-| WTAG | BSP Extension | Yes |
-| XSLT | Transformation | Yes |
+| ACID | Checkpoint Group | Yes: handled by standard repository environment |
+| AUTH | Authorization Check Fields | Yes: handled by standard repository environment |
+| AVAS | Classification | Yes: handled by standard repository environment |
+| BDEF | Behavior Definition | Yes: handled by standard repository environment |
+| BMFR | Application Component | Yes: handled by standard repository environment |
+| CFDM | Custom Fields: Function Module Registry | Yes: handled by standard repository environment |
+| CHAR | Object Characteristic | Yes: handled by standard repository environment |
+| CLAS | Class (ABAP Objects) | Yes: handled by standard repository environment |
+| CMHC | Cloud Management Health Check | Yes: handled by standard repository environment |
+| CUS0 | Customizing IMG Activity | Yes: handled by standard repository environment |
+| DCLS | ABAP Data Control Language Source | Yes: handled by standard repository environment |
+| DDLS | Data Definition Language Source | Yes: handled by standard repository environment |
+| DDLX | CDS Metadata Extension | Yes: handled by standard APIs. Extended CDS entity, DDL variants, annotation definitions, CDS entities referenced by annotations, and ABAP classes referenced through `ABAP:` annotation values |
+| DEVC | Package | Yes: handled by standard repository environment |
+| DIAL | Dialog Module | Yes: handled by standard repository environment |
+| DOMA | Domain | Yes: handled by standard repository environment |
+| DRTY | CDS Type Definitions | Yes: handled by standard repository environment |
+| DSFD | CDS Scalar Function Definition | Yes: handled by standard repository environment |
+| DTEL | Data Element | Yes: handled by standard repository environment |
+| ENHC | Composite Enhancement Implementation | Yes: handled by standard repository environment |
+| ENHO | Enhancement Implementation | Yes: handled by standard repository environment |
+| ENHS | Enhancement Spot | Yes: handled by standard repository environment |
+| ENQU | Lock Object | Yes: handled by standard repository environment |
+| ENSC | Composite Enhancement Spot | Yes: handled by standard repository environment |
+| FUGR | Function Group | Yes: handled by standard repository environment |
+| IASP | Parameters of an IAC service | Yes: handled by standard repository environment |
+| IATU | Language-Independent IAC Templates | Yes: handled by standard repository environment |
+| INTF | Interface (ABAP Objects) | Yes: handled by standard repository environment |
+| IWPR | SAP Gateway BSE - Service Builder Project | Yes: handled by standard repository environment |
+| JOBD | Technical Job Definition | Yes: handled by standard repository environment |
+| LDBA | Logical Database | Yes: handled by standard repository environment |
+| MSAG | Message Class | Yes: handled by standard repository environment |
+| NROB | Number Range Object | Yes: handled by standard repository environment |
+| OA2P | OAuth 2.0 Client Profile | Yes: handled by standard repository environment |
+| PARA | SPA/GPA Parameters | Yes: handled by standard repository environment |
+| PDTS | Standard Task | Yes: handled by standard repository environment |
+| PDWS | Workflow Template | Yes: handled by standard repository environment |
+| PINF | Package Interface | Yes: handled by standard repository environment |
+| PROG | Program | Yes: handled by standard repository environment |
+| SAMC | ABAP Messaging Channel Application | Yes: handled by standard repository environment |
+| SCGR | Service Consumer Group | Yes: handled by standard repository environment |
+| SFBF | Business Function and Assignment | Yes: handled by standard repository environment |
+| SFBS | Business Function Set and Assignment | Yes: handled by standard repository environment |
+| SFPF | Form Object: Form | Yes: handled by standard repository environment |
+| SFPI | Form Object: Interface | Yes: handled by standard repository environment |
+| SFSW | Switch and Assignment of Objects to the Switch | Yes: handled by standard repository environment |
+| SHI3 | General structure storage: Definition of a structure | Yes: handled by standard repository environment |
+| SHLP | Search Help | Yes: handled by standard repository environment |
+| SICF | ICF Service | Yes: handled by standard APIs. Parent services, handler classes, alias targets, internal redirects, OTR texts, and transaction codes |
+| SMIM | Info Object from the MIME Repository | Yes: handled by standard repository environment |
+| SOBJ | Business object types | Yes: handled by standard repository environment |
+| SOD1 | API Package | Yes: handled by standard repository environment |
+| SOD2 | API Package Assignment | Yes: handled by standard repository environment |
+| SOTR | All Concepts (OTR) of a Package - Short Texts | Yes: handled by standard repository environment |
+| SPRX | Proxy Object | Yes: handled by standard repository environment |
+| SRVB | Service Binding | Yes: handled by standard repository environment |
+| STOB | Structured Object | Yes: handled by standard repository environment |
+| SUSO | Authorization Object | Yes: handled by standard repository environment |
+| SXCI | Business Add-Ins - Implementations | Yes: handled by standard repository environment |
+| TABL | Table | Yes: handled by standard repository environment |
+| TOBJ | Definition of a Maintenance and Transport Object | Yes: handled by standard repository environment |
+| TRAN | Transaction | Yes: handled by standard repository environment |
+| TTYP | Table Type | Yes: handled by standard repository environment |
+| TYPE | Type Group | Yes: handled by standard repository environment |
+| UDMO | Data Model | Yes: handled by standard repository environment |
+| UENO | Entity Type | Yes: handled by standard repository environment |
+| VIEW | View | Yes: handled by standard repository environment |
+| WAPA | BSP (Business Server Pages) Application | Yes: handled by standard repository environment |
+| WDYA | Web Dynpro Application | Yes: handled by standard repository environment |
+| WDYN | Web Dynpro Component | Yes: handled by standard repository environment |
+| WEBI | Virtual End Point | Yes: handled by standard repository environment |
+| WGRP | Object Type Group (ABAP Workbench/R3TR) | Yes: handled by standard repository environment |
+| WTAG | BSP Extension | Yes: handled by standard repository environment |
+| XSLT | Transformation | Yes: handled by standard repository environment |
 
-## Objects where dependencies aren't analyzed
+## Object types without dependency analysis
 
-This is a list of objects that are currently not supported. If automatic dependency detection is required, a custom implementation will be necessary (request it by [incident](/incidents.md)).
+The following object types are not currently supported. If automatic dependency detection is required, request a custom implementation by opening an [incident](/incidents.md).
 
-Some objects in this list **may be irrelevant** (for example, if no dependencies are possible).
-This list was auto-generated: feel free to update it and remove any that do not apply.
+Some entries may not require dependency analysis because no relevant dependencies are possible. This list was generated automatically; remove entries that do not apply as support evolves.
 
 | Object Type | Description | Supported | Issue |
 | ----------- | ----------- | --------- | ---- |
@@ -297,6 +291,6 @@ This list was auto-generated: feel free to update it and remove any that do not 
 | XINX | Ext. Index | No | [#248](https://github.com/RegestaItalia/trm-server/issues/248) |
 | XSLT | Transformation | No | [#249](https://github.com/RegestaItalia/trm-server/issues/249) |
 
-## SAP Objects
+## SAP objects
 
-If a dependency is identified and the referenced object belongs to a **standard SAP package**, TRM includes the requirement as part of the **TADIR SAP entries**. This ensures that references to standard objects are properly managed without bundling SAP-owned code.
+When TRM identifies a dependency on an object in a **standard SAP package**, it records the requirement in the **TADIR SAP entries**. This manages references to standard objects without bundling SAP-owned code.
