@@ -23,80 +23,82 @@ If TRM fails to detect a dependency for a supported object type, open an [incide
 
 | Object Type | Description | Supported |
 | ----------- | ----------- | --------- |
-| ACID | Checkpoint Group | Yes: handled by standard repository environment |
-| AUTH | Authorization Check Fields | Yes: handled by standard repository environment |
-| AVAS | Classification | Yes: handled by standard repository environment |
-| BDEF | Behavior Definition | Yes: handled by standard repository environment |
-| BMFR | Application Component | Yes: handled by standard repository environment |
-| CFDM | Custom Fields: Function Module Registry | Yes: handled by standard repository environment |
-| CHAR | Object Characteristic | Yes: handled by standard repository environment |
-| CLAS | Class (ABAP Objects) | Yes: handled by standard repository environment |
-| CMHC | Cloud Management Health Check | Yes: handled by standard repository environment |
-| CUS0 | Customizing IMG Activity | Yes: handled by standard repository environment |
-| DCLS | ABAP Data Control Language Source | Yes: handled by standard repository environment |
-| DDLS | Data Definition Language Source | Yes: handled by standard repository environment |
+| ACID | Checkpoint Group | Yes: standard repository environment |
+| AUTH | Authorization Check Fields | Yes: standard repository environment |
+| AVAS | Classification | Yes: standard repository environment |
+| BDEF | Behavior Definition | Yes: standard repository environment |
+| BMFR | Application Component | Yes: standard repository environment |
+| CFDM | Custom Fields: Function Module Registry | Yes: standard repository environment |
+| CHAR | Object Characteristic | Yes: standard repository environment |
+| CLAS | Class (ABAP Objects) | Yes: standard repository environment |
+| CMHC | Cloud Management Health Check | Yes: standard repository environment |
+| CMOD | Customer Enhancement Project | Yes: custom handler. Assigned SMOD enhancements and migrated BAdI implementations |
+| CUS0 | Customizing IMG Activity | Yes: standard repository environment |
+| DCLS | ABAP Data Control Language Source | Yes: standard repository environment |
+| DDLS | Data Definition Language Source | Yes: standard repository environment |
 | DDLX | CDS Metadata Extension | Yes: handled by standard APIs. Extended CDS entity, DDL variants, annotation definitions, CDS entities referenced by annotations, and ABAP classes referenced through `ABAP:` annotation values |
-| DEVC | Package | Yes: handled by standard repository environment |
-| DIAL | Dialog Module | Yes: handled by standard repository environment |
-| DOMA | Domain | Yes: handled by standard repository environment |
-| DRTY | CDS Type Definitions | Yes: handled by standard repository environment |
-| DSFD | CDS Scalar Function Definition | Yes: handled by standard repository environment |
-| DTEL | Data Element | Yes: handled by standard repository environment |
-| ENHC | Composite Enhancement Implementation | Yes: handled by standard repository environment |
-| ENHO | Enhancement Implementation | Yes: handled by standard repository environment |
-| ENHS | Enhancement Spot | Yes: handled by standard repository environment |
-| ENQU | Lock Object | Yes: handled by standard repository environment |
-| ENSC | Composite Enhancement Spot | Yes: handled by standard repository environment |
-| FUGR | Function Group | Yes: handled by standard repository environment |
-| IASP | Parameters of an IAC service | Yes: handled by standard repository environment |
-| IATU | Language-Independent IAC Templates | Yes: handled by standard repository environment |
-| INTF | Interface (ABAP Objects) | Yes: handled by standard repository environment |
-| IWPR | SAP Gateway BSE - Service Builder Project | Yes: handled by standard repository environment |
-| JOBD | Technical Job Definition | Yes: handled by standard repository environment |
-| LDBA | Logical Database | Yes: handled by standard repository environment |
-| MSAG | Message Class | Yes: handled by standard repository environment |
-| NROB | Number Range Object | Yes: handled by standard repository environment |
-| OA2P | OAuth 2.0 Client Profile | Yes: handled by standard repository environment |
-| PARA | SPA/GPA Parameters | Yes: handled by standard repository environment |
-| PDTS | Standard Task | Yes: handled by standard repository environment |
-| PDWS | Workflow Template | Yes: handled by standard repository environment |
-| PINF | Package Interface | Yes: handled by standard repository environment |
-| PROG | Program | Yes: handled by standard repository environment |
-| SAMC | ABAP Messaging Channel Application | Yes: handled by standard repository environment |
-| SCGR | Service Consumer Group | Yes: handled by standard repository environment |
-| SFBF | Business Function and Assignment | Yes: handled by standard repository environment |
-| SFBS | Business Function Set and Assignment | Yes: handled by standard repository environment |
-| SFPF | Form Object: Form | Yes: handled by standard repository environment |
-| SFPI | Form Object: Interface | Yes: handled by standard repository environment |
-| SFSW | Switch and Assignment of Objects to the Switch | Yes: handled by standard repository environment |
-| SHI3 | General structure storage: Definition of a structure | Yes: handled by standard repository environment |
-| SHLP | Search Help | Yes: handled by standard repository environment |
+| DEVC | Package | Yes: standard repository environment |
+| DIAL | Dialog Module | Yes: standard repository environment |
+| DOMA | Domain | Yes: standard repository environment |
+| DRTY | CDS Type Definitions | Yes: standard repository environment |
+| DSFD | CDS Scalar Function Definition | Yes: standard repository environment |
+| DTEL | Data Element | Yes: standard repository environment |
+| ENHC | Composite Enhancement Implementation | Yes: standard repository environment |
+| ENHO | Enhancement Implementation | Yes: standard repository environment |
+| ENHS | Enhancement Spot | Yes: standard repository environment |
+| ENQU | Lock Object | Yes: standard repository environment |
+| ENSC | Composite Enhancement Spot | Yes: standard repository environment |
+| FUGR | Function Group | Yes: standard repository environment |
+| IASP | Parameters of an IAC service | Yes: standard repository environment |
+| IATU | Language-Independent IAC Templates | Yes: standard repository environment |
+| INTF | Interface (ABAP Objects) | Yes: standard repository environment |
+| IWPR | SAP Gateway BSE - Service Builder Project | Yes: standard repository environment |
+| JOBD | Technical Job Definition | Yes: standard repository environment |
+| LDBA | Logical Database | Yes: standard repository environment |
+| MSAG | Message Class | Yes: standard repository environment |
+| NROB | Number Range Object | Yes: standard repository environment |
+| OA2P | OAuth 2.0 Client Profile | Yes: standard repository environment |
+| PARA | SPA/GPA Parameters | Yes: standard repository environment |
+| PDTS | Standard Task | Yes: standard repository environment |
+| PDWS | Workflow Template | Yes: standard repository environment |
+| PINF | Package Interface | Yes: standard repository environment |
+| PROG | Program | Yes: standard repository environment |
+| SAMC | ABAP Messaging Channel Application | Yes: standard repository environment |
+| SCGR | Service Consumer Group | Yes: standard repository environment |
+| SFBF | Business Function and Assignment | Yes: standard repository environment |
+| SFBS | Business Function Set and Assignment | Yes: standard repository environment |
+| SFPF | Form Object: Form | Yes: standard repository environment |
+| SFPI | Form Object: Interface | Yes: standard repository environment |
+| SFSW | Switch and Assignment of Objects to the Switch | Yes: standard repository environment |
+| SHI3 | General structure storage: Definition of a structure | Yes: standard repository environment |
+| SHLP | Search Help | Yes: standard repository environment |
 | SICF | ICF Service | Yes: handled by standard APIs. Parent services, handler classes, alias targets, internal redirects, OTR texts, and transaction codes |
-| SMIM | Info Object from the MIME Repository | Yes: handled by standard repository environment |
-| SOBJ | Business object types | Yes: handled by standard repository environment |
-| SOD1 | API Package | Yes: handled by standard repository environment |
-| SOD2 | API Package Assignment | Yes: handled by standard repository environment |
-| SOTR | All Concepts (OTR) of a Package - Short Texts | Yes: handled by standard repository environment |
-| SPRX | Proxy Object | Yes: handled by standard repository environment |
-| SRVB | Service Binding | Yes: handled by standard repository environment |
-| STOB | Structured Object | Yes: handled by standard repository environment |
-| SUSO | Authorization Object | Yes: handled by standard repository environment |
-| SXCI | Business Add-Ins - Implementations | Yes: handled by standard repository environment |
-| TABL | Table | Yes: handled by standard repository environment |
-| TOBJ | Definition of a Maintenance and Transport Object | Yes: handled by standard repository environment |
-| TRAN | Transaction | Yes: handled by standard repository environment |
-| TTYP | Table Type | Yes: handled by standard repository environment |
-| TYPE | Type Group | Yes: handled by standard repository environment |
-| UDMO | Data Model | Yes: handled by standard repository environment |
-| UENO | Entity Type | Yes: handled by standard repository environment |
-| VIEW | View | Yes: handled by standard repository environment |
-| WAPA | BSP (Business Server Pages) Application | Yes: handled by standard repository environment |
-| WDYA | Web Dynpro Application | Yes: handled by standard repository environment |
-| WDYN | Web Dynpro Component | Yes: handled by standard repository environment |
-| WEBI | Virtual End Point | Yes: handled by standard repository environment |
-| WGRP | Object Type Group (ABAP Workbench/R3TR) | Yes: handled by standard repository environment |
-| WTAG | BSP Extension | Yes: handled by standard repository environment |
-| XSLT | Transformation | Yes: handled by standard repository environment |
+| SMIM | Info Object from the MIME Repository | Yes: standard repository environment |
+| SMOD | SAP Enhancement | Yes: custom handler. Function exits, screen exits, menu exits, table and structure components, migrated BAdI definitions, and directly mapped enhancement spots |
+| SOBJ | Business object types | Yes: standard repository environment |
+| SOD1 | API Package | Yes: standard repository environment |
+| SOD2 | API Package Assignment | Yes: standard repository environment |
+| SOTR | All Concepts (OTR) of a Package - Short Texts | Yes: standard repository environment |
+| SPRX | Proxy Object | Yes: standard repository environment |
+| SRVB | Service Binding | Yes: standard repository environment |
+| STOB | Structured Object | Yes: standard repository environment |
+| SUSO | Authorization Object | Yes: standard repository environment |
+| SXCI | Business Add-Ins - Implementations | Yes: standard repository environment |
+| TABL | Table | Yes: standard repository environment |
+| TOBJ | Definition of a Maintenance and Transport Object | Yes: standard repository environment |
+| TRAN | Transaction | Yes: standard repository environment |
+| TTYP | Table Type | Yes: standard repository environment |
+| TYPE | Type Group | Yes: standard repository environment |
+| UDMO | Data Model | Yes: standard repository environment |
+| UENO | Entity Type | Yes: standard repository environment |
+| VIEW | View | Yes: standard repository environment |
+| WAPA | BSP (Business Server Pages) Application | Yes: standard repository environment |
+| WDYA | Web Dynpro Application | Yes: standard repository environment |
+| WDYN | Web Dynpro Component | Yes: standard repository environment |
+| WEBI | Virtual End Point | Yes: standard repository environment |
+| WGRP | Object Type Group (ABAP Workbench/R3TR) | Yes: standard repository environment |
+| WTAG | BSP Extension | Yes: standard repository environment |
+| XSLT | Transformation | Yes: standard repository environment |
 
 ## Object types without dependency analysis
 
@@ -143,7 +145,6 @@ Some entries may not require dependency analysis because no relevant dependencie
 | CHDO | Change Document Object | No | [#121](https://github.com/RegestaItalia/trm-server/issues/121) |
 | CHKE | Check Exemptions | No | [#122](https://github.com/RegestaItalia/trm-server/issues/122) |
 | CMHC | Cloud Management Health Check | No | [#65](https://github.com/RegestaItalia/trm-server/issues/65) |
-| CMOD | Customer enhancement projects | No | [#123](https://github.com/RegestaItalia/trm-server/issues/123) |
 | CMPT | Code Composer Template | No | [#66](https://github.com/RegestaItalia/trm-server/issues/66) |
 | CUS0 | Customizing IMG Activity | No | [#124](https://github.com/RegestaItalia/trm-server/issues/124) |
 | DDLA | CDS Annotation Definition | No | [#125](https://github.com/RegestaItalia/trm-server/issues/125) |
@@ -243,7 +244,6 @@ Some entries may not require dependency analysis because no relevant dependencie
 | SMDK | Definition of a context class | No | [#208](https://github.com/RegestaItalia/trm-server/issues/208) |
 | SMDM | Document model area | No | [#210](https://github.com/RegestaItalia/trm-server/issues/210) |
 | SMIM | Info Object from the MIME Repository | No | [#211](https://github.com/RegestaItalia/trm-server/issues/211) |
-| SMOD | SAP enhancements | No | [#212](https://github.com/RegestaItalia/trm-server/issues/212) |
 | SMTG | OM: Email Template | No | [#213](https://github.com/RegestaItalia/trm-server/issues/213) |
 | SOD1 | Api Package | No | [#214](https://github.com/RegestaItalia/trm-server/issues/214) |
 | SOD2 | API Package Assignment | No | [#215](https://github.com/RegestaItalia/trm-server/issues/215) |
