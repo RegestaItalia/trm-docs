@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="818" viewBox="0 0 720 818" role="img" aria-labelledby="title desc">
   <title id="title">Test coverage by completed object type</title>
-  <desc id="desc">Passing dependency assertions as a percentage of executed assertions for each completed SAP object type. Green means all applicable assertions passed or no dependency is possible, amber means partially passing, red means none passed, and gray means tests were not run.</desc>
+  <desc id="desc">Passing dependency assertions as a percentage of executed assertions for each completed SAP object type. Dependency-free baseline assertions are counted normally. Green means all assertions passed, amber means partially passing, red means none passed, and gray means tests were not run.</desc>
   <style>
     .card { fill: #f6f8fa; stroke: #d0d7de; }
     .title { fill: #1f2328; font: 600 20px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
@@ -68,8 +68,8 @@
 
   <text x="40" y="460" class="object">MSAG</text>
   <rect x="150" y="446" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="446" width="410" height="18" rx="9" fill="#2da44e"/>
-  <text x="680" y="460" text-anchor="end" class="value">0/0</text>
+  <rect x="150" y="446" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="680" y="460" text-anchor="end" class="value">1/1 · 100%</text>
 
   <text x="40" y="496" class="object">NROB</text>
   <rect x="150" y="482" width="410" height="18" rx="9" class="track"/>
