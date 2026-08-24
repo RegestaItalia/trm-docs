@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="710" viewBox="0 0 720 710" role="img" aria-labelledby="title desc">
+  <title id="title">Test coverage by completed object type</title>
+  <desc id="desc">Passing dependency assertions as a percentage of executed assertions for each completed SAP object type. Green means all applicable assertions passed or no dependency is possible, amber means partially passing, red means none passed, and gray means tests were not run.</desc>
+  <style>
+    .card { fill: #f6f8fa; stroke: #d0d7de; }
+    .title { fill: #1f2328; font: 600 20px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .legend { fill: #59636e; font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .object { fill: #1f2328; font: 600 13px ui-monospace, SFMono-Regular, Consolas, monospace; }
+    .value { fill: #59636e; font: 12px ui-monospace, SFMono-Regular, Consolas, monospace; }
+    .track { fill: #d8dee4; }
+  </style>
+  <rect x="1" y="1" width="718" height="708" rx="10" class="card"/>
+  <text x="40" y="40" class="title">Test coverage by object type</text>
+  <circle cx="42" cy="65" r="5" fill="#2da44e"/><text x="53" y="69" class="legend">complete</text>
+  <circle cx="140" cy="65" r="5" fill="#bf8700"/><text x="151" y="69" class="legend">partial</text>
+  <circle cx="215" cy="65" r="5" fill="#cf222e"/><text x="226" y="69" class="legend">none passed</text>
+  <circle cx="322" cy="65" r="5" fill="#8c959f"/><text x="333" y="69" class="legend">not run</text>
+  
+  <text x="40" y="100" class="object">CLAS</text>
+  <rect x="150" y="86" width="470" height="18" rx="9" class="track"/>
+  <rect x="150" y="86" width="470.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="680" y="100" text-anchor="end" class="value">6/6 · 100%</text>
+
+  <text x="40" y="136" class="object">DDLS</text>
+  <rect x="150" y="122" width="470" height="18" rx="9" class="track"/>
+  <rect x="150" y="122" width="470.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="680" y="136" text-anchor="end" class="value">4/4 · 100%</text>
+
+  <text x="40" y="172" class="object">DOMA</text>
+  <rect x="150" y="158" width="470" height="18" rx="9" class="track"/>
+  <rect x="150" y="158" width="235.0" height="18" rx="9" fill="#bf8700"/>
+  <text x="680" y="172" text-anchor="end" class="value">1/2 · 50%</text>
+
+  <text x="40" y="208" class="object">DTEL</text>
+  <rect x="150" y="194" width="470" height="18" rx="9" class="track"/>
+  <rect x="150" y="194" width="470.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="680" y="208" text-anchor="end" class="value">4/4 · 100%</text>
+
+  <text x="40" y="244" class="object">ENQU</text>
+  <rect x="150" y="230" width="470" height="18" rx="9" class="track"/>
+  <rect x="150" y="230" width="470.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="680" y="244" text-anchor="end" class="value">1/1 · 100%</text>
+
+  <text x="40" y="280" class="object">FUGR</text>
+  <rect x="150" y="266" width="470" height="18" rx="9" class="track"/>
+  <rect x="150" y="266" width="470.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="680" y="280" text-anchor="end" class="value">3/3 · 100%</text>
+
+  <text x="40" y="316" class="object">INTF</text>
+  <rect x="150" y="302" width="470" height="18" rx="9" class="track"/>
+  <rect x="150" y="302" width="470.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="680" y="316" text-anchor="end" class="value">4/4 · 100%</text>
+
+  <text x="40" y="352" class="object">MSAG</text>
+  <rect x="150" y="338" width="470" height="18" rx="9" class="track"/>
+  <rect x="150" y="338" width="470" height="18" rx="9" fill="#2da44e"/>
+  <text x="680" y="352" text-anchor="end" class="value">0/0</text>
+
+  <text x="40" y="388" class="object">NROB</text>
+  <rect x="150" y="374" width="470" height="18" rx="9" class="track"/>
+  <rect x="150" y="374" width="470.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="680" y="388" text-anchor="end" class="value">1/1 · 100%</text>
+
+  <text x="40" y="424" class="object">PROG</text>
+  <rect x="150" y="410" width="470" height="18" rx="9" class="track"/>
+  <rect x="150" y="410" width="376.0" height="18" rx="9" fill="#bf8700"/>
+  <text x="680" y="424" text-anchor="end" class="value">4/5 · 80%</text>
+
+  <text x="40" y="460" class="object">SHLP</text>
+  <rect x="150" y="446" width="470" height="18" rx="9" class="track"/>
+  <rect x="150" y="446" width="313.3" height="18" rx="9" fill="#bf8700"/>
+  <text x="680" y="460" text-anchor="end" class="value">2/3 · 67%</text>
+
+  <text x="40" y="496" class="object">SICF</text>
+  <rect x="150" y="482" width="470" height="18" rx="9" class="track"/>
+  <rect x="150" y="482" width="470.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="680" y="496" text-anchor="end" class="value">3/3 · 100%</text>
+
+  <text x="40" y="532" class="object">TABL</text>
+  <rect x="150" y="518" width="470" height="18" rx="9" class="track"/>
+  <rect x="150" y="518" width="470.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="680" y="532" text-anchor="end" class="value">4/4 · 100%</text>
+
+  <text x="40" y="568" class="object">TRAN</text>
+  <rect x="150" y="554" width="470" height="18" rx="9" class="track"/>
+  <rect x="150" y="554" width="352.5" height="18" rx="9" fill="#bf8700"/>
+  <text x="680" y="568" text-anchor="end" class="value">3/4 · 75%</text>
+
+  <text x="40" y="604" class="object">TTYP</text>
+  <rect x="150" y="590" width="470" height="18" rx="9" class="track"/>
+  <rect x="150" y="590" width="470.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="680" y="604" text-anchor="end" class="value">2/2 · 100%</text>
+
+  <text x="40" y="640" class="object">VIEW</text>
+  <rect x="150" y="626" width="470" height="18" rx="9" class="track"/>
+  <rect x="150" y="626" width="470.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="680" y="640" text-anchor="end" class="value">1/1 · 100%</text>
+</svg>
