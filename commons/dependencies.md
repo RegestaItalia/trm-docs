@@ -27,8 +27,11 @@ The following table lists objects and scenarios in which TRM can still detect th
 
 | Object Type | Dependency Detection |
 | --- | --- |
+| `BDEF` | <ul><li>Root-entity, persistent-table, and behavior-pool dependencies.</li></ul> |
 | `CLAS` | <ul><li>Superclass inheritance dependency.</li><li>Interface implementation dependency.</li><li>DDIC method-signature dependency.</li><li>Static method-call dependency.</li><li>Number-range dependency through a function-module parameter.</li><li>Dialog-text dependency through a function-module parameter.</li></ul> |
+| `DCLS` | — |
 | `DDLS` | <ul><li>Table data-source dependency.</li><li>CDS data-source dependency.</li><li>Table association dependency.</li><li>Multiple table dependencies through an inner join.</li></ul> |
+| `DDLX` | <ul><li>Metadata-extension target dependency.</li></ul> |
 | `DOMA` | <ul><li>Value-table dependency.</li></ul> |
 | `DTEL` | <ul><li>Domain dependency.</li><li>Class reference-type dependency.</li><li>Data-element reference-type dependency.</li><li>Attached search-help dependency.</li></ul> |
 | `ENQU` | <ul><li>Primary-table dependency with activation-generated lock modules.</li></ul> |
