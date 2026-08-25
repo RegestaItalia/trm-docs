@@ -40,4 +40,5 @@ The following table lists objects and scenarios in which TRM can still detect th
 | `SICF` | <ul><li>HTTP handler-class dependency.</li><li>Service alias/reference dependency.</li><li>Parent-child service hierarchy dependency.</li></ul> |
 | `TABL` | <ul><li>Field data-element dependency.</li><li>Included-structure dependency.</li><li>Foreign-key/check-table dependency.</li><li>Field-level search-help dependency.</li></ul> |
 | `TTYP` | <ul><li>Structured row-type dependency.</li><li>Elementary row-type dependency.</li></ul> |
+| `TYPE` | <ul><li>Object without any possible dependency</li></ul> |
 | `VIEW` | <ul><li>Database-view base-table dependency.</li></ul> |
