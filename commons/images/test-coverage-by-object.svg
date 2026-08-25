@@ -13,8 +13,6 @@
   <text x="40" y="40" class="title">Test coverage by object type</text>
   <circle cx="42" cy="65" r="5" fill="#2da44e"/><text x="53" y="69" class="legend">complete</text>
   <circle cx="140" cy="65" r="5" fill="#bf8700"/><text x="151" y="69" class="legend">partial</text>
-  <circle cx="215" cy="65" r="5" fill="#cf222e"/><text x="226" y="69" class="legend">none passed</text>
-  <circle cx="322" cy="65" r="5" fill="#8c959f"/><text x="333" y="69" class="legend">not run</text>
   
   <text x="40" y="100" class="object">BDEF</text>
   <rect x="150" y="86" width="410" height="18" rx="9" class="track"/>
