@@ -31,7 +31,7 @@
 
   <text x="40" y="172" class="object">DCLS</text>
   <rect x="150" y="158" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="158" width="0.0" height="18" rx="9" fill="#cf222e"/>
+  <rect x="150" y="158" width="410" height="18" rx="9" fill="#cf222e"/>
   <text x="620" y="172" text-anchor="end" class="value">0/1</text>
   <text x="680" y="172" text-anchor="end" class="value">0%</text>
 
@@ -109,13 +109,13 @@
 
   <text x="40" y="640" class="object">SRVB</text>
   <rect x="150" y="626" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="626" width="0.0" height="18" rx="9" fill="#cf222e"/>
+  <rect x="150" y="626" width="410" height="18" rx="9" fill="#cf222e"/>
   <text x="620" y="640" text-anchor="end" class="value">0/1</text>
   <text x="680" y="640" text-anchor="end" class="value">0%</text>
 
   <text x="40" y="676" class="object">SRVD</text>
   <rect x="150" y="662" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="662" width="0.0" height="18" rx="9" fill="#cf222e"/>
+  <rect x="150" y="662" width="410" height="18" rx="9" fill="#cf222e"/>
   <text x="620" y="676" text-anchor="end" class="value">0/2</text>
   <text x="680" y="676" text-anchor="end" class="value">0%</text>
 
