@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="890" viewBox="0 0 720 890" role="img" aria-labelledby="title desc">
   <title id="title">Test coverage by completed object type</title>
-  <desc id="desc">Passing dependency assertions as a percentage of executed assertions for each completed SAP object type. Dependency-free baseline assertions are counted normally. Green means all assertions passed, amber means partially passing, red means none passed, and gray means tests were not run.</desc>
+  <desc id="desc">Passing dependency assertions as a percentage of executed assertions for each completed SAP object type. Dependency-free baseline assertions are counted normally. Green means all assertions passed, amber means partially passing, and red means no assertions passed or no assertions were executed.</desc>
   <style>
     .card { fill: #f6f8fa; stroke: #d0d7de; }
     .title { fill: #1f2328; font: 600 20px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
@@ -11,8 +11,9 @@
   </style>
   <rect x="1" y="1" width="718" height="888" rx="10" class="card"/>
   <text x="40" y="40" class="title">Test coverage by object type</text>
-  <circle cx="42" cy="65" r="5" fill="#2da44e"/><text x="53" y="69" class="legend">complete</text>
+  <circle cx="42" cy="65" r="5" fill="#2da44e"/><text x="53" y="69" class="legend">all passed</text>
   <circle cx="140" cy="65" r="5" fill="#bf8700"/><text x="151" y="69" class="legend">partial</text>
+  <circle cx="220" cy="65" r="5" fill="#cf222e"/><text x="231" y="69" class="legend">none</text>
   <text x="620" y="69" text-anchor="end" class="legend">tests</text>
   <text x="680" y="69" text-anchor="end" class="legend">passed</text>
   
