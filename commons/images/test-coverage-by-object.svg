@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="926" viewBox="0 0 720 926" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="890" viewBox="0 0 720 890" role="img" aria-labelledby="title desc">
   <title id="title">Test coverage by completed object type</title>
   <desc id="desc">Passing dependency assertions as a percentage of executed assertions for each completed SAP object type. Dependency-free baseline assertions are counted normally. Green means all assertions passed, amber means partially passing, red means none passed, and gray means tests were not run.</desc>
   <style>
@@ -9,7 +9,7 @@
     .value { fill: #59636e; font: 12px ui-monospace, SFMono-Regular, Consolas, monospace; }
     .track { fill: #d8dee4; }
   </style>
-  <rect x="1" y="1" width="718" height="924" rx="10" class="card"/>
+  <rect x="1" y="1" width="718" height="888" rx="10" class="card"/>
   <text x="40" y="40" class="title">Test coverage by object type</text>
   <circle cx="42" cy="65" r="5" fill="#2da44e"/><text x="53" y="69" class="legend">complete</text>
   <circle cx="140" cy="65" r="5" fill="#bf8700"/><text x="151" y="69" class="legend">partial</text>
@@ -141,10 +141,4 @@
   <rect x="150" y="806" width="410.0" height="18" rx="9" fill="#2da44e"/>
   <text x="620" y="820" text-anchor="end" class="value">1/1</text>
   <text x="680" y="820" text-anchor="end" class="value">100%</text>
-
-  <text x="40" y="856" class="object">VIEW</text>
-  <rect x="150" y="842" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="842" width="410.0" height="18" rx="9" fill="#2da44e"/>
-  <text x="620" y="856" text-anchor="end" class="value">1/1</text>
-  <text x="680" y="856" text-anchor="end" class="value">100%</text>
 </svg>
