@@ -102,25 +102,8 @@ paths:
         '400': { $ref: '#/components/responses/Error' }
         '404': { $ref: '#/components/responses/Error' }
         default: { $ref: '#/components/responses/Error' }
-  /package/contents/{package}:
-    parameters:
-      - $ref: '#/components/parameters/Package'
-      - $ref: '#/components/parameters/Version'
-    get:
-      operationId: getPackageContents
-      summary: Get the extracted contents of a package release
-      security: [{}, { basicAuth: [] }, { bearerAuth: [] }]
-      responses:
-        '200':
-          description: Content entries, grouped by registry-defined type
-          content:
-            application/json:
-              schema: { $ref: '#/components/schemas/PackageContents' }
-        '400': { $ref: '#/components/responses/Error' }
-        '404': { $ref: '#/components/responses/Error' }
-        default: { $ref: '#/components/responses/Error' }
   /transport/{trkorr}:
-    description: Optional endpoint for registry transport.
+    description: Endpoint for registry transport.
     parameters:
       - name: trkorr
         in: path
@@ -161,7 +144,7 @@ paths:
   /delete:
     post:
       operationId: createDeletionTransport
-      description: Optional endpoint for deletion transport.
+      description: Endpoint for deletion transport.
       security: [{ basicAuth: [] }, { bearerAuth: [] }]
       requestBody:
         required: true
@@ -422,7 +405,7 @@ components:
         error: { type: string, description: Present when this item could not be compared. }
     Package:
       type: object
-      required: [name, dist_tags, versions, yanked_versions, manifest, deprecated, download_link, checksum]
+      required: [name, dist_tags, versions, yanked_versions, manifest, deprecated, download_link, checksum, transports]
       properties:
         name: { type: string }
         dist_tags:
@@ -462,7 +445,7 @@ components:
           items: { $ref: '#/components/schemas/Transport' }
     Transport:
       type: object
-      required: [trkorr, type, description]
+      required: [trkorr, type, description, contents]
       properties:
         trkorr:
           type: string
@@ -471,6 +454,23 @@ components:
           type: string
           enum: [TADIR, DEVC, LANG, CUST]
         description: { type: string }
+        contents:
+          $ref: '#/components/schemas/TransportContents'
+    TransportContents:
+      type: object
+      required: [download_link, download_link_expiry, checksum]
+      properties:
+        download_link:
+          type: string
+          format: uri
+          description: A URL that returns the exact parsed R3trans log JSON for this release transport.
+        download_link_expiry:
+          type: integer
+          format: int64
+          description: Unix epoch milliseconds.
+        checksum:
+          type: string
+          description: Base64-encoded SHA-512 digest of the exact JSON bytes returned by `download_link`.
     TransportDownload:
       type: object
       required: [download_link, download_link_expiry, checksum]
@@ -488,33 +488,18 @@ components:
           description: Base64-encoded SHA-512 digest of the exact ZIP bytes returned by `download_link`.
     DeleteTransportRequest:
       type: object
-      required: [transport, package, version]
+      required: [header, data]
       properties:
-        transport:
+        header:
           type: string
           format: binary
           contentMediaType: application/octet-stream
-          description: A URL that returns a ZIP containing the K and R transport files.
-        package:
+          description: The K/header file of the source transport.
+        data:
           type: string
-          description: Package identifier whose installed contents are being removed.
-        version:
-          type: string
-          description: Installed package version.
-    PackageContents:
-      type: object
-      required: [tdevc, tdevct, tadir, e071]
-      properties:
-        tdevc: { $ref: '#/components/schemas/PackageContentsEntries' }
-        tdevct: { $ref: '#/components/schemas/PackageContentsEntries' }
-        tadir: { $ref: '#/components/schemas/PackageContentsEntries' }
-        e071: { $ref: '#/components/schemas/PackageContentsEntries' }
-    PackageContentsEntries:
-      type: array
-      items:
-        type: object
-        additionalProperties:
-          type: [string, number, boolean, 'null']
+          format: binary
+          contentMediaType: application/octet-stream
+          description: The R/data file of the source transport.
     Tag:
       type: object
       required: [tag]

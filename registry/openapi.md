@@ -119,33 +119,6 @@ Implement this operation only when ping reports `OAUTH2` authentication.
 | basicAuth |  |
 | bearerAuth |  |
 
-### [GET] /package/contents/{package}
-**Get the extracted contents of a package release**
-
-#### Parameters
-
-| Name | Located in | Description | Required | Schema |
-| ---- | ---------- | ----------- | -------- | ------ |
-| package | path | A package identifier appended exactly as supplied by RegistryV2. It may contain path separators; do not percent-encode `/` within the identifier. | Yes | string |
-| version | query | Release version or distribution tag. Defaults to `latest`. | No | string, <br>**Default:** latest |
-
-#### Responses
-
-| Code | Description | Schema |
-| ---- | ----------- | ------ |
-| 200 | Content entries, grouped by registry-defined type | **application/json**: [PackageContents](#packagecontents-schema)<br> |
-| 400 | Request failed | **application/json**: [Error](#error-schema)<br> |
-| 404 | Request failed | **application/json**: [Error](#error-schema)<br> |
-| default | Request failed | **application/json**: [Error](#error-schema)<br> |
-
-##### Security
-
-| Security Schema | Scopes |
-| --------------- | ------ |
-
-| basicAuth |  |
-| bearerAuth |  |
-
 ### [GET] /transport/{trkorr}
 **Package transport download**
 
@@ -183,7 +156,7 @@ Downloads the canonical transports.
 | bearerAuth |  |
 
 ### [POST] /delete
-Optional endpoint for deletion transport.
+Endpoint for deletion transport.
 
 #### Request Body
 
@@ -457,7 +430,7 @@ Optional endpoint for deletion transport.
 | download_link | string (uri) | A URL that returns the package `.trm` artifact as `application/octet-stream`. RegistryV2 follows redirects when downloading it. | Yes |
 | download_link_expiry | long | Unix epoch milliseconds. | No |
 | checksum | string | Base64-encoded SHA-512 digest of the exact artifact bytes returned by `download_link`. | Yes |
-| transports | [ [Transport](#transport-schema) ] | Transports available in the selected release. | No |
+| transports | [ [Transport](#transport-schema) ] | Transports available in the selected release. | Yes |
 
 #### Transport Schema
 
@@ -466,6 +439,15 @@ Optional endpoint for deletion transport.
 | trkorr | string |  | Yes |
 | type | string, <br>**Available values:** "TADIR", "DEVC", "LANG", "CUST" | *Enum:* `"TADIR"`, `"DEVC"`, `"LANG"`, `"CUST"` | Yes |
 | description | string |  | Yes |
+| contents | [TransportContents](#transportcontents-schema) |  | Yes |
+
+#### TransportContents Schema
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| download_link | string (uri) | A URL that returns the exact parsed R3trans log JSON for this release transport. | Yes |
+| download_link_expiry | long | Unix epoch milliseconds. | Yes |
+| checksum | string | Base64-encoded SHA-512 digest of the exact JSON bytes returned by `download_link`. | Yes |
 
 #### TransportDownload Schema
 
@@ -479,24 +461,8 @@ Optional endpoint for deletion transport.
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| transport | binary | A URL that returns a ZIP containing the K and R transport files. | Yes |
-| package | string | Package identifier whose installed contents are being removed. | Yes |
-| version | string | Installed package version. | Yes |
-
-#### PackageContents Schema
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| tdevc | [PackageContentsEntries](#packagecontentsentries-schema) |  | Yes |
-| tdevct | [PackageContentsEntries](#packagecontentsentries-schema) |  | Yes |
-| tadir | [PackageContentsEntries](#packagecontentsentries-schema) |  | Yes |
-| e071 | [PackageContentsEntries](#packagecontentsentries-schema) |  | Yes |
-
-#### PackageContentsEntries Schema
-
-| Name | Type | Description | Required |
-| ---- | ---- | ----------- | -------- |
-| PackageContentsEntries | [ object ] |  |  |
+| header | binary | The K/header file of the source transport. | Yes |
+| data | binary | The R/data file of the source transport. | Yes |
 
 #### Tag Schema
 
