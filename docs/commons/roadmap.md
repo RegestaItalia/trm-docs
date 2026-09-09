@@ -14,7 +14,7 @@ This roadmap outlines the development stages and feature progress of the followi
 - [trm-action-install](https://github.com/RegestaItalia/trm-action-install): GitHub Action for installing
 - [trm-ui](https://github.com/RegestaItalia/trm-ui): Web-based UI interface
 
-You can also view the [public registry roadmap](/registry/public/roadmap.md).
+You can also view the [public registry roadmap](../registry/public/roadmap.md).
 
 For questions or support, please open an issue in any of the above repositories or email [support@trmregistry.com](mailto:support@trmregistry.com).
 

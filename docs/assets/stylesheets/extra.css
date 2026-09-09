@@ -1,0 +1,32 @@
+.contributors-embed {
+  width: 100%;
+  overflow: hidden;
+}
+
+.contributors-embed__image-link {
+  display: none;
+}
+
+.contributors-embed__iframe {
+  display: block;
+  width: 100%;
+  height: 800px;
+  border: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .contributors-embed__iframe {
+    display: none;
+  }
+
+  .contributors-embed__image-link {
+    display: block;
+  }
+
+  .contributors-embed__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}

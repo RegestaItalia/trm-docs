@@ -1,0 +1,108 @@
+[project]
+site_name = "TRM Documentation"
+site_description = "TRM (Transport Request Manager) documentation. TRM - package manager for SAP systems."
+site_author = "Regesta Group Srl"
+site_url = "https://docs.trmregistry.com/"
+repo_url = "https://github.com/RegestaItalia/trm-docs"
+repo_name = "RegestaItalia/trm-docs"
+edit_uri = "edit/main/docs/"
+copyright = "© 2026 Regesta Group Srl. ⛟ TRM is not endorsed, sponsored, or affiliated with SAP."
+extra_css = ["assets/stylesheets/extra.css"]
+nav = [
+  { "Home" = "index.md" },
+  { "Getting Started" = [
+    { "Set up the server" = "server/setup.md" },
+    { "Set up the CLI" = "client/setup.md" },
+  ] },
+  { "Business Cases" = [
+    { "Managing core developments" = "business_cases/1_managing_core_developments.md" },
+  ] },
+  { "Roadmaps" = [
+    { "Project" = "commons/roadmap.md" },
+    { "Registry" = "registry/public/roadmap.md" },
+  ] },
+  { "Concepts" = [
+    { "Artifact" = "commons/artifact.md" },
+    { "Customizing Guidelines" = "commons/customizing_guidelines.md" },
+    { "Manifest" = "commons/manifest.md" },
+    { "Dependencies" = "commons/dependencies.md" },
+    { "Lockfile" = "commons/lockfile.md" },
+    { "Post Activities" = "commons/post_activities.md" },
+    { "SAP Entries" = "commons/sap_entries.md" },
+    { "GitHub Actions" = "commons/github_actions.md" },
+  ] },
+  { "Registry" = [
+    { "Overview" = "registry/index.md" },
+    { "Authentication" = "registry/public/authentication.md" },
+    { "Badges" = "registry/public/badges.md" },
+    { "API reference" = "registry/openapi.md" },
+  ] },
+  { "Examples" = [
+    { "Publish and install" = "examples/1_publish_and_install.md" },
+    { "Package with dependencies" = "examples/2_package_with_dependencies.md" },
+    { "Install with a lockfile" = "examples/3_install_with_a_lockfile.md" },
+    { "Dealing with release candidates" = "examples/4_dealing_with_release_candidates.md" },
+    { "Working with TRM offline" = "examples/5_working_with_trm_offline.md" },
+    { "ABAP GitHub Actions CI/CD" = "examples/6_abap_github_actions_ci_cd.md" },
+    { "Package across landscape" = "examples/7_package_across_landscape.md" },
+  ] },
+  { "FAQ" = "faq.md" },
+  { "Incidents" = "incidents.md" },
+  { "Contributing" = "CONTRIBUTING.md" },
+  { "Code of Conduct" = "CODE_OF_CONDUCT.md" },
+]
+
+[project.theme]
+variant = "classic"
+logo = "assets/logo.png"
+features = [
+  "content.action.edit",
+  "content.code.copy",
+  "navigation.footer",
+  "navigation.indexes",
+  "navigation.sections",
+  "navigation.top",
+  "search.highlight",
+  "search.suggest",
+]
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "light blue"
+accent = "light blue"
+
+[project.theme.palette.toggle]
+icon = "lucide/sun"
+name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "light blue"
+accent = "light blue"
+
+[project.theme.palette.toggle]
+icon = "lucide/moon"
+name = "Switch to light mode"
+
+[project.markdown_extensions]
+admonition = {}
+attr_list = {}
+md_in_html = {}
+"pymdownx.details" = {}
+"pymdownx.highlight" = { anchor_linenums = true }
+"pymdownx.superfences" = {}
+tables = {}
+toc = { permalink = true }
+
+[project.extra]
+generator = false
+
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "https://github.com/RegestaItalia"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/linkedin"
+link = "https://www.linkedin.com/company/regesta-spa"

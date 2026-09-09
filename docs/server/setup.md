@@ -10,8 +10,8 @@ It exposes the APIs that allow TRM to import and export transports. Consequently
 
 The first installation must be performed using the [standalone installer](https://raw.githubusercontent.com/RegestaItalia/trm-server/refs/heads/main/ztrm_installer.prog.abap).
 
-The **standalone installer** is a self-contained ABAP report that allows the installation of **trm-server** and **trm-rest**.\
-The installer imports trm-server transports (and trm-rest transports, if necessary) into your system and automatically moves their objects into the temporary package `$TRM`, which it also creates.\
+The **standalone installer** is a self-contained ABAP report that allows the installation of **trm-server** and **trm-rest**.<br>
+The installer imports trm-server transports (and trm-rest transports, if necessary) into your system and automatically moves their objects into the temporary package `$TRM`, which it also creates.<br>
 The installer does not import the **/ATRM/** namespace because trm-server and trm-rest are intended to be used as-is. If you need to modify their objects, consider [installing them via abapGit](#install-with-abapgit) instead.
 
 After the initial installation, we recommend installing subsequent updates through TRM.
@@ -20,25 +20,25 @@ After the initial installation, we recommend installing subsequent updates throu
 2. Open transaction `SE38` and create a new report called `ZTRM_INSTALLER`
 
 <p align="center">
-    <img src="https://docs.trmregistry.com/server/images/se38_1.png" alt="SE38">
+    <img src="../assets/server/se38_1.png" alt="SE38">
 </p>
 
 3. Give it a title and set the type to "Executable program"
 
 <p align="center">
-    <img src="https://docs.trmregistry.com/server/images/se38_2.png" alt="SE38">
+    <img src="../assets/server/se38_2.png" alt="SE38">
 </p>
 
 4. Save as a local object (or in temporary package `$TMP`)
 
 <p align="center">
-    <img src="https://docs.trmregistry.com/server/images/se38_3.png" alt="SE38">
+    <img src="../assets/server/se38_3.png" alt="SE38">
 </p>
 
 5. Paste or upload the report's source code, then activate it
 
 <p align="center">
-    <img src="https://docs.trmregistry.com/server/images/se38_4.png" alt="SE38">
+    <img src="../assets/server/se38_4.png" alt="SE38">
 </p>
 
 ### Release file install (From file)
@@ -53,7 +53,7 @@ After the initial installation, we recommend installing subsequent updates throu
 6. Execute the report and wait for the installation to complete (approximately five minutes)
 
 <p align="center">
-    <img src="https://docs.trmregistry.com/server/images/offline.png" alt="ZTRM_INSTALLER">
+    <img src="../assets/server/offline.png" alt="ZTRM_INSTALLER">
 </p>
 
 <details>
@@ -102,7 +102,7 @@ The online installation is only possible if your system is allowed to connect to
 2. Open the "SSL Client (Anonymous)" folder
 
 <p align="center">
-    <img src="https://docs.trmregistry.com/server/images/strust_1.png" alt="STRUST">
+    <img src="../assets/server/strust_1.png" alt="STRUST">
 </p>
 
 3. Select "Change"
@@ -111,7 +111,7 @@ The online installation is only possible if your system is allowed to connect to
 6. Repeat the process for all downloaded certificates
 
 <p align="center">
-    <img src="https://docs.trmregistry.com/server/images/strust_2.png" alt="STRUST">
+    <img src="../assets/server/strust_2.png" alt="STRUST">
 </p>
 
 7. Save
@@ -123,7 +123,7 @@ The online installation is only possible if your system is allowed to connect to
 3. Execute the report and wait for the installation to complete (approximately five minutes)
 
 <p align="center">
-    <img src="https://docs.trmregistry.com/server/images/online.png" alt="ZTRM_INSTALLER">
+    <img src="../assets/server/online.png" alt="ZTRM_INSTALLER">
 </p>
 
 </details>
@@ -153,7 +153,7 @@ Because this package uses the **/ATRM/** namespace, installation through [abapGi
 
 If you are running a **demo system**, you can use the following keys:
 
-**Development key**: 18531191373370851361\
+**Development key**: 18531191373370851361<br>
 **Repair key**: 00211665563784583720
 
 ### Other systems

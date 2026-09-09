@@ -21,7 +21,7 @@ Before asking general questions about TRM or the public registry, please read th
 
 + I need support. Whom should I contact? +
 
-    Check out the [incident](/incidents.md) section.
+    Check out the [incident](incidents.md) section.
 
 + Is it safe to import open source ABAP packages into my customer system? +
 
@@ -47,7 +47,7 @@ Before asking general questions about TRM or the public registry, please read th
         - The SAP objects used exist.
         - Required TRM packages are installed and up to date.
 
-    More info: [Dependency recognition](/commons/dependencies.md#dependency-recognition)
+    More info: [Dependency recognition](commons/dependencies.md#dependency-recognition)
 
 + Does TRM support cloud developments? +
 
@@ -59,7 +59,7 @@ Before asking general questions about TRM or the public registry, please read th
 
     - TRM supports automation through the CLI.
     - All publish/install commands support non-interactive execution.
-    - For GitHub Actions, see the [CD workflow example](/examples/6_abap_github_actions_ci_cd.md).
+    - For GitHub Actions, see the [CD workflow example](examples/6_abap_github_actions_ci_cd.md).
 
 + Does TRM support object translations? +
 

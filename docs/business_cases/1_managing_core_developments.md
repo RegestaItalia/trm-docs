@@ -1,6 +1,6 @@
 # Managing core developments across SAP customers
 
-SAP partners usually maintain a set of **core developments** that are reused across multiple customer systems.\
+SAP partners usually maintain a set of **core developments** that are reused across multiple customer systems.<br>
 These developments typically include shared frameworks, utilities, integrations, logging libraries, or industry-specific functionality that must be **imported and kept up to date in every customer landscape**.
 
 ## Before TRM
@@ -31,14 +31,14 @@ Instead of manually transporting shared code, the partner can:
 2. Assign proper **semantic versions** to each release.
 3. Declare **dependencies** between packages.
 
-When a new customer system is set up, developers simply **install the required packages from the registry**.\
+When a new customer system is set up, developers simply **install the required packages from the registry**.<br>
 TRM automatically:
 
 - Resolves dependencies.
 - Installs compatible versions.
 - Executes the necessary post-install activities.
 
-Updating shared developments becomes straightforward: the partner publishes a new version, and customer systems can **upgrade in a controlled and traceable way**.\
+Updating shared developments becomes straightforward: the partner publishes a new version, and customer systems can **upgrade in a controlled and traceable way**.<br>
 What was once a time-consuming and error-prone activity becomes a **simple command**.
 
 ## TRM in the Development Lifecycle

@@ -18,7 +18,7 @@ The **TRM Public Registry** is the official registry service provided by TRM.
 
 ### Roadmap
 
-You can find the roadmap for the public registry [here](/registry/public/roadmap.md).
+You can find the roadmap for the public registry [here](public/roadmap.md).
 
 ---
 
@@ -57,10 +57,10 @@ TRM will prompt you for the registry endpoint and any optional authentication co
 ### Create Your Own Private Registry
 
 To host a private registry, implement the required endpoints described in the
-[TRM Registry API reference](registry/openapi.md).
+[TRM Registry API reference](openapi.md).
 
 The API contract is also available as a machine-readable
-[OpenAPI schema](https://raw.githubusercontent.com/RegestaItalia/trm-docs/refs/heads/main/registry/openapi.yaml).
+[OpenAPI schema](https://raw.githubusercontent.com/RegestaItalia/trm-docs/refs/heads/main/docs/registry/openapi.yaml).
 
 TypeScript definitions for the request and response payloads are available in
 the [`trm-registry-types` npm package](https://www.npmjs.com/package/trm-registry-types).

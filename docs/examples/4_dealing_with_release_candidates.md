@@ -25,7 +25,7 @@ This makes it clear to end users that the release is not yet ready for productio
 Let's publish the first release candidate of `@trmsamples/doc-demo` version `1.0.3` and tag it `rc`.
 
 <div style="display:flex; justify-content:center;">
-  <img src="/examples/media/4_1_dealing_with_release_candidates.png" alt="Publishing with a tag" style="max-width:100%; height:auto; border-radius:8px;">
+  <img src="/assets/examples/4_1_dealing_with_release_candidates.png" alt="Publishing with a tag" style="max-width:100%; height:auto; border-radius:8px;">
 </div>
 
 > Notice that TRM indicates the release is tagged with `rc`.
@@ -33,7 +33,7 @@ Let's publish the first release candidate of `@trmsamples/doc-demo` version `1.0
 If we go to the registry website we can confirm the `rc` tag is in place:
 
 <div style="display:flex; justify-content:center;">
-  <img src="/examples/media/4_2_dealing_with_release_candidates.png" alt="Publishing with a tag" style="max-width:100%; height:auto; border-radius:8px;">
+  <img src="/assets/examples/4_2_dealing_with_release_candidates.png" alt="Publishing with a tag" style="max-width:100%; height:auto; border-radius:8px;">
 </div>
 
 This shows that the `latest` tag still points to version `1.0.2`. If an end user installs the latest stable version, they receive version `1.0.2`.
@@ -44,7 +44,7 @@ However, a release candidate exists, and its `rc` tag points to version `1.0.3-r
 Just like any install, we can point to a specific version or to a tag. In this case, let's install the `rc` version.
 
 <div style="display:flex; justify-content:center;">
-  <img src="/examples/media/4_3_dealing_with_release_candidates.png" alt="Installing the prerelease" style="max-width:100%; height:auto; border-radius:8px;">
+  <img src="/assets/examples/4_3_dealing_with_release_candidates.png" alt="Installing the prerelease" style="max-width:100%; height:auto; border-radius:8px;">
 </div>
 
 As you can see, `rc` installed `1.0.3-rc.0`.
@@ -53,5 +53,5 @@ Additional release candidates for version `1.0.3` can now be published (`1.0.3-r
 Once we're ready to release `1.0.3`, we can either republish the latest release candidate with the final semantic version (`1.0.3` instead of `1.0.3-rc.0`) or simply reassign the `latest` tag and delete the `rc` tag.
 
 <div style="display:flex; justify-content:center;">
-  <img src="/examples/media/4_4_dealing_with_release_candidates.png" alt="Retagging the release" style="max-width:100%; height:auto; border-radius:8px;">
+  <img src="/assets/examples/4_4_dealing_with_release_candidates.png" alt="Retagging the release" style="max-width:100%; height:auto; border-radius:8px;">
 </div>

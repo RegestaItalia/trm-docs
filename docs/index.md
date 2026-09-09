@@ -1,6 +1,6 @@
-# 🚚 TRM (Transport Request Manager)
+# 🚚 TRM - Transport Request Manager
 
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-1.3.0-4baaaa.svg)](docs/CODE_OF_CONDUCT.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-1.3.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
 [![View Code Wiki](https://assets.codewiki.google/readme-badge/static.svg)](https://codewiki.google/github.com/regestaitalia/trm-docs)
 
 [![trm-client version](https://img.shields.io/npm/v/trm-client?label=trm-client)](https://www.npmjs.com/package/trm-client)
@@ -8,17 +8,17 @@
 [![trm-core version](https://img.shields.io/npm/v/trm-core?label=trm-core)](https://www.npmjs.com/package/trm-core)
 [![trm-registry-types version](https://img.shields.io/npm/v/trm-registry-types?label=trm-registry-types)](https://www.npmjs.com/package/trm-registry-types)
 
-[![trm-registry roadmap stage](https://img.shields.io/badge/public%20registry%20roadmap%20stage-production-green)](docs/registry/public/roadmap.md)
+[![trm-registry roadmap stage](https://img.shields.io/badge/public%20registry%20roadmap%20stage-production-green)](registry/public/roadmap.md)
 
-| 🚀 This project is funded and maintained by 🏦 | 🔗                                                             |
+| 🚀 This project is funded and maintained by 🏦  | 🔗                                                             |
 |-------------------------------------------------|----------------------------------------------------------------|
-| Regesta S.p.A.                                  | [https://www.regestaitalia.eu/](https://www.regestaitalia.eu/) |
-| Clarex S.r.l.                                   | [https://www.clarex.it/](https://www.clarex.it/)               |
+| Regesta Group Srl                               | [https://www.regestaitalia.eu/](https://www.regestaitalia.eu/) |
+| Clarex Srl                                      | [https://www.clarex.it/](https://www.clarex.it/)               |
 
-**TRM (Transport Request Manager)** is a package-manager-inspired solution built on CTS that simplifies SAP ABAP transports.
+**TRM (Transport Request Manager)** is the package manager for SAP systems.
 
 <p align="center">
-  <img src="docs/assets/logo.png" alt="TRM Logo" />
+  <img src="assets/logo.png" alt="TRM Logo" />
 </p>
 
 TRM introduces **package-based software delivery** to the SAP ecosystem, bringing with it semantic versioning, dependency management, and automated deployment activities.
@@ -75,21 +75,11 @@ Make sure to open an issue first.
 
 Contributions will be merged upon approval.
 
-[Read the contribution guidelines](docs/CONTRIBUTING.md) before submitting a change.
+[Read the contribution guidelines](CONTRIBUTING.md) before submitting a change.
 
-[![TRM project contributors](https://trmregistry.com/public/contributors?image=true)](https://trmregistry.com/public/contributors)
-
-## Local documentation preview
-
-Create and activate a virtual environment, install the pinned dependency, and
-start the development server:
-
-```sh
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-zensical serve
-```
-
-The documentation is available at <http://localhost:8000> and reloads when a
-source file changes.
+<div class="contributors-embed">
+  <a class="contributors-embed__image-link" href="https://trmregistry.com/public/contributors" target="_blank" rel="noopener" aria-label="View TRM contributors">
+    <img class="contributors-embed__image" src="https://trmregistry.com/public/contributors?image=true" alt="TRM project contributors" loading="lazy">
+  </a>
+  <iframe class="contributors-embed__iframe" src="https://trmregistry.com/public/contributors" title="TRM project contributors" loading="lazy" scrolling="no"></iframe>
+</div>

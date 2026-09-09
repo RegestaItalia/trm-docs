@@ -2,7 +2,7 @@
 
 TRM automatically detects dependencies required by objects in a TRM package, helping prevent syntax and runtime errors.
 
-Dependency detection depends on the object types contained in the package. If support for another object type is required, open an [incident](/incidents.md).
+Dependency detection depends on the object types contained in the package. If support for another object type is required, open an [incident](../incidents.md).
 
 ## SAP objects
 
@@ -23,7 +23,7 @@ The following table lists objects and scenarios in which TRM can still detect th
 
 ## Supported object types
 
-<p align="center"><img src="https://docs.trmregistry.com/commons/images/test-coverage-by-object.svg" alt="Test coverage"></p>
+<p align="center"><img src="../assets/commons/test-coverage-by-object.svg" alt="Test coverage"></p>
 
 | Object Type | Dependency Detection |
 | --- | --- |
