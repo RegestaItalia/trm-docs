@@ -1,6 +1,6 @@
 [project]
 site_name = "TRM Documentation"
-site_description = "TRM (Transport Request Manager) documentation. TRM - package manager for SAP systems."
+site_description = "TRM (Transport Request Manager) Documentation. TRM - package manager for SAP systems."
 site_author = "Regesta Group Srl"
 site_url = "https://docs.trmregistry.com/"
 repo_url = "https://github.com/RegestaItalia/trm-docs"
@@ -8,6 +8,7 @@ repo_name = "RegestaItalia/trm-docs"
 edit_uri = "edit/main/docs/"
 copyright = "© 2026 Regesta Group Srl. ⛟ TRM is not endorsed, sponsored, or affiliated with SAP."
 extra_css = ["assets/stylesheets/extra.css"]
+extra_javascript = ["assets/javascripts/navigation.js"]
 nav = [
   { "Home" = "index.md" },
   { "Getting Started" = [
@@ -15,11 +16,15 @@ nav = [
     { "Set up the CLI" = "client/setup.md" },
   ] },
   { "Business Cases" = [
-    { "Managing core developments" = "business_cases/1_managing_core_developments.md" },
-  ] },
-  { "Roadmaps" = [
-    { "Project" = "commons/roadmap.md" },
-    { "Registry" = "registry/public/roadmap.md" },
+    { "Turn reusable ABAP into a product" = "business_cases/1_managing_core_developments.md" },
+    { "Build a commercial add-on" = "business_cases/2_commercial_abap_addons.md" },
+    { "Standardize an internal platform" = "business_cases/3_internal_abap_platform.md" },
+    { "Control solution dependencies" = "business_cases/4_dependency_control.md" },
+    { "Automate ABAP delivery" = "business_cases/5_abap_delivery_automation.md" },
+    { "Grow open-source adoption" = "business_cases/6_open_source_abap.md" },
+    { "Accelerate customer onboarding" = "business_cases/7_customer_onboarding.md" },
+    { "Govern multi-vendor delivery" = "business_cases/8_multi_vendor_governance.md" },
+    { "Modernize legacy ABAP" = "business_cases/9_modernize_legacy_abap.md" },
   ] },
   { "Concepts" = [
     { "Artifact" = "commons/artifact.md" },
@@ -60,7 +65,6 @@ features = [
   "content.code.copy",
   "navigation.footer",
   "navigation.indexes",
-  "navigation.sections",
   "navigation.top",
   "search.highlight",
   "search.suggest",

@@ -16,10 +16,6 @@ The **TRM Public Registry** is the official registry service provided by TRM.
 - **Anonymous Access**: Package downloads can often be done without an account.
 - **Plans & Permissions**: Access levels and limits are determined by the user’s subscription plan. You can compare plans [here](https://trmregistry.com/plans).
 
-### Roadmap
-
-You can find the roadmap for the public registry [here](public/roadmap.md).
-
 ---
 
 ## Private Registry

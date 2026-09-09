@@ -8,8 +8,6 @@
 [![trm-core version](https://img.shields.io/npm/v/trm-core?label=trm-core)](https://www.npmjs.com/package/trm-core)
 [![trm-registry-types version](https://img.shields.io/npm/v/trm-registry-types?label=trm-registry-types)](https://www.npmjs.com/package/trm-registry-types)
 
-[![trm-registry roadmap stage](https://img.shields.io/badge/public%20registry%20roadmap%20stage-production-green)](docs/registry/public/roadmap.md)
-
 | 🚀 This project is funded and maintained by 🏦 | 🔗                                                             |
 |-------------------------------------------------|----------------------------------------------------------------|
 | Regesta S.p.A.                                  | [https://www.regestaitalia.eu/](https://www.regestaitalia.eu/) |
@@ -81,15 +79,19 @@ Contributions will be merged upon approval.
 
 ## Local documentation preview
 
-Create and activate a virtual environment, install the pinned dependency, and
-start the development server:
+Set up the documentation environment once:
 
 ```sh
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-zensical serve
+npm run setup
+```
+
+Then start the local development server:
+
+```sh
+npm run serve
 ```
 
 The documentation is available at <http://localhost:8000> and reloads when a
 source file changes.
+
+To create a clean production build in `site/`, run `npm run build`.

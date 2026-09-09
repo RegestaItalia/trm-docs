@@ -9,6 +9,6 @@ To open an incident, you can either:
 
 ## Priority support
 
-If you [upgrade your plan to PRO](https://trmregistry.com/plans), one of the benefits is priority support and direct contact with the maintainers ([Regesta Group Srl](https://www.regestaitalia.eu/).
+If you [upgrade your plan to PRO](https://trmregistry.com/plans), one of the benefits is priority support and direct contact with the maintainers ([Regesta Group Srl](https://www.regestaitalia.eu/)).
 
 Contact sales for more details.
