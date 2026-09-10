@@ -63,15 +63,6 @@ release is a patch, a backward-compatible feature, or a breaking change.
 Version numbers communicate compatibility; they do not replace testing or an
 organization's release approval process.
 
-### Can TRM install a package into a different ABAP package name?
-
-Yes. During installation, TRM can map the source package hierarchy to packages in
-the target system. This supports customer naming conventions and transport-layer
-requirements without rebuilding the release for every target.
-
-Existing target objects are protected by installation checks, and TRM asks for
-confirmation before overwriting a modified package in interactive workflows.
-
 ### Does TRM support translations and customizing?
 
 Yes. A release can include a translation transport and one or more customizing
@@ -86,6 +77,41 @@ Yes. A manifest can declare post-install activities implemented by ABAP classes.
 They are suitable for repeatable tasks such as refreshing caches or regenerating roles.
 
 Post-install activities execute code in the target SAP system. See [Post activities](commons/post_activities.md).
+
+## abapGit integration
+
+### Does TRM replace abapGit?
+
+No. abapGit supports a fast, Git-based development workflow, while TRM packages
+and deploys releases through SAP CTS transports. They can be used together: code
+can be developed and versioned with abapGit, then packaged by TRM for controlled
+delivery across the SAP landscape.
+
+### Can a TRM package include abapGit source code?
+
+Yes. When the abapGit developer version is installed in the source SAP system,
+TRM includes the serialized abapGit source code in the package alongside its
+transports.
+
+### Can a TRM package link to its Git repository?
+
+Yes. The package manifest can contain a link to the Git repository, allowing
+consumers to find the corresponding source code and development history.
+
+### Does TRM respect objects ignored by abapGit?
+
+Yes. When packaging abapGit source code, TRM excludes objects listed in the
+`<IGNORED>` section of `.abapgit.xml`.
+
+### Can TRM install into a custom SAP package name?
+
+Yes. TRM can map the source package hierarchy to a custom package name during
+installation. This complements abapGit's ability to import under different names
+when PREFIX mode is used, and supports customer naming conventions and transport
+layer requirements without rebuilding the release for every target.
+
+Existing target objects are protected by installation checks, and TRM asks for
+confirmation before overwriting a modified package in interactive workflows.
 
 ## Dependencies and reproducibility
 

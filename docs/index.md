@@ -55,6 +55,10 @@ Each package includes a `manifest.json` that declares:
 - Dependencies
 - Post-install scripts
 
+## TRM and abapGit
+
+TRM is not a substitute for [abapGit](https://abapgit.org/): the two tools solve different problems and can coexist in the same development-to-production workflow. abapGit provides a fast, Git-based development experience, including commit history and quick rollbacks, while a pull recreates objects in the target system. TRM packages and deploys SAP transport requests through CTS—the native, reliable mechanism SAP uses to place development objects across a landscape—making it suited to controlled delivery toward production.
+
 ---
 
 # Architecture Overview

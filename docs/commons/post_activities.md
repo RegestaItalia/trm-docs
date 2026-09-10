@@ -9,6 +9,12 @@ These post activities run ABAP code directly on the **target system** (the syste
 
 To avoid redundant executions, each post activity typically includes a **pre-check**.
 
+> ⚠️ **Post activities do not support rollback or uninstall.** They are intended
+> for actions that run after installation and should not generate persistent
+> objects or other content that would need to be removed if the package is rolled
+> back or uninstalled. Keep them safe to repeat and limited to operations that do
+> not require a compensating cleanup action.
+
 They are defined in the `manifest.json` file and each entry in `postActivities` includes:
 - `name`: The name of the ABAP class implementing the post activity
 - `parameters`: A list of key-value (name and value) pairs passed to the class
@@ -35,24 +41,24 @@ Example:
 
 TRM provides several standard post activities that can be used out of the box.
 
-### Create Number Range Interval
+### Activate SICF Node
 
-The post activity class `ZCL_TRM_PA_NO_RANGE_INTERVAL` creates a number range interval in the client where the package is installed, **if it does not already exist**.
+The `/ATRM/CL_PA_ACTIVATE_SICF_NODE` post activity activates a SICF service node
+if it is not already active.
 
 #### Expected Parameters
 
-| Parameter           | Required | Description                                        |
-|---------------------|----------|----------------------------------------------------|
-| `object`            | **Yes**  | Number range object                                |
-| `subobject`         | **Yes**  | Subobject value                                    |
-| `nrrangenr`         | **Yes**  | Number range number                                |
-| `toyear`            | **Yes**  | To fiscal year                                     |
-| `fromnumber`        | No       | Starting number of the range                       |
-| `tonumber`          | No       | Ending number of the range                         |
-| `nrlevel`           | No       | Current status of the number range                 |
-| `externind`         | No       | Internal (`' '`) or external (`'X'`) number range  |
-| `procind`           | No       | Processing flag (`I` = Insert, `D` = Delete, etc.) |
-| `transport_request` | No       | Transport request for customizing data             |
+| Parameter  | Required | Description                  |
+|------------|----------|------------------------------|
+| `url`      | **Yes**  | URL of the SICF service node |
+| `hostname` | **Yes**  | SICF host name               |
+
+---
+
+### Regenerate SAP_ALL
+
+The `/ATRM/CL_PA_SAP_ALL_REGEN` post activity regenerates the `SAP_ALL` profile
+for all clients. It does not require any parameters.
 
 ---
 
@@ -86,6 +92,21 @@ CONSTANTS trm_pa TYPE flag VALUE 'X' ##NO_TEXT.
 ```
 
 - A static method `EXECUTE` is required. If it includes `EXPORTING messages TYPE symsg_tab`, those messages will be shown to the user after execution.
+
+- An optional static method `PRE` can check whether the post activity needs to
+  run. It must return `execute TYPE flag`; TRM calls `EXECUTE` only when this is
+  set to `'X'`. If `PRE` is not defined, the post activity runs by default. The
+  method can accept the same manifest parameters as `EXECUTE` and can optionally
+  return messages.
+
+```abap
+CLASS-METHODS pre
+  IMPORTING
+    !arg      TYPE ty_nrfrom OPTIONAL
+  EXPORTING
+    !execute  TYPE flag
+    !messages TYPE symsg_tab.
+```
 
 ### Sample Implementation
 
