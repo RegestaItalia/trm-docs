@@ -12,8 +12,8 @@ extra_javascript = ["assets/javascripts/navigation.js"]
 nav = [
   { "Home" = "index.md" },
   { "Getting Started" = [
-    { "Set up the server" = "server/setup.md" },
-    { "Set up the CLI" = "client/setup.md" },
+    { "Set up the system" = "server/setup.md" },
+    { "Set up the client" = "client/setup.md" },
   ] },
   { "Business Cases" = [
     { "Turn reusable ABAP into a product" = "business_cases/1_managing_core_developments.md" },

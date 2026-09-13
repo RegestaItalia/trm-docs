@@ -55,9 +55,37 @@ Each package includes a `manifest.json` that declares:
 - Dependencies
 - Post-install scripts
 
+## Why a package manager matters for ABAP
+
+Most language ecosystems settled this problem long ago: npm for Node.js, Maven for Java,
+NuGet for .NET. Each gives teams a manifest, semantic versioning, a dependency resolver,
+and a registry to distribute releases. ABAP never had an equivalent—transports move code
+between systems, but they don't express what a delivery depends on, what version it is,
+or whether a target system can safely receive it.
+
+In practice, that gap turns into manual work: someone has to remember the correct import
+order across transports, re-check whether a target system already has the right
+prerequisite objects, and re-explain undocumented dependencies every time a solution is
+handed to a new team or customer. None of this is specific to one company—it is a
+structural gap in how ABAP has traditionally been delivered.
+
+TRM closes that gap by treating ABAP deliveries the way modern package managers treat
+software releases: versioned, dependency-aware, and reproducible across systems. That
+shift matters wherever ABAP code crosses a system boundary—between teams, between
+landscapes, or out to customers and partners. The [business cases](business_cases/1_managing_core_developments.md)
+walk through concrete scenarios where this pays off, including
+[turning reusable ABAP into a product](business_cases/1_managing_core_developments.md),
+[controlling dependencies in modular solutions](business_cases/4_dependency_control.md),
+[automating delivery pipelines](business_cases/5_abap_delivery_automation.md), and
+[governing multi-vendor deliveries](business_cases/8_multi_vendor_governance.md).
+
 ## TRM and abapGit
 
-TRM is not a substitute for [abapGit](https://abapgit.org/): the two tools solve different problems and can coexist in the same development-to-production workflow. abapGit provides a fast, Git-based development experience, including commit history and quick rollbacks, while a pull recreates objects in the target system. TRM packages and deploys SAP transport requests through CTS—the native, reliable mechanism SAP uses to place development objects across a landscape—making it suited to controlled delivery toward production.
+TRM is not a substitute for [abapGit](https://abapgit.org/): the two tools solve different problems and can coexist in the same development-to-production workflow. abapGit provides a fast, Git-based development experience, including commit history and quick rollbacks, while a pull recreates objects directly in the target system.
+
+That pull is what makes abapGit excellent for development and a poor fit for distributing a release. A pull deserializes source and rebuilds each object on the target system: it re-creates and re-activates the object there, rather than placing the exact artifact that was built and tested elsewhere. Two pulls of the "same" commit can still generate, activate, or behave differently depending on the state of the receiving system, because the object is being reconstructed on arrival, not reproduced from a known-good build. That's an acceptable trade-off while iterating on a development system, but it's not what a release process needs once a version has been tested: the thing that reaches QA, production, or a customer should be the same build that was verified, not a fresh recreation of it. abapGit also has no built-in concept of a versioned, resolvable dependency between repositories, so lining up compatible releases across several repos is left to whoever performs the pull.
+
+TRM packages and deploys through CTS, the mechanism SAP built specifically for moving development objects across a landscape in a controlled order. It attaches the same manifest, versioning, and dependency resolution described above to that mechanism, so a release travels through transports the way a landscape already expects, with a package's compatibility and prerequisites checked before import rather than discovered afterward.
 
 ---
 
