@@ -55,9 +55,9 @@
 
   <text x="40" y="316" class="object">DOMA</text>
   <rect x="150" y="302" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="302" width="205.0" height="18" rx="9" fill="#bf8700"/>
-  <text x="620" y="316" text-anchor="end" class="value">1/2</text>
-  <text x="680" y="316" text-anchor="end" class="value">50%</text>
+  <rect x="150" y="302" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="316" text-anchor="end" class="value">2/2</text>
+  <text x="680" y="316" text-anchor="end" class="value">100%</text>
 
   <text x="40" y="352" class="object">DTEL</text>
   <rect x="150" y="338" width="410" height="18" rx="9" class="track"/>

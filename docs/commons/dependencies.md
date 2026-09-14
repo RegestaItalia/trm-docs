@@ -32,6 +32,7 @@ The following table lists objects and scenarios in which TRM can still detect th
 | `DDLS` | <ul><li>Table data-source dependency.</li><li>CDS data-source dependency.</li><li>Table association dependency.</li><li>Multiple table dependencies through an inner join.</li></ul> |
 | `DDLX` | <ul><li>Metadata-extension target dependency.</li></ul> |
 | `DEVC` | <ul><li>Superpackage dependency.</li><li>Package-interface use-access dependency.</li><li>Application-component dependency.</li><li>Switch-assignment dependency.</li><li>Default-package-interface dependency.</li></ul> |
+| `DOMA` | <ul><li>Value-table dependency.</li><li>Conversion-routine function-group dependency.</li><li>Conversion-routine input-function dependency.</li></ul> |
 | `DTEL` | <ul><li>Domain dependency.</li><li>Class reference-type dependency.</li><li>Data-element reference-type dependency.</li><li>Attached search-help dependency.</li></ul> |
 | `ENQU` | <ul><li>Primary-table dependency with activation-generated lock modules.</li></ul> |
 | `FUGR` | <ul><li>DDIC function-module-interface dependency.</li><li>Static method-call dependency.</li><li>Cross-function-group call dependency.</li></ul> |
