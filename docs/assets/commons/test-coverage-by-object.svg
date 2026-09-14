@@ -49,9 +49,9 @@
 
   <text x="40" y="280" class="object">DEVC</text>
   <rect x="150" y="266" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="266" width="246.0" height="18" rx="9" fill="#bf8700"/>
-  <text x="620" y="280" text-anchor="end" class="value">3/5</text>
-  <text x="680" y="280" text-anchor="end" class="value">60%</text>
+  <rect x="150" y="266" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="280" text-anchor="end" class="value">5/5</text>
+  <text x="680" y="280" text-anchor="end" class="value">100%</text>
 
   <text x="40" y="316" class="object">DOMA</text>
   <rect x="150" y="302" width="410" height="18" rx="9" class="track"/>
