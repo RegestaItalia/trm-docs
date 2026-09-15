@@ -34,6 +34,7 @@ The following table lists objects and scenarios in which TRM can still detect th
 | `DEVC` | <ul><li>Superpackage dependency.</li><li>Package-interface use-access dependency.</li><li>Application-component dependency.</li><li>Switch-assignment dependency.</li><li>Default-package-interface dependency.</li></ul> |
 | `DOMA` | <ul><li>Value-table dependency.</li><li>Conversion-routine function-group dependency.</li><li>Conversion-routine input-function dependency.</li></ul> |
 | `DTEL` | <ul><li>Domain dependency.</li><li>Class reference-type dependency.</li><li>Data-element reference-type dependency.</li><li>Attached search-help dependency.</li></ul> |
+| `ENHS` | <ul><li>BAdI interface contract is reported.</li><li>Fallback class is reported.</li></ul> |
 | `ENQU` | <ul><li>Primary-table dependency with activation-generated lock modules.</li></ul> |
 | `FUGR` | <ul><li>DDIC function-module-interface dependency.</li><li>Static method-call dependency.</li><li>Cross-function-group call dependency.</li></ul> |
 | `INTF` | <ul><li>Interface inclusion dependency.</li><li>DDIC method-parameter dependency.</li><li>Class reference-type dependency.</li><li>Class-based exception dependency.</li></ul> |
