@@ -34,6 +34,7 @@ nav = [
     { "Lockfile" = "commons/lockfile.md" },
     { "Post Activities" = "commons/post_activities.md" },
     { "SAP Entries" = "commons/sap_entries.md" },
+    { "Locks" = "commons/action_locks.md" },
     { "GitHub Actions" = "commons/github_actions.md" },
   ] },
   { "Registry" = [
