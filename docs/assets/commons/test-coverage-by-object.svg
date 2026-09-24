@@ -116,7 +116,7 @@
   <text x="40" y="676" class="object">NROB</text>
   <rect x="150" y="662" width="410" height="18" rx="9" class="track"/>
   <rect x="150" y="662" width="410.0" height="18" rx="9" fill="#2da44e"/>
-  <text x="620" y="676" text-anchor="end" class="value">1/1</text>
+  <text x="620" y="676" text-anchor="end" class="value">5/5</text>
   <text x="680" y="676" text-anchor="end" class="value">100%</text>
 
   <text x="40" y="712" class="object">PROG</text>

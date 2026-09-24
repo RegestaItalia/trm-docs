@@ -39,7 +39,7 @@ The following table lists objects and scenarios in which TRM can still detect th
 | `FUGR` | <ul><li>DDIC function-module-interface dependency.</li><li>Static method-call dependency.</li><li>Cross-function-group call dependency.</li></ul> |
 | `INTF` | <ul><li>Interface inclusion dependency.</li><li>DDIC method-parameter dependency.</li><li>Class reference-type dependency.</li><li>Class-based exception dependency.</li></ul> |
 | `MSAG` | <ul><li>Object without any possible dependency</li></ul> |
-| `NROB` | <ul><li>Number-length domain dependency.</li></ul> |
+| `NROB` | <ul><li>Number-length domain dependency.</li><li>Subobject data-element dependency.</li><li>Group-table dependency.</li><li>Element text-table dependency.</li><li>Populated-interval number-length domain dependency.</li></ul> |
 | `SICF` | <ul><li>HTTP handler-class dependency.</li><li>Service alias/reference dependency.</li><li>Parent-child service hierarchy dependency.</li></ul> |
 | `TABL` | <ul><li>Field data-element dependency.</li><li>Included-structure dependency.</li><li>Foreign-key/check-table dependency.</li><li>Field-level search-help dependency.</li></ul> |
 | `TTYP` | <ul><li>Structured row-type dependency.</li><li>Elementary row-type dependency.</li></ul> |
