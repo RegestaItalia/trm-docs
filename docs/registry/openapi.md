@@ -22,7 +22,7 @@ subsequent operations.
 Use when ping reports `BASIC` authentication.  
 
 #### bearerAuth (HTTP, bearer)
-Use when ping reports `TOKEN` or `OAUTH2` authentication.  
+Supply a registry-supported bearer credential, such as a personal token, OAuth access token, or a short-lived GitHub Actions OIDC ID token for the registry's configured audience. GitHub Actions jobs must have `id-token: write` permission to request that ID token.  
 
 ---
 
