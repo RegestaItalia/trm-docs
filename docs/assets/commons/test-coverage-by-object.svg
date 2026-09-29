@@ -25,9 +25,9 @@
 
   <text x="40" y="136" class="object">CHDO</text>
   <rect x="150" y="122" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="122" width="410" height="18" rx="9" fill="#cf222e"/>
-  <text x="620" y="136" text-anchor="end" class="value">0/4</text>
-  <text x="680" y="136" text-anchor="end" class="value">0%</text>
+  <rect x="150" y="122" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="136" text-anchor="end" class="value">4/4</text>
+  <text x="680" y="136" text-anchor="end" class="value">100%</text>
 
   <text x="40" y="172" class="object">CLAS</text>
   <rect x="150" y="158" width="410" height="18" rx="9" class="track"/>
@@ -37,9 +37,9 @@
 
   <text x="40" y="208" class="object">DCLS</text>
   <rect x="150" y="194" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="194" width="410" height="18" rx="9" fill="#cf222e"/>
-  <text x="620" y="208" text-anchor="end" class="value">0/1</text>
-  <text x="680" y="208" text-anchor="end" class="value">0%</text>
+  <rect x="150" y="194" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="208" text-anchor="end" class="value">1/1</text>
+  <text x="680" y="208" text-anchor="end" class="value">100%</text>
 
   <text x="40" y="244" class="object">DDLS</text>
   <rect x="150" y="230" width="410" height="18" rx="9" class="track"/>
@@ -91,9 +91,9 @@
 
   <text x="40" y="532" class="object">ENSC</text>
   <rect x="150" y="518" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="518" width="410" height="18" rx="9" fill="#cf222e"/>
-  <text x="620" y="532" text-anchor="end" class="value">0/2</text>
-  <text x="680" y="532" text-anchor="end" class="value">0%</text>
+  <rect x="150" y="518" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="532" text-anchor="end" class="value">2/2</text>
+  <text x="680" y="532" text-anchor="end" class="value">100%</text>
 
   <text x="40" y="568" class="object">FUGR</text>
   <rect x="150" y="554" width="410" height="18" rx="9" class="track"/>
@@ -139,15 +139,15 @@
 
   <text x="40" y="820" class="object">SRVB</text>
   <rect x="150" y="806" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="806" width="410" height="18" rx="9" fill="#cf222e"/>
-  <text x="620" y="820" text-anchor="end" class="value">0/1</text>
-  <text x="680" y="820" text-anchor="end" class="value">0%</text>
+  <rect x="150" y="806" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="820" text-anchor="end" class="value">1/1</text>
+  <text x="680" y="820" text-anchor="end" class="value">100%</text>
 
   <text x="40" y="856" class="object">SRVD</text>
   <rect x="150" y="842" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="842" width="410" height="18" rx="9" fill="#cf222e"/>
-  <text x="620" y="856" text-anchor="end" class="value">0/2</text>
-  <text x="680" y="856" text-anchor="end" class="value">0%</text>
+  <rect x="150" y="842" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="856" text-anchor="end" class="value">2/2</text>
+  <text x="680" y="856" text-anchor="end" class="value">100%</text>
 
   <text x="40" y="892" class="object">TABL</text>
   <rect x="150" y="878" width="410" height="18" rx="9" class="track"/>
@@ -175,7 +175,7 @@
 
   <text x="40" y="1036" class="object">XSLT</text>
   <rect x="150" y="1022" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="1022" width="410" height="18" rx="9" fill="#cf222e"/>
-  <text x="620" y="1036" text-anchor="end" class="value">0/2</text>
-  <text x="680" y="1036" text-anchor="end" class="value">0%</text>
+  <rect x="150" y="1022" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1036" text-anchor="end" class="value">2/2</text>
+  <text x="680" y="1036" text-anchor="end" class="value">100%</text>
 </svg>
