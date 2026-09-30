@@ -58,6 +58,11 @@ Below are the properties defined in `manifest.json`:
   - `version`: Valid SemVer version or range.
   - `registry`: Registry endpoint (optional; a blank value indicates the [public registry](https://trmregistry.com/registry/)).
 
+### `engines`
+- **Description**: SAP system requirements checked before installation: software component releases and support packages, product versions, implemented SAP Notes and table conditions.
+- **Example**: `"engines": { "components": { "SAP_BASIS": { "release": ">=750" } } }`
+- **More info**: See the [engines guide](engines.md).
+
 ### `postActivities`
 - **Description**: List of activities to run automatically after installation.
 - **More info**: See the [post-activities section](post_activities.md).
