@@ -423,7 +423,7 @@ Endpoint for deletion transport.
 | dist_tags | object | Distribution tag names mapped to release versions. | Yes |
 | versions | [ string ] |  | Yes |
 | yanked_versions | [ string ] |  | Yes |
-| manifest | { **"name"**: string, **"version"**: string } | Package manifest supplied by the artifact. | Yes |
+| manifest | { **"name"**: string, **"version"**: string, **"engines"**: object } | Package manifest supplied by the artifact. | Yes |
 | deprecated | boolean |  | Yes |
 | deprecated_message | string |  | No |
 | changelog | string | Optional Markdown changelog supplied at publication time and sanitized by the registry before storage and response. | No |

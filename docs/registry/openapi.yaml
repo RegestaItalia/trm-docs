@@ -426,6 +426,9 @@ components:
           properties:
             name: { type: string }
             version: { type: string }
+            engines:
+              type: object
+              description: SAP system requirements (software components, products, SAP Notes, table checks) verified on install.
           additionalProperties: true
         deprecated: { type: boolean }
         deprecated_message: { type: string }
