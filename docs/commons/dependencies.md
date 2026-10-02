@@ -29,9 +29,11 @@ Dependency detection status reflects behavior in `trm-server >= 7.0.0`; SAP test
 
 | Object Type | Dependency Detection |
 | --- | --- |
+| `AUTH` | <ul><li>Field data element dependency.</li><li>Check table dependency.</li></ul> |
 | `BDEF` | <ul><li>Root-entity dependency.</li><li>Persistent-table dependency.</li><li>Behavior-pool dependency.</li></ul> |
 | `CHDO` | <ul><li>Maintained table dependency detected.</li><li>Reference table dependency detected.</li><li>Generated update function group detected.</li><li>Generated writer class detected.</li></ul> |
 | `CLAS` | <ul><li>Superclass inheritance dependency.</li><li>Interface implementation dependency.</li><li>DDIC method-signature dependency.</li><li>Static method-call dependency.</li><li>Number-range dependency through a function-module parameter.</li><li>Dialog-text dependency through a function-module parameter.</li></ul> |
+| `CMOD` | <ul><li>Assigned SAP enhancement dependency.</li></ul> |
 | `DCLS` | <ul><li>Protected CDS target dependency detected.</li></ul> |
 | `DDLS` | <ul><li>Table data-source dependency.</li><li>CDS data-source dependency.</li><li>Table association dependency.</li><li>Multiple table dependencies through an inner join.</li></ul> |
 | `DDLX` | <ul><li>Metadata-extension target dependency.</li></ul> |
@@ -51,6 +53,7 @@ Dependency detection status reflects behavior in `trm-server >= 7.0.0`; SAP test
 | `SICF` | <ul><li>HTTP handler-class dependency.</li><li>Service alias/reference dependency.</li><li>Parent-child service hierarchy dependency.</li></ul> |
 | `SRVB` | <ul><li>Bound service definition dependency detected.</li></ul> |
 | `SRVD` | <ul><li>Primary exposed CDS entity dependency detected.</li><li>Dependent exposed CDS entity dependency detected.</li></ul> |
+| `SUSC` | <ul><li>Object without any possible dependency</li></ul> |
 | `TABL` | <ul><li>Field data-element dependency.</li><li>Included-structure dependency.</li><li>Foreign-key/check-table dependency.</li><li>Field-level search-help dependency.</li></ul> |
 | `TRAN` | <ul><li>Report-transaction program dependency.</li><li>Parameter-transaction dependency.</li><li>OO-transaction class dependency.</li><li>Dialog program/dynpro dependency.</li></ul> |
 | `TTYP` | <ul><li>Structured row-type dependency.</li><li>Elementary row-type dependency.</li></ul> |
