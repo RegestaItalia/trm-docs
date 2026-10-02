@@ -38,6 +38,7 @@ Dependency detection status reflects behavior in `trm-server >= 7.0.0`; SAP test
 | `DDLS` | <ul><li>Table data-source dependency.</li><li>CDS data-source dependency.</li><li>Table association dependency.</li><li>Multiple table dependencies through an inner join.</li></ul> |
 | `DDLX` | <ul><li>Metadata-extension target dependency.</li></ul> |
 | `DEVC` | <ul><li>Superpackage dependency.</li><li>Package-interface use-access dependency.</li><li>Application-component dependency.</li><li>Switch-assignment dependency.</li><li>Default-package-interface dependency.</li></ul> |
+| `DIAL` | <ul><li>Module pool program dependency.</li><li>Interface parameter reference table dependency.</li></ul> |
 | `DOMA` | <ul><li>Value-table dependency.</li><li>Conversion-routine function-group dependency.</li><li>Conversion-routine input-function dependency.</li></ul> |
 | `DTEL` | <ul><li>Domain dependency.</li><li>Class reference-type dependency.</li><li>Data-element reference-type dependency.</li><li>Attached search-help dependency.</li></ul> |
 | `ENHO` | <ul><li>BAdI spot assignment is reported.</li><li>BAdI interface contract is reported.</li><li>Implementation class is reported.</li><li>Explicit enhancement spot is reported.</li><li>Explicit enhancement program is reported.</li></ul> |
@@ -54,8 +55,13 @@ Dependency detection status reflects behavior in `trm-server >= 7.0.0`; SAP test
 | `SRVB` | <ul><li>Bound service definition dependency detected.</li></ul> |
 | `SRVD` | <ul><li>Primary exposed CDS entity dependency detected.</li><li>Dependent exposed CDS entity dependency detected.</li></ul> |
 | `SUSC` | <ul><li>Object without any possible dependency</li></ul> |
+| `SUSO` | <ul><li>Authorization field dependency.</li><li>Authorization object class dependency.</li><li>Object field search help dependency.</li></ul> |
+| `SXCI` | <ul><li>Implemented BAdI definition dependency.</li><li>Implementing class dependency.</li><li>Subscreen implementing program dependency.</li><li>Migration enhancement implementation dependency.</li></ul> |
+| `SXSD` | <ul><li>BAdI interface dependency.</li><li>Generated adapter class dependency.</li><li>Filter type data element dependency.</li><li>Default implementation class dependency.</li><li>Example implementation class dependency.</li><li>Filter type structure dependency.</li><li>Menu enhancement program dependency.</li><li>Screen enhancement calling program dependency.</li><li>Migration enhancement spot dependency.</li></ul> |
 | `TABL` | <ul><li>Field data-element dependency.</li><li>Included-structure dependency.</li><li>Foreign-key/check-table dependency.</li><li>Field-level search-help dependency.</li></ul> |
+| `TOBJ` | <ul><li>Piece-list table content dependency.</li><li>Object method function group dependency.</li><li>Object method function module dependency.</li><li>Maintained table dependency.</li><li>Generated maintenance function group dependency.</li><li>View cluster dependency.</li><li>Maintenance view dependency.</li><li>Individual transaction dependency.</li><li>Multiclient-compliance document dependency.</li></ul> |
 | `TRAN` | <ul><li>Report-transaction program dependency.</li><li>Parameter-transaction dependency.</li><li>OO-transaction class dependency.</li><li>Dialog program/dynpro dependency.</li></ul> |
 | `TTYP` | <ul><li>Structured row-type dependency.</li><li>Elementary row-type dependency.</li></ul> |
 | `TYPE` | <ul><li>Object without any possible dependency</li></ul> |
+| `VCLS` | <ul><li>Header member table dependency.</li><li>Dependent member table dependency.</li><li>Generated transport object dependency.</li><li>Event FORM routine program dependency.</li><li>Member switch dependency.</li><li>Maintenance view member dependency.</li><li>Base view cluster dependency.</li></ul> |
 | `XSLT` | <ul><li>Included transformation dependency detected.</li><li>Typed DDIC root dependency detected.</li></ul> |
