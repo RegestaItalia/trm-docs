@@ -41,19 +41,31 @@ Dependency detection status reflects behavior in `trm-server >= 7.0.0`; SAP test
 | `DIAL` | <ul><li>Module pool program dependency.</li><li>Interface parameter reference table dependency.</li></ul> |
 | `DOMA` | <ul><li>Value-table dependency.</li><li>Conversion-routine function-group dependency.</li><li>Conversion-routine input-function dependency.</li></ul> |
 | `DTEL` | <ul><li>Domain dependency.</li><li>Class reference-type dependency.</li><li>Data-element reference-type dependency.</li><li>Attached search-help dependency.</li></ul> |
+| `ENHC` | <ul><li>Member enhancement implementation dependency.</li><li>Nested composite enhancement implementation dependency.</li></ul> |
 | `ENHO` | <ul><li>BAdI spot assignment is reported.</li><li>BAdI interface contract is reported.</li><li>Implementation class is reported.</li><li>Explicit enhancement spot is reported.</li><li>Explicit enhancement program is reported.</li></ul> |
 | `ENHS` | <ul><li>BAdI interface contract is reported.</li><li>Fallback class is reported.</li></ul> |
 | `ENQU` | <ul><li>Primary-table dependency with activation-generated lock modules.</li></ul> |
 | `ENSC` | <ul><li>Child enhancement spot dependency detected.</li><li>Nested composite enhancement spot dependency detected.</li></ul> |
 | `FUGR` | <ul><li>DDIC function-module-interface dependency.</li><li>Static method-call dependency.</li><li>Cross-function-group call dependency.</li></ul> |
+| `IDOC` | <ul><li>Segment type dependency.</li><li>Predecessor basic type dependency.</li></ul> |
+| `IEXT` | <ul><li>Extended basic type dependency.</li><li>Extension segment type dependency.</li><li>Predecessor extension dependency.</li></ul> |
 | `INTF` | <ul><li>Interface inclusion dependency.</li><li>DDIC method-parameter dependency.</li><li>Class reference-type dependency.</li><li>Class-based exception dependency.</li></ul> |
+| `IWMO` | <ul><li>Model provider class dependency.</li></ul> |
+| `IWPR` | <ul><li>Entity type DDIC structure dependency.</li><li>CDS business entity data source dependency.</li><li>Generated model provider class dependency.</li><li>Generated model provider extension class dependency.</li><li>Generated data provider class dependency.</li><li>Generated data provider extension class dependency.</li><li>Generated technical model dependency.</li><li>Generated technical service dependency.</li><li>Included OData service dependency.</li></ul> |
+| `IWSV` | <ul><li>Data provider class dependency.</li><li>Assigned technical model dependency.</li></ul> |
 | `MSAG` | <ul><li>Object without any possible dependency</li></ul> |
 | `NROB` | <ul><li>Number-length domain dependency.</li><li>Subobject data-element dependency.</li><li>Group-table dependency.</li><li>Element text-table dependency.</li><li>Populated-interval number-length domain dependency.</li></ul> |
 | `PROG` | <ul><li>DDIC type dependency.</li><li>Static method-call dependency.</li><li>Function-module call dependency.</li><li>Executable-program submission dependency.</li><li>Source-include dependency.</li></ul> |
+| `SAMC` | <ul><li>Authorized program dependency.</li><li>Authorized class dependency.</li></ul> |
+| `SAPC` | <ul><li>Generated handler class dependency.</li><li>Generated ICF service dependency.</li></ul> |
+| `SFPI` | <ul><li>Import parameter structure dependency.</li><li>Import parameter data element dependency.</li><li>Global data table type dependency.</li><li>Code initialization function group dependency.</li><li>Code initialization function module dependency.</li></ul> |
 | `SHLP` | <ul><li>Selection-method dependency.</li><li>Parameter data-element dependency.</li><li>Included search-help dependency.</li></ul> |
 | `SICF` | <ul><li>HTTP handler-class dependency.</li><li>Service alias/reference dependency.</li><li>Parent-child service hierarchy dependency.</li></ul> |
+| `SOBJ` | <ul><li>Implementing program dependency.</li><li>Key field reference table dependency.</li><li>Implemented interface type dependency.</li><li>Object-reference attribute type dependency.</li><li>Method function group dependency.</li><li>Method function module dependency.</li><li>Method parameter reference table dependency.</li><li>Method exception message class dependency.</li><li>Supertype dependency.</li></ul> |
 | `SRVB` | <ul><li>Bound service definition dependency detected.</li></ul> |
 | `SRVD` | <ul><li>Primary exposed CDS entity dependency detected.</li><li>Dependent exposed CDS entity dependency detected.</li></ul> |
+| `SSFO` | <ul><li>Smart Style dependency.</li><li>Interface parameter structure dependency.</li><li>Interface parameter data element dependency.</li><li>Program-lines function group dependency.</li><li>Program-lines function module dependency.</li><li>Global data table type dependency.</li><li>Global data class reference dependency.</li><li>Text module dependency.</li></ul> |
+| `SSST` | <ul><li>Object without any possible dependency</li></ul> |
 | `SUSC` | <ul><li>Object without any possible dependency</li></ul> |
 | `SUSO` | <ul><li>Authorization field dependency.</li><li>Authorization object class dependency.</li><li>Object field search help dependency.</li></ul> |
 | `SXCI` | <ul><li>Implemented BAdI definition dependency.</li><li>Implementing class dependency.</li><li>Subscreen implementing program dependency.</li><li>Migration enhancement implementation dependency.</li></ul> |
