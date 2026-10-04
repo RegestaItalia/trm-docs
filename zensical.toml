@@ -36,6 +36,7 @@ nav = [
     { "Post Activities" = "commons/post_activities.md" },
     { "SAP Entries" = "commons/sap_entries.md" },
     { "Locks" = "commons/action_locks.md" },
+    { "Table Updates" = "commons/table_updates.md" },
     { "GitHub Actions" = "commons/github_actions.md" },
   ] },
   { "Registry" = [
