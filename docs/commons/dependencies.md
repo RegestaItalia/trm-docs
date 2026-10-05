@@ -58,6 +58,7 @@ Dependency detection status reflects behavior in `trm-server >= 7.0.0`; SAP test
 | `PROG` | <ul><li>DDIC type dependency.</li><li>Static method-call dependency.</li><li>Function-module call dependency.</li><li>Executable-program submission dependency.</li><li>Source-include dependency.</li></ul> |
 | `SAMC` | <ul><li>Authorized program dependency.</li><li>Authorized class dependency.</li></ul> |
 | `SAPC` | <ul><li>Generated handler class dependency.</li><li>Generated ICF service dependency.</li></ul> |
+| `SFPF` | <ul><li>Form interface dependency.</li><li>Inbound handler class dependency.</li><li>Text module dependency.</li></ul> |
 | `SFPI` | <ul><li>Import parameter structure dependency.</li><li>Import parameter data element dependency.</li><li>Global data table type dependency.</li><li>Code initialization function group dependency.</li><li>Code initialization function module dependency.</li></ul> |
 | `SHLP` | <ul><li>Selection-method dependency.</li><li>Parameter data-element dependency.</li><li>Included search-help dependency.</li></ul> |
 | `SICF` | <ul><li>HTTP handler-class dependency.</li><li>Service alias/reference dependency.</li><li>Parent-child service hierarchy dependency.</li></ul> |
