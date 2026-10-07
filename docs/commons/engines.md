@@ -1,6 +1,6 @@
 # Engines
 
-The `engines` property of the [manifest](manifest.md) declares **which SAP systems a TRM package can be installed on**: the release and support package of software components, installed products, implemented SAP Notes and, when nothing else fits, the content of standard SAP tables.
+The `engines` property of the [manifest](manifest.md) declares **which SAP systems a TRM package can be installed on**: the TRM versions it needs (`trm-core` and `trm-server`), the release and support package of software components, installed products, implemented SAP Notes and, when nothing else fits, the content of standard SAP tables.
 
 Just like `engines.node` in a Node.js `package.json`, engines describe the *environment* the package needs, not other packages.
 
@@ -19,7 +19,7 @@ Engines compared with other manifest properties:
 |---|---|---|
 | [`dependencies`](dependencies.md) | Other **TRM packages** | `"trm-server": "^6.4.1"` |
 | [`sap_entries.json`](sap_entries.md) | **Exact rows** that must exist in SAP tables | `TFDIR` row of `CONVERSION_EXIT_ALPHA_INPUT` |
-| `engines` | The **SAP system**: releases, SP levels, products, notes, table conditions with operators | `SAP_BASIS` release `>=750` |
+| `engines` | The **SAP system**: releases, SP levels, products, notes, table conditions with operators, and the **TRM versions** used to install | `SAP_BASIS` release `>=750`, `trm-core` `>=9.4.0` |
 
 > ⚠️ **Note**: the check can be skipped at install time, but doing so **may result in syntax errors, dumps or wrong behaviour**, exactly like skipping SAP entries.
 
@@ -32,6 +32,10 @@ Engines compared with other manifest properties:
   "name": "my-package",
   "version": "1.0.0",
   "engines": {
+    "trm": {
+      "trm-core": ">=9.4.0",
+      "trm-server": ">=6.4.1"
+    },
     "components": {
       "SAP_BASIS": { "release": ">=750", "sp": ">=5" },
       "SAP_GWFND": true,
@@ -69,8 +73,8 @@ Every key is optional. Declare only what your package **really** needs.
 
 | Construct | Meaning |
 |---|---|
-| Top-level keys (`components`, `products`, `notes`, `tables`, `anyOf`) | **All** must be satisfied (AND) |
-| Entries inside `components`, `products`, `notes`, `tables` | **All** must be satisfied (AND) |
+| Top-level keys (`trm`, `components`, `products`, `notes`, `tables`, `anyOf`) | **All** must be satisfied (AND) |
+| Entries inside `trm`, `components`, `products`, `notes`, `tables` | **All** must be satisfied (AND) |
 | An **array** as the value of a component or product | **At least one** constraint must match (OR) |
 | `anyOf: [ {...}, {...} ]` | **At least one** alternative must be satisfied (OR). Each alternative is a full engines object |
 | A property that is not declared | Not checked |
@@ -82,7 +86,7 @@ Every key is optional. Declare only what your package **really** needs.
 
 ## Range syntax
 
-Releases, SP levels and versions are written as **ranges**, with a syntax close to SemVer ranges:
+Releases, SP levels and versions are written as **ranges**, with a syntax close to SemVer ranges (`trm` is the exception: it uses real SemVer ranges, see [below](#trm-trm-versions)):
 
 | Syntax | Meaning | Example |
 |---|---|---|
@@ -121,6 +125,43 @@ Do **not** strip letters from releases: `75I` is a valid `SAP_ABA` release (and 
 | `">=SP05"` (sp) | ❌ | SP levels are plain numbers: `">=5"` |
 | `">=2023 FPS01"` (product version) | ❌ | FPS is not a product version, see [below](#feature-package-stacks-fps-and-sp-stacks) |
 | `">=750 \|\|"` | ❌ | Empty alternative |
+
+---
+
+## `trm`: TRM versions
+
+Checks the TRM versions involved in the installation. Unlike the other checks, it is not about SAP software but about TRM itself: use it when your package relies on a feature (for example a manifest property or a post activity behaviour) that only exists from a certain TRM version.
+
+```json
+"trm": {
+  "trm-core": ">=9.4.0",
+  "trm-server": "^6.4.1"
+}
+```
+
+| Key | Checks |
+|---|---|
+| `trm-core` | The version of **trm-core** running the installation (the one used by TRM Client, TRM GUI or the CI action) |
+| `trm-server` | The version of **trm-server** installed on the target system. If trm-server is not installed, the requirement fails |
+
+These are the **only two** keys allowed in `trm`: any other key (for example `trm-client` or `TRM-CORE`) makes the declaration invalid. At least one of the two must be declared.
+
+Values are standard [SemVer ranges](https://github.com/npm/node-semver#ranges), the same used by [`dependencies`](dependencies.md): `^`, `~`, `x` ranges, hyphen ranges and `||` are all allowed. Pre-release versions in use (e.g. `10.0.0-beta.1`) are compared too, so `>=9.4.0` is satisfied by `10.0.0-beta.1`.
+
+### Prefilled on publish
+
+Engines are optional, and when publishing TRM asks whether to declare them (default *no*). If you choose to declare engines for a package that has none yet, `trm` is **already populated** with the trm-core version used to publish, as "this version or newer":
+
+```json
+"trm": { "trm-core": ">=9.4.0" }
+```
+
+Keep it, raise or relax it, or remove it if your package works with any TRM version. `trm-server` is never prefilled.
+
+### Common mistakes
+
+- Using `trm` for the TRM packages your package calls at runtime: if your ABAP code needs trm-server objects, declare trm-server in [`dependencies`](dependencies.md) instead, so it is installed together with your package. `trm.trm-server` only *checks* the installed version, it never installs it.
+- Writing SAP-style ranges such as `">=9.4"`: SemVer accepts partial versions, but write the full version (`">=9.4.0"`) to avoid surprises.
 
 ---
 
@@ -519,6 +560,8 @@ The registry rejects a package whose engines are not formally valid. The error n
 |---|---|
 | `The engines declaration is invalid: engines.component: unknown engine check.` | Typo in a top-level key (`component` instead of `components`) |
 | `...: engines.components.SAP_BASIS: unknown property "patch".` | Only `release` and `sp` are allowed |
+| `...: engines.trm.trm-client: unknown TRM package, expected one of trm-core, trm-server.` | `trm` only accepts `trm-core` and `trm-server`. This is an error even outside publish |
+| `...: engines.trm.trm-core: invalid range "abc".` | The value is not a valid SemVer range |
 | `...: engines.components.SAP_BASIS.release: invalid range "750".` | The range is a number instead of a string, or has an invalid syntax |
 | `...: engines.notes.abc: invalid SAP Note number.` | Note numbers are digits only |
 | `...: engines.tables[0].where[0].op: invalid operator "IN", ...` | Unsupported operator |
@@ -532,9 +575,10 @@ Structural errors (for example a range that isn't a string) are already reported
 Each requirement is evaluated and reported:
 
 ```
+Engine requirement trm.trm-core not met: expected version >=10.0.0, found version 9.4.0
 Engine requirement components.SAP_BASIS not met: expected release >=758, found release 750, sp 12
 Engine requirement tables[0] not met: expected SEOCOMPODF where CLSNAME EQ '/UI2/CL_JSON' AND ... (Cannot read table SEOCOMPODF: ...)
-Install aborted. 2 engine requirements are not met!
+Install aborted. 3 engine requirements are not met!
 ```
 
 In the error messages, requirements inside `anyOf` alternatives are reported only through their `anyOf`, which fails when no alternative is satisfied. The detailed results (including every alternative) are available in the install log.
@@ -549,6 +593,7 @@ New kinds of checks may be added to engines in the future. If a package declares
 
 The engines check reads tables with the installing user. The user needs read access to:
 
+- the trm-server objects (`TADIR` and the trm-server API) for `trm.trm-server`
 - `CVERS` for `components`
 - `PRDVERS` for `products`
 - `CWBNTCUST` and `CWBNTHEAD` for `notes`
@@ -562,6 +607,8 @@ If a table can't be read, the requirement is reported as not met, with the reaso
 
 | I need... | Engines |
 |---|---|
+| trm-core 9.4.0 or later | `"trm": { "trm-core": ">=9.4.0" }` |
+| trm-server 6.x, from 6.4.1 | `"trm": { "trm-server": "^6.4.1" }` |
 | NetWeaver 7.50 or later | `"components": { "SAP_BASIS": { "release": ">=750" } }` |
 | ABAP Platform 2023 SP02 or later | `"components": { "SAP_BASIS": [{ "release": "758", "sp": ">=2" }, { "release": ">=759" }] }` (with `{ "release": ">=758", "sp": ">=2" }` alone, a newer release at SP00/SP01 would be rejected, because `release` and `sp` must both match) |
 | NetWeaver 7.40 up to 7.58 | `"components": { "SAP_BASIS": { "release": ">=740 <=758" } }` |
