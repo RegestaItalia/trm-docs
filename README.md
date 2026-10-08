@@ -57,6 +57,31 @@ Each package includes a `manifest.json` that declares:
 
 ---
 
+# TRM vs SAINT/SPAM
+
+If you know SAP's add-on tooling (SAINT, SPAM and the Add-On Assembly Kit), TRM will feel familiar: both put a product layer (identity, version, prerequisites, post-processing) on top of plain transports.
+
+| Concept              | SAINT / SPAM (+ AAK)                                     | TRM                                                                     |
+|----------------------|----------------------------------------------------------|-------------------------------------------------------------------------|
+| Unit of delivery     | Add-on / software component                              | TRM package                                                             |
+| Versioning           | Release + support package level                          | SemVer                                                                  |
+| Product metadata     | AAK delivery attributes                                  | `manifest.json`                                                         |
+| Prerequisite checks  | Import conditions on software component levels           | System requirements (engines), standard object                          |
+| Dependencies         | Predecessor add-ons and support packages                 | Other TRM packages, optionally resolved and installed automatically     |
+| Offline artifact     | `.SAR` / `.PAT` (EPS) files                              | `.trm` files                                                            |
+| Post-import logic    | XPRAs / after-import methods                             | Post-install actions.                                                   |
+| Underlying mechanism | `tp` / `R3trans`                                         | `tp` / `R3trans`                                                        |
+
+Where TRM differs:
+
+- **Open**: no AAK license, no reserved namespace or registered software component required
+- **Lightweight build**: publish directly from your development system, with no dedicated assembly system or conflict resolution transports
+- **Registry-based distribution**: public or private registry, like npm
+- **Developer-oriented**: driven by a CLI and suited to CI/CD pipelines, rather than interactive Basis transactions
+- **Broader scope**: commercial add-ons as well as internal tools, accelerators and reusable utilities that would never justify the AAK overhead
+
+---
+
 # Architecture Overview
 
 - [**Server**](https://github.com/RegestaItalia/trm-server): Collection of APIs installed on source and destination systems
