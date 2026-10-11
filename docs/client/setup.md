@@ -33,3 +33,5 @@ npm install -g trm-plugin-btp-dest
 ```
 
 BTP should now be available as an option when trying to connect to a system.
+
+See [Connect through SAP BTP](btp_destination.md) for the one-time BTP setup and for connecting without prompts, for example from [GitHub Actions](../commons/github_actions.md).

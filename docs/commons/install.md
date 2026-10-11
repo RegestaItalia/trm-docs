@@ -31,8 +31,8 @@ TRM runs every check first and changes the system only once they all pass.
 4. **Content checks.** TRM checks that the system supports every object type in the release, and
    that none of the objects is locked in an open transport request.
    If the release includes translations or customizing, TRM asks whether to import the translations
-   and each customizing transport (the default answer is yes). `--no-lang-tr` and `--no-cust-tr`
-   skip them without asking.
+   and each customizing transport (the default answer is yes). To answer in advance,
+   `--lang-tr` and `--cust-tr` import them, `--no-lang-tr` and `--no-cust-tr` skip them.
 5. **Existing objects.** If objects of the release already exist on the system, outside of this
    package, TRM stops instead of overwriting them. See [Existing objects](#existing-objects).
 6. **Requirements.** TRM checks the [SAP entries](sap_entries.md) and the [engines](engines.md)
@@ -85,8 +85,9 @@ Some rules apply:
   to choose another one.
 - If the objects use a reserved namespace (for example `/ACME/`) that doesn't exist on the system,
   TRM asks whether to import it with the repair license shipped in the release (the default answer
-  is yes). Pass `--namespace` to import it without asking. If you decline, or install
-  [without prompts](#installing-without-prompts) and without `--namespace`, the install stops when
+  is yes). Pass `--namespace` to import it without asking, or `--no-namespace` to skip it. If you
+  decline, or install [without prompts](#installing-without-prompts) and without `--namespace`, the
+  install stops when
   ABAP packages must be created in that namespace; add the namespace in `SE03` or rerun with
   `--namespace`.
 

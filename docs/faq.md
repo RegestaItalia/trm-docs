@@ -261,7 +261,7 @@ and stage the complete dependency set when the target cannot reach a registry.
 These are separate questions:
 
 - The TRM client can connect through an SAP BTP destination when the appropriate
-  client plugin is installed.
+  client plugin is installed, see [Connect through SAP BTP](client/btp_destination.md).
 - That connectivity option does not mean TRM supports ABAP Cloud development or
   the cloud ABAP language and extensibility model. TRM currently targets
   CTS-based ABAP systems.
@@ -302,7 +302,9 @@ package visibility, optional transports, target mappings, and approvals must be
 provided explicitly so the run does not depend on interactive prompts.
 
 Automation should complement—not bypass—the controls required by the target SAP
-landscape. See [GitHub Actions](commons/github_actions.md) for complete examples.
+landscape. See [GitHub Actions](commons/github_actions.md) for complete examples. On GitHub
+Actions, [trusted publishing](registry/public/authentication.md#github-actions-trusted-publishing)
+lets a workflow publish without storing a registry token.
 
 ### Does TRM automatically roll back every failed installation?
 

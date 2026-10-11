@@ -82,7 +82,9 @@ don't have to type the same values again:
 
 ## Publishing without prompts
 
-Pass `--no-prompts` to publish from a script or a pipeline. Any value TRM would otherwise ask for
+Pass `--no-prompts` to publish from a script or a pipeline (in GitHub Actions, see
+[GitHub Actions](github_actions.md) and [trusted publishing](../registry/public/authentication.md#github-actions-trusted-publishing),
+which publishes without storing a registry token). Any value TRM would otherwise ask for
 must then be supplied, or the publish stops with an error:
 
 | Value | Option |

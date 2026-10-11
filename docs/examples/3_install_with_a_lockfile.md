@@ -50,6 +50,8 @@ Let's open the `trm-lock.json` file:
 
 For the `@trmsamples/doc-demo` package, TRM flattened all its dependencies (only one in this case) and returned the exact version, registry address, and integrity value for each one.
 
+The lockfile also records the package itself: its `name` and `version` at the top of the file and, with recent TRM versions, its `registry` and `integrity` too (the screenshot was taken with an older version, which recorded only the name and version). See [Lockfile](../commons/lockfile.md) for the full format.
+
 ## Publish a new dependency version
 
 I'll now publish version `1.0.1` of `@trmsamples/doc-utility` (the dependency used by `@trmsamples/doc-demo`).
@@ -82,5 +84,7 @@ trm clean-install <package name>
   <img src="/assets/examples/3_5_install_with_a_lockfile.png" alt="Publishing a new release of the package" style="max-width:100%; height:auto; border-radius:8px;">
 </div>
 
+I didn't pass a version: TRM took the version of `@trmsamples/doc-demo` from the lockfile. Passing a different version would stop the command, because it would no longer match the lockfile; to move to a newer version, install it and generate the lockfile again.
+
 TRM installed version `1.0.0` of `@trmsamples/doc-utility` because that version was used when the lockfile was generated.
-Behind the scenes, it also verified that the integrity value from the registry matched the value in the lockfile, ensuring that the release was identical.
+Behind the scenes, it also verified that the integrity value from the registry matched the value in the lockfile, ensuring that the release was identical, for the dependency and for the package itself.
