@@ -1,26 +1,9 @@
 {
   "name": "trm-docs",
-  "version": "2.0.0",
-  "description": "TRM (Transport Request Manager) Documentation",
-  "keywords": [
-    "trm",
-    "abap",
-    "docs"
-  ],
-  "homepage": "https://www.trmregistry.com",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RegestaItalia/trm-client.git"
-  },
-  "author": {
-    "name": "Simone Gaffurini",
-    "email": "simone.gaffurini@regestaitalia.it"
-  },
-  "license": "MIT",
+  "private": true,
   "scripts": {
-    "start": "docsify serve ."
-  },
-  "devDependencies": {
-    "docsify-cli": "^4.4.4"
+    "setup": "python3 -m venv .venv && .venv/bin/pip install -r requirements.txt",
+    "serve": ".venv/bin/zensical serve",
+    "build": ".venv/bin/zensical build --clean"
   }
 }

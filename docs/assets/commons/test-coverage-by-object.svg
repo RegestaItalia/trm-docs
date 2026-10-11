@@ -1,0 +1,313 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1898" viewBox="0 0 720 1898" role="img" aria-labelledby="title desc">
+  <title id="title">Test coverage by completed object type</title>
+  <desc id="desc">Passing dependency assertions as a percentage of executed assertions for each completed SAP object type. Dependency-free baseline assertions are counted normally. Green means all assertions passed, amber means partially passing, and red means no assertions passed or no assertions were executed.</desc>
+  <style>
+    .card { fill: #f6f8fa; stroke: #d0d7de; }
+    .title { fill: #1f2328; font: 600 20px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .legend { fill: #59636e; font: 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .object { fill: #1f2328; font: 600 13px ui-monospace, SFMono-Regular, Consolas, monospace; }
+    .value { fill: #59636e; font: 12px ui-monospace, SFMono-Regular, Consolas, monospace; }
+    .track { fill: #d8dee4; }
+  </style>
+  <rect x="1" y="1" width="718" height="1896" rx="10" class="card"/>
+  <text x="40" y="40" class="title">Test coverage by object type</text>
+  <circle cx="42" cy="65" r="5" fill="#2da44e"/><text x="53" y="69" class="legend">all passed</text>
+  <circle cx="140" cy="65" r="5" fill="#bf8700"/><text x="151" y="69" class="legend">partial</text>
+  <circle cx="220" cy="65" r="5" fill="#cf222e"/><text x="231" y="69" class="legend">none</text>
+  <text x="620" y="69" text-anchor="end" class="legend">tests</text>
+  <text x="680" y="69" text-anchor="end" class="legend">passed</text>
+  
+  <text x="40" y="100" class="object">AUTH</text>
+  <rect x="150" y="86" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="86" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="100" text-anchor="end" class="value">2/2</text>
+  <text x="680" y="100" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="136" class="object">BDEF</text>
+  <rect x="150" y="122" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="122" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="136" text-anchor="end" class="value">3/3</text>
+  <text x="680" y="136" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="172" class="object">CHDO</text>
+  <rect x="150" y="158" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="158" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="172" text-anchor="end" class="value">4/4</text>
+  <text x="680" y="172" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="208" class="object">CLAS</text>
+  <rect x="150" y="194" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="194" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="208" text-anchor="end" class="value">6/6</text>
+  <text x="680" y="208" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="244" class="object">CMOD</text>
+  <rect x="150" y="230" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="230" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="244" text-anchor="end" class="value">1/1</text>
+  <text x="680" y="244" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="280" class="object">DCLS</text>
+  <rect x="150" y="266" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="266" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="280" text-anchor="end" class="value">1/1</text>
+  <text x="680" y="280" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="316" class="object">DDLS</text>
+  <rect x="150" y="302" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="302" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="316" text-anchor="end" class="value">4/4</text>
+  <text x="680" y="316" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="352" class="object">DDLX</text>
+  <rect x="150" y="338" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="338" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="352" text-anchor="end" class="value">1/1</text>
+  <text x="680" y="352" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="388" class="object">DEVC</text>
+  <rect x="150" y="374" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="374" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="388" text-anchor="end" class="value">5/5</text>
+  <text x="680" y="388" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="424" class="object">DIAL</text>
+  <rect x="150" y="410" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="410" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="424" text-anchor="end" class="value">2/2</text>
+  <text x="680" y="424" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="460" class="object">DOMA</text>
+  <rect x="150" y="446" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="446" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="460" text-anchor="end" class="value">2/2</text>
+  <text x="680" y="460" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="496" class="object">DTEL</text>
+  <rect x="150" y="482" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="482" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="496" text-anchor="end" class="value">4/4</text>
+  <text x="680" y="496" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="532" class="object">ENHC</text>
+  <rect x="150" y="518" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="518" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="532" text-anchor="end" class="value">2/2</text>
+  <text x="680" y="532" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="568" class="object">ENHO</text>
+  <rect x="150" y="554" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="554" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="568" text-anchor="end" class="value">5/5</text>
+  <text x="680" y="568" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="604" class="object">ENHS</text>
+  <rect x="150" y="590" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="590" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="604" text-anchor="end" class="value">2/2</text>
+  <text x="680" y="604" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="640" class="object">ENQU</text>
+  <rect x="150" y="626" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="626" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="640" text-anchor="end" class="value">1/1</text>
+  <text x="680" y="640" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="676" class="object">ENSC</text>
+  <rect x="150" y="662" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="662" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="676" text-anchor="end" class="value">2/2</text>
+  <text x="680" y="676" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="712" class="object">FUGR</text>
+  <rect x="150" y="698" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="698" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="712" text-anchor="end" class="value">3/3</text>
+  <text x="680" y="712" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="748" class="object">IDOC</text>
+  <rect x="150" y="734" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="734" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="748" text-anchor="end" class="value">2/2</text>
+  <text x="680" y="748" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="784" class="object">IEXT</text>
+  <rect x="150" y="770" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="770" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="784" text-anchor="end" class="value">3/3</text>
+  <text x="680" y="784" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="820" class="object">INTF</text>
+  <rect x="150" y="806" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="806" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="820" text-anchor="end" class="value">4/4</text>
+  <text x="680" y="820" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="856" class="object">IWMO</text>
+  <rect x="150" y="842" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="842" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="856" text-anchor="end" class="value">1/1</text>
+  <text x="680" y="856" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="892" class="object">IWPR</text>
+  <rect x="150" y="878" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="878" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="892" text-anchor="end" class="value">9/9</text>
+  <text x="680" y="892" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="928" class="object">IWSV</text>
+  <rect x="150" y="914" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="914" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="928" text-anchor="end" class="value">2/2</text>
+  <text x="680" y="928" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="964" class="object">MSAG</text>
+  <rect x="150" y="950" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="950" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="964" text-anchor="end" class="value">1/1</text>
+  <text x="680" y="964" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1000" class="object">NROB</text>
+  <rect x="150" y="986" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="986" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1000" text-anchor="end" class="value">5/5</text>
+  <text x="680" y="1000" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1036" class="object">PROG</text>
+  <rect x="150" y="1022" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1022" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1036" text-anchor="end" class="value">5/5</text>
+  <text x="680" y="1036" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1072" class="object">SAMC</text>
+  <rect x="150" y="1058" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1058" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1072" text-anchor="end" class="value">2/2</text>
+  <text x="680" y="1072" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1108" class="object">SAPC</text>
+  <rect x="150" y="1094" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1094" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1108" text-anchor="end" class="value">2/2</text>
+  <text x="680" y="1108" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1144" class="object">SFPF</text>
+  <rect x="150" y="1130" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1130" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1144" text-anchor="end" class="value">3/3</text>
+  <text x="680" y="1144" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1180" class="object">SFPI</text>
+  <rect x="150" y="1166" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1166" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1180" text-anchor="end" class="value">5/5</text>
+  <text x="680" y="1180" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1216" class="object">SHLP</text>
+  <rect x="150" y="1202" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1202" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1216" text-anchor="end" class="value">3/3</text>
+  <text x="680" y="1216" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1252" class="object">SICF</text>
+  <rect x="150" y="1238" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1238" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1252" text-anchor="end" class="value">3/3</text>
+  <text x="680" y="1252" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1288" class="object">SOBJ</text>
+  <rect x="150" y="1274" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1274" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1288" text-anchor="end" class="value">9/9</text>
+  <text x="680" y="1288" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1324" class="object">SRVB</text>
+  <rect x="150" y="1310" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1310" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1324" text-anchor="end" class="value">1/1</text>
+  <text x="680" y="1324" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1360" class="object">SRVD</text>
+  <rect x="150" y="1346" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1346" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1360" text-anchor="end" class="value">2/2</text>
+  <text x="680" y="1360" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1396" class="object">SSFO</text>
+  <rect x="150" y="1382" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1382" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1396" text-anchor="end" class="value">8/8</text>
+  <text x="680" y="1396" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1432" class="object">SSST</text>
+  <rect x="150" y="1418" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1418" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1432" text-anchor="end" class="value">1/1</text>
+  <text x="680" y="1432" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1468" class="object">SUSC</text>
+  <rect x="150" y="1454" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1454" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1468" text-anchor="end" class="value">1/1</text>
+  <text x="680" y="1468" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1504" class="object">SUSO</text>
+  <rect x="150" y="1490" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1490" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1504" text-anchor="end" class="value">3/3</text>
+  <text x="680" y="1504" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1540" class="object">SXCI</text>
+  <rect x="150" y="1526" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1526" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1540" text-anchor="end" class="value">4/4</text>
+  <text x="680" y="1540" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1576" class="object">SXSD</text>
+  <rect x="150" y="1562" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1562" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1576" text-anchor="end" class="value">9/9</text>
+  <text x="680" y="1576" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1612" class="object">TABL</text>
+  <rect x="150" y="1598" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1598" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1612" text-anchor="end" class="value">4/4</text>
+  <text x="680" y="1612" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1648" class="object">TOBJ</text>
+  <rect x="150" y="1634" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1634" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1648" text-anchor="end" class="value">9/9</text>
+  <text x="680" y="1648" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1684" class="object">TRAN</text>
+  <rect x="150" y="1670" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1670" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1684" text-anchor="end" class="value">4/4</text>
+  <text x="680" y="1684" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1720" class="object">TTYP</text>
+  <rect x="150" y="1706" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1706" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1720" text-anchor="end" class="value">2/2</text>
+  <text x="680" y="1720" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1756" class="object">TYPE</text>
+  <rect x="150" y="1742" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1742" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1756" text-anchor="end" class="value">1/1</text>
+  <text x="680" y="1756" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1792" class="object">VCLS</text>
+  <rect x="150" y="1778" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1778" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1792" text-anchor="end" class="value">7/7</text>
+  <text x="680" y="1792" text-anchor="end" class="value">100%</text>
+
+  <text x="40" y="1828" class="object">XSLT</text>
+  <rect x="150" y="1814" width="410" height="18" rx="9" class="track"/>
+  <rect x="150" y="1814" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1828" text-anchor="end" class="value">2/2</text>
+  <text x="680" y="1828" text-anchor="end" class="value">100%</text>
+</svg>

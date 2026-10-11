@@ -1,0 +1,126 @@
+# 🚚 TRM - Transport Request Manager
+
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-1.3.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
+[![View Code Wiki](https://assets.codewiki.google/readme-badge/static.svg)](https://codewiki.google/github.com/regestaitalia/trm-docs)
+
+[![trm-client version](https://img.shields.io/npm/v/trm-client?label=trm-client)](https://www.npmjs.com/package/trm-client)
+[![trm-server version](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/version/trm-server?version=latest)](https://trmregistry.com/package/trm-server)
+[![trm-core version](https://img.shields.io/npm/v/trm-core?label=trm-core)](https://www.npmjs.com/package/trm-core)
+[![trm-registry-types version](https://img.shields.io/npm/v/trm-registry-types?label=trm-registry-types)](https://www.npmjs.com/package/trm-registry-types)
+
+| 🚀 This project is funded and maintained by 🏦  | 🔗                                                             |
+|-------------------------------------------------|----------------------------------------------------------------|
+| Regesta Group Srl                               | [https://www.regestaitalia.eu/](https://www.regestaitalia.eu/) |
+| Clarex Srl                                      | [https://www.clarex.it/](https://www.clarex.it/)               |
+
+**TRM (Transport Request Manager)** is the package manager for SAP systems.
+
+<p align="center">
+  <img src="assets/logo.png" alt="TRM Logo" />
+</p>
+
+TRM introduces **package-based software delivery** to the SAP ecosystem, bringing with it semantic versioning, dependency management, and automated deployment activities.
+
+---
+
+# What is TRM?
+
+TRM is software that transforms how custom ABAP developments are published, installed, and maintained across SAP landscapes.
+Inspired by modern package managers, TRM introduces a declarative, version-controlled, and automated way to manage your SAP transports.
+
+With TRM, you can:
+
+- **Define a manifest** for each ABAP package (similar to `package.json` with Node.js or `pom.xml` with Maven)
+- **Version your products** ([SemVer](https://semver.org/) compliance)
+- **Declare dependencies** (to other TRM packages, SAP standard objects, or customizing data)
+- **Automate post-install activities**, such as client-dependent customizing and cache invalidation
+- **Validate system requirements** prior to installation
+- **Compare versions** of the same product across multiple SAP systems (in or outside the same landscape)
+- **Distribute** your product release to the public or to a restricted number of users:
+  - Registry (e.g., [trmregistry.com](https://trmregistry.com) or private registry)
+  - Local `.trm` files for offline installations
+
+## Modern approach for ABAP
+
+- Publish ABAP packages from a **central development system**
+- Deliver packages to target systems (outside the original landscape, such as a customer's development system) using a single CLI command or pipeline
+- Full support for **workbench objects**, **customizing**, and **translations**
+
+## Structured Manifest
+
+Each package includes a `manifest.json` that declares:
+
+- Version and metadata
+- System requirements
+- Dependencies
+- Post-install scripts
+
+## Why a package manager matters for ABAP
+
+Most language ecosystems settled this problem long ago: npm for Node.js, Maven for Java,
+NuGet for .NET. Each gives teams a manifest, semantic versioning, a dependency resolver,
+and a registry to distribute releases. ABAP never had an equivalent—transports move code
+between systems, but they don't express what a delivery depends on, what version it is,
+or whether a target system can safely receive it.
+
+In practice, that gap turns into manual work: someone has to remember the correct import
+order across transports, re-check whether a target system already has the right
+prerequisite objects, and re-explain undocumented dependencies every time a solution is
+handed to a new team or customer. None of this is specific to one company—it is a
+structural gap in how ABAP has traditionally been delivered.
+
+TRM closes that gap by treating ABAP deliveries the way modern package managers treat
+software releases: versioned, dependency-aware, and reproducible across systems. That
+shift matters wherever ABAP code crosses a system boundary—between teams, between
+landscapes, or out to customers and partners. The [business cases](business_cases/1_managing_core_developments.md)
+walk through concrete scenarios where this pays off, including
+[turning reusable ABAP into a product](business_cases/1_managing_core_developments.md),
+[controlling dependencies in modular solutions](business_cases/4_dependency_control.md),
+[automating delivery pipelines](business_cases/5_abap_delivery_automation.md), and
+[governing multi-vendor deliveries](business_cases/8_multi_vendor_governance.md).
+
+## TRM and abapGit
+
+TRM is not a substitute for [abapGit](https://abapgit.org/): the two tools solve different problems and can coexist in the same development-to-production workflow. abapGit provides a fast, Git-based development experience, including commit history and quick rollbacks, while a pull recreates objects directly in the target system.
+
+That pull is what makes abapGit excellent for development and a poor fit for distributing a release. A pull deserializes source and rebuilds each object on the target system: it re-creates and re-activates the object there, rather than placing the exact artifact that was built and tested elsewhere. Two pulls of the "same" commit can still generate, activate, or behave differently depending on the state of the receiving system, because the object is being reconstructed on arrival, not reproduced from a known-good build. That's an acceptable trade-off while iterating on a development system, but it's not what a release process needs once a version has been tested: the thing that reaches QA, production, or a customer should be the same build that was verified, not a fresh recreation of it. abapGit also has no built-in concept of a versioned, resolvable dependency between repositories, so lining up compatible releases across several repos is left to whoever performs the pull.
+
+TRM packages and deploys through CTS, the mechanism SAP built specifically for moving development objects across a landscape in a controlled order. It attaches the same manifest, versioning, and dependency resolution described above to that mechanism, so a release travels through transports the way a landscape already expects, with a package's compatibility and prerequisites checked before import rather than discovered afterward.
+
+---
+
+# Architecture Overview
+
+- [**Server**](https://github.com/RegestaItalia/trm-server): Collection of APIs installed on source and destination systems
+- [**Client**](https://github.com/RegestaItalia/trm-client): Command-line interface that talks with SAP instances
+- [**Registry**](https://trmregistry.com/): Cloud registry where package releases are safely stored for end users to install
+
+---
+
+# Where to start
+
+1. [Set up the system](server/setup.md): install trm-server on the SAP systems you publish from and install into.
+2. [Set up the client](client/setup.md): install the `trm` command line on your computer.
+3. [Publish a package](commons/publish.md): turn an ABAP package into a versioned release.
+4. [Install it](commons/install.md) on another system, and update it when a new release comes out.
+
+The [examples](examples/1_publish_and_install.md) walk through the same steps with screenshots.
+
+---
+
+# Contributors
+
+Like every other TRM open-source project, we always welcome contributions ❤️.
+
+Make sure to open an issue first.
+
+Contributions will be merged upon approval.
+
+[Read the contribution guidelines](CONTRIBUTING.md) before submitting a change.
+
+<div class="contributors-embed">
+  <a class="contributors-embed__image-link" href="https://trmregistry.com/public/contributors" target="_blank" rel="noopener" aria-label="View TRM contributors">
+    <img class="contributors-embed__image" src="https://trmregistry.com/public/contributors?image=true" alt="TRM project contributors" loading="lazy">
+  </a>
+  <iframe class="contributors-embed__iframe" src="https://trmregistry.com/public/contributors" title="TRM project contributors" loading="lazy" scrolling="no"></iframe>
+</div>

@@ -1,14 +1,12 @@
 # 🚚 TRM (Transport Request Manager)
 
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-1.3.0-4baaaa.svg)](code_of_conduct.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-1.3.0-4baaaa.svg)](docs/CODE_OF_CONDUCT.md)
 [![View Code Wiki](https://assets.codewiki.google/readme-badge/static.svg)](https://codewiki.google/github.com/regestaitalia/trm-docs)
 
 [![trm-client version](https://img.shields.io/npm/v/trm-client?label=trm-client)](https://www.npmjs.com/package/trm-client)
 [![trm-server version](https://img.shields.io/endpoint?url=https://trmregistry.com/public/shieldio/version/trm-server?version=latest)](https://trmregistry.com/package/trm-server)
 [![trm-core version](https://img.shields.io/npm/v/trm-core?label=trm-core)](https://www.npmjs.com/package/trm-core)
 [![trm-registry-types version](https://img.shields.io/npm/v/trm-registry-types?label=trm-registry-types)](https://www.npmjs.com/package/trm-registry-types)
-
-[![trm-registry roadmap stage](https://img.shields.io/badge/public%20registry%20roadmap%20stage-production-green)](/registry/public/roadmap.md)
 
 | 🚀 This project is funded and maintained by 🏦 | 🔗                                                             |
 |-------------------------------------------------|----------------------------------------------------------------|
@@ -18,7 +16,7 @@
 **TRM (Transport Request Manager)** is a package-manager-inspired solution built on CTS that simplifies SAP ABAP transports.
 
 <p align="center">
-  <img src="logo.png" alt="TRM Logo" />
+  <img src="docs/assets/logo.png" alt="TRM Logo" />
 </p>
 
 TRM introduces **package-based software delivery** to the SAP ecosystem, bringing with it semantic versioning, dependency management, and automated deployment activities.
@@ -59,6 +57,33 @@ Each package includes a `manifest.json` that declares:
 
 ---
 
+# TRM vs SAINT/SPAM
+
+If you know SAP's add-on tooling (SAINT, SPAM and the Add-On Assembly Kit), TRM will feel familiar: both put a product layer (identity, version, prerequisites, post-processing) on top of plain transports.
+
+| Concept              | SAINT / SPAM (+ AAK)                                     | TRM                                                                     |
+|----------------------|----------------------------------------------------------|-------------------------------------------------------------------------|
+| Unit of delivery     | Add-on / software component                              | TRM package                                                             |
+| Versioning           | Release + support package level                          | SemVer                                                                  |
+| Product metadata     | AAK delivery attributes                                  | `manifest.json`                                                         |
+| Prerequisite checks  | Import conditions on software component levels           | System requirements (engines), standard object                          |
+| Dependencies         | Predecessor add-ons and support packages                 | Other TRM packages, optionally resolved and installed automatically     |
+| Offline artifact     | `.SAR` / `.PAT` (EPS) files                              | `.trm` files                                                            |
+| Post-import logic    | XPRAs / after-import methods                             | Post-install actions.                                                   |
+| Underlying mechanism | `tp` / `R3trans`                                         | `tp` / `R3trans`                                                        |
+| SAP approval         | AAK license, namespace and add-on registration with SAP  | None: you publish, consumers decide what to install                     |
+
+Where TRM differs:
+
+- **Open**: no AAK license, no reserved namespace or registered software component required
+- **No SAP gatekeeping**: an AAK add-on involves SAP at several steps: the AAK license itself, namespace reservation, registering the add-on/software component so SAP's upgrade and conversion tooling (Maintenance Planner, SUM) knows how to handle it, and optionally an SAP certification. A TRM release is available as soon as you publish it, with no review by SAP. Approval stays with the people involved: the publisher decides what to release, the consumer reviews and approves what is installed through their own change-management process (see [Is it safe to install a package from a registry?](https://docs.trmregistry.com/faq/#is-it-safe-to-install-a-package-from-a-registry))
+- **Lightweight build**: publish directly from your development system, with no dedicated assembly system or conflict resolution transports
+- **Registry-based distribution**: public or private registry, like npm
+- **Developer-oriented**: driven by a CLI and suited to CI/CD pipelines, rather than interactive Basis transactions
+- **Broader scope**: commercial add-ons as well as internal tools, accelerators and reusable utilities that would never justify the AAK overhead
+
+---
+
 # Architecture Overview
 
 - [**Server**](https://github.com/RegestaItalia/trm-server): Collection of APIs installed on source and destination systems
@@ -69,13 +94,31 @@ Each package includes a `manifest.json` that declares:
 
 # Contributors
 
-Like every other TRM open-source project, we always welcome contributions ❤️. <!-- {docsify-remove} -->
+Like every other TRM open-source project, we always welcome contributions ❤️.
 
-Make sure to open an issue first. <!-- {docsify-remove} -->
+Make sure to open an issue first.
 
-Contributions will be merged upon approval. <!-- {docsify-remove} -->
+Contributions will be merged upon approval.
 
-[Click here](https://docs.trmregistry.com/#/CONTRIBUTING) for the full list of TRM contribution guidelines. <!-- {docsify-remove} -->
+[Read the contribution guidelines](docs/CONTRIBUTING.md) before submitting a change.
 
-<!-- {docsify-add CONTRIBUTORS} -->
-[<img src="https://trmregistry.com/public/contributors?image=true">](https://docs.trmregistry.com/#/?id=contributors) <!-- {docsify-remove} -->
+[![TRM project contributors](https://trmregistry.com/public/contributors?image=true)](https://trmregistry.com/public/contributors)
+
+## Local documentation preview
+
+Set up the documentation environment once:
+
+```sh
+npm run setup
+```
+
+Then start the local development server:
+
+```sh
+npm run serve
+```
+
+The documentation is available at <http://localhost:8000> and reloads when a
+source file changes.
+
+To create a clean production build in `site/`, run `npm run build`.
