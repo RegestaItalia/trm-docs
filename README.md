@@ -71,10 +71,12 @@ If you know SAP's add-on tooling (SAINT, SPAM and the Add-On Assembly Kit), TRM 
 | Offline artifact     | `.SAR` / `.PAT` (EPS) files                              | `.trm` files                                                            |
 | Post-import logic    | XPRAs / after-import methods                             | Post-install actions.                                                   |
 | Underlying mechanism | `tp` / `R3trans`                                         | `tp` / `R3trans`                                                        |
+| SAP approval         | AAK license, namespace and add-on registration with SAP  | None: you publish, consumers decide what to install                     |
 
 Where TRM differs:
 
 - **Open**: no AAK license, no reserved namespace or registered software component required
+- **No SAP gatekeeping**: an AAK add-on involves SAP at several steps: the AAK license itself, namespace reservation, registering the add-on/software component so SAP's upgrade and conversion tooling (Maintenance Planner, SUM) knows how to handle it, and optionally an SAP certification. A TRM release is available as soon as you publish it, with no review by SAP. Approval stays with the people involved: the publisher decides what to release, the consumer reviews and approves what is installed through their own change-management process (see [Is it safe to install a package from a registry?](https://docs.trmregistry.com/faq/#is-it-safe-to-install-a-package-from-a-registry))
 - **Lightweight build**: publish directly from your development system, with no dedicated assembly system or conflict resolution transports
 - **Registry-based distribution**: public or private registry, like npm
 - **Developer-oriented**: driven by a CLI and suited to CI/CD pipelines, rather than interactive Basis transactions
