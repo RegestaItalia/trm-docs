@@ -128,12 +128,12 @@ The online installation is only possible if your system is allowed to connect to
 
 </details>
 
-### Maintain Authorized Users
+### Authorize Users
 
-1.  Execute transaction `SE16`
-2.  Create a new record in table `/ATRM/USERS`
+Grant each SAP user who needs to use TRM authorization object `ZTRM_AUTH` with activity
+`ACTVT = 16` (Execute), typically through an assigned role.
 
-> For security reasons, by default, TRM does not allow any user to execute RFC functions unless explicitly authorized.
+> For security reasons, TRM does not allow a user to execute its functions unless the user has this authorization.
 
 ### Verify RFC Authorization
 

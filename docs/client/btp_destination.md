@@ -51,7 +51,8 @@ In the BTP cockpit, create a destination in the subaccount:
 | Additional property `sap-client` | The SAP client, for example `100`. |
 
 The SAP user in the destination is the one TRM works with on the SAP system, so it must be
-authorized in table `/ATRM/USERS` (see [Server setup](../server/setup.md#maintain-authorized-users))
+granted authorization object `ZTRM_AUTH` with activity `ACTVT = 16` (Execute; see
+[Server setup](../server/setup.md#authorize-users))
 and have the authorizations to create, release and import transports.
 
 ### 3. Deploy the trm-ssh app

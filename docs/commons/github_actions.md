@@ -12,7 +12,7 @@ and similar tools.
 | A runner | A GitHub-hosted runner such as `ubuntu-latest`, when you [connect through SAP BTP](#reaching-the-sap-system). Otherwise a [self-hosted runner](https://docs.github.com/actions/hosting-your-own-runners) inside your network. |
 | The TRM client | `npm install -g trm-client` on a runner with Node.js. |
 | A connection to SAP | Recommended: the **BTP** connection of [trm-plugin-btp-dest](../client/btp_destination.md), through an SAP BTP destination and the Cloud Connector. On a self-hosted runner, the **REST** connection is the simplest: it only needs [trm-rest](../server/setup.md) on the SAP system. RFC also works, but the runner then needs the SAP NW RFC SDK and `node-rfc`, see [Client setup](../client/setup.md). |
-| An SAP user | A technical user authorized in table `/ATRM/USERS` (see [Server setup](../server/setup.md#maintain-authorized-users)), with the authorizations to create, release and import transports. With the BTP connection, it's the user set in the destination. |
+| An SAP user | A technical user granted authorization object `ZTRM_AUTH` with activity `ACTVT = 16` (Execute; see [Server setup](../server/setup.md#authorize-users)), with the authorizations to create, release and import transports. With the BTP connection, it's the user set in the destination. |
 | Registry access | Recommended: [GitHub Actions trusted publishing](../registry/public/authentication.md#github-actions-trusted-publishing), with no token to store. Alternatively, a [personal access token](../registry/public/authentication.md#personal-access-tokens) with the scopes the job needs. Installing public packages needs no authentication. |
 
 Store passwords, certificates and tokens as
