@@ -14,6 +14,13 @@ nav = [
   { "Getting Started" = [
     { "Set up the system" = "server/setup.md" },
     { "Set up the client" = "client/setup.md" },
+    { "Connect through SAP BTP" = "client/btp_destination.md" },
+  ] },
+  { "Using TRM" = [
+    { "Publish a package" = "commons/publish.md" },
+    { "Install and update" = "commons/install.md" },
+    { "Uninstall a package" = "commons/uninstall.md" },
+    { "GitHub Actions" = "commons/github_actions.md" },
   ] },
   { "Business Cases" = [
     { "Turn reusable ABAP into a product" = "business_cases/1_managing_core_developments.md" },
@@ -37,7 +44,6 @@ nav = [
     { "SAP Entries" = "commons/sap_entries.md" },
     { "Locks" = "commons/action_locks.md" },
     { "Table Updates" = "commons/table_updates.md" },
-    { "GitHub Actions" = "commons/github_actions.md" },
   ] },
   { "Registry" = [
     { "Overview" = "registry/index.md" },

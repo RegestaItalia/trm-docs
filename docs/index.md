@@ -97,6 +97,17 @@ TRM packages and deploys through CTS, the mechanism SAP built specifically for m
 
 ---
 
+# Where to start
+
+1. [Set up the system](server/setup.md): install trm-server on the SAP systems you publish from and install into.
+2. [Set up the client](client/setup.md): install the `trm` command line on your computer.
+3. [Publish a package](commons/publish.md): turn an ABAP package into a versioned release.
+4. [Install it](commons/install.md) on another system, and update it when a new release comes out.
+
+The [examples](examples/1_publish_and_install.md) walk through the same steps with screenshots.
+
+---
+
 # Contributors
 
 Like every other TRM open-source project, we always welcome contributions ❤️.

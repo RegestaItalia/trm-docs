@@ -10,6 +10,7 @@ Each lock identifies a resource type and name. TRM derives a stable hash from th
 | --- | --- |
 | Install or update | Package identity (package name plus registry endpoint), target and previously installed SAP packages (`DEVCLASS`), transport requests (`TRANSPORT`), and imported repository objects (`OBJECT`). The payload's objects and packages are reserved **before dependency installation**. Each dependency install also acquires its own locks; parent-held locks remain until the dependency chain has finished or rolled back. |
 | Publish | Package identity, source SAP package, and included workbench objects. |
+| Uninstall | Package identity, installed SAP packages (`DEVCLASS`), and the installed transport (`TRANSPORT`). Uninstalls of TRM packages nested in the uninstalled one lock in the same scope; all locks are released together at the end. |
 | CG3Z transport upload | Transport request number (`TRKORR`). |
 
 An install that collides with a held package, SAP package, object, or transport lock fails instead of overlapping the other operation. A lock is a concurrency guard, not evidence that the underlying SAP change succeeded or was rolled back.

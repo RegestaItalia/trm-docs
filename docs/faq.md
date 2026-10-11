@@ -160,14 +160,15 @@ from the use of a package manager.
 
 ### What is a lockfile for?
 
-A lockfile records the exact dependency releases and their integrity values. Use
-it when the same dependency graph must be reproduced across developers, systems,
-or pipeline runs.
+A lockfile records the exact release of a package and of its dependencies, with
+their integrity values. Use it when the same installation must be reproduced
+across developers, systems, or pipeline runs.
 
 Without a lockfile, TRM selects the newest available releases that satisfy the
-declared ranges. With one, TRM uses the locked versions and verifies that the
-downloaded artifacts match. See
-[Install with a lockfile](examples/3_install_with_a_lockfile.md).
+declared ranges. With one, `trm clean-install` installs the locked release of the
+package and the locked dependency versions, and verifies that the downloaded
+artifacts match. See [Lockfile](commons/lockfile.md) and the
+[Install with a lockfile](examples/3_install_with_a_lockfile.md) example.
 
 ## Registries and connectivity
 
@@ -301,7 +302,7 @@ package visibility, optional transports, target mappings, and approvals must be
 provided explicitly so the run does not depend on interactive prompts.
 
 Automation should complement—not bypass—the controls required by the target SAP
-landscape.
+landscape. See [GitHub Actions](commons/github_actions.md) for complete examples.
 
 ### Does TRM automatically roll back every failed installation?
 
@@ -309,15 +310,27 @@ With CTS, rollbacks are always a bit of a challenge, and TRM cannot always
 guarantee a clean rollback. TRM performs validation before import and restores
 transports and system state as best as possible, but some operations are intentionally
 not reversible. Custom post-install activities can also have their own side effects.
+See [If something fails](commons/install.md#if-something-fails).
 
 ### How do I know which transport to move through the rest of the landscape?
 
-After a successful package install, TRM creates the request that collects the
-changes for onward movement. For an update that also removes obsolete objects,
-the deletion transport must be imported before the landscape transport.
+After a successful package install, TRM creates and releases a landscape transport
+that collects the installed changes, and puts it in the import queue of the
+transport target you choose. For an update that also removes obsolete objects, TRM
+adds the deletion transport to the same queue first: it must be imported before the
+landscape transport.
 
 Follow the target organization's normal release and import-order controls; do not
-infer the sequence from transport numbers alone.
+infer the sequence from transport numbers alone. See
+[Moving the package through the landscape](commons/install.md#moving-the-package-through-the-landscape).
+
+### Can I uninstall a package?
+
+Yes. `trm uninstall` removes the package's objects, ABAP packages and customizing
+from the connected system through a deletion transport, and adds that transport to
+the landscape so the following systems are cleaned up too. TRM asks before removing
+a package that other packages depend on, or one with local changes. See
+[Uninstalling a package](commons/uninstall.md).
 
 ## Support and contribution
 
