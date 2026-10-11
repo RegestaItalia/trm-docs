@@ -128,7 +128,7 @@ trm info
 | `btpGlobalAccount` | Global account subdomain or display name. Only without `cfRegion`. |
 | `btpSubaccount` | Subaccount subdomain, ID, technical name or display name. Only without `cfRegion`. |
 | `btpDestination` | Name of the destination (proxy type `OnPremise`). |
-| `forwardRfcDest` | RFC destination trm-rest forwards the calls to, like the `-x` option of a REST connection. `NONE` for no forwarding; when missing, TRM may ask for it. |
+| `forwardRfcDest` | RFC destination trm-rest forwards the calls to, like the `-x` option of a REST connection. `NONE` for no forwarding. When missing, it defaults to `NONE` if the connection type is passed (`--connection-type` or `TRM_CONNECTION_TYPE`); otherwise TRM asks for it. |
 
 `cfRegion` is the simplest choice: the region is shown in the subaccount overview of the BTP
 cockpit (for example `cf-eu10` means `eu10`).

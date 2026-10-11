@@ -96,7 +96,9 @@ instead, pass `-A '{"token":"<your token>"}'`.
 ### The prompts
 
 Add `--no-prompts` to every command. TRM then never waits for an answer: it uses the options you
-passed, applies safe defaults, and stops with an error when a decision is missing. The decisions
+passed, applies safe defaults, and stops with an error when a decision is missing. This includes
+the connection: missing connection data (for example the SAP user, or the BTP destination) stops the
+command with an error naming the argument to add. The decisions
 TRM can't take on its own are listed in
 [Publishing without prompts](publish.md#publishing-without-prompts),
 [Installing without prompts](install.md#installing-without-prompts) and
@@ -280,10 +282,10 @@ can require a manual approval before a job that touches a sensitive system.
 ## Troubleshooting
 
 - **The job hangs:** a value is missing and TRM is waiting for an answer. Check that `--no-prompts`
-  is on every command, and that the connection arguments are complete (for BTP, include
-  `forwardRfcDest`).
-- **"... is required ... when interactive prompts are disabled":** pass the option named in the
-  error. The first publish of a package needs `--sap-package` and `--public`/`--private`.
+  is on every command: without it, TRM asks for anything it doesn't know.
+- **"... is required ... when interactive prompts are disabled":** pass the option or connection
+  argument named in the error. The first publish of a package needs `--sap-package` and
+  `--public`/`--private`; connection data goes in `TRM_CONNECTION_ARGS`.
 - **"Transport target was not declared":** the system has more than one transport target; pass
   `-T` (publish) or `--landscape-tr-target` (install, uninstall).
 - **"GitHub Actions OIDC token is not available":** add `permissions: id-token: write` to the
