@@ -151,6 +151,10 @@ No landscape transport is created when:
 
 The following systems don't need trm-server: they receive ordinary transports.
 
+For the complete operational flow—including which installation requests should not be forwarded,
+what remains after a successful install or update, and the required update import order—see
+[Move an installed package through the landscape](../examples/7_package_across_landscape.md).
+
 ## If something fails
 
 When a step fails, TRM undoes the steps already completed, in reverse order: it removes imported
