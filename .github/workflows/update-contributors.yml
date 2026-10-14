@@ -41,8 +41,6 @@ jobs:
               "trm-core",
               "trm-docs",
               "trm-registry-types",
-              "trm-action-publish",
-              "trm-action-install",
               "trm-gui"
             ];
             const excludedHandles = new Set(["reg-github"]);
