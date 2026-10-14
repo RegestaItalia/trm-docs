@@ -81,17 +81,15 @@ which also accepts the path of a JSON file).
 
 ### The registry
 
-Pass the registry on each command:
+Nothing to pass for the public registry: on a GitHub-hosted runner it's the only registry TRM
+knows, so every command uses it. When the job has `permissions: id-token: write`, TRM
+authenticates with [GitHub Actions trusted publishing](#authenticating-to-the-registry), with no
+secret.
 
-```bash
--E public
-```
-
-When the job has `permissions: id-token: write` and no authentication is passed, TRM authenticates
-with [GitHub Actions trusted publishing](#authenticating-to-the-registry), with no secret. To use a
-personal access token instead, pass `-A '{"token":"<your token>"}'`.
-
-`public` stands for the public registry. For a private registry, use its endpoint URL instead.
+To use a personal access token instead, pass the registry and the token together:
+`-E public -A '{"token":"<your token>"}'` (`public` stands for the public registry). For a private
+registry, pass its endpoint URL with `-E`. On a self-hosted runner where other registries are
+configured, pass `-R <alias>` or `-E <endpoint>`, or TRM asks which one to use.
 
 ### The prompts
 
@@ -186,7 +184,6 @@ jobs:
           VERSION="${GITHUB_REF_NAME#v}"
           trm publish @acme/sales-tools "$VERSION" \
             --no-prompts \
-            -E public \
             --sap-package ZACME_SALES \
             --public \
             -T QAS \
@@ -215,7 +212,7 @@ install only `trm-client`, and set the connection as in [The SAP connection](#th
 ```
 
 **With a personal access token**, drop `id-token: write`, store the token as the `TRM_TOKEN`
-secret, add `TRM_TOKEN: ${{ secrets.TRM_TOKEN }}` to `env`, and replace the registry options with
+secret, add `TRM_TOKEN: ${{ secrets.TRM_TOKEN }}` to `env`, and add the registry options
 `-E public -A "{\"token\":\"$TRM_TOKEN\"}"`.
 
 ## Example: install the locked release on a test system
@@ -257,7 +254,6 @@ jobs:
         run: |
           trm clean-install @acme/sales-tools \
             --no-prompts \
-            -E public \
             --lock-file trm-lock.json \
             --package-replacements '[{"originalDevclass":"ZACME_SALES","installDevclass":"ZTEST_SALES"}]'
 ```

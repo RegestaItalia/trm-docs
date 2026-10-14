@@ -112,7 +112,7 @@ permissions:
   id-token: write
 
 steps:
-  - run: trm publish ... -E public
+  - run: trm publish ...
 ```
 
 To ask for it explicitly, for example with an older client, pass `-A '{"oidc":"github"}'`.
