@@ -48,10 +48,11 @@ trm login
 In a script or pipeline, pass the token on each command instead:
 
 ```bash
-trm publish ... -E public -A '{"token":"trm_..."}'
+trm publish ... -A '{"token":"trm_..."}'
 ```
 
-`-A` also accepts the path of a JSON file with the same content.
+`-A` also accepts the path of a JSON file with the same content. Without `-E`, it applies to the
+public registry (trm-client 13.3.0 or later; older versions also need `-E public`).
 
 ## GitHub Actions trusted publishing
 

@@ -86,9 +86,9 @@ knows, so every command uses it. When the job has `permissions: id-token: write`
 authenticates with [GitHub Actions trusted publishing](#authenticating-to-the-registry), with no
 secret.
 
-To use a personal access token instead, pass the registry and the token together:
-`-E public -A '{"token":"<your token>"}'` (`public` stands for the public registry). For a private
-registry, pass its endpoint URL with `-E`. On a self-hosted runner where other registries are
+To use a personal access token instead, pass `-A '{"token":"<your token>"}'` (trm-client 13.3.0
+or later; older versions also need `-E public`). For a private registry, also pass its endpoint
+URL with `-E`. On a self-hosted runner where other registries are
 configured, pass `-R <alias>` or `-E <endpoint>`, or TRM asks which one to use.
 
 ### The prompts
@@ -212,8 +212,8 @@ install only `trm-client`, and set the connection as in [The SAP connection](#th
 ```
 
 **With a personal access token**, drop `id-token: write`, store the token as the `TRM_TOKEN`
-secret, add `TRM_TOKEN: ${{ secrets.TRM_TOKEN }}` to `env`, and add the registry options
-`-E public -A "{\"token\":\"$TRM_TOKEN\"}"`.
+secret, add `TRM_TOKEN: ${{ secrets.TRM_TOKEN }}` to `env`, and add
+`-A "{\"token\":\"$TRM_TOKEN\"}"`.
 
 ## Example: install the locked release on a test system
 
