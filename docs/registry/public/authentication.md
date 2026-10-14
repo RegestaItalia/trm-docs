@@ -103,8 +103,8 @@ There is no per-repository or per-workflow configuration: the link itself is the
 
 ### Use it in a workflow
 
-The job needs permission to request the identity token, and the TRM client is told to use it with
-`-A '{"oidc":"github"}'`:
+The job needs permission to request the identity token. When no registry authentication is passed,
+the TRM client (13.3.0 or later) detects GitHub Actions and uses it automatically:
 
 ```yaml
 permissions:
@@ -112,19 +112,22 @@ permissions:
   id-token: write
 
 steps:
-  - run: trm publish ... -E public -A '{"oidc":"github"}'
+  - run: trm publish ... -E public
 ```
+
+To ask for it explicitly, for example with an older client, pass `-A '{"oidc":"github"}'`.
 
 See [GitHub Actions](../../commons/github_actions.md) for complete workflows.
 
 !!! note
-    The identity token lives only a few minutes, so `trm login` can't save it: pass
-    `-A '{"oidc":"github"}'` on each command instead.
+    The identity token lives only a few minutes, so `trm login` can't save it, and `trm login` and
+    `trm logout` never use it automatically.
 
 ### Errors
 
 | Error | Cause | Fix |
 | --- | --- | --- |
-| `GitHub Actions OIDC token is not available` | The job can't request the identity token. | Add `permissions: id-token: write` to the workflow or job. |
+| `GitHub Actions OIDC token is not available` | `-A '{"oidc":"github"}'` was passed but the job can't request the identity token. | Add `permissions: id-token: write` to the workflow or job. |
+| `Unauthorized` | No authentication was passed and the job can't request the identity token, so the command ran as anonymous. | Add `permissions: id-token: write` to the workflow or job. |
 | `GitHub account not linked to a TRM profile` | The user who triggered the run hasn't linked a GitHub account. | [Link the GitHub account](#link-your-github-account), or have a linked user start the run. |
 | `Insufficient permissions` | The linked account can't do this on this package (for example, it isn't allowed to publish in the organization that owns it). | Give the account the needed rights on the package or organization. |

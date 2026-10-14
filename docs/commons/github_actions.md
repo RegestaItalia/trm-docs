@@ -81,15 +81,15 @@ which also accepts the path of a JSON file).
 
 ### The registry
 
-Pass the registry and how to authenticate on each command:
+Pass the registry on each command:
 
 ```bash
--E public -A '{"oidc":"github"}'
+-E public
 ```
 
-`{"oidc":"github"}` uses [GitHub Actions trusted publishing](#authenticating-to-the-registry):
-the job needs `permissions: id-token: write`, and no secret. To use a personal access token
-instead, pass `-A '{"token":"<your token>"}'`.
+When the job has `permissions: id-token: write` and no authentication is passed, TRM authenticates
+with [GitHub Actions trusted publishing](#authenticating-to-the-registry), with no secret. To use a
+personal access token instead, pass `-A '{"token":"<your token>"}'`.
 
 `public` stands for the public registry. For a private registry, use its endpoint URL instead.
 
@@ -124,12 +124,18 @@ triggered the run.
       id-token: write
     ```
 
-3. **Tell TRM to use it**, with `-A '{"oidc":"github"}'` on each command.
+That's all: when a command runs in GitHub Actions, the job can request the token and no `-A`
+option is passed, TRM uses it automatically (trm-client 13.3.0 or later; older versions need
+`-A '{"oidc":"github"}'`, which still works).
 
-The TRM client then asks GitHub for a token issued for the registry (audience
+The TRM client asks GitHub for a token issued for the registry (audience
 `https://trmregistry.com`), sends it to the registry, and asks for a fresh one when a long run
 needs it. The token works for everything a personal access token with `package:all` allows:
 publish, install (including private packages), unpublish, deprecate and tags.
+
+If the GitHub account isn't linked, commands that don't need authentication, such as installing
+public packages, still work as anonymous; the others stop with "GitHub account not linked to a TRM
+profile".
 
 Use a [personal access token](../registry/public/authentication.md#personal-access-tokens) instead
 when the workflow must act as a fixed account whoever starts it, for example for scheduled runs, or
@@ -180,7 +186,7 @@ jobs:
           VERSION="${GITHUB_REF_NAME#v}"
           trm publish @acme/sales-tools "$VERSION" \
             --no-prompts \
-            -E public -A '{"oidc":"github"}' \
+            -E public \
             --sap-package ZACME_SALES \
             --public \
             -T QAS \
@@ -251,7 +257,7 @@ jobs:
         run: |
           trm clean-install @acme/sales-tools \
             --no-prompts \
-            -E public -A '{"oidc":"github"}' \
+            -E public \
             --lock-file trm-lock.json \
             --package-replacements '[{"originalDevclass":"ZACME_SALES","installDevclass":"ZTEST_SALES"}]'
 ```
@@ -260,8 +266,7 @@ jobs:
   pass a version, it must match the lockfile, or the command stops.
 - To move the test system to a new release, regenerate the lockfile with `trm lock` on a system
   where that release is installed, and commit it.
-- For a public package, the registry options can be just `-E public` and the `id-token`
-  permission can go: anyone can download it.
+- For a public package, the `id-token` permission can go: anyone can download it.
 - Use `trm install` without a lockfile instead to get the newest compatible versions.
 
 ## Keep approvals where they belong
@@ -288,8 +293,9 @@ can require a manual approval before a job that touches a sensitive system.
   `--public`/`--private`; connection data goes in `TRM_CONNECTION_ARGS`.
 - **"Transport target was not declared":** the system has more than one transport target; pass
   `-T` (publish) or `--landscape-tr-target` (install, uninstall).
-- **"GitHub Actions OIDC token is not available":** add `permissions: id-token: write` to the
-  workflow or job.
+- **"Unauthorized" when publishing:** the job can't request the GitHub identity token, so TRM ran
+  without authentication. Add `permissions: id-token: write` to the workflow or job. (With an
+  explicit `-A '{"oidc":"github"}'` the error is "GitHub Actions OIDC token is not available".)
 - **"GitHub account not linked to a TRM profile":** the user who started the run hasn't
   [linked a GitHub account](../registry/public/authentication.md#link-your-github-account).
 - **"Invalid connection type "BTP"":** install `trm-plugin-btp-dest` in the same
