@@ -144,7 +144,12 @@ paths:
   /delete:
     post:
       operationId: createDeletionTransport
-      description: Endpoint for deletion transport.
+      description: >-
+        Endpoint for deletion transport. Its description (E07T) is the source's
+        with the TRM kind set to DELE: `@X1@TRM [(<kind>) ]<package> <version>`
+        becomes `@X1@TRM (DELE) <package> <version>` (60 characters at most);
+        other descriptions are kept. trm-core names the `target` dummy with the
+        same rule.
       security: [{ basicAuth: [] }, { bearerAuth: [] }]
       requestBody:
         required: true
@@ -153,10 +158,12 @@ paths:
             schema: { $ref: '#/components/schemas/DeleteTransportRequest' }
       responses:
         '200':
-          description: The deletion transport is ready to download
+          description: >-
+            The deletion transport is ready to download, or `empty` is true
+            because nothing remains to delete; then no download is offered.
           content:
             application/json:
-              schema: { $ref: '#/components/schemas/TransportDownload' }
+              schema: { $ref: '#/components/schemas/DeletionTransportDownload' }
         '400': { $ref: '#/components/responses/Error' }
         '401': { $ref: '#/components/responses/Error' }
         '403': { $ref: '#/components/responses/Error' }
@@ -504,6 +511,85 @@ components:
           format: binary
           contentMediaType: application/octet-stream
           description: The R/data file of the source transport.
+        options:
+          type: string
+          contentMediaType: application/json
+          description: >-
+            Optional JSON text with `DeleteTransportOptions`. Without it the
+            whole source transport is converted into a deletion transport that
+            keeps the source request.
+    DeleteTransportOptions:
+      type: object
+      additionalProperties: false
+      properties:
+        target:
+          type: string
+          pattern: '^[A-Z0-9]{3}K[A-Z0-9]{6}$'
+          description: Request the deletion transport is renamed to. Defaults to the source request.
+        subtract:
+          type: array
+          description: >-
+            Registry transports readable by the caller whose objects and keys
+            must not be deleted, as `GET /transport/{trkorr}` resolves them.
+          items:
+            type: string
+            pattern: '^[A-Z0-9]{3}K[0-9A-Z]{6}$'
+        exclude:
+          type: object
+          additionalProperties: false
+          description: Objects and customizing keys never to delete.
+          properties:
+            e071:
+              type: array
+              items: { $ref: '#/components/schemas/DeletedObject' }
+            e071k:
+              type: array
+              items: { $ref: '#/components/schemas/DeletedKey' }
+    DeletedObject:
+      type: object
+      required: [pgmid, object, objName]
+      properties:
+        pgmid: { type: string }
+        object: { type: string }
+        objName: { type: string }
+    DeletedKey:
+      type: object
+      required: [table, tabkey]
+      properties:
+        table:
+          type: string
+          description: Table name (E071K OBJNAME).
+        tabkey:
+          type: string
+          description: Table key (E071K TABKEY); a trailing `*` denotes a generic key.
+    DeletedContent:
+      type: object
+      required: [e071, e071k]
+      description: >-
+        What the deletion transport deletes: object entries (CTS comments,
+        language entries and key-based entries excluded) and the key selectors
+        of key-based entries.
+      properties:
+        e071:
+          type: array
+          items: { $ref: '#/components/schemas/DeletedObject' }
+        e071k:
+          type: array
+          items: { $ref: '#/components/schemas/DeletedKey' }
+    DeletionTransportDownload:
+      oneOf:
+        - allOf:
+            - $ref: '#/components/schemas/TransportDownload'
+            - type: object
+              properties:
+                deleted: { $ref: '#/components/schemas/DeletedContent' }
+        - type: object
+          required: [empty, deleted]
+          properties:
+            empty:
+              type: boolean
+              enum: [true]
+            deleted: { $ref: '#/components/schemas/DeletedContent' }
     Tag:
       type: object
       required: [tag]

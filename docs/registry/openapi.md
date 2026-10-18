@@ -156,7 +156,7 @@ Downloads the canonical transports.
 | bearerAuth |  |
 
 ### [POST] /delete
-Endpoint for deletion transport.
+Endpoint for deletion transport. Its description (E07T) is the source's with the TRM kind set to DELE: `@X1@TRM [(<kind>) ]<package> <version>` becomes `@X1@TRM (DELE) <package> <version>` (60 characters at most); other descriptions are kept. trm-core names the `target` dummy with the same rule.
 
 #### Request Body
 
@@ -168,7 +168,7 @@ Endpoint for deletion transport.
 
 | Code | Description | Schema |
 | ---- | ----------- | ------ |
-| 200 | The deletion transport is ready to download | **application/json**: [TransportDownload](#transportdownload-schema)<br> |
+| 200 | The deletion transport is ready to download, or `empty` is true because nothing remains to delete; then no download is offered. | **application/json**: [DeletionTransportDownload](#deletiontransportdownload-schema)<br> |
 | 400 | Request failed | **application/json**: [Error](#error-schema)<br> |
 | 401 | Request failed | **application/json**: [Error](#error-schema)<br> |
 | 403 | Request failed | **application/json**: [Error](#error-schema)<br> |
@@ -463,6 +463,45 @@ Endpoint for deletion transport.
 | ---- | ---- | ----------- | -------- |
 | header | binary | The K/header file of the source transport. | Yes |
 | data | binary | The R/data file of the source transport. | Yes |
+| options | string | Optional JSON text with `DeleteTransportOptions`. Without it the whole source transport is converted into a deletion transport that keeps the source request. | No |
+
+#### DeleteTransportOptions Schema
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| target | string | Request the deletion transport is renamed to. Defaults to the source request. | No |
+| subtract | [ string ] | Registry transports readable by the caller whose objects and keys must not be deleted, as `GET /transport/{trkorr}` resolves them. | No |
+| exclude | { **"e071"**: [ [DeletedObject](#deletedobject-schema) ], **"e071k"**: [ [DeletedKey](#deletedkey-schema) ] } | Objects and customizing keys never to delete. | No |
+
+#### DeletedObject Schema
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| pgmid | string |  | Yes |
+| object | string |  | Yes |
+| objName | string |  | Yes |
+
+#### DeletedKey Schema
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| table | string | Table name (E071K OBJNAME). | Yes |
+| tabkey | string | Table key (E071K TABKEY); a trailing `*` denotes a generic key. | Yes |
+
+#### DeletedContent Schema
+
+What the deletion transport deletes: object entries (CTS comments, language entries and key-based entries excluded) and the key selectors of key-based entries.
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| e071 | [ [DeletedObject](#deletedobject-schema) ] |  | Yes |
+| e071k | [ [DeletedKey](#deletedkey-schema) ] |  | Yes |
+
+#### DeletionTransportDownload Schema
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| DeletionTransportDownload | [TransportDownload](#transportdownload-schema) & { **"deleted"**: [DeletedContent](#deletedcontent-schema) } or { **"empty"**: boolean, <br>**Available values:** true, **"deleted"**: [DeletedContent](#deletedcontent-schema) } |  |  |
 
 #### Tag Schema
 
