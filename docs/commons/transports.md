@@ -1,3 +1,8 @@
+---
+title: How TRM uses SAP CTS transports
+description: Learn how TRM creates, packages, imports, updates, and propagates SAP CTS transports for versioned ABAP software delivery.
+---
+
 # Transports created by TRM
 
 TRM moves ABAP code and customizing with standard SAP transport requests. When you publish, install, update or

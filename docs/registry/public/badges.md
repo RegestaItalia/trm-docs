@@ -1,3 +1,8 @@
+---
+title: Add TRM package and release badges
+description: Add version and package badges from TRM Registry to project READMEs and websites with stable public badge endpoints.
+---
+
 # Badges
 
 Badges provide a clean, readable way to display key package information in your project’s documentation, such as version, license, and download count.

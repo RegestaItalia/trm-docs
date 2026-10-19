@@ -1,3 +1,8 @@
+---
+title: Authenticate with a TRM package registry
+description: Configure TRM registry authentication for interactive users, personal access tokens, package publishing, and automated workflows.
+---
+
 # Authentication
 
 Anyone can browse the [public registry](https://trmregistry.com) and download public packages

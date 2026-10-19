@@ -1,3 +1,8 @@
+---
+title: Build and distribute a commercial ABAP add-on
+description: Package, version, distribute, update, and support commercial SAP ABAP software for multiple customers with TRM.
+---
+
 # Build a commercial ABAP add-on
 
 An ABAP solution becomes difficult to sell repeatedly when every sale creates a

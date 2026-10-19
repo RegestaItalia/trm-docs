@@ -1,3 +1,8 @@
+---
+title: TRM Registry for public and private ABAP packages
+description: Discover how a TRM registry stores package metadata and versioned ABAP artifacts for public, private, online, and offline distribution.
+---
+
 # TRM Registry
 
 TRM uses a **registry** to publish and download packages.

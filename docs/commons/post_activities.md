@@ -1,3 +1,8 @@
+---
+title: Run ABAP post-install activities with TRM
+description: Define repeatable ABAP activities that TRM executes after package installation for setup, cache refresh, roles, and other follow-up work.
+---
+
 # Post Activities
 
 When a TRM package is published, the publisher can define a set of **post-install activities** to be automatically executed after the package is installed.

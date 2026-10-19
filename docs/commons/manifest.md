@@ -1,3 +1,8 @@
+---
+title: TRM ABAP package manifest reference
+description: Reference for manifest.json fields that define a TRM package, its semantic version, dependencies, requirements, transports, and metadata.
+---
+
 # Manifest
 
 The **manifest** is a JSON document that contains metadata about a TRM package. It is created during publishing and is included in the `.trm` artifact under the name `manifest.json`.

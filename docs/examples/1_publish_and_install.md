@@ -1,3 +1,8 @@
+---
+title: Example — publish and install an ABAP package
+description: Follow a complete TRM example that publishes an SAP ABAP package to a registry and installs the versioned release on another system.
+---
+
 # Publish and Install
 
 In this guide, we’ll walk through how to **publish and install** a simple TRM package.

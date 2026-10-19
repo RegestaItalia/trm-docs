@@ -1,3 +1,8 @@
+---
+title: Uninstall ABAP packages with deletion transports
+description: Learn how TRM removes ABAP package objects and customizing with backups, rollback, deletion transports, and landscape propagation.
+---
+
 # Uninstalling a package
 
 Uninstalling removes an installed TRM package from the SAP system you are connected to: its

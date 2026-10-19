@@ -1,3 +1,8 @@
+---
+title: Declare SAP object and table prerequisites
+description: Record SAP repository objects and table entries that a TRM package requires and validate them before installation.
+---
+
 # SAP Entries
 
 The `sap_entries.json` file (formerly the `sapEntries` property in the manifest) is used to declare necessary SAP system entries that must exist to avoid runtime or syntax errors.

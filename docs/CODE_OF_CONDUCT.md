@@ -1,3 +1,8 @@
+---
+title: TRM contributor code of conduct
+description: Community standards and enforcement guidelines for respectful participation in the open-source TRM ABAP package manager project.
+---
+
 # Contributor Code of Conduct
 
 As contributors and maintainers of this project, and in the interest of

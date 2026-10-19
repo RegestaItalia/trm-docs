@@ -1,3 +1,8 @@
+---
+title: Package SAP customizing safely with TRM
+description: Design SAP customizing content for safe, repeatable package installation, updates, client-dependent delivery, and uninstall.
+---
+
 # Customizing Guidelines
 
 Besides ABAP objects, a TRM package can ship **customizing**: rows of configuration tables that

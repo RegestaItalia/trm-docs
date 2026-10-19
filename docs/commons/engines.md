@@ -1,3 +1,8 @@
+---
+title: Declare SAP system requirements with TRM engines
+description: Use TRM engine constraints to require compatible SAP releases, components, products, and installed software before package installation.
+---
+
 # Engines
 
 The `engines` property of the [manifest](manifest.md) declares **which SAP systems a TRM package can be installed on**: the TRM versions it needs (`trm-core` and `trm-server`), the release and support package of software components, installed products, implemented SAP Notes and, when nothing else fits, the content of standard SAP tables.

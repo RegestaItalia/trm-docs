@@ -1,3 +1,8 @@
+---
+title: Make open-source ABAP easier to install
+description: Give open-source ABAP projects versioned artifacts, dependency metadata, registry discovery, and a repeatable installation command.
+---
+
 # Make open-source ABAP easier to adopt
 
 Open-source ABAP succeeds only when users can install it confidently. A valuable

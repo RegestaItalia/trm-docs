@@ -1,3 +1,8 @@
+---
+title: Modernize legacy ABAP incrementally
+description: Introduce package boundaries, versioning, dependency control, and repeatable delivery to a legacy ABAP estate without a big-bang rewrite.
+---
+
 # Modernize a legacy ABAP estate incrementally
 
 Modernization does not always begin with rewriting code. Often the first problem

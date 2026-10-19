@@ -1,3 +1,8 @@
+---
+title: The .trm ABAP package artifact format
+description: Understand the portable .trm artifact, including its manifest, workbench, customizing, translation, deletion, and source content.
+---
+
 # TRM Artifact
 
 A **TRM artifact** is a file with the `.trm` extension. It is an archive that packages **transports** along with a **manifest** file describing the TRM package.

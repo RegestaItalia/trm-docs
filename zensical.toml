@@ -11,6 +11,12 @@ extra_css = ["assets/stylesheets/extra.css"]
 extra_javascript = ["assets/javascripts/navigation.js"]
 nav = [
   { "Home" = "index.md" },
+  { "ABAP Package Management" = [
+    { "What is an ABAP package manager?" = "guide/what-is-an-abap-package-manager.md" },
+    { "TRM and abapGit" = "guide/trm-and-abapgit.md" },
+    { "Compare ABAP delivery tools" = "guide/abap-package-managers-compared.md" },
+    { "Quick start" = "guide/quickstart.md" },
+  ] },
   { "Getting Started" = [
     { "Set up the system" = "server/setup.md" },
     { "Set up the client" = "client/setup.md" },

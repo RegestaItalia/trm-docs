@@ -1,3 +1,8 @@
+---
+title: Control dependencies in modular ABAP solutions
+description: Model compatible component versions, detect SAP prerequisites, and prevent dependency conflicts in modular ABAP solutions with TRM.
+---
+
 # Control dependencies in modular ABAP solutions
 
 Modular design only works when teams can identify and reproduce the relationships

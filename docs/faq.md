@@ -1,3 +1,8 @@
+---
+title: TRM ABAP package manager FAQ
+description: Answers about TRM packages, registries, dependencies, lockfiles, abapGit integration, SAP CTS delivery, security, and licensing.
+---
+
 # Frequently asked questions
 
 ## Understanding TRM

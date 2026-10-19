@@ -1,3 +1,8 @@
+---
+title: Accelerate ABAP customer onboarding and upgrades
+description: Deliver consistent, dependency-aware ABAP releases to new customer landscapes and manage later upgrades with TRM.
+---
+
 # Accelerate customer onboarding and upgrades
 
 For SAP partners, winning a new customer often triggers weeks of technical
