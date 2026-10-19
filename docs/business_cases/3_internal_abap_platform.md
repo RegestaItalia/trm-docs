@@ -1,3 +1,8 @@
+---
+title: Standardize an internal ABAP platform
+description: Manage shared internal ABAP components as versioned TRM packages with dependencies, ownership, and repeatable delivery.
+---
+
 # Standardize an internal ABAP platform
 
 Large SAP organizations often build the same capabilities several times. One

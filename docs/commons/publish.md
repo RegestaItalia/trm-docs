@@ -1,3 +1,8 @@
+---
+title: Publish a versioned ABAP package
+description: Publish an SAP ABAP development as a versioned TRM artifact with a manifest, transports, dependencies, prerequisites, and registry metadata.
+---
+
 # Publishing a package
 
 Publishing turns an ABAP package on your development system into a versioned TRM release.

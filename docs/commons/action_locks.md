@@ -1,3 +1,8 @@
+---
+title: TRM action locks and safe manual cleanup
+description: Understand the locks TRM uses during package operations and how to diagnose or safely clean up locks left after an interruption.
+---
+
 # SAP action locks and manual cleanup
 
 TRM uses persistent SAP action locks to prevent two or more processes from changing the same resource at the same time. They have no automatic expiry. A normally completed action releases its locks, including after its rollback. An abruptly terminated process or failed cleanup can leave rows behind.

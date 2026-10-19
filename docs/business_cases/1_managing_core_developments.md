@@ -1,3 +1,8 @@
+---
+title: Turn reusable ABAP into a versioned product
+description: Use TRM to package shared ABAP developments as governed, versioned products that can be delivered consistently across teams and systems.
+---
+
 # Turn reusable ABAP into a product
 
 Most ABAP teams reuse more than source code. They reuse frameworks, integration

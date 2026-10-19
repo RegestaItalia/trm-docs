@@ -1,3 +1,8 @@
+---
+title: Automate ABAP package delivery with GitHub Actions
+description: Configure GitHub Actions to publish and maintain TRM packages securely through non-interactive ABAP delivery workflows.
+---
+
 # GitHub Actions
 
 TRM runs from the command line, so it fits in any CI/CD tool. This page shows how to run it in

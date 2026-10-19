@@ -1,3 +1,8 @@
+---
+title: TRM service incidents and maintenance history
+description: Published operational incidents, service interruptions, maintenance notes, and resolutions affecting TRM Registry users.
+---
+
 # Incidents
 
 To open an incident, you can either:

@@ -1,3 +1,8 @@
+---
+title: Connect TRM through an SAP BTP destination
+description: Configure the TRM client to reach an SAP ABAP system securely through an SAP BTP destination and Cloud Connector.
+---
+
 # Connect through SAP BTP
 
 TRM normally needs a direct network route to the SAP system, over RFC or HTTP. That route often

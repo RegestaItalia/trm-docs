@@ -1,3 +1,8 @@
+---
+title: TRM Documentation — ABAP Package Manager
+description: Official documentation for TRM, the SAP ABAP package manager for versioned artifacts, dependencies, registries, lockfiles, CTS delivery, and uninstall.
+---
+
 # 🚚 TRM - Transport Request Manager
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-1.3.0-4baaaa.svg)](CODE_OF_CONDUCT.md)

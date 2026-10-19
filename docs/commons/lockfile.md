@@ -1,3 +1,8 @@
+---
+title: Reproducible ABAP installs with a lockfile
+description: Use the TRM lockfile to pin exact ABAP package and dependency versions, verify integrity, and reproduce installations across systems.
+---
+
 # Lockfile
 
 A **lockfile** freezes the exact release of a TRM package and of its dependencies, so that

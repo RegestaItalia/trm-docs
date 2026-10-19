@@ -1,3 +1,8 @@
+---
+title: Handle ABAP table changes during package updates
+description: Understand how TRM protects and updates SAP table definitions and data when a package release changes database structures.
+---
+
 # Tables and package updates
 
 When you update a TRM package to a newer (or older) release, TRM removes what the previous release installed and then installs the new one. This page explains what happens to the **data stored in the package's tables** during an update, and what to keep in mind before updating.

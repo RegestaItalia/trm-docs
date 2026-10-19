@@ -1,3 +1,8 @@
+---
+title: Example — manage ABAP release candidates
+description: Publish, test, select, and promote pre-release ABAP package versions safely with TRM semantic versioning and distribution tags.
+---
+
 # Dealing with release candidates
 
 A release candidate (RC) is a version of a package that is almost ready to become a final release.

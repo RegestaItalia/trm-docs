@@ -1,3 +1,8 @@
+---
+title: Automate repeatable ABAP package delivery
+description: Build CI/CD workflows that publish and install versioned ABAP packages consistently with the TRM CLI and SAP CTS.
+---
+
 # Automate repeatable ABAP delivery
 
 ABAP teams increasingly automate code checks and builds, yet software delivery

@@ -1,3 +1,8 @@
+---
+title: Set up TRM Server in SAP
+description: Install and configure trm-server in an SAP ABAP system for package publishing, installation, updates, and transport-based removal.
+---
+
 # Server setup
 
 **trm-server** is the server-side component of TRM.

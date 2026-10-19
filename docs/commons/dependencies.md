@@ -1,3 +1,8 @@
+---
+title: ABAP dependency management and resolution
+description: Learn how TRM discovers SAP ABAP dependencies, resolves compatible package versions, checks prerequisites, and reports conflicts.
+---
+
 # Dependency Recognition
 
 TRM automatically detects dependencies required by objects in a TRM package, helping prevent syntax and runtime errors.

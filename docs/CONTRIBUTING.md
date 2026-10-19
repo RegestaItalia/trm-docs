@@ -1,3 +1,8 @@
+---
+title: Contribute to the TRM project
+description: Learn how to report issues, propose features, update documentation, and contribute code to the open-source TRM ABAP package manager.
+---
+
 # Contributing to TRM Transport Request Manager
 
 First off, thanks for taking the time to contribute! ❤️

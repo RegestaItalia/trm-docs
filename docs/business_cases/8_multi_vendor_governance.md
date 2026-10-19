@@ -1,3 +1,8 @@
+---
+title: Govern shared SAP development across vendors
+description: Coordinate independently versioned ABAP components, dependencies, responsibilities, and deliveries across multiple SAP vendors.
+---
+
 # Govern shared SAP development across vendors
 
 Corporate SAP landscapes often involve internal teams and several implementation

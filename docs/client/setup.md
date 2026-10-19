@@ -1,3 +1,8 @@
+---
+title: Install and configure the TRM CLI
+description: Install the TRM command-line client and configure connections to SAP systems for ABAP package publishing, installation, and maintenance.
+---
+
 # Client setup
 
 **trm-client** is the client component of TRM.

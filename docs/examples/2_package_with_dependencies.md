@@ -1,3 +1,8 @@
+---
+title: Example — ABAP package with dependencies
+description: Build and install a TRM package that declares and resolves compatible dependencies on other versioned ABAP packages.
+---
+
 # Package with dependencies
 
 In the last post, we published and installed a simple package.  
