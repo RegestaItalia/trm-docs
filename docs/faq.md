@@ -318,19 +318,18 @@ See [If something fails](commons/install.md#if-something-fails).
 
 After a successful package install, TRM creates and releases a landscape transport
 that collects the installed changes, and puts it in the import queue of the
-transport target you choose. For an update that also removes obsolete objects, TRM
-adds the deletion transport to the same queue first: it must be imported before the
-landscape transport.
+transport target you choose. For an update that also removes obsolete objects, the
+same landscape transport carries the deletions too: it's the only transport to move.
 
-Follow the target organization's normal release and import-order controls; do not
-infer the sequence from transport numbers alone. See
+The other transports TRM creates (release, backup and deletion transports) stay on the
+system where you ran the command. See [Transports](commons/transports.md) and
 [Moving the package through the landscape](commons/install.md#moving-the-package-through-the-landscape).
 
 ### Can I uninstall a package?
 
 Yes. `trm uninstall` removes the package's objects, ABAP packages and customizing
-from the connected system through a deletion transport, and adds that transport to
-the landscape so the following systems are cleaned up too. TRM asks before removing
+from the connected system through a deletion transport, and releases a landscape
+transport with the same deletions so the following systems are cleaned up too. TRM asks before removing
 a package that other packages depend on, or one with local changes. See
 [Uninstalling a package](commons/uninstall.md).
 

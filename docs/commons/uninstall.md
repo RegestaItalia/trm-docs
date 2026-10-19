@@ -28,11 +28,13 @@ trm uninstall <package name>
    this one, they would be deleted with it. TRM lists them and asks, then uninstalls each of them
    first, with the same options.
 4. **Locks.** TRM [locks](action_locks.md) the package, its ABAP packages and its transport.
-5. **Deletion transport.** TRM builds a transport that deletes the objects of the installed release,
-   and imports it on the system. See [What is deleted](#what-is-deleted).
-6. **Landscape.** TRM adds the deletion transport to the import queue of the transport target, so
-   the package is removed from the following systems too. See [Removing the package from the landscape](#removing-the-package-from-the-landscape).
-7. **Record.** TRM removes the package from its records: `trm list` no longer shows it.
+5. **Backup and deletion transport.** TRM backs up what it is about to delete, builds a transport
+   that deletes the objects of the installed release, and imports it on the system. See
+   [What is deleted](#what-is-deleted) and [Transports](transports.md#when-you-uninstall).
+6. **Record.** TRM removes the package from its records: `trm list` no longer shows it.
+7. **Landscape.** TRM copies the deletions into a landscape transport and releases it to the
+   transport target, so the package is removed from the following systems too. See
+   [Removing the package from the landscape](#removing-the-package-from-the-landscape).
 
 > ⚠️ Don't interrupt an uninstall while the deletion transport is being imported.
 
@@ -56,23 +58,27 @@ generic key (which may include rows the package didn't ship), TRM lists them and
 ## Removing the package from the landscape
 
 When you installed the package, TRM released a [landscape transport](install.md#moving-the-package-through-the-landscape)
-that carried it to your quality and production systems. The uninstall does the opposite: the
-deletion transport is added to the import queue of the transport target you choose
-(`--landscape-tr-target`). Import it like any other transport, and the package disappears from the
-following systems too.
+that carried it to your quality and production systems. The uninstall does the opposite: it
+releases a landscape transport described as `TRM (DELE) <package> <version>`, containing the
+deletions, to the transport target you choose (`--landscape-tr-target`). Import it like any other
+transport, and the package disappears from the following systems too. When the uninstall also
+removes TRM packages installed inside this one, the same transport carries their deletions.
 
-The deletion transport isn't forwarded when the system has no transport targets (TRM considers it
-the last system of the landscape) or when the package was installed into temporary (`$`) packages.
+No landscape transport is created when the system has no transport targets (TRM considers it the
+last system of the landscape), when the package was installed into temporary (`$`) packages, or
+when nothing was deleted.
 
 > The TRM record is removed only on the system where you run the uninstall. Following systems
 > don't record TRM packages: they only receive transports.
 
 ## If something fails
 
-TRM undoes the completed steps: it re-imports a copy of the deleted objects, restores the TRM record,
-reinstalls the nested packages it uninstalled, and removes the deletion transport from the import
-queue of the connected system. If the deletion transport was forwarded to another system's queue,
-TRM can't remove it from there: the log tells you to remove it in `STMS`.
+TRM undoes the completed steps: it re-imports the backup of the deleted objects, restores the TRM
+record, reinstalls the nested packages it uninstalled, and removes the deletion transport from the
+import queue of the connected system.
+
+Releasing the landscape transport is the last step: if only the release fails, the package stays
+uninstalled and TRM tells you to release the transport manually in `SE09`.
 
 ## Uninstalling without prompts
 

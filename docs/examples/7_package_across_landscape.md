@@ -19,8 +19,11 @@ landscape.
 | **TADIR** | Contains the repository/workbench objects of the published release. | No. It is an installation input. |
 | **LANG** | Contains translations, when the release has them and their import was not skipped. | No. Its imported entries are copied into the landscape transport. |
 | **CUST** | Contains customizing. A release can contain more than one, and each can be accepted or skipped during an interactive install. | No. Entries from the imported transports, including their table keys, are copied into the landscape transport. |
-| **Deletion transport** | On an update, removes objects and package definitions that belonged to the installed version but not to the new version. It can also remove old customizing before replacement customizing is imported. | Yes, but TRM normally puts it in the selected target's import queue for you. |
-| **Landscape transport** | The consolidated transport created from what TRM actually installed: SAP packages, workbench objects, an imported namespace when available, translations, and customizing. | Yes. This is the normal delivery unit for downstream systems. |
+| **Backup (BKP)** | On an update, a copy of the objects and customizing the update may delete, and of objects the release overwrites. It stays in the installation system's import queue, not imported, for rollback and manual recovery. | No. |
+| **Deletion transport (DELE)** | On an update, removes objects and package definitions that belonged to the installed version but not to the new version, and old customizing the new version doesn't ship. Imported on the installation system only. | No. Its deletions are copied into the landscape transport. |
+| **Landscape transport** | The consolidated transport created from what TRM actually installed: SAP packages, workbench objects, an imported namespace when available, translations, customizing and, on an update, the deletions. | Yes. This is the only delivery unit for downstream systems. |
+
+See [Transports](../commons/transports.md) for an overview of every transport TRM creates.
 
 The transport numbers used to prepare DEVC, TADIR, LANG, and CUST content can therefore remain
 visible in the installation system. Depending on whether the release came from a registry or a
@@ -51,34 +54,23 @@ especially customizing table keys.
 
 ## What remains after an update
 
-An update first cleans the installed version on the system where the command runs and then imports
-the new release. Objects that exist in both versions are updated; tables that exist in both are
-retained so their data is not dropped. Objects and now-empty SAP packages that disappeared from
-the release are removed.
+An update first backs up what it may delete on the system where the command runs, then imports the
+new release and removes what the installed version had and the new one doesn't. Objects that exist
+in both versions are updated; tables that exist in both are retained so their data is not dropped.
+Objects and now-empty SAP packages that disappeared from the release are removed.
 
-For a transportable installation, a successful update normally leaves two requests to move:
-
-1. the **deletion transport**, already forwarded to the selected target's import queue;
-2. the new, released **landscape transport**.
-
-Import them in exactly that order on every system:
+For a transportable installation, a successful update leaves **one request to move**: the new,
+released landscape transport. It contains both the new release and the deletions of the update.
 
 ```text
 DEV: trm update
           |
-          +-- 1. deletion transport --------+
-          +-- 2. landscape transport -------+--> QAS --> PRD
+          +-- landscape transport (new release + deletions) --> QAS --> PRD
 ```
 
-The landscape transport contains an `upgrade=<deletion transport>` marker, but TRM deliberately
-does not create a CTS project dependency between the requests. The import queue order is therefore
-operationally significant: deleting after importing the new version could remove an object that
-the new release still expects or leave the system at the wrong package level.
-
-Use an import-all workflow only when it preserves this order. If requests are selected manually,
-select and import the deletion request first, wait for it to finish, and then import the landscape
-request. Apply the same sequence at every hop; do not move only the landscape request because the
-development system already looks correct.
+Importing it on QA and production installs the new version and removes the old objects in a single
+step, so there is no import order to keep. The backup and deletion requests stay on the installation
+system: don't forward them.
 
 ## Choosing the target route
 
@@ -91,8 +83,7 @@ TRM reads the transport targets available from the connected SAP system.
 - With no target, TRM treats the connected system as the final system and creates no landscape
   transport.
 
-The target belongs to the generated landscape request and receives the update deletion request.
-Choose the immediate next system in the route, not an arbitrary later system. Once the requests
+The target belongs to the generated landscape request. Choose the immediate next system in the route, not an arbitrary later system. Once the requests
 are in CTS, normal transport routes determine their later path.
 
 For a repeatable pipeline, make the target explicit:
@@ -127,28 +118,28 @@ TRM skips the landscape transport in two cases:
 - every installation package is temporary (its name starts with `$`). Temporary objects are local
   to that system and cannot be released through CTS.
 
-An update of a temporary installation can still perform local cleanup, but its deletion is not
-forwarded. If you intended to promote the package, install it into transportable SAP packages and
+An update of a temporary installation can still perform local cleanup, but its deletions don't
+reach other systems. If you intended to promote the package, install it into transportable SAP packages and
 make sure the system has the correct TMS route.
 
 ## Operational checklist
 
 After `trm install` or `trm update` reports success:
 
-1. Record the landscape transport number and, for an update, the deletion transport number from
-   the command output or the target import queue.
-2. In STMS, confirm both update requests are in the same target queue and that deletion precedes
-   landscape content.
-3. Do not forward the DEVC, TADIR, LANG, CUST, backup, or staging requests that may be visible on
-   the installation system.
+1. Record the landscape transport number from the command output or the target import queue.
+2. In STMS, confirm the landscape transport is in the target queue.
+3. Do not forward the DEVC, TADIR, LANG, CUST, backup, deletion or staging requests that may be
+   visible on the installation system.
 4. Import into QA, review the transport return codes and application checks, then promote the same
-   request or ordered pair to production.
-5. Keep the requests in the normal change-management record. The landscape request description
+   request to production.
+5. Keep the request in the normal change-management record. The landscape request description
    and embedded manifest identify the TRM package and version.
 
-If the command fails after a request has been released, TRM attempts to remove the landscape and
-deletion requests from the target queue. It can remove them automatically only when it is connected
-to that target system; otherwise the error log tells you to remove them manually in STMS. Before
-retrying, check the named target queue and remove any request that the failed run explicitly marked
-for cleanup. See [If something fails](../commons/install.md#if-something-fails) for the wider
-rollback behavior.
+Releasing the landscape transport is the last step. If only the release fails, the package stays
+installed on the installation system and TRM tells you to release the transport manually in `SE09`.
+If the install fails while it installs a dependency, TRM also removes that dependency's landscape
+transport from the target queue. It can remove it automatically only when it is connected to that
+target system; otherwise the error log tells you to remove it manually in STMS. Before retrying,
+check the named target queue and remove any request that the failed run explicitly marked for
+cleanup. See [If something fails](../commons/install.md#if-something-fails) for the wider rollback
+behavior.
