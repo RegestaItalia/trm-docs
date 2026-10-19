@@ -15,6 +15,8 @@ nav = [
     { "What is an ABAP package manager?" = "guide/what-is-an-abap-package-manager.md" },
     { "TRM and abapGit" = "guide/trm-and-abapgit.md" },
     { "Compare ABAP delivery tools" = "guide/abap-package-managers-compared.md" },
+    { "ABAP dependency management" = "guide/abap-dependency-management.md" },
+    { "Uninstall ABAP software" = "guide/uninstall-abap-software.md" },
     { "Quick start" = "guide/quickstart.md" },
   ] },
   { "Getting Started" = [

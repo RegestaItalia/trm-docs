@@ -45,4 +45,4 @@ Capabilities are marked only when a public source documents them. Product behavi
 
 Open a documentation issue or pull request with a source if any cell needs correction.
 
-*Last reviewed: 19 October 2026.*
+*Author: TRM maintainers. Technical review: Regesta Group engineering. Last reviewed: 19 October 2026.*
