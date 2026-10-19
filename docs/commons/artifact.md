@@ -22,6 +22,9 @@ A typical TRM artifact has the following directory layout:
 
 # Transport Types
 
+For the transports TRM creates on your systems when you publish, install, update or uninstall,
+see [Transports](transports.md).
+
 Each transport in a TRM artifact is categorized by type, guiding its publish and install behavior. TRM-relevant transports also include two ZTRM comment objects that specify the package name and version from the manifest.
 
 ## DEVC

@@ -129,8 +129,9 @@ An update replaces the installed release with the new one:
 - ABAP packages that become empty are deleted. The namespace is deleted only when nothing else on
   the system uses it.
 
-Deleted objects are collected in a **deletion transport**. TRM imports it on the system, and adds it
-to the landscape, as described below.
+Before changing anything, TRM takes a **backup** of what the update may delete. Deleted objects are
+collected in a **deletion transport**: TRM imports it on the system, and adds its deletions to the
+landscape transport, as described below. See [Transports](transports.md#when-you-install-or-update).
 
 ## Moving the package through the landscape
 
@@ -140,16 +141,17 @@ development system). TRM then prepares what the rest of the landscape needs:
 - The **landscape transport** contains the ABAP packages, objects, namespace, translations and
   customizing that were installed. TRM releases it to the transport target you choose (`--landscape-tr-target`),
   and it follows your normal import route to quality and production.
-- On an update, the **deletion transport** is added to the same target's import queue *before* the
-  landscape transport. Import them in queue order, so the old objects are removed before the new
-  release arrives.
+- On an update, the landscape transport also contains the **deletions** of the update: importing
+  it installs the new release and removes what the old one had and the new one doesn't. There is
+  no separate deletion transport to move.
 
 No landscape transport is created when:
 
 - the system has no transport targets: TRM considers it the last system of the landscape;
 - the package is installed into temporary (`$`) packages.
 
-The following systems don't need trm-server: they receive ordinary transports.
+The following systems don't need trm-server: they receive ordinary transports. The other transports
+TRM creates during the install stay on this system, see [Transports](transports.md).
 
 For the complete operational flow—including which installation requests should not be forwarded,
 what remains after a successful install or update, and the required update import order—see

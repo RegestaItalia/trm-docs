@@ -35,6 +35,7 @@ nav = [
   ] },
   { "Concepts" = [
     { "Artifact" = "commons/artifact.md" },
+    { "Transports" = "commons/transports.md" },
     { "Customizing Guidelines" = "commons/customizing_guidelines.md" },
     { "Manifest" = "commons/manifest.md" },
     { "Dependencies" = "commons/dependencies.md" },

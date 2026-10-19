@@ -45,8 +45,9 @@ don't have to type the same values again:
 
 - Description, authors, license, website, keywords and the other manifest values are copied.
   Values you pass explicitly replace them. Use `--no-keep-manifest` to start from scratch.
-- Post activities are merged by class name: a post activity you pass replaces the one of the same
-  class, and the others are kept. Post activities whose class doesn't exist on the system are dropped.
+- Post activities are copied too. If you pass post activities, they replace the whole list of the
+  latest release: pass every post activity the new release needs. The same class can appear more
+  than once, with different parameters. Post activities whose class doesn't exist on the system are dropped.
 - **Customizing transports are carried over.** The customizing of the latest release stays in the
   new release unless you remove it, either when TRM lists the customizing transports or with
   `--drop-cust`. See [Customizing guidelines](customizing_guidelines.md#customizing-across-releases).
