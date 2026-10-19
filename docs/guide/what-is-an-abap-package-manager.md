@@ -49,4 +49,4 @@ The result is a package-manager workflow without replacing the transport mechani
 4. Learn how a [lockfile makes installation repeatable](../commons/lockfile.md).
 5. Review [transport-based uninstall](../commons/uninstall.md).
 
-*Last reviewed: 19 October 2026.*
+*Author: TRM maintainers. Technical review: Regesta Group engineering. Last reviewed: 19 October 2026.*

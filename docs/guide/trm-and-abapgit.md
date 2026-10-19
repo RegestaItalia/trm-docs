@@ -57,4 +57,4 @@ TRM publishes the transports created for the release and installs those transpor
 
 References: [abapGit documentation](https://docs.abapgit.org/), [APACK specification](https://github.com/abapGit/abapGit-Docs/blob/main/docs/user-guide/reference/apack.md).
 
-*Last reviewed: 19 October 2026.*
+*Author: TRM maintainers. Technical review: Regesta Group engineering. Last reviewed: 19 October 2026.*

@@ -69,4 +69,4 @@ Uninstall can delete repository objects and data. Review the full [uninstall gui
 - [Automate delivery with GitHub Actions](../commons/github_actions.md)
 - [Understand the `.trm` artifact](../commons/artifact.md)
 
-*Last reviewed: 19 October 2026.*
+*Author: TRM maintainers. Technical review: Regesta Group engineering. Last reviewed: 19 October 2026.*
