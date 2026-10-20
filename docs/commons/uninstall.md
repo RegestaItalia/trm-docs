@@ -34,8 +34,7 @@ trm uninstall <package name>
    first, with the same options.
 4. **Locks.** TRM [locks](action_locks.md) the package, its ABAP packages and its transport.
 5. **Backup and deletion transport.** TRM backs up what it is about to delete, builds a transport
-   that deletes the objects of the installed release, and imports it on the system. See
-   [What is deleted](#what-is-deleted) and [Transports](transports.md#when-you-uninstall).
+   that deletes the objects of the installed release, and imports it on the system.
 6. **Record.** TRM removes the package from its records: `trm list` no longer shows it.
 7. **Landscape.** TRM copies the deletions into a landscape transport and releases it to the
    transport target, so the package is removed from the following systems too. See

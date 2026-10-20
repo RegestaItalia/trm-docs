@@ -20,8 +20,8 @@ The exact steps depend on the installed release, but the guarded workflow is:
 2. Refuse removal when another installed package depends on it, unless that check is explicitly overridden.
 3. Detect dirty or changed objects so locally modified work is not silently removed.
 4. Plan repository-object, development-package, and customizing cleanup.
-5. Export backup transports for content that can be restored.
-6. Ask the registry to transform the confirmed backup contents into deletion transports.
+5. Export backups for content that can be restored.
+6. Generate deletion transports for the confirmed cleanup plan.
 7. Verify that the returned deletion contains nothing outside the confirmed plan.
 8. Upload and test-import each deletion transport before the real import.
 9. Import the deletion and update TRM's installed-package records.
@@ -47,10 +47,10 @@ TRM checks several conditions before importing a deletion:
 
 - installed dependants can block removal;
 - dirty objects require an explicit decision;
-- the registry response is compared with the planned objects and customizing keys;
+- the generated deletion is compared with the planned objects and customizing keys;
 - a deletion transport is test-imported before its real import;
 - import return codes of 8 or higher fail by default;
-- local `.trm` files cannot generate a deletion by themselves, because the publishing registry supplies the deletion transformation.
+- deletion transports are available only for package releases that support managed removal.
 
 These checks make the operation inspectable. They do not remove the need for SAP change-control, backups, authorizations, or target-system validation.
 
