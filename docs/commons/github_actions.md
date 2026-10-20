@@ -67,7 +67,7 @@ For the **BTP** connection (plugin installed with `npm install -g trm-plugin-btp
 The BTP user can also log in with an SAP Passport instead of email and password: put the `.pfx`
 file, base64 encoded, in the `TRM_SAP_PASSPORT` environment variable and its passphrase in
 `TRM_SAP_PASSPORT_PASSPHRASE`. All arguments are described in
-[Connect through SAP BTP](../client/btp_destination.md#connect).
+[Connect through SAP BTP](../client/btp_destination.md).
 
 For a **REST** connection (self-hosted runner):
 

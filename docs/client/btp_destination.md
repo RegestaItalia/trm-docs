@@ -3,144 +3,210 @@ title: Connect TRM through an SAP BTP destination
 description: Configure the TRM client to reach an SAP ABAP system securely through an SAP BTP destination and Cloud Connector.
 ---
 
-# Connect through SAP BTP
+<!-- START OF BTP.MD -->
+# trm-plugin-btp-dest
 
-TRM normally needs a direct network route to the SAP system, over RFC or HTTP. That route often
-doesn't exist outside the company network: a laptop at home, or a cloud CI/CD runner such as the
-ones GitHub Actions provides, can't reach an on-premise system.
+Connect TRM to a BTP destination.
 
-If your SAP system is already connected to SAP BTP through the **SAP Cloud Connector**, the
-[trm-plugin-btp-dest](https://github.com/RegestaItalia/trm-plugin-btp-dest) plugin lets TRM reuse
-that secure tunnel. Any machine that can reach SAP BTP over the internet can then reach the SAP
-system, without opening firewall ports or setting up a VPN.
+## Why use this connector
+
+TRM normally needs a direct network route to the target SAP system (RFC or HTTP). That is often not available:
+
+- **CI/CD pipelines** (GitHub Actions, Azure DevOps, GitLab runners, ...) run on cloud-hosted agents that cannot reach systems inside the corporate network
+- Opening firewall ports or setting up a VPN just for TRM to connect is not always an option
+
+If your on-premise SAP system is already connected to SAP BTP through the **SAP Cloud Connector**, this plugin lets TRM reuse that secure tunnel: any machine that can reach SAP BTP over the internet can reach the SAP system, without exposing it or changing network configuration.
 
 ## How it works
 
 ```
-TRM client + plugin  ──▶  SAP BTP, Cloud Foundry  ──▶  Cloud Connector  ──▶  SAP system
- (your PC or runner)      trm-ssh app, Connectivity     (on-premise)         trm-server + trm-rest
-                          and Destination services
+ ┌─────────────────────────┐
+ │ TRM Client              │  local machine / CI runner
+ │ + trm-plugin-btp-dest   │
+ └───────────┬─────────────┘
+             │ 1. Cloud Foundry login (API)
+             │ 2. SSH tunnel (cf ssh endpoint)
+             ▼
+ ┌──────────────────────────────── SAP BTP (Cloud Foundry) ────┐
+ │  ┌─────────────┐  3. REST calls    ┌──────────────────────┐ │
+ │  │ trm-ssh app │ ────────────────▶ │ Connectivity service │ │
+ │  └─────────────┘  via destination  └──────────┬───────────┘ │
+ └───────────────────────────────────────────────┼─────────────┘
+                                                 │ secure tunnel
+                                                 ▼
+ ┌──────────────────────────────── On-premise ─────────────────┐
+ │  ┌──────────────────────┐  HTTP   ┌──────────────────────┐  │
+ │  │ SAP Cloud Connector  │ ──────▶ │ SAP system           │  │
+ │  └──────────────────────┘         │ trm-rest (REST API)  │  │
+ │                                   │     │                │  │
+ │                                   │     ▼                │  │
+ │                                   │ trm-server           │  │
+ │                                   └──────────────────────┘  │
+ └─────────────────────────────────────────────────────────────┘
 ```
 
-1. The plugin logs in to Cloud Foundry with a BTP user and finds a small helper app, **trm-ssh**,
-   that you deploy once in your subaccount.
-2. It opens an SSH tunnel to that app, so the client can use the BTP Connectivity service.
-3. Each TRM call goes through a **BTP destination** you choose; the Connectivity service and the
-   Cloud Connector route it to the SAP system.
-4. On the SAP system, [trm-rest](../server/setup.md) answers the calls, as with a direct REST
-   connection.
+1. The plugin logs into Cloud Foundry and looks for the **trm-ssh** app
+2. It opens an SSH tunnel to the app and forwards the Connectivity service proxy ports to the local machine
+3. TRM calls the SAP system through the chosen BTP destination (proxy type `OnPremise`); the Connectivity service and the Cloud Connector route each call to the on-premise system
+4. On the SAP system, **trm-rest** receives the HTTP calls
 
-The connection is **REST only**: the SAP system needs both trm-server and trm-rest.
+The connection is currently **REST only** (HTTP through the destination, no RFC).
 
 ## One-time setup
 
-You need someone with admin rights on the BTP subaccount and on the Cloud Connector.
+You need administrator access to the BTP subaccount and SAP Cloud Connector. The target SAP
+system must have trm-server and trm-rest installed.
 
-### 1. Expose the SAP system in the Cloud Connector
+### 1. Expose the SAP system in Cloud Connector
 
 In the Cloud Connector connected to your BTP subaccount, add the SAP system as an **HTTP(S)**
-backend with a virtual host and port, and allow access to the path `/ztrmserver` (the trm-rest
-service) with all its sub-paths.
+backend with a virtual host and port. Allow access to `/ztrmserver` (the trm-rest service),
+including all of its subpaths.
 
-### 2. Create the destination
+### 2. Create the BTP destination
 
-In the BTP cockpit, create a destination in the subaccount:
+Create a destination in the BTP subaccount with these settings:
 
 | Field | Value |
 | --- | --- |
-| Name | Any name, for example `SAP_DEV`. You pass it to TRM. |
+| Name | Any name, for example `SAP_DEV`; this is the value passed to TRM |
 | Type | `HTTP` |
 | Proxy Type | `OnPremise` |
-| URL | The virtual host and port from the Cloud Connector, for example `http://sap-dev:443`, without a path. |
-| Authentication | `BasicAuthentication`, with the SAP user TRM works with. |
-| Additional property `sap-client` | The SAP client, for example `100`. |
+| URL | The Cloud Connector virtual host and port, for example `http://sap-dev:443`, without a path |
+| Authentication | `BasicAuthentication`, using the SAP user that TRM should run as |
+| Additional property `sap-client` | The SAP client, for example `100` |
 
-The SAP user in the destination is the one TRM works with on the SAP system, so it must be
-granted authorization object `ZTRM_AUTH` with activity `ACTVT = 16` (Execute; see
-[Server setup](../server/setup.md#authorize-users))
-and have the authorizations to create, release and import transports.
+The destination's SAP user needs authorization object `ZTRM_AUTH` with `ACTVT = 16` (Execute),
+as well as the authorizations required to create, release, and import transports.
 
-### 3. Deploy the trm-ssh app
+### 3. Deploy the SSH enabler app
+
+This repository contains a build of **trm-ssh**, a simplified version of the app in
+[jowavp/sap-cf-proxy](https://github.com/jowavp/sap-cf-proxy).
 
 Download [trm-proxy_0.0.1.mtar](https://github.com/RegestaItalia/trm-plugin-btp-dest/blob/main/trm-ssh/mta_archives/trm-proxy_0.0.1.mtar),
-log in to the Cloud Foundry space with the [cf CLI](https://docs.cloudfoundry.org/cf-cli/), and
-deploy it:
+log in to the target Cloud Foundry space with the [cf CLI](https://docs.cloudfoundry.org/cf-cli/),
+and deploy it:
 
-```bash
+```sh
 cf deploy trm-proxy_0.0.1.mtar
 ```
 
 The deployment creates the `trm-ssh` app and binds the Destination and Connectivity services to
-it. SSH must be enabled for the app (and allowed in the space):
+it. Make sure SSH is allowed in the space, then enable it for the app and restart the app:
 
-```bash
+```sh
 cf enable-ssh trm-ssh
 cf restart trm-ssh
 ```
 
-The cf CLI is needed only for this step; the TRM client doesn't use it.
+The cf CLI is needed only for deployment; the TRM client does not use it.
 
-### 4. Choose the BTP user
+### 4. Configure the BTP user
 
-The plugin logs in to BTP and Cloud Foundry with a user that must be a member of the Cloud Foundry
-space where `trm-ssh` runs, with the **Space Developer** role (needed to read the app and open the
-SSH tunnel). It can log in with:
+The plugin logs in to BTP and Cloud Foundry as a user who must be a member of the Cloud Foundry
+space where `trm-ssh` runs. Assign the user the **Space Developer** role so the plugin can inspect
+the app and open the SSH tunnel.
 
-- **email and password**, for a user without two-factor authentication, or
-- an **SAP Passport** (a `.pfx` client certificate issued by SAP), instead of email and password.
+The user can authenticate with either:
 
-For pipelines, use a technical user dedicated to TRM.
+- Email and password, if two-factor authentication is not enabled
+- An SAP Passport (`.pfx` client certificate) instead of email and password
 
-## Install the plugin
+Use a dedicated technical user for pipelines.
 
-Install the plugin next to the TRM client:
+## Install plugin
 
-```bash
+Install the plugin next to trm-client:
+
+```sh
 npm install -g trm-client trm-plugin-btp-dest
 ```
 
-**BTP** is now one of the connection types the client offers. The plugin needs trm-client 11.3.0
-or later.
+You should now see **BTP** as a connection type in the TRM client.
 
-## Connect
+## Interactive usage
 
-Interactively, choose **BTP** when TRM asks for the connection: it asks for the BTP login, the
-global account and subaccount, the destination and the forward RFC destination. You can save the
-connection as a system alias like any other.
+Choose **BTP** when TRM asks for the connection type. It prompts for the BTP login, global account
+and subaccount (unless a Cloud Foundry region is supplied), BTP destination, and forward RFC
+destination. You can save the connection as a system alias like any other TRM connection.
 
-Without prompts, for example in a pipeline, set the connection type to `BTP` and pass the
-connection arguments as JSON, with the `--connection-type`/`--connection-args` options or the
-`TRM_CONNECTION_TYPE`/`TRM_CONNECTION_ARGS` environment variables:
+## Non-interactive usage (CI/CD)
 
-```bash
+Every prompt can be skipped by passing connection arguments from the TRM client:
+
+- `--connection-type BTP` (or env `TRM_CONNECTION_TYPE`) selects this connection
+- `--connection-args <JSON or path to JSON file>` (or env `TRM_CONNECTION_ARGS`) passes the arguments below
+
+| Argument           | Description                                                                          |
+| ------------------ | ------------------------------------------------------------------------------------ |
+| `btpEmail`         | BTP user email                                                                       |
+| `btpPassword`      | BTP user password                                                                    |
+| `btpPassport`      | SAP Passport (`.pfx`) file path or base64 content, replaces `btpEmail` and `btpPassword` (env `TRM_SAP_PASSPORT`) |
+| `btpPassportPassphrase` | SAP Passport passphrase (env `TRM_SAP_PASSPORT_PASSPHRASE`); prompted when missing, none with `--no-prompts` |
+| `cfRegion`         | Cloud Foundry region (e.g. `eu10`); when set, global account and subaccount are skipped |
+| `btpGlobalAccount` | Global account subdomain or display name (only without `cfRegion`)                   |
+| `btpSubaccount`    | Subaccount subdomain, id, technical name or display name (only without `cfRegion`)   |
+| `btpDestination`   | Name of the destination (proxy type `OnPremise`)                                     |
+| `forwardRfcDest`   | RFC destination trm-rest forwards calls to, same as client option `-x <destination>`; `NONE` (default) for no forward. Prompted when missing, `NONE` when `--connection-type` or `--no-prompts` is used |
+
+Arguments not provided are prompted as usual. With `--no-prompts` nothing is prompted: a missing required argument stops the command with an error naming it. Required are:
+
+- the BTP login: `btpEmail` and `btpPassword`, or `btpPassport`
+- `cfRegion`, or `btpGlobalAccount` and `btpSubaccount`
+- `btpDestination`
+
+In CI the user must be able to log in with email and password (no two-factor authentication), or with a SAP Passport. Use `cfRegion` when possible: it's shown in the subaccount overview of the BTP cockpit (`cf-eu10` means `eu10`), and it skips the BTP login used only to read global accounts and subaccounts.
+
+Example:
+
+```sh
 export TRM_CONNECTION_TYPE=BTP
-export TRM_CONNECTION_ARGS='{
-  "btpEmail": "trm-ci@example.com",
-  "btpPassword": "secret",
-  "cfRegion": "eu10",
-  "btpDestination": "SAP_DEV",
-  "forwardRfcDest": "NONE"
-}'
-trm info
+export TRM_CONNECTION_ARGS='{"btpEmail":"trm-ci@example.com","btpPassword":"secret","cfRegion":"eu10","btpDestination":"SAP_DEV","forwardRfcDest":"NONE"}'
+trm install <package> --no-prompts
 ```
 
-| Argument | Description |
-| --- | --- |
-| `btpEmail` | BTP user email. |
-| `btpPassword` | BTP user password. |
-| `btpPassport` | SAP Passport: the `.pfx` file path or its base64 content. Replaces email and password. Also read from the `TRM_SAP_PASSPORT` environment variable. |
-| `btpPassportPassphrase` | Passphrase of the SAP Passport. Also read from `TRM_SAP_PASSPORT_PASSPHRASE`. |
-| `cfRegion` | Cloud Foundry region of the subaccount, for example `eu10`. When set, global account and subaccount aren't needed. |
-| `btpGlobalAccount` | Global account subdomain or display name. Only without `cfRegion`. |
-| `btpSubaccount` | Subaccount subdomain, ID, technical name or display name. Only without `cfRegion`. |
-| `btpDestination` | Name of the destination (proxy type `OnPremise`). |
-| `forwardRfcDest` | RFC destination trm-rest forwards the calls to, like the `-x` option of a REST connection. `NONE` for no forwarding. When missing, it defaults to `NONE` if the connection type is passed (`--connection-type` or `TRM_CONNECTION_TYPE`); otherwise TRM asks for it. |
+### GitHub Actions
 
-`cfRegion` is the simplest choice: the region is shown in the subaccount overview of the BTP
-cockpit (for example `cf-eu10` means `eu10`).
+The plugin is installed with npm next to the TRM client, in the same `npm install -g` step. The connection arguments come from repository secrets (`BTP_EMAIL`, `BTP_PASSWORD`); `toJSON(...)` quotes each secret as a JSON string.
 
-## See also
+```yaml
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
-- [GitHub Actions](../commons/github_actions.md): run TRM on GitHub-hosted runners with this
-  connection.
-- [trm-plugin-btp-dest on GitHub](https://github.com/RegestaItalia/trm-plugin-btp-dest).
+      - name: Install TRM client and BTP plugin
+        run: npm install -g trm-client trm-plugin-btp-dest
+
+      - name: Install package
+        env:
+          TRM_CONNECTION_TYPE: BTP
+          TRM_CONNECTION_ARGS: >-
+            {"cfRegion": "eu10", "btpDestination": "SAP_DEV", "forwardRfcDest": "NONE",
+            "btpEmail": ${{ toJSON(secrets.BTP_EMAIL) }},
+            "btpPassword": ${{ toJSON(secrets.BTP_PASSWORD) }}}
+        run: trm install <package> --no-prompts -E public
+```
+
+To log in with a SAP Passport instead, store the base64 content of the `.pfx` file and its passphrase as secrets, set them as `TRM_SAP_PASSPORT` and `TRM_SAP_PASSPORT_PASSPHRASE` in `env`, and leave `btpEmail` and `btpPassword` out of `TRM_CONNECTION_ARGS`.
+
+More on running TRM in pipelines (registry authentication, publishing): [GitHub Actions](https://docs.trmregistry.com/commons/github_actions/) in the TRM documentation.
+
+### SAP Passport
+
+A SAP Passport (client certificate issued by SAP, `.pfx`) can be used instead of email and password: when `btpPassport` is set, email and password are not asked and the login to BTP and Cloud Foundry is done with the certificate at the SAP ID service (same as `btp login --sso` and `cf login --sso` in a browser with the passport installed).
+
+You can create your own [SAP Passport here](https://support.sap.com/en/my-support/single-sign-on-passports.html).
+
+```sh
+export TRM_SAP_PASSPORT=/path/to/passport.pfx   # or its base64 content, e.g. from a CI secret
+export TRM_SAP_PASSPORT_PASSPHRASE=...
+trm <command> --connection-type BTP --connection-args '{"cfRegion":"eu10","btpDestination":"MY_DEST"}'
+```
+
+The passport is never saved with the connection data: when the saved Cloud Foundry session expires, it is read again from the arguments/environment (or email and password are prompted).
+<!-- END OF BTP.MD -->
