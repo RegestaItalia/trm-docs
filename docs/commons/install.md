@@ -127,8 +127,7 @@ An update replaces the installed release with the new one:
 - Objects that are no longer part of the release are **deleted**. TRM lists objects that are about
   to be deleted but were never part of the package (for example objects a developer created inside
   its ABAP packages) and asks before deleting them.
-- **Tables keep their data** when they are still part of the release. See
-  [Table updates](table_updates.md) for the details and the risky table changes.
+- **Tables keep their data** when they are still part of the release.
 - **Customizing** of the installed release is replaced by the customizing of the new one. See
   [Customizing guidelines](customizing_guidelines.md#customizing-on-update-and-uninstall).
 - ABAP packages that become empty are deleted. The namespace is deleted only when nothing else on
