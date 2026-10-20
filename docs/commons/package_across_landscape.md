@@ -1,5 +1,5 @@
 ---
-title: Example — move an ABAP package across a landscape
+title: Move an ABAP package across a landscape
 description: Install a TRM package and promote its landscape transport through SAP development, quality, and production systems.
 ---
 
@@ -28,7 +28,7 @@ landscape.
 | **Deletion transport (DELE)** | On an update, removes objects and package definitions that belonged to the installed version but not to the new version, and old customizing the new version doesn't ship. Imported on the installation system only. | No. Its deletions are copied into the landscape transport. |
 | **Landscape transport** | The consolidated transport created from what TRM actually installed: SAP packages, workbench objects, an imported namespace when available, translations, customizing and, on an update, the deletions. | Yes. This is the only delivery unit for downstream systems. |
 
-See [Transports](../commons/transports.md) for an overview of every transport TRM creates.
+See [Transports](transports.md) for an overview of every transport TRM creates.
 
 The transport numbers used to prepare DEVC, TADIR, LANG, and CUST content can therefore remain
 visible in the installation system. Depending on whether the release came from a registry or a
@@ -146,5 +146,5 @@ If the install fails while it installs a dependency, TRM also removes that depen
 transport from the target queue. It can remove it automatically only when it is connected to that
 target system; otherwise the error log tells you to remove it manually in STMS. Before retrying,
 check the named target queue and remove any request that the failed run explicitly marked for
-cleanup. See [If something fails](../commons/install.md#if-something-fails) for the wider rollback
+cleanup. See [If something fails](install.md#if-something-fails) for the wider rollback
 behavior.

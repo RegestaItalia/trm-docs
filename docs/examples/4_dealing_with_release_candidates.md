@@ -10,6 +10,8 @@ It’s basically a “preview” version meant for testing before the official r
 
 Release candidates are a useful way to move your product from the central development system to a customer's development system, where better test data may be available. This creates a stage for manual testing before the release is declared final.
 
+> ⚠️ **Note**: This page contains screenshots from an older release. The inputs and outputs may differ from those in the current stable release, but the example remains valid. We’re working on updating the example
+
 ## Release tags
 
 Tags are particularly useful for release candidates.
