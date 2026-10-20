@@ -1,8 +1,3 @@
----
-title: TRM Registry OpenAPI reference
-description: Portable HTTP API contract for implementing a registry compatible with TRM package publishing, metadata, artifacts, and authentication.
----
-
 # TRM Registry API
 It describes the
 registry protocol only: endpoint inputs, outputs, and HTTP status codes.
@@ -357,7 +352,7 @@ Endpoint for deletion transport. Its description (E07T) is the source's with the
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| authentication_type | string, <br>**Available values:** "NO_AUTH", "BASIC", "OAUTH2", "TOKEN" | *Enum:* `"NO_AUTH"`, `"BASIC"`, `"OAUTH2"`, `"TOKEN"` | Yes |
+| authentication_type | string, <br>**Available values:** "NO_AUTH", "BASIC", "OAUTH2", "TOKEN" |  | Yes |
 | authentication_data | [OAuth2Data](#oauth2data-schema) |  | No |
 | alert_email | string (email) |  | No |
 | messages | [ [Message](#message-schema) ] |  | No |
@@ -375,7 +370,7 @@ Endpoint for deletion transport. Its description (E07T) is the source's with the
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| grant_type | string, <br>**Available values:** "authorization_code", "refresh_token" | *Enum:* `"authorization_code"`, `"refresh_token"` | Yes |
+| grant_type | string, <br>**Available values:** "authorization_code", "refresh_token" |  | Yes |
 | code | string |  | No |
 | refresh_token | string |  | No |
 | redirect_uri | string |  | No |
@@ -400,7 +395,7 @@ Endpoint for deletion transport. Its description (E07T) is the source's with the
 
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
-| type | string, <br>**Available values:** "INFO", "WARNING", "ERROR" | *Enum:* `"INFO"`, `"WARNING"`, `"ERROR"` | Yes |
+| type | string, <br>**Available values:** "INFO", "WARNING", "ERROR" |  | Yes |
 | text | string |  | Yes |
 
 #### VersionRequest Schema
@@ -417,7 +412,7 @@ Endpoint for deletion transport. Its description (E07T) is the source's with the
 | name | string |  | Yes |
 | version | string |  | Yes |
 | latestVersion | string |  | No |
-| comparison | string, <br>**Available values:** "<", "=", ">" | *Enum:* `"<"`, `"="`, `">"` | No |
+| comparison | string, <br>**Available values:** "<", "=", ">" |  | No |
 | error | string | Present when this item could not be compared. | No |
 
 #### Package Schema
@@ -433,7 +428,7 @@ Endpoint for deletion transport. Its description (E07T) is the source's with the
 | deprecated_message | string |  | No |
 | changelog | string | Optional Markdown changelog supplied at publication time and sanitized by the registry before storage and response. | No |
 | download_link | string (uri) | A URL that returns the package `.trm` artifact as `application/octet-stream`. RegistryV2 follows redirects when downloading it. | Yes |
-| download_link_expiry | long | Unix epoch milliseconds. | No |
+| download_link_expiry | long | Unix epoch milliseconds. For five minutes after this instant, an expired download link returns `410 Gone` so the client can request a fresh package view. Unknown links and links expired for longer return `404 Not Found`. | No |
 | checksum | string | Base64-encoded SHA-512 digest of the exact artifact bytes returned by `download_link`. | Yes |
 | transports | [ [Transport](#transport-schema) ] | Transports available in the selected release. | Yes |
 
@@ -442,7 +437,7 @@ Endpoint for deletion transport. Its description (E07T) is the source's with the
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | trkorr | string |  | Yes |
-| type | string, <br>**Available values:** "TADIR", "DEVC", "LANG", "CUST" | *Enum:* `"TADIR"`, `"DEVC"`, `"LANG"`, `"CUST"` | Yes |
+| type | string, <br>**Available values:** "TADIR", "DEVC", "LANG", "CUST" |  | Yes |
 | description | string |  | Yes |
 | contents | [TransportContents](#transportcontents-schema) |  | Yes |
 
@@ -451,7 +446,7 @@ Endpoint for deletion transport. Its description (E07T) is the source's with the
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | download_link | string (uri) | A URL that returns the exact parsed R3trans log JSON for this release transport. | Yes |
-| download_link_expiry | long | Unix epoch milliseconds. | Yes |
+| download_link_expiry | long | Unix epoch milliseconds. For five minutes after this instant, an expired download link returns `410 Gone`; unknown links and links expired for longer return `404 Not Found`. | Yes |
 | checksum | string | Base64-encoded SHA-512 digest of the exact JSON bytes returned by `download_link`. | Yes |
 
 #### TransportDownload Schema
@@ -459,7 +454,7 @@ Endpoint for deletion transport. Its description (E07T) is the source's with the
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | download_link | string (uri) | A URL that returns a ZIP containing the K and R transport files. | Yes |
-| download_link_expiry | long | Unix epoch milliseconds. | Yes |
+| download_link_expiry | long | Unix epoch milliseconds. For five minutes after this instant, an expired download link returns `410 Gone`; unknown links and links expired for longer return `404 Not Found`. | Yes |
 | checksum | string | Base64-encoded SHA-512 digest of the exact ZIP bytes returned by `download_link`. | Yes |
 
 #### DeleteTransportRequest Schema

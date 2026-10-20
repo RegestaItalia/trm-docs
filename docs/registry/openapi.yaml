@@ -446,7 +446,10 @@ components:
           type: string
           format: uri
           description: A URL that returns the package `.trm` artifact as `application/octet-stream`. RegistryV2 follows redirects when downloading it.
-        download_link_expiry: { type: integer, format: int64, description: Unix epoch milliseconds. }
+        download_link_expiry:
+          type: integer
+          format: int64
+          description: Unix epoch milliseconds. For five minutes after this instant, an expired download link returns `410 Gone` so the client can request a fresh package view. Unknown links and links expired for longer return `404 Not Found`.
         checksum:
           type: string
           description: Base64-encoded SHA-512 digest of the exact artifact bytes returned by `download_link`.
@@ -478,7 +481,7 @@ components:
         download_link_expiry:
           type: integer
           format: int64
-          description: Unix epoch milliseconds.
+          description: Unix epoch milliseconds. For five minutes after this instant, an expired download link returns `410 Gone`; unknown links and links expired for longer return `404 Not Found`.
         checksum:
           type: string
           description: Base64-encoded SHA-512 digest of the exact JSON bytes returned by `download_link`.
@@ -493,7 +496,7 @@ components:
         download_link_expiry:
           type: integer
           format: int64
-          description: Unix epoch milliseconds.
+          description: Unix epoch milliseconds. For five minutes after this instant, an expired download link returns `410 Gone`; unknown links and links expired for longer return `404 Not Found`.
         checksum:
           type: string
           description: Base64-encoded SHA-512 digest of the exact ZIP bytes returned by `download_link`.
