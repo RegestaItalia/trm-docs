@@ -20,8 +20,8 @@ nav = [
     { "Quick start" = "guide/quickstart.md" },
   ] },
   { "Getting Started" = [
-    { "Set up the system" = "server/setup.md" },
-    { "Set up the client" = "client/setup.md" },
+    { "1. SAP DEV System Setup" = "server/setup.md" },
+    { "2. TRM Client Setup" = "client/setup.md" },
   ] },
   { "Using TRM" = [
     { "Publish a package" = "commons/publish.md" },

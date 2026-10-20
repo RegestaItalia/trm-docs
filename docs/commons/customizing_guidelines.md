@@ -31,9 +31,9 @@ same table entries, and releases it. Some things to know:
 - **Only table content is accepted.** A customizing request is fine. A workbench request is accepted
   only if every entry in it is table content; a request containing repository objects (classes,
   tables, ...) is rejected, because those belong to the workbench part of the package.
-- **Empty requests are rejected.**
-- Each `CUST` transport gets a description (at most 60 characters) that installers see. Make it
-  explain what the customizing is for.
+- **Empty requests are rejected**, and a copy that ends up empty isn't shipped.
+- Each `CUST` transport gets a description that installers see: by default the one of the original
+  request, at most 60 characters. Make it explain what the customizing is for.
 
 ## Where customizing lands
 
@@ -44,27 +44,27 @@ On installation, customizing is imported into the **client the installer is logg
   other clients too, the customer has to copy them (for example with `SCC1`), or you can provide a
   [post activity](post_activities.md) that fills them.
 
-Imported customizing is also added to the [landscape transport](install.md#moving-the-package-through-the-landscape),
-so it moves on to quality and production with the rest of the package.
-
-An interactive install asks about each customizing transport of the release. Installers can skip
-all customizing with `--no-cust-tr`; with `--no-prompts` and no flag, all customizing is imported.
+Installers choose which customizing transports to import (see
+[What happens during an install](install.md#what-happens-during-an-install)). Only the imported
+ones are added to the [landscape transport](install.md#moving-the-package-through-the-landscape),
+so they move on to quality and production with the rest of the package.
 
 ## Customizing across releases
 
-When you publish a new release, the customizing transports of the latest release are **carried
-over** automatically. You don't need to add them again; the new release ships them alongside any
-new request you add.
+When you publish a new release to a registry, the customizing transports of the latest release
+(the one tagged `latest`) are **carried over** automatically. You don't need to add them again; the
+new release ships them alongside any new request you add. `trm pack` doesn't carry anything over.
 
-- A carried-over transport is shipped exactly as it was first published. It isn't read again from
-  the system.
+- A carried-over transport is shipped exactly as it was first published, with its description. It
+  isn't read again from the system.
 - To ship changed values, add a new customizing request with the changed rows.
 - To stop shipping the customizing of an earlier release, remove its transport when TRM lists the
-  customizing transports (TRM asks for confirmation), or pass its transport number to
-  `--drop-cust` (for example `--drop-cust DEVK900123`; `--drop-cust all` drops every carried-over
-  transport). `trm content <package name>` lists the transport numbers under `CUST`. `--drop-cust`
-  also works with `--no-prompts`. A removed transport can't be brought back by adding the original
-  request again.
+  customizing transports, or pass its number to `--drop-cust` (`--drop-cust all` drops every
+  carried-over transport). The number is the one of the `CUST` transport of the release, as
+  `trm content <package name>` lists it under `CUST`, not the one of your original request. A number
+  that isn't a carried-over `CUST` transport, that is also passed to `--cust`, or `all` combined
+  with numbers stops the publish. `--drop-cust` also works with `--no-prompts`.
+- Adding the original request again ships a new copy, read from the current table content.
 - `--no-cust-tr` publishes a release without any customizing.
 
 Avoid shipping the same row in two transports of a release: don't rely on the import order to
@@ -75,19 +75,25 @@ decide which value wins.
 TRM records which customizing transports it imported for each installed package. It uses that
 record to clean up:
 
-- **On update**, the rows shipped by the installed release are deleted, then the customizing of the
-  new release is imported. Rows the new release ships again are written again, **with the values of
-  the new release**. Rows it no longer ships stay deleted: TRM lists them and asks before continuing.
-- **On uninstall**, all the rows shipped by the package are deleted.
-- **When the update skips customizing** (`--no-cust-tr`, or declining any customizing transport at
-  the prompt), the customizing of the installed release is kept as it is.
+- **On update**, rows the new release ships again are overwritten **with the values of the new
+  release**. Rows it no longer ships are deleted: TRM lists them and asks (default yes; without
+  prompts, they are deleted).
+- **On uninstall**, all the rows shipped by the package are deleted, after the same confirmation.
+- **When the update skips customizing** with `--no-cust-tr`, the customizing of the installed
+  release is kept as it is. Declining a single customizing transport at the prompt only keeps the
+  installed rows that this transport ships; the other rows follow the update rules above.
 
 Rows are deleted **by key**. When a request uses a **generic key** (for example `ZACME_CONFIG 100*`)
 or contains a whole table, the deletion removes every matching row, including rows the customer
-added. TRM lists these entries and asks for confirmation, with "no" as the default.
+added. TRM lists these entries and asks for confirmation, with "no" as the default; without prompts,
+they are kept.
+
+Deleted customizing is backed up first, and the deletions travel to the rest of the landscape in the
+landscape transport (see [Transports](transports.md)).
 
 > If someone deletes the customizing transport of an installed release from the system, TRM can no
-> longer read its keys: it warns, and leaves those rows in place.
+> longer read its keys: it warns, and leaves those rows in place. After an update, those rows are
+> no longer tracked.
 
 ## Guidelines
 
@@ -113,6 +119,3 @@ don't ship.
 
 **Split customizing by purpose.** One request per purpose (for example "Default settings" and "Demo
 data") with a clear description makes the content of a release easy to understand.
-
-**Keep client-dependent customizing in mind.** It reaches only the client of the installer. Document
-it, or fill the other clients with a post activity.
