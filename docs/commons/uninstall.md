@@ -43,23 +43,6 @@ trm uninstall <package name>
 
 > ⚠️ Don't interrupt an uninstall while the deletion transport is being imported.
 
-## What is deleted
-
-| Content | Result |
-| --- | --- |
-| Objects installed by the package | Deleted. |
-| ABAP packages of the installation | Deleted. |
-| Objects a developer created inside those ABAP packages | Listed, then deleted after confirmation. They live in packages that are being deleted. |
-| Objects of the package moved by someone to another ABAP package | **Kept**, unless you confirm their deletion. |
-| Objects that belong to another TRM package | Kept. |
-| Customizing rows imported by the package | Deleted. See [Customizing guidelines](customizing_guidelines.md#customizing-on-update-and-uninstall). |
-| Table data | Deleted with the tables. Back it up first if you need it. |
-| Namespace | Deleted only when no other ABAP package uses it, and never when the system develops in it. |
-| Objects created by [post activities](post_activities.md) | Not removed: TRM doesn't know them. |
-
-Before deleting objects that were never part of the package, or customizing rows matched by a
-generic key (which may include rows the package didn't ship), TRM lists them and asks.
-
 ## Removing the package from the landscape
 
 When you installed the package, TRM released a [landscape transport](install.md#moving-the-package-through-the-landscape)

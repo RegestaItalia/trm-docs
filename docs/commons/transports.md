@@ -155,19 +155,6 @@ for the complete process.
 When the uninstall also removes TRM packages installed inside the package, a single landscape
 transport carries all their deletions.
 
-## Example: an update across three systems
-
-```text
-DEV  trm update @acme/tools 1.2.0
-     ├─ backup        TRM (BKP) @acme/tools 1.1.0     stays in the DEV queue, not imported
-     ├─ release       TRM @acme/tools v1.2.0, ...     imported on DEV
-     ├─ deletion      TRM (DELE) @acme/tools 1.1.0    imported on DEV
-     └─ landscape     TRM @acme/tools 1.2.0  ──────▶  QAS ──▶ PRD
-```
-
-On QAS and PRD you import a single transport: the landscape transport. It installs version 1.2.0
-and removes what 1.1.0 had and 1.2.0 doesn't.
-
 ## If something fails
 
 TRM undoes what it already did, in reverse order. It re-imports the backups, deletes the
