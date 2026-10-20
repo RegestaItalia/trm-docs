@@ -93,9 +93,9 @@ transports or publishing.
 
 ## Release candidates and tags
 
-- `--pre-release` publishes a prerelease of the version you pass. With
+- `--pre-release` publishes a prerelease of the version you pass, or of the calculated one. With
   `--pre-release-identifier rc`, `trm publish <package> 1.1.0 --pre-release` publishes `1.1.0-rc.0`,
-  then `1.1.0-rc.1` the next time. On the first publish, the version defaults to `1.0.0`.
+  then `1.1.0-rc.1` the next time. Without an identifier, it publishes `1.1.0-0`.
 - When TRM picks a release to install, version ranges don't match prereleases unless the range
   itself names a prerelease of the same version, so consumers don't receive them by accident.
 - `--tag` assigns distribution tags, separated by commas (for example `beta`). Install a tagged
@@ -126,6 +126,7 @@ Everything else is optional:
 | Set manifest values | `--description`, `--authors`, `--keywords`, `--license`, `--website`, `--git`, `--backwards-compatible`, `--dependencies`, `--sap-entries`, `--engines`, `--post-activities` |
 | Set the readme and changelog | `--readme`, `--changelog` |
 
-Options that take JSON or Markdown also accept a file path.
+Options that take JSON or Markdown also accept a file path. Invalid JSON stops the command with an
+error.
 
 See [GitHub Actions](github_actions.md) for a complete pipeline example.
