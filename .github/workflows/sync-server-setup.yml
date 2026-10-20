@@ -1,0 +1,80 @@
+name: Sync server setup to package READMEs
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sync-server-setup
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Sync setup documentation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out documentation
+        uses: actions/checkout@v7
+        with:
+          path: trm-docs
+          persist-credentials: false
+
+      - name: Check out trm-server
+        uses: actions/checkout@v7
+        with:
+          repository: RegestaItalia/trm-server
+          ref: main
+          ssh-key: ${{ secrets.TRM_SERVER_SYNC_SSH_KEY }}
+          path: trm-server
+          fetch-depth: 0
+
+      - name: Check out trm-rest
+        uses: actions/checkout@v7
+        with:
+          repository: RegestaItalia/trm-rest
+          ref: main
+          ssh-key: ${{ secrets.TRM_REST_SYNC_SSH_KEY }}
+          path: trm-rest
+          fetch-depth: 0
+
+      - name: Update marked README sections
+        run: |
+          python3 trm-docs/scripts/sync_setup_readme.py \
+            trm-docs/docs/server/setup.md \
+            trm-server/README.md \
+            trm-rest/README.md
+
+      - name: Commit and push trm-server
+        working-directory: trm-server
+        run: |
+          if git diff --quiet -- README.md; then
+            echo "trm-server README is already current."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "docs: sync setup instructions"
+          git push --force-with-lease origin HEAD:main
+
+      - name: Commit and push trm-rest
+        working-directory: trm-rest
+        run: |
+          if git diff --quiet -- README.md; then
+            echo "trm-rest README is already current."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "docs: sync setup instructions"
+          git push --force-with-lease origin HEAD:main

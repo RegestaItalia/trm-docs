@@ -130,7 +130,7 @@ The landscape transport isn't created when:
 - the system has no transport targets: TRM considers it the last system of the landscape;
 - the package is installed into temporary (`$`) ABAP packages, which can't be transported.
 
-See [Move an installed package through the landscape](../examples/7_package_across_landscape.md)
+See [Move an installed package through the landscape](package_across_landscape.md)
 for the complete process.
 
 ### Summary

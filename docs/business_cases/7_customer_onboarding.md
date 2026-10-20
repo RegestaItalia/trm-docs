@@ -49,4 +49,4 @@ A package name, version, manifest, and repeatable installation workflow make the
 technical handover match the commercial promise: the customer receives a defined
 software release, not merely a collection of changes.
 
-See [Package across a landscape](../examples/7_package_across_landscape.md).
+See [Package across a landscape](../commons/package_across_landscape.md).

@@ -7,6 +7,8 @@ description: Follow a complete TRM example that publishes an SAP ABAP package to
 
 In this guide, we’ll walk through how to **publish and install** a simple TRM package.
 
+> ⚠️ **Note**: This page contains screenshots from an older release. The inputs and outputs may differ from those in the current stable release, but the example remains valid. We’re working on updating the example
+
 ## Coding
 
 Let’s start by creating a new SAP package called `ZTRM_DOCS_SAMPLE`, and inside it, a class named `ZCL_TRM_DOCS_SAMPLE`.  

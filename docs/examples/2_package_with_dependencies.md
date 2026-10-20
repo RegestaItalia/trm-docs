@@ -8,6 +8,8 @@ description: Build and install a TRM package that declares and resolves compatib
 In the last post, we published and installed a simple package.  
 If you remember, we had an empty method without implementation. Now we’re not only going to implement it, but also create a dependency with another TRM package.
 
+> ⚠️ **Note**: This page contains screenshots from an older release. The inputs and outputs may differ from those in the current stable release, but the example remains valid. We’re working on updating the example
+
 ## Coding
 
 I’ll start by creating a new SAP package and, inside it, a utility class.
