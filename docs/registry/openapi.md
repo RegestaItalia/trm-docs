@@ -1,4 +1,12 @@
+---
+title: TRM Registry OpenAPI reference
+description: Portable HTTP API contract for implementing a registry compatible with TRM package publishing, metadata, artifacts, and authentication.
+---
+
 # TRM Registry API
+
+The raw OpenAPI schema is available in YAML format [here](https://raw.githubusercontent.com/RegestaItalia/trm-docs/refs/heads/main/docs/registry/openapi.yaml).
+
 It describes the
 registry protocol only: endpoint inputs, outputs, and HTTP status codes.
 
