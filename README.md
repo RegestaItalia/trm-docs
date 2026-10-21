@@ -13,7 +13,7 @@
 | Regesta S.p.A.                                  | [https://www.regestaitalia.eu/](https://www.regestaitalia.eu/) |
 | Clarex S.r.l.                                   | [https://www.clarex.it/](https://www.clarex.it/)               |
 
-**TRM (Transport Request Manager)** is a package-manager-inspired solution built on CTS that simplifies SAP ABAP transports.
+**TRM (Transport Request Manager)** is an open-source package manager for SAP ABAP that publishes, installs, updates, and uninstalls versioned software through CTS transports.
 
 <p align="center">
   <img src="docs/assets/logo.png" alt="TRM Logo" />
