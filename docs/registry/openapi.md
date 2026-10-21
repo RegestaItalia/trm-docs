@@ -88,7 +88,7 @@ Implement this operation only when ping reports `OAUTH2` authentication.
 
 | Security Schema | Scopes |
 | --------------- | ------ |
-
+| None (anonymous) |  |
 | basicAuth |  |
 | bearerAuth |  |
 
@@ -115,7 +115,7 @@ Implement this operation only when ping reports `OAUTH2` authentication.
 
 | Security Schema | Scopes |
 | --------------- | ------ |
-
+| None (anonymous) |  |
 | basicAuth |  |
 | bearerAuth |  |
 
@@ -428,7 +428,7 @@ Endpoint for deletion transport. Its description (E07T) is the source's with the
 | deprecated_message | string |  | No |
 | changelog | string | Optional Markdown changelog supplied at publication time and sanitized by the registry before storage and response. | No |
 | download_link | string (uri) | A URL that returns the package `.trm` artifact as `application/octet-stream`. RegistryV2 follows redirects when downloading it. | Yes |
-| download_link_expiry | long | Unix epoch milliseconds. For five minutes after this instant, an expired download link returns `410 Gone` so the client can request a fresh package view. Unknown links and links expired for longer return `404 Not Found`. | No |
+| download_link_expiry | long | Unix epoch milliseconds. An expired download link returns `410 Gone` so the client can request a fresh package view. Unknown links return `404 Not Found`. | No |
 | checksum | string | Base64-encoded SHA-512 digest of the exact artifact bytes returned by `download_link`. | Yes |
 | transports | [ [Transport](#transport-schema) ] | Transports available in the selected release. | Yes |
 
@@ -446,7 +446,7 @@ Endpoint for deletion transport. Its description (E07T) is the source's with the
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | download_link | string (uri) | A URL that returns the exact parsed R3trans log JSON for this release transport. | Yes |
-| download_link_expiry | long | Unix epoch milliseconds. For five minutes after this instant, an expired download link returns `410 Gone`; unknown links and links expired for longer return `404 Not Found`. | Yes |
+| download_link_expiry | long | Unix epoch milliseconds. An expired download link returns `410 Gone` so the client can request a fresh package view. Unknown links return `404 Not Found`. | Yes |
 | checksum | string | Base64-encoded SHA-512 digest of the exact JSON bytes returned by `download_link`. | Yes |
 
 #### TransportDownload Schema
@@ -454,7 +454,7 @@ Endpoint for deletion transport. Its description (E07T) is the source's with the
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | download_link | string (uri) | A URL that returns a ZIP containing the K and R transport files. | Yes |
-| download_link_expiry | long | Unix epoch milliseconds. For five minutes after this instant, an expired download link returns `410 Gone`; unknown links and links expired for longer return `404 Not Found`. | Yes |
+| download_link_expiry | long | Unix epoch milliseconds. An expired download link returns `410 Gone` so the client can request a fresh package view. Unknown links return `404 Not Found`. | Yes |
 | checksum | string | Base64-encoded SHA-512 digest of the exact ZIP bytes returned by `download_link`. | Yes |
 
 #### DeleteTransportRequest Schema
