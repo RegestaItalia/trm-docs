@@ -127,5 +127,5 @@ Contributions will be merged upon approval.
   <a class="contributors-embed__image-link" href="https://trmregistry.com/public/contributors" target="_blank" rel="noopener" aria-label="View TRM contributors">
     <img class="contributors-embed__image" src="https://trmregistry.com/public/contributors?image=true" alt="TRM project contributors" loading="lazy">
   </a>
-  <iframe class="contributors-embed__iframe" src="https://trmregistry.com/public/contributors" title="TRM project contributors" loading="lazy" scrolling="no"></iframe>
+  <iframe class="contributors-embed__iframe" src="https://trmregistry.com/public/contributors?image=false" title="TRM project contributors" loading="lazy" scrolling="no"></iframe>
 </div>

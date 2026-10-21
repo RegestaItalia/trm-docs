@@ -22,3 +22,12 @@ keepSelectedSidebarGroupsExpanded();
 if (typeof document$ !== "undefined") {
   document$.subscribe(keepSelectedSidebarGroupsExpanded);
 }
+
+// The contributors page reports its height as its grid reflows; the iframe
+// cannot be measured cross-origin.
+window.addEventListener("message", (event) => {
+  if (event.origin !== "https://trmregistry.com" || event.data?.type !== "trm-contributors:height") return;
+  for (const frame of document.querySelectorAll(".contributors-embed__iframe")) {
+    if (frame.contentWindow === event.source) frame.style.height = `${event.data.height}px`;
+  }
+});
