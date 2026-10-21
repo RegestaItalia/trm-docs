@@ -1,4 +1,5 @@
 const expandedSidebarGroups = new Set(["Getting Started", "Examples"]);
+const desktopSidebar = window.matchMedia("(min-width: 76.25em)");
 
 function keepSelectedSidebarGroupsExpanded() {
   const topLevelItems = document.querySelectorAll(
@@ -10,14 +11,25 @@ function keepSelectedSidebarGroupsExpanded() {
     const toggle = item.querySelector(":scope > .md-nav__toggle");
 
     if (title && toggle && expandedSidebarGroups.has(title.textContent.trim())) {
-      toggle.checked = true;
-      toggle.disabled = true;
-      item.dataset.alwaysExpanded = "true";
+      if (toggle.dataset.initiallyChecked === undefined) {
+        toggle.dataset.initiallyChecked = String(toggle.checked);
+      }
+
+      if (desktopSidebar.matches) {
+        toggle.checked = true;
+        toggle.disabled = true;
+        item.dataset.alwaysExpanded = "true";
+      } else {
+        toggle.checked = toggle.dataset.initiallyChecked === "true";
+        toggle.disabled = false;
+        delete item.dataset.alwaysExpanded;
+      }
     }
   }
 }
 
 keepSelectedSidebarGroupsExpanded();
+desktopSidebar.addEventListener("change", keepSelectedSidebarGroupsExpanded);
 
 if (typeof document$ !== "undefined") {
   document$.subscribe(keepSelectedSidebarGroupsExpanded);
