@@ -14,7 +14,7 @@ TRM and abapGit solve different parts of the ABAP software lifecycle and can be 
 | Work with ABAP source in Git | Primary purpose | Can include repository metadata and serialized source in an artifact |
 | Review source history and branches | Yes, through Git | Not its purpose |
 | Produce a versioned delivery artifact | Repository archives/source are available | Produces a `.trm` artifact containing manifest and CTS transports |
-| Resolve compatible package dependencies | APACK manifests can declare metadata; resolution depends on surrounding tooling | Resolves versioned TRM dependencies and checks SAP prerequisites |
+| Resolve compatible package dependencies | Not by itself | Resolves versioned TRM dependencies and checks SAP prerequisites |
 | Reproduce exact dependency versions | Git commits identify source | TRM lockfiles record package versions and integrity values |
 | Deliver the same built transports | No; objects are deserialized on the target | Yes; the artifact carries the transports produced for the release |
 | Move customizing and translations | Not the core workflow | Supported through dedicated CTS transports |
@@ -55,6 +55,6 @@ TRM publishes the transports created for the release and installs those transpor
 - [How TRM uses transports](../commons/transports.md)
 - [Publish a package](../commons/publish.md)
 
-References: [abapGit documentation](https://docs.abapgit.org/), [APACK specification](https://github.com/abapGit/abapGit-Docs/blob/main/docs/user-guide/reference/apack.md).
+Reference: [abapGit documentation](https://docs.abapgit.org/).
 
 *Author: TRM maintainers. Technical review: Regesta Group engineering. Last reviewed: 19 October 2026.*
