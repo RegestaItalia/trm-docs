@@ -28,7 +28,7 @@ The following table lists objects and scenarios in which TRM can still detect th
 
 ## Supported object types
 
-Dependency detection status reflects behavior in `trm-server >= 7.0.0`; SAP test baseline: `SAP_BASIS 758` SP02, `SAP_ABA 75I` SP02, `S4FND 108` SP02.
+Dependency detection status reflects behavior in `trm-server >= 8.0.0`; SAP test baseline: `SAP_BASIS 758` SP02, `SAP_ABA 75I` SP02, `S4FND 108` SP02.
 
 This section lists dependency behavior exercised by this corpus's tests. It is not an exhaustive statement of support: `trm-server` may support additional object types and dependency mechanisms that are not tested here.
 
@@ -36,6 +36,7 @@ This section lists dependency behavior exercised by this corpus's tests. It is n
 
 | Object Type | Dependency Detection |
 | --- | --- |
+| `ACID` | <ul><li>Object without any possible dependency</li></ul> |
 | `AUTH` | <ul><li>Field data element dependency.</li><li>Check table dependency.</li></ul> |
 | `BDEF` | <ul><li>Root-entity dependency.</li><li>Persistent-table dependency.</li><li>Behavior-pool dependency.</li></ul> |
 | `CHDO` | <ul><li>Maintained table dependency detected.</li><li>Reference table dependency detected.</li><li>Generated update function group detected.</li><li>Generated writer class detected.</li></ul> |
@@ -62,6 +63,7 @@ This section lists dependency behavior exercised by this corpus's tests. It is n
 | `IWSV` | <ul><li>Data provider class dependency.</li><li>Assigned technical model dependency.</li></ul> |
 | `MSAG` | <ul><li>Object without any possible dependency</li></ul> |
 | `NROB` | <ul><li>Number-length domain dependency.</li><li>Subobject data-element dependency.</li><li>Group-table dependency.</li><li>Element text-table dependency.</li><li>Populated-interval number-length domain dependency.</li></ul> |
+| `PARA` | <ul><li>Object without any possible dependency</li></ul> |
 | `PROG` | <ul><li>DDIC type dependency.</li><li>Static method-call dependency.</li><li>Function-module call dependency.</li><li>Executable-program submission dependency.</li><li>Source-include dependency.</li></ul> |
 | `SAMC` | <ul><li>Authorized program dependency.</li><li>Authorized class dependency.</li></ul> |
 | `SAPC` | <ul><li>Generated handler class dependency.</li><li>Generated ICF service dependency.</li></ul> |
