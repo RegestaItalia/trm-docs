@@ -14,9 +14,9 @@ and similar tools.
 
 | Need | How |
 | --- | --- |
-| A runner | A GitHub-hosted runner such as `ubuntu-latest`, when you [connect through SAP BTP](#reaching-the-sap-system). Otherwise a [self-hosted runner](https://docs.github.com/actions/hosting-your-own-runners) inside your network. |
+| A runner | A GitHub-hosted runner such as `ubuntu-latest`. With a REST or RFC connection the runner must reach the SAP system directly, which usually means a [self-hosted runner](https://docs.github.com/actions/hosting-your-own-runners) inside your network, see [Reaching the SAP system](#reaching-the-sap-system). |
 | The TRM client | `npm install -g trm-client` on a runner with Node.js. |
-| A connection to SAP | Recommended: the **BTP** connection of [trm-plugin-btp-dest](../client/btp_destination.md), through an SAP BTP destination and the Cloud Connector. On a self-hosted runner, the **REST** connection is the simplest: it only needs [trm-rest](../server/setup.md) on the SAP system. RFC also works, but the runner then needs the SAP NW RFC SDK and `node-rfc`, see [Client setup](../client/setup.md). |
+| A connection to SAP | Recommended: the **BTP** connection of [trm-plugin-btp-dest](../client/btp_destination.md), through an SAP BTP destination and the Cloud Connector. Otherwise **REST**, which only needs [trm-rest](../server/setup.md) on the SAP system. RFC also works, but the runner then needs the SAP NW RFC SDK and `node-rfc`, see [Client setup](../client/setup.md). |
 | An SAP user | A technical user granted authorization object `ZTRM_AUTH` with activity `ACTVT = 16` (Execute; see [Server setup](../server/setup.md#authorize-users)), with the authorizations to create, release and import transports. With the BTP connection, it's the user set in the destination. |
 | Registry access | Recommended: [GitHub Actions trusted publishing](../registry/public/authentication.md#github-actions-trusted-publishing), with no token to store. Alternatively, a [personal access token](../registry/public/authentication.md#personal-access-tokens) with the scopes the job needs. Installing public packages needs no authentication. |
 
@@ -26,8 +26,8 @@ never in the workflow file.
 
 ## Reaching the SAP system
 
-GitHub-hosted runners run in the cloud, outside your company network, so they can't reach an
-on-premise SAP system directly. There are two ways around this.
+GitHub-hosted runners run in the cloud, outside your company network, so they usually can't reach
+an on-premise SAP system directly. There are two ways to connect.
 
 **Through SAP BTP (recommended).** If the SAP system is connected to SAP BTP with the SAP Cloud
 Connector, install the [trm-plugin-btp-dest](../client/btp_destination.md) plugin in the job and
@@ -36,10 +36,10 @@ can use GitHub-hosted runners and keep the SAP system closed to the internet. Th
 [one-time setup](../client/btp_destination.md#one-time-setup): a destination, the small `trm-ssh`
 app and a BTP user for the pipeline.
 
-**With a self-hosted runner.** Install a
-[self-hosted runner](https://docs.github.com/actions/hosting-your-own-runners) on a machine inside
-your network that can reach the SAP system, and connect with REST (or RFC) as from any other
-computer. You then maintain the runner machine yourself.
+**Directly, with REST or RFC.** Connect as from any other computer. This works on any runner that
+can reach the SAP system, but a system exposed to the internet is rare, so in practice it usually
+means a [self-hosted runner](https://docs.github.com/actions/hosting-your-own-runners) on a machine
+inside your network, which you maintain yourself.
 
 ## Connecting without prompts
 
@@ -69,7 +69,7 @@ file, base64 encoded, in the `TRM_SAP_PASSPORT` environment variable and its pas
 `TRM_SAP_PASSPORT_PASSPHRASE`. All arguments are described in
 [Connect through SAP BTP](../client/btp_destination.md).
 
-For a **REST** connection (self-hosted runner):
+For a **REST** connection:
 
 ```json
 {
@@ -193,7 +193,8 @@ jobs:
             --public \
             -T QAS \
             --readme README.md \
-            --changelog CHANGELOG.md
+            --changelog CHANGELOG.md \
+            ${RUNNER_DEBUG:+--debug}
 ```
 
 - `toJSON(...)` puts each secret in the JSON as a correctly quoted string, even if it contains
@@ -207,8 +208,9 @@ jobs:
   To stop carrying over customizing transports of the previous release, pass
   `--drop-cust <transports>` (comma separated) or `--drop-cust all`.
 
-**With a self-hosted runner and REST**, change `runs-on: ubuntu-latest` to `runs-on: self-hosted`,
-install only `trm-client`, and set the connection as in [The SAP connection](#the-sap-connection):
+**With REST**, install only `trm-client` and set the connection as in
+[The SAP connection](#the-sap-connection). If the SAP system is reachable only from your network,
+also change `runs-on: ubuntu-latest` to `runs-on: self-hosted`:
 
 ```yaml
         env:
@@ -260,7 +262,8 @@ jobs:
           trm clean-install @acme/sales-tools \
             --no-prompts \
             --lock-file trm-lock.json \
-            --package-replacements '[{"originalDevclass":"ZACME_SALES","installDevclass":"ZTEST_SALES"}]'
+            --package-replacements '[{"originalDevclass":"ZACME_SALES","installDevclass":"ZTEST_SALES"}]' \
+            ${RUNNER_DEBUG:+--debug}
 ```
 
 - Without a version, `trm clean-install` installs the release recorded in the lockfile. If you
@@ -309,7 +312,7 @@ can require a manual approval before a job that touches a sensitive system.
       env:
         MSYS_NO_PATHCONV: '1'
         MSYS2_ARG_CONV_EXCL: '*'
-      run: trm publish ... --sap-package "/ATRM/PKG"
+      run: trm publish ... --sap-package "/ATRM/PKG" ${RUNNER_DEBUG:+--debug}
     ```
 
     The same applies when running `trm` from Git Bash on your own Windows machine. Linux runners
