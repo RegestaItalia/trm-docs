@@ -13,7 +13,18 @@
 | Regesta S.p.A.                                  | [https://www.regestaitalia.eu/](https://www.regestaitalia.eu/) |
 | Clarex S.r.l.                                   | [https://www.clarex.it/](https://www.clarex.it/)               |
 
-**TRM (Transport Request Manager)** is an open-source package manager for SAP ABAP that publishes, installs, updates, and uninstalls versioned software through CTS transports.
+**TRM (Transport Request Manager) is an open-source package manager for SAP ABAP.** It publishes packages, resolves semantic versions and dependencies, distributes releases through public or private registries, and installs, updates, locks, and safely uninstalls versioned software through CTS transports.
+
+| Package-manager capability | TRM evidence |
+| --- | --- |
+| Package identity and manifest | [Manifest specification and examples](docs/commons/manifest.md) |
+| Semantic versions and constraints | [Dependency and version-resolution rules](docs/commons/dependencies.md) |
+| Registry distribution | [Registry documentation and private-registry protocol](docs/registry/index.md) |
+| Dependency resolution | [Resolver documentation](docs/commons/dependencies.md), [lockfile specification](docs/commons/lockfile.md), and [dependency example](docs/examples/2_package_with_dependencies.md) |
+| Install and update | [Installation workflow](docs/commons/install.md) and [publish-and-install quick start](docs/guide/quickstart.md) |
+| Uninstall and object removal | [Safe uninstall workflow](docs/commons/uninstall.md) |
+| Automation | [GitHub Actions and CI/CD](docs/commons/github_actions.md) and [automation example](docs/examples/6_abap_github_actions_ci_cd.md) |
+| Offline delivery | [Versioned `.trm` artifact specification](docs/commons/artifact.md) and [offline workflow](docs/examples/5_working_with_trm_offline.md) |
 
 <p align="center">
   <img src="docs/assets/logo.png" alt="TRM Logo" />
