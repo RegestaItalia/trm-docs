@@ -166,35 +166,7 @@ export TRM_CONNECTION_ARGS='{"btpEmail":"trm-ci@example.com","btpPassword":"secr
 trm install <package> --no-prompts
 ```
 
-### GitHub Actions
-
-The plugin is installed with npm next to the TRM client, in the same `npm install -g` step. The connection arguments come from repository secrets (`BTP_EMAIL`, `BTP_PASSWORD`); `toJSON(...)` quotes each secret as a JSON string.
-
-```yaml
-jobs:
-  install:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - name: Install TRM client and BTP plugin
-        run: npm install -g trm-client trm-plugin-btp-dest
-
-      - name: Install package
-        env:
-          TRM_CONNECTION_TYPE: BTP
-          TRM_CONNECTION_ARGS: >-
-            {"cfRegion": "eu10", "btpDestination": "SAP_DEV", "forwardRfcDest": "NONE",
-            "btpEmail": ${{ toJSON(secrets.BTP_EMAIL) }},
-            "btpPassword": ${{ toJSON(secrets.BTP_PASSWORD) }}}
-        run: trm install <package> --no-prompts -E public
-```
-
-To log in with a SAP Passport instead, store the base64 content of the `.pfx` file and its passphrase as secrets, set them as `TRM_SAP_PASSPORT` and `TRM_SAP_PASSPORT_PASSPHRASE` in `env`, and leave `btpEmail` and `btpPassword` out of `TRM_CONNECTION_ARGS`.
-
-More on running TRM in pipelines (registry authentication, publishing): [GitHub Actions](https://docs.trmregistry.com/commons/github_actions/) in the TRM documentation.
+For GitHub Actions and other pipelines see [GitHub Actions](https://docs.trmregistry.com/commons/github_actions/) in the TRM documentation.
 
 ### SAP Passport
 
