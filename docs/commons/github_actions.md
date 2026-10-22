@@ -299,6 +299,21 @@ can require a manual approval before a job that touches a sensitive system.
   explicit `-A '{"oidc":"github"}'` the error is "GitHub Actions OIDC token is not available".)
 - **"GitHub account not linked to a TRM profile":** the user who started the run hasn't
   [linked a GitHub account](../registry/public/authentication.md#link-your-github-account).
+- **"DB_Error on TDEVC : 'C:/PROGRAM FILES/GIT/...' is not valid" on a Windows runner:** with
+  `shell: bash`, Git Bash converts arguments that look like Unix paths, so `--sap-package /ATRM/PKG`
+  reaches TRM as `C:/Program Files/Git/ATRM/PKG`. This hits any namespaced SAP package or object.
+  Turn the conversion off in the step's environment:
+
+    ```yaml
+    - shell: bash
+      env:
+        MSYS_NO_PATHCONV: '1'
+        MSYS2_ARG_CONV_EXCL: '*'
+      run: trm publish ... --sap-package "/ATRM/PKG"
+    ```
+
+    The same applies when running `trm` from Git Bash on your own Windows machine. Linux runners
+    are not affected.
 - **"Invalid connection type "BTP"":** install `trm-plugin-btp-dest` in the same
   `npm install -g` step as `trm-client`.
 - **BTP login or tunnel errors:** see the [one-time setup](../client/btp_destination.md#one-time-setup)
