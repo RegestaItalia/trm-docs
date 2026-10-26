@@ -17,7 +17,7 @@ Call `GET /` before authenticating. Its `authentication_type` selects
 unauthenticated, HTTP Basic, bearer-token, or OAuth2 authentication for
 subsequent operations.
 
-## Version: 4.0.0
+## Version: 5.0.0
 
 ### Servers
 

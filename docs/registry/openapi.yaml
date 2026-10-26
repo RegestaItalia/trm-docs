@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: TRM Registry API
-  version: 4.0.0
+  version: 5.0.0
   description: |
     It describes the
     registry protocol only: endpoint inputs, outputs, and HTTP status codes.
