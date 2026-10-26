@@ -24,12 +24,15 @@ jobs:
     steps:
       - uses: actions/configure-pages@v6
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v6
         with:
           python-version: "3.x"
       - run: pip install -r requirements.txt
       - run: zensical build --clean --strict
       - run: python -m unittest discover -s scripts -p "test_*.py"
+      - run: python scripts/add_sitemap_lastmod.py
       - run: python scripts/validate_site_seo.py
       - uses: actions/upload-pages-artifact@v5
         with:
