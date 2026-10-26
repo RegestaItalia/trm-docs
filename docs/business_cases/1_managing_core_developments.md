@@ -126,3 +126,9 @@ automation where it creates measurable value.
 See [Publish and install](../examples/1_publish_and_install.md) for a guided first
 release, or start with the [server](../server/setup.md) and
 [client](../client/setup.md) setup guides.
+
+## Related guidance
+
+- [What an ABAP package manager adds](../guide/what-is-an-abap-package-manager.md)
+- [Publish a package](../commons/publish.md)
+- [Move a package across a landscape](../commons/package_across_landscape.md)

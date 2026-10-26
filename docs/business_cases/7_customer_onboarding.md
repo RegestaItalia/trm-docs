@@ -50,3 +50,9 @@ technical handover match the commercial promise: the customer receives a defined
 software release, not merely a collection of changes.
 
 See [Package across a landscape](../commons/package_across_landscape.md).
+
+## Related guidance
+
+- [Install and update a package](../commons/install.md)
+- [Move a package across a landscape](../commons/package_across_landscape.md)
+- [Use a lockfile for repeatable installs](../commons/lockfile.md)

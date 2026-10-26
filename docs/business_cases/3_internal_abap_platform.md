@@ -62,3 +62,9 @@ blocks.
 
 Learn how TRM represents [manifests](../commons/manifest.md) and
 [dependencies](../commons/dependencies.md).
+
+## Related guidance
+
+- [Manage ABAP dependencies](../guide/abap-dependency-management.md)
+- [Use a lockfile for repeatable installs](../commons/lockfile.md)
+- [Browse registry concepts](../registry/index.md)
