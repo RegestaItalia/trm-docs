@@ -57,3 +57,9 @@ versioned components while keeping existing SAP change controls in place.
 
 Start by reviewing [dependency recognition](../commons/dependencies.md) for a
 candidate package.
+
+## Related guidance
+
+- [Understand the package-manager lifecycle](../guide/what-is-an-abap-package-manager.md)
+- [Manage ABAP dependencies](../guide/abap-dependency-management.md)
+- [Compare TRM and abapGit](../guide/trm-and-abapgit.md)

@@ -53,3 +53,9 @@ organization to abandon its existing controls.
 
 See the [GitHub Actions concept](../commons/github_actions.md) and
 [CI/CD example](../examples/6_abap_github_actions_ci_cd.md).
+
+## Related guidance
+
+- [Automate TRM with GitHub Actions](../commons/github_actions.md)
+- [Follow the CI/CD example](../examples/6_abap_github_actions_ci_cd.md)
+- [Understand CTS transport delivery](../commons/transports.md)

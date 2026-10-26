@@ -54,3 +54,9 @@ versions, and declared relationships.
 
 Review [dependency recognition](../commons/dependencies.md) and the
 [lockfile example](../examples/3_install_with_a_lockfile.md).
+
+## Related guidance
+
+- [Manage ABAP dependencies](../guide/abap-dependency-management.md)
+- [Declare package dependencies](../commons/dependencies.md)
+- [Install a dependency graph from a lockfile](../examples/3_install_with_a_lockfile.md)
