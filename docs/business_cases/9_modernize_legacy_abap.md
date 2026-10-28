@@ -14,8 +14,8 @@ ABAP estate while modernization continues incrementally.
 
 ## Create boundaries before replacing technology
 
-Teams can identify a cohesive package—such as a shared utility layer, integration
-adapter, or business service—and establish it as a versioned TRM component. Its
+Teams can identify a cohesive package-such as a shared utility layer, integration
+adapter, or business service-and establish it as a versioned TRM component. Its
 dependencies and SAP prerequisites become explicit, and consumers install a
 defined release rather than copying objects.
 

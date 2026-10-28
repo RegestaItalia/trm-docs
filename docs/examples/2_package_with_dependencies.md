@@ -1,5 +1,5 @@
 ---
-title: Example — ABAP package with dependencies
+title: Example - ABAP package with dependencies
 description: Build and install a TRM package that declares and resolves compatible dependencies on other versioned ABAP packages.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: TRM Documentation — ABAP Package Manager
+title: TRM Documentation - ABAP Package Manager
 description: Official documentation for TRM, the SAP ABAP package manager for versioned artifacts, dependencies, registries, lockfiles, CTS delivery, and uninstall.
 ---
 
@@ -75,19 +75,19 @@ Each package includes a `manifest.json` that declares:
 
 Most language ecosystems settled this problem long ago: npm for Node.js, Maven for Java,
 NuGet for .NET. Each gives teams a manifest, semantic versioning, a dependency resolver,
-and a registry to distribute releases. ABAP never had an equivalent—transports move code
+and a registry to distribute releases. ABAP never had an equivalent-transports move code
 between systems, but they don't express what a delivery depends on, what version it is,
 or whether a target system can safely receive it.
 
 In practice, that gap turns into manual work: someone has to remember the correct import
 order across transports, re-check whether a target system already has the right
 prerequisite objects, and re-explain undocumented dependencies every time a solution is
-handed to a new team or customer. None of this is specific to one company—it is a
+handed to a new team or customer. None of this is specific to one company-it is a
 structural gap in how ABAP has traditionally been delivered.
 
 TRM closes that gap by treating ABAP deliveries the way modern package managers treat
 software releases: versioned, dependency-aware, and reproducible across systems. That
-shift matters wherever ABAP code crosses a system boundary—between teams, between
+shift matters wherever ABAP code crosses a system boundary-between teams, between
 landscapes, or out to customers and partners. The [business cases](business_cases/1_managing_core_developments.md)
 walk through concrete scenarios where this pays off, including
 [turning reusable ABAP into a product](business_cases/1_managing_core_developments.md),

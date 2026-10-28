@@ -1,5 +1,5 @@
 ---
-title: Example — manage ABAP release candidates
+title: Example - manage ABAP release candidates
 description: Publish, test, select, and promote pre-release ABAP package versions safely with TRM semantic versioning and distribution tags.
 ---
 

@@ -86,7 +86,7 @@ You can define **custom post activities** in your TRM package. It's the publishe
 - Include the ABAP class definition within the package, or
 - Declare it as a dependency in the manifest.
 
-> ⚠️ TRM does not validate the content of custom post activities — end users must ensure they are safe.
+> ⚠️ TRM does not validate the content of custom post activities - end users must ensure they are safe.
 
 ### Requirements for a Custom Post Activity Class
 

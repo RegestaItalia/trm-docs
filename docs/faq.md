@@ -160,7 +160,7 @@ The solution is to make the dependency graph compatible. Package owners can
 broaden a supported range after testing, upgrade the consuming package, or ship a
 new major release that works with the shared version selected for that SAP
 system. If true side-by-side behavior is required, it must be designed at the
-ABAP architecture level—for example, as separately named components—not assumed
+ABAP architecture level-for example, as separately named components-not assumed
 from the use of a package manager.
 
 ### What is a lockfile for?
@@ -306,7 +306,7 @@ for release pipelines and repeatable delivery automation. Pipeline credentials,
 package visibility, optional transports, target mappings, and approvals must be
 provided explicitly so the run does not depend on interactive prompts.
 
-Automation should complement—not bypass—the controls required by the target SAP
+Automation should complement-not bypass-the controls required by the target SAP
 landscape. See [GitHub Actions](commons/github_actions.md) for complete examples. On GitHub
 Actions, [trusted publishing](registry/public/authentication.md#github-actions-trusted-publishing)
 lets a workflow publish without storing a registry token.
