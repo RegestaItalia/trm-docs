@@ -43,21 +43,21 @@
 
   <text x="40" y="244" class="object">CHKC</text>
   <rect x="150" y="230" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="230" width="410" height="18" rx="9" fill="#cf222e"/>
-  <text x="620" y="244" text-anchor="end" class="value">0/1</text>
-  <text x="680" y="244" text-anchor="end" class="value">0%</text>
+  <rect x="150" y="230" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="244" text-anchor="end" class="value">1/1</text>
+  <text x="680" y="244" text-anchor="end" class="value">100%</text>
 
   <text x="40" y="280" class="object">CHKO</text>
   <rect x="150" y="266" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="266" width="410" height="18" rx="9" fill="#cf222e"/>
-  <text x="620" y="280" text-anchor="end" class="value">0/2</text>
-  <text x="680" y="280" text-anchor="end" class="value">0%</text>
+  <rect x="150" y="266" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="280" text-anchor="end" class="value">2/2</text>
+  <text x="680" y="280" text-anchor="end" class="value">100%</text>
 
   <text x="40" y="316" class="object">CHKV</text>
   <rect x="150" y="302" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="302" width="410" height="18" rx="9" fill="#cf222e"/>
-  <text x="620" y="316" text-anchor="end" class="value">0/2</text>
-  <text x="680" y="316" text-anchor="end" class="value">0%</text>
+  <rect x="150" y="302" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="316" text-anchor="end" class="value">2/2</text>
+  <text x="680" y="316" text-anchor="end" class="value">100%</text>
 
   <text x="40" y="352" class="object">CLAS</text>
   <rect x="150" y="338" width="410" height="18" rx="9" class="track"/>
@@ -205,9 +205,9 @@
 
   <text x="40" y="1216" class="object">PINF</text>
   <rect x="150" y="1202" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="1202" width="205.0" height="18" rx="9" fill="#bf8700"/>
-  <text x="620" y="1216" text-anchor="end" class="value">3/6</text>
-  <text x="680" y="1216" text-anchor="end" class="value">50%</text>
+  <rect x="150" y="1202" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1216" text-anchor="end" class="value">6/6</text>
+  <text x="680" y="1216" text-anchor="end" class="value">100%</text>
 
   <text x="40" y="1252" class="object">PROG</text>
   <rect x="150" y="1238" width="410" height="18" rx="9" class="track"/>
@@ -247,9 +247,9 @@
 
   <text x="40" y="1468" class="object">SHMA</text>
   <rect x="150" y="1454" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="1454" width="136.7" height="18" rx="9" fill="#bf8700"/>
-  <text x="620" y="1468" text-anchor="end" class="value">1/3</text>
-  <text x="680" y="1468" text-anchor="end" class="value">33%</text>
+  <rect x="150" y="1454" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1468" text-anchor="end" class="value">3/3</text>
+  <text x="680" y="1468" text-anchor="end" class="value">100%</text>
 
   <text x="40" y="1504" class="object">SICF</text>
   <rect x="150" y="1490" width="410" height="18" rx="9" class="track"/>
@@ -295,9 +295,9 @@
 
   <text x="40" y="1756" class="object">SUSH</text>
   <rect x="150" y="1742" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="1742" width="410" height="18" rx="9" fill="#cf222e"/>
-  <text x="620" y="1756" text-anchor="end" class="value">0/3</text>
-  <text x="680" y="1756" text-anchor="end" class="value">0%</text>
+  <rect x="150" y="1742" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1756" text-anchor="end" class="value">3/3</text>
+  <text x="680" y="1756" text-anchor="end" class="value">100%</text>
 
   <text x="40" y="1792" class="object">SUSO</text>
   <rect x="150" y="1778" width="410" height="18" rx="9" class="track"/>
@@ -355,9 +355,9 @@
 
   <text x="40" y="2116" class="object">WEBI</text>
   <rect x="150" y="2102" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="2102" width="410" height="18" rx="9" fill="#cf222e"/>
-  <text x="620" y="2116" text-anchor="end" class="value">0/4</text>
-  <text x="680" y="2116" text-anchor="end" class="value">0%</text>
+  <rect x="150" y="2102" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="2116" text-anchor="end" class="value">4/4</text>
+  <text x="680" y="2116" text-anchor="end" class="value">100%</text>
 
   <text x="40" y="2152" class="object">XSLT</text>
   <rect x="150" y="2138" width="410" height="18" rx="9" class="track"/>
