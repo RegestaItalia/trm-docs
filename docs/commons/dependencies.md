@@ -77,6 +77,7 @@ This section lists dependency behavior exercised by this corpus's tests. It is n
 | `SHMA` | <ul><li>Root class dependency.</li><li>Generated area class dependency.</li><li>Area constructor class dependency.</li></ul> |
 | `SICF` | <ul><li>HTTP handler-class dependency.</li><li>Service alias/reference dependency.</li><li>Parent-child service hierarchy dependency.</li></ul> |
 | `SOBJ` | <ul><li>Implementing program dependency.</li><li>Key field reference table dependency.</li><li>Implemented interface type dependency.</li><li>Object-reference attribute type dependency.</li><li>Method function group dependency.</li><li>Method function module dependency.</li><li>Method parameter reference table dependency.</li><li>Method exception message class dependency.</li><li>Supertype dependency.</li></ul> |
+| `SOTR` | <ul><li>Object without any possible dependency</li></ul> |
 | `SRVB` | <ul><li>Bound service definition dependency detected.</li></ul> |
 | `SRVD` | <ul><li>Primary exposed CDS entity dependency detected.</li><li>Dependent exposed CDS entity dependency detected.</li></ul> |
 | `SSFO` | <ul><li>Smart Style dependency.</li><li>Interface parameter structure dependency.</li><li>Interface parameter data element dependency.</li><li>Program-lines function group dependency.</li><li>Program-lines function module dependency.</li><li>Global data table type dependency.</li><li>Global data class reference dependency.</li><li>Text module dependency.</li></ul> |
@@ -92,5 +93,7 @@ This section lists dependency behavior exercised by this corpus's tests. It is n
 | `TTYP` | <ul><li>Structured row-type dependency.</li><li>Elementary row-type dependency.</li></ul> |
 | `TYPE` | <ul><li>Object without any possible dependency</li></ul> |
 | `VCLS` | <ul><li>Header member table dependency.</li><li>Dependent member table dependency.</li><li>Generated transport object dependency.</li><li>Event FORM routine program dependency.</li><li>Member switch dependency.</li><li>Maintenance view member dependency.</li><li>Base view cluster dependency.</li></ul> |
+| `W3HT` | <ul><li>Object without any possible dependency</li></ul> |
+| `W3MI` | <ul><li>Object without any possible dependency</li></ul> |
 | `WEBI` | <ul><li>Function-module endpoint function group dependency.</li><li>Interface type data element dependency.</li><li>Function-group endpoint dependency.</li><li>BAPI endpoint business object dependency.</li></ul> |
 | `XSLT` | <ul><li>Included transformation dependency detected.</li><li>Typed DDIC root dependency detected.</li></ul> |
