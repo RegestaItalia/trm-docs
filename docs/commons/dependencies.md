@@ -76,6 +76,7 @@ This section lists dependency behavior exercised by this corpus's tests. It is n
 | `SHLP` | <ul><li>Selection-method dependency.</li><li>Parameter data-element dependency.</li><li>Included search-help dependency.</li></ul> |
 | `SHMA` | <ul><li>Root class dependency.</li><li>Generated area class dependency.</li><li>Area constructor class dependency.</li></ul> |
 | `SICF` | <ul><li>HTTP handler-class dependency.</li><li>Service alias/reference dependency.</li><li>Parent-child service hierarchy dependency.</li></ul> |
+| `SMIM` | <ul><li>Parent MIME folder dependency.</li><li>Owning BSP application dependency.</li></ul> |
 | `SOBJ` | <ul><li>Implementing program dependency.</li><li>Key field reference table dependency.</li><li>Implemented interface type dependency.</li><li>Object-reference attribute type dependency.</li><li>Method function group dependency.</li><li>Method function module dependency.</li><li>Method parameter reference table dependency.</li><li>Method exception message class dependency.</li><li>Supertype dependency.</li></ul> |
 | `SOTR` | <ul><li>Object without any possible dependency</li></ul> |
 | `SRVB` | <ul><li>Bound service definition dependency detected.</li></ul> |
@@ -95,5 +96,8 @@ This section lists dependency behavior exercised by this corpus's tests. It is n
 | `VCLS` | <ul><li>Header member table dependency.</li><li>Dependent member table dependency.</li><li>Generated transport object dependency.</li><li>Event FORM routine program dependency.</li><li>Member switch dependency.</li><li>Maintenance view member dependency.</li><li>Base view cluster dependency.</li></ul> |
 | `W3HT` | <ul><li>Object without any possible dependency</li></ul> |
 | `W3MI` | <ul><li>Object without any possible dependency</li></ul> |
+| `WAPA` | <ul><li>Application class dependency.</li><li>Controller class dependency.</li><li>Page attribute type data element dependency.</li><li>BSP extension dependency.</li><li>Included page fragment application dependency.</li><li>OTR text package dependency.</li><li>Event handler function call function group dependency.</li><li>Theme dependency.</li></ul> |
+| `WDCA` | <ul><li>Configured application dependency.</li><li>Assigned component configuration dependency.</li></ul> |
+| `WDCC` | <ul><li>Configured component dependency.</li><li>FPM UIBB component dependency.</li><li>FPM UIBB configuration dependency.</li><li>FPM feeder class dependency.</li><li>Adaptation parent configuration dependency.</li></ul> |
 | `WEBI` | <ul><li>Function-module endpoint function group dependency.</li><li>Interface type data element dependency.</li><li>Function-group endpoint dependency.</li><li>BAPI endpoint business object dependency.</li></ul> |
 | `XSLT` | <ul><li>Included transformation dependency detected.</li><li>Typed DDIC root dependency detected.</li></ul> |

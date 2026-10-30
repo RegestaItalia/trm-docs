@@ -259,9 +259,9 @@
 
   <text x="40" y="1540" class="object">SMIM</text>
   <rect x="150" y="1526" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="1526" width="410" height="18" rx="9" fill="#cf222e"/>
-  <text x="620" y="1540" text-anchor="end" class="value">0/2</text>
-  <text x="680" y="1540" text-anchor="end" class="value">0%</text>
+  <rect x="150" y="1526" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="1540" text-anchor="end" class="value">2/2</text>
+  <text x="680" y="1540" text-anchor="end" class="value">100%</text>
 
   <text x="40" y="1576" class="object">SOBJ</text>
   <rect x="150" y="1562" width="410" height="18" rx="9" class="track"/>
@@ -379,21 +379,21 @@
 
   <text x="40" y="2260" class="object">WAPA</text>
   <rect x="150" y="2246" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="2246" width="102.5" height="18" rx="9" fill="#bf8700"/>
-  <text x="620" y="2260" text-anchor="end" class="value">2/8</text>
-  <text x="680" y="2260" text-anchor="end" class="value">25%</text>
+  <rect x="150" y="2246" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="2260" text-anchor="end" class="value">8/8</text>
+  <text x="680" y="2260" text-anchor="end" class="value">100%</text>
 
   <text x="40" y="2296" class="object">WDCA</text>
   <rect x="150" y="2282" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="2282" width="410" height="18" rx="9" fill="#cf222e"/>
-  <text x="620" y="2296" text-anchor="end" class="value">0/2</text>
-  <text x="680" y="2296" text-anchor="end" class="value">0%</text>
+  <rect x="150" y="2282" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="2296" text-anchor="end" class="value">2/2</text>
+  <text x="680" y="2296" text-anchor="end" class="value">100%</text>
 
   <text x="40" y="2332" class="object">WDCC</text>
   <rect x="150" y="2318" width="410" height="18" rx="9" class="track"/>
-  <rect x="150" y="2318" width="82.0" height="18" rx="9" fill="#bf8700"/>
-  <text x="620" y="2332" text-anchor="end" class="value">1/5</text>
-  <text x="680" y="2332" text-anchor="end" class="value">20%</text>
+  <rect x="150" y="2318" width="410.0" height="18" rx="9" fill="#2da44e"/>
+  <text x="620" y="2332" text-anchor="end" class="value">5/5</text>
+  <text x="680" y="2332" text-anchor="end" class="value">100%</text>
 
   <text x="40" y="2368" class="object">WEBI</text>
   <rect x="150" y="2354" width="410" height="18" rx="9" class="track"/>
