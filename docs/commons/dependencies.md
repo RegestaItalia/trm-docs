@@ -40,9 +40,6 @@ This section lists dependency behavior exercised by this corpus's tests. It is n
 | `AUTH` | <ul><li>Field data element dependency.</li><li>Check table dependency.</li></ul> |
 | `BDEF` | <ul><li>Root-entity dependency.</li><li>Persistent-table dependency.</li><li>Behavior-pool dependency.</li></ul> |
 | `CHDO` | <ul><li>Maintained table dependency detected.</li><li>Reference table dependency detected.</li><li>Generated update function group detected.</li><li>Generated writer class detected.</li></ul> |
-| `CHKC` | <ul><li>Parent check category dependency.</li></ul> |
-| `CHKO` | <ul><li>Check category dependency.</li><li>Implementing check class dependency.</li></ul> |
-| `CHKV` | <ul><li>Included check dependency.</li><li>Referenced check variant dependency.</li></ul> |
 | `CLAS` | <ul><li>Superclass inheritance dependency.</li><li>Interface implementation dependency.</li><li>DDIC method-signature dependency.</li><li>Static method-call dependency.</li><li>Number-range dependency through a function-module parameter.</li><li>Dialog-text dependency through a function-module parameter.</li></ul> |
 | `CMOD` | <ul><li>Assigned SAP enhancement dependency.</li></ul> |
 | `DCLS` | <ul><li>Protected CDS target dependency detected.</li></ul> |
@@ -67,14 +64,12 @@ This section lists dependency behavior exercised by this corpus's tests. It is n
 | `MSAG` | <ul><li>Object without any possible dependency</li></ul> |
 | `NROB` | <ul><li>Number-length domain dependency.</li><li>Subobject data-element dependency.</li><li>Group-table dependency.</li><li>Element text-table dependency.</li><li>Populated-interval number-length domain dependency.</li></ul> |
 | `PARA` | <ul><li>Object without any possible dependency</li></ul> |
-| `PINF` | <ul><li>Exposed class element dependency.</li><li>Exposed data element dependency.</li><li>Exposed function module function group dependency.</li><li>Nested package interface dependency.</li><li>Deprecation replacement object dependency.</li><li>Permitted client package dependency.</li></ul> |
 | `PROG` | <ul><li>DDIC type dependency.</li><li>Static method-call dependency.</li><li>Function-module call dependency.</li><li>Executable-program submission dependency.</li><li>Source-include dependency.</li></ul> |
 | `SAMC` | <ul><li>Authorized program dependency.</li><li>Authorized class dependency.</li></ul> |
 | `SAPC` | <ul><li>Generated handler class dependency.</li><li>Generated ICF service dependency.</li></ul> |
 | `SFPF` | <ul><li>Form interface dependency.</li><li>Inbound handler class dependency.</li><li>Text module dependency.</li></ul> |
 | `SFPI` | <ul><li>Import parameter structure dependency.</li><li>Import parameter data element dependency.</li><li>Global data table type dependency.</li><li>Code initialization function group dependency.</li><li>Code initialization function module dependency.</li></ul> |
 | `SHLP` | <ul><li>Selection-method dependency.</li><li>Parameter data-element dependency.</li><li>Included search-help dependency.</li></ul> |
-| `SHMA` | <ul><li>Root class dependency.</li><li>Generated area class dependency.</li><li>Area constructor class dependency.</li></ul> |
 | `SICF` | <ul><li>HTTP handler-class dependency.</li><li>Service alias/reference dependency.</li><li>Parent-child service hierarchy dependency.</li></ul> |
 | `SOBJ` | <ul><li>Implementing program dependency.</li><li>Key field reference table dependency.</li><li>Implemented interface type dependency.</li><li>Object-reference attribute type dependency.</li><li>Method function group dependency.</li><li>Method function module dependency.</li><li>Method parameter reference table dependency.</li><li>Method exception message class dependency.</li><li>Supertype dependency.</li></ul> |
 | `SOTR` | <ul><li>Object without any possible dependency</li></ul> |
@@ -83,7 +78,6 @@ This section lists dependency behavior exercised by this corpus's tests. It is n
 | `SSFO` | <ul><li>Smart Style dependency.</li><li>Interface parameter structure dependency.</li><li>Interface parameter data element dependency.</li><li>Program-lines function group dependency.</li><li>Program-lines function module dependency.</li><li>Global data table type dependency.</li><li>Global data class reference dependency.</li><li>Text module dependency.</li></ul> |
 | `SSST` | <ul><li>Object without any possible dependency</li></ul> |
 | `SUSC` | <ul><li>Object without any possible dependency</li></ul> |
-| `SUSH` | <ul><li>Hashed application object dependency.</li><li>Proposed authorization object dependency.</li><li>RFC function module function group dependency.</li></ul> |
 | `SUSO` | <ul><li>Authorization field dependency.</li><li>Authorization object class dependency.</li><li>Object field search help dependency.</li></ul> |
 | `SXCI` | <ul><li>Implemented BAdI definition dependency.</li><li>Implementing class dependency.</li><li>Subscreen implementing program dependency.</li><li>Migration enhancement implementation dependency.</li></ul> |
 | `SXSD` | <ul><li>BAdI interface dependency.</li><li>Generated adapter class dependency.</li><li>Filter type data element dependency.</li><li>Default implementation class dependency.</li><li>Example implementation class dependency.</li><li>Filter type structure dependency.</li><li>Menu enhancement program dependency.</li><li>Screen enhancement calling program dependency.</li><li>Migration enhancement spot dependency.</li></ul> |
@@ -95,5 +89,4 @@ This section lists dependency behavior exercised by this corpus's tests. It is n
 | `VCLS` | <ul><li>Header member table dependency.</li><li>Dependent member table dependency.</li><li>Generated transport object dependency.</li><li>Event FORM routine program dependency.</li><li>Member switch dependency.</li><li>Maintenance view member dependency.</li><li>Base view cluster dependency.</li></ul> |
 | `W3HT` | <ul><li>Object without any possible dependency</li></ul> |
 | `W3MI` | <ul><li>Object without any possible dependency</li></ul> |
-| `WEBI` | <ul><li>Function-module endpoint function group dependency.</li><li>Interface type data element dependency.</li><li>Function-group endpoint dependency.</li><li>BAPI endpoint business object dependency.</li></ul> |
 | `XSLT` | <ul><li>Included transformation dependency detected.</li><li>Typed DDIC root dependency detected.</li></ul> |
