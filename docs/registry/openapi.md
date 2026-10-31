@@ -171,7 +171,10 @@ compute diffs asynchronously: while the diff is not ready it answers `202`
 with a progress object whose `progress_pool_url` the client polls (the same
 pattern as publication). When polling reports `current_step == steps`,
 `data.diff_url` is the URL to request the diff from; `data.error` reports a
-failure. A registry that does not support diffs answers `501`.
+failure. A registry that does not support diffs answers `501`. A registry
+may restrict diffs to some accounts: it then answers `401` to anonymous
+callers and `402` to accounts whose plan does not include them; the
+`progress_pool_url` follows the same rule.
 
 #### Parameters
 
@@ -190,6 +193,7 @@ failure. A registry that does not support diffs answers `501`.
 | 302 | The diff report is available at the `Location` URL (a `200` response with a `Diff` body)<br> |  |
 | 400 | Request failed | **application/json**: [Error](#error-schema)<br> |
 | 401 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 402 | The account's plan does not include release diffs (`code` `PRO_PLAN_REQUIRED`) | **application/json**: [Error](#error-schema)<br> |
 | 404 | Request failed | **application/json**: [Error](#error-schema)<br> |
 | 409 | A release cannot be compared (`code` `diff_unavailable`) | **application/json**: [Error](#error-schema)<br> |
 | 422 | The comparison failed (`code` `diff_failed`) or exceeds the registry's size limits (`code` `diff_too_large`) | **application/json**: [Error](#error-schema)<br> |
@@ -221,6 +225,7 @@ Endpoint for deletion transport. Its description (E07T) is the source's with the
 | 200 | The deletion transport is ready to download, or `empty` is true because nothing remains to delete; then no download is offered. | **application/json**: [DeletionTransportDownload](#deletiontransportdownload-schema)<br> |
 | 400 | Request failed | **application/json**: [Error](#error-schema)<br> |
 | 401 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 402 | The account's plan does not include transport deletion (`code` `PRO_PLAN_REQUIRED`) | **application/json**: [Error](#error-schema)<br> |
 | 403 | Request failed | **application/json**: [Error](#error-schema)<br> |
 | 404 | Request failed | **application/json**: [Error](#error-schema)<br> |
 | 409 | Request failed | **application/json**: [Error](#error-schema)<br> |

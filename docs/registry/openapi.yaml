@@ -163,7 +163,10 @@ paths:
         with a progress object whose `progress_pool_url` the client polls (the same
         pattern as publication). When polling reports `current_step == steps`,
         `data.diff_url` is the URL to request the diff from; `data.error` reports a
-        failure. A registry that does not support diffs answers `501`.
+        failure. A registry that does not support diffs answers `501`. A registry
+        may restrict diffs to some accounts: it then answers `401` to anonymous
+        callers and `402` to accounts whose plan does not include them; the
+        `progress_pool_url` follows the same rule.
       security: [{}, { basicAuth: [] }, { bearerAuth: [] }]
       responses:
         '200':
@@ -187,6 +190,11 @@ paths:
               schema: { type: string, format: uri }
         '400': { $ref: '#/components/responses/Error' }
         '401': { $ref: '#/components/responses/Error' }
+        '402':
+          description: The account's plan does not include release diffs (`code` `PRO_PLAN_REQUIRED`)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
         '404': { $ref: '#/components/responses/Error' }
         '409':
           description: A release cannot be compared (`code` `diff_unavailable`)
@@ -226,6 +234,11 @@ paths:
               schema: { $ref: '#/components/schemas/DeletionTransportDownload' }
         '400': { $ref: '#/components/responses/Error' }
         '401': { $ref: '#/components/responses/Error' }
+        '402':
+          description: The account's plan does not include transport deletion (`code` `PRO_PLAN_REQUIRED`)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
         '403': { $ref: '#/components/responses/Error' }
         '404': { $ref: '#/components/responses/Error' }
         '409': { $ref: '#/components/responses/Error' }
