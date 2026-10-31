@@ -141,6 +141,66 @@ paths:
         '503': { $ref: '#/components/responses/Error' }
         '504': { $ref: '#/components/responses/Error' }
         default: { $ref: '#/components/responses/Error' }
+  /diff/{package}:
+    parameters:
+      - $ref: '#/components/parameters/Package'
+      - name: from
+        in: query
+        required: true
+        description: Release version to compare from (the older side).
+        schema: { type: string }
+      - name: to
+        in: query
+        required: true
+        description: Release version to compare to (the newer side). Must differ from `from`.
+        schema: { type: string }
+    get:
+      operationId: getDiff
+      summary: Get the differences between two releases of a package
+      description: |
+        Optional capability. Comparing releases can take time, so a registry may
+        compute diffs asynchronously: while the diff is not ready it answers `202`
+        with a progress object whose `progress_pool_url` the client polls (the same
+        pattern as publication). When polling reports `current_step == steps`,
+        `data.diff_url` is the URL to request the diff from; `data.error` reports a
+        failure. A registry that does not support diffs answers `501`.
+      security: [{}, { basicAuth: [] }, { bearerAuth: [] }]
+      responses:
+        '200':
+          description: The diff report
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Diff' }
+        '202':
+          description: The diff is being computed; poll `progress_pool_url`
+          headers:
+            Retry-After:
+              description: Suggested polling delay in seconds.
+              schema: { type: integer, minimum: 0 }
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/DiffProgress' }
+        '302':
+          description: The diff report is available at the `Location` URL (a `200` response with a `Diff` body)
+          headers:
+            Location:
+              schema: { type: string, format: uri }
+        '400': { $ref: '#/components/responses/Error' }
+        '401': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409':
+          description: A release cannot be compared (`code` `diff_unavailable`)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+        '422':
+          description: The comparison failed (`code` `diff_failed`) or exceeds the registry's size limits (`code` `diff_too_large`)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+        '501': { $ref: '#/components/responses/Error' }
+        default: { $ref: '#/components/responses/Error' }
   /delete:
     post:
       operationId: createDeletionTransport
@@ -331,6 +391,9 @@ components:
       required: [message]
       properties:
         message: { type: string }
+        code:
+          type: string
+          description: Optional machine-readable error code.
     Ping:
       type: object
       required: [authentication_type]
@@ -647,6 +710,91 @@ components:
         current_step_message:
           type: string
           description: Optional description of the current publication step.
+    DiffProgress:
+      type: object
+      required: [progress_pool_url, steps, current_step]
+      properties:
+        progress_pool_url:
+          type: string
+          format: uri
+          description: URL to poll for diff progress; it answers with this same object.
+        steps:
+          type: integer
+          minimum: 0
+          description: Total number of steps. The diff is ready when `current_step` equals `steps`.
+        current_step:
+          type: integer
+          minimum: 0
+        current_step_message:
+          type: string
+        data:
+          type: object
+          additionalProperties: true
+          properties:
+            diff_url:
+              type: string
+              format: uri
+              description: Set when the diff is ready; request it to obtain the report.
+            error:
+              type: string
+              description: Set when the comparison failed; polling can stop.
+            code:
+              type: string
+              enum: [diff_failed, diff_too_large]
+    Diff:
+      type: object
+      description: |
+        A `trm.transport-log-diff` report. Objects of the package are listed with
+        an `added`, `removed`, `modified`, `unchanged` or `indeterminate` status;
+        `entries` hold the changed content of each object. Clients must ignore
+        unknown properties and check `format` and `version`.
+      required: [format, version, summary, objects, entries]
+      additionalProperties: true
+      properties:
+        format: { type: string, const: trm.transport-log-diff }
+        version: { type: integer, minimum: 1 }
+        comparison: { type: object, additionalProperties: true }
+        before: { type: object, additionalProperties: true }
+        after: { type: object, additionalProperties: true }
+        summary:
+          type: object
+          additionalProperties: true
+          properties:
+            objects:
+              type: object
+              additionalProperties: { type: integer }
+            entries:
+              type: object
+              additionalProperties: { type: integer }
+            changedEntries: { type: integer, minimum: 0 }
+        objects:
+          type: array
+          items:
+            type: object
+            required: [id, type, name, status]
+            additionalProperties: true
+            properties:
+              id: { type: string }
+              pgmid: { type: string }
+              type: { type: string }
+              name: { type: string }
+              status: { type: string, enum: [added, removed, modified, unchanged, indeterminate] }
+              entryIds:
+                type: array
+                items: { type: string }
+              fidelity: { type: string, enum: [exact, rendered] }
+        entries:
+          type: array
+          items:
+            type: object
+            required: [id, objectId, kind, status]
+            additionalProperties: true
+            properties:
+              id: { type: string }
+              objectId: { type: string }
+              kind: { type: string }
+              name: { type: string }
+              status: { type: string, enum: [added, removed, modified, indeterminate] }
     DeprecationRequest:
       type: object
       required: [deprecate_note]

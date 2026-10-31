@@ -163,6 +163,48 @@ Downloads the canonical transports.
 | basicAuth |  |
 | bearerAuth |  |
 
+### [GET] /diff/{package}
+**Get the differences between two releases of a package**
+
+Optional capability. Comparing releases can take time, so a registry may
+compute diffs asynchronously: while the diff is not ready it answers `202`
+with a progress object whose `progress_pool_url` the client polls (the same
+pattern as publication). When polling reports `current_step == steps`,
+`data.diff_url` is the URL to request the diff from; `data.error` reports a
+failure. A registry that does not support diffs answers `501`.
+
+#### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ------ |
+| package | path | A package identifier appended exactly as supplied by RegistryV2. It may contain path separators; do not percent-encode `/` within the identifier. | Yes | string |
+| from | query | Release version to compare from (the older side). | Yes | string |
+| to | query | Release version to compare to (the newer side). Must differ from `from`. | Yes | string |
+
+#### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 200 | The diff report | **application/json**: [Diff](#diff-schema)<br> |
+| 202 | The diff is being computed; poll `progress_pool_url`<br>**Headers:**<br>**Retry-After**: Suggested polling delay in seconds.<br> | **application/json**: [DiffProgress](#diffprogress-schema)<br> |
+| 302 | The diff report is available at the `Location` URL (a `200` response with a `Diff` body)<br> |  |
+| 400 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 401 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 404 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 409 | A release cannot be compared (`code` `diff_unavailable`) | **application/json**: [Error](#error-schema)<br> |
+| 422 | The comparison failed (`code` `diff_failed`) or exceeds the registry's size limits (`code` `diff_too_large`) | **application/json**: [Error](#error-schema)<br> |
+| 429 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 501 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| default | Request failed | **application/json**: [Error](#error-schema)<br> |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| None (anonymous) |  |
+| basicAuth |  |
+| bearerAuth |  |
+
 ### [POST] /delete
 Endpoint for deletion transport. Its description (E07T) is the source's with the TRM kind set to DELE: `@X1@TRM [(<kind>) ]<package> <version>` becomes `@X1@TRM (DELE) <package> <version>` (60 characters at most); other descriptions are kept. trm-core names the `target` dummy with the same rule.
 
@@ -355,6 +397,7 @@ Endpoint for deletion transport. Its description (E07T) is the source's with the
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | message | string |  | Yes |
+| code | string | Optional machine-readable error code. | No |
 
 #### Ping Schema
 
@@ -540,6 +583,34 @@ What the deletion transport deletes: object entries (CTS comments, language entr
 | steps | integer | Total number of publication steps. | Yes |
 | current_step | integer | Current publication step. | Yes |
 | current_step_message | string | Optional description of the current publication step. | No |
+
+#### DiffProgress Schema
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| progress_pool_url | string (uri) | URL to poll for diff progress; it answers with this same object. | Yes |
+| steps | integer | Total number of steps. The diff is ready when `current_step` equals `steps`. | Yes |
+| current_step | integer |  | Yes |
+| current_step_message | string |  | No |
+| data | { **"diff_url"**: string (uri), **"error"**: string, **"code"**: string, <br>**Available values:** "diff_failed", "diff_too_large" } |  | No |
+
+#### Diff Schema
+
+A `trm.transport-log-diff` report. Objects of the package are listed with
+an `added`, `removed`, `modified`, `unchanged` or `indeterminate` status;
+`entries` hold the changed content of each object. Clients must ignore
+unknown properties and check `format` and `version`.
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| format | string |  | Yes |
+| version | integer |  | Yes |
+| comparison | object |  | No |
+| before | object |  | No |
+| after | object |  | No |
+| summary | { **"objects"**: object, **"entries"**: object, **"changedEntries"**: integer } |  | Yes |
+| objects | [ { **"id"**: string, **"pgmid"**: string, **"type"**: string, **"name"**: string, **"status"**: string, <br>**Available values:** "added", "removed", "modified", "unchanged", "indeterminate", **"entryIds"**: [ string ], **"fidelity"**: string, <br>**Available values:** "exact", "rendered" } ] |  | Yes |
+| entries | [ { **"id"**: string, **"objectId"**: string, **"kind"**: string, **"name"**: string, **"status"**: string, <br>**Available values:** "added", "removed", "modified", "indeterminate" } ] |  | Yes |
 
 #### DeprecationRequest Schema
 
