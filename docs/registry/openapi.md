@@ -17,7 +17,7 @@ Call `GET /` before authenticating. Its `authentication_type` selects
 unauthenticated, HTTP Basic, bearer-token, or OAuth2 authentication for
 subsequent operations.
 
-## Version: 5.0.0
+## Version: 5.1.0
 
 ### Servers
 
@@ -90,6 +90,46 @@ Implement this operation only when ping reports `OAUTH2` authentication.
 | ---- | ----------- | ------ |
 | 200 | One comparison result per supplied item | **application/json**: [ [VersionComparison](#versioncomparison-schema) ]<br> |
 | 400 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| default | Request failed | **application/json**: [Error](#error-schema)<br> |
+
+##### Security
+
+| Security Schema | Scopes |
+| --------------- | ------ |
+| None (anonymous) |  |
+| basicAuth |  |
+| bearerAuth |  |
+
+### [HEAD] /telemetry
+**Check whether the registry accepts telemetry**
+
+Optional operation. Clients send telemetry only when this probe answers with a 2xx status; registries that don't collect telemetry need not implement either `/telemetry` operation.
+
+#### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 204 | Telemetry is accepted |
+| 404 | Telemetry is not supported |
+
+### [POST] /telemetry
+**Submit an opt-in, anonymous telemetry event**
+
+Optional operation, sent only when the user opted in. Events contain no system identifiers, user names, credentials, or package contents. Clients ignore the response, so registries should answer quickly.
+
+#### Request Body
+
+| Required | Schema |
+| -------- | ------ |
+|  Yes | **application/json**: [TelemetryEvent](#telemetryevent-schema)<br> |
+
+#### Responses
+
+| Code | Description | Schema |
+| ---- | ----------- | ------ |
+| 204 | Event accepted |  |
+| 400 | Request failed | **application/json**: [Error](#error-schema)<br> |
+| 429 | Request failed | **application/json**: [Error](#error-schema)<br> |
 | default | Request failed | **application/json**: [Error](#error-schema)<br> |
 
 ##### Security
@@ -622,3 +662,18 @@ unknown properties and check `format` and `version`.
 | Name | Type | Description | Required |
 | ---- | ---- | ----------- | -------- |
 | deprecate_note | string | Message explaining why the release is deprecated. | Yes |
+
+#### TelemetryEvent Schema
+
+| Name | Type | Description | Required |
+| ---- | ---- | ----------- | -------- |
+| schemaVersion | integer |  | Yes |
+| event | string, <br>**Available values:** "install" |  | Yes |
+| package | { **"name"**: string, **"version"**: string, **"previousVersion"**: string } |  | Yes |
+| outcome | string, <br>**Available values:** "success", "failure" |  | Yes |
+| failure | { **"reason"**: string, <br>**Available values:** "import", "sapEntries", "engines", "dependencies", "other", **"step"**: string, **"rc"**: integer } | Present only when `outcome` is `failure`. | No |
+| durationMs | integer | Duration of the whole action. | Yes |
+| importDurationMs | integer | Duration of the transport import alone. | No |
+| transports | [ { **"type"**: string, <br>**Available values:** "DEVC", "TADIR", "LANG", "CUST", "DELETION", **"rc"**: integer, **"objects"**: object } ] |  | No |
+| system | { **"basisRelease"**: string, **"basisSp"**: string, **"product"**: string, <br>**Available values:** "S4HANA", "BW4HANA", "ECC", "NETWEAVER", **"productRelease"**: string, **"productSp"**: string, **"dbSystem"**: string, **"kernelRelease"**: string } | Non-identifying characteristics of the target SAP system. | Yes |
+| client | { **"core"**: string } |  | No |

@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: TRM Registry API
-  version: 5.0.0
+  version: 5.1.0
   description: |
     It describes the
     registry protocol only: endpoint inputs, outputs, and HTTP status codes.
@@ -84,6 +84,38 @@ paths:
                 type: array
                 items: { $ref: '#/components/schemas/VersionComparison' }
         '400': { $ref: '#/components/responses/Error' }
+        default: { $ref: '#/components/responses/Error' }
+  /telemetry:
+    head:
+      operationId: probeTelemetry
+      summary: Check whether the registry accepts telemetry
+      description: >-
+        Optional operation. Clients send telemetry only when this probe answers with a 2xx status;
+        registries that don't collect telemetry need not implement either `/telemetry` operation.
+      security: []
+      responses:
+        '204':
+          description: Telemetry is accepted
+        '404':
+          description: Telemetry is not supported
+    post:
+      operationId: sendTelemetry
+      summary: Submit an opt-in, anonymous telemetry event
+      description: >-
+        Optional operation, sent only when the user opted in. Events contain no system identifiers,
+        user names, credentials, or package contents. Clients ignore the response, so registries
+        should answer quickly.
+      security: [{}, { basicAuth: [] }, { bearerAuth: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/TelemetryEvent' }
+      responses:
+        '204':
+          description: Event accepted
+        '400': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
         default: { $ref: '#/components/responses/Error' }
   /package/{package}:
     parameters:
@@ -815,3 +847,54 @@ components:
         deprecate_note:
           type: string
           description: Message explaining why the release is deprecated.
+    TelemetryEvent:
+      type: object
+      required: [schemaVersion, event, package, outcome, durationMs, system]
+      properties:
+        schemaVersion: { type: integer, const: 1 }
+        event: { type: string, enum: [install] }
+        package:
+          type: object
+          required: [name, version]
+          properties:
+            name: { type: string }
+            version: { type: string, description: Installed release version. }
+            previousVersion: { type: string, description: Version replaced by an update. }
+        outcome: { type: string, enum: [success, failure] }
+        failure:
+          type: object
+          description: Present only when `outcome` is `failure`.
+          required: [reason]
+          properties:
+            reason: { type: string, enum: [import, sapEntries, engines, dependencies, other] }
+            step: { type: string, description: Client workflow step that failed. }
+            rc: { type: integer, description: Return code of the failed transport import. }
+        durationMs: { type: integer, minimum: 0, description: Duration of the whole action. }
+        importDurationMs: { type: integer, minimum: 0, description: Duration of the transport import alone. }
+        transports:
+          type: array
+          items:
+            type: object
+            required: [type]
+            properties:
+              type: { type: string, enum: [DEVC, TADIR, LANG, CUST, DELETION] }
+              rc: { type: integer, description: Import return code. }
+              objects:
+                type: object
+                description: Number of transport entries per object type.
+                additionalProperties: { type: integer, minimum: 0 }
+        system:
+          type: object
+          description: Non-identifying characteristics of the target SAP system.
+          properties:
+            basisRelease: { type: string }
+            basisSp: { type: string }
+            product: { type: string, enum: [S4HANA, BW4HANA, ECC, NETWEAVER] }
+            productRelease: { type: string }
+            productSp: { type: string }
+            dbSystem: { type: string }
+            kernelRelease: { type: string }
+        client:
+          type: object
+          properties:
+            core: { type: string, description: trm-core version. }
