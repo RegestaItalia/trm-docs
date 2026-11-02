@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: TRM Registry API
-  version: 5.1.0
+  version: 5.2.0
   description: |
     It describes the
     registry protocol only: endpoint inputs, outputs, and HTTP status codes.
@@ -12,6 +12,16 @@ info:
     Call `GET /` before authenticating. Its `authentication_type` selects
     unauthenticated, HTTP Basic, bearer-token, or OAuth2 authentication for
     subsequent operations.
+
+    Optional operations: the navigation operations (`/search`,
+    `/package/info/{package}`, `/package/readme/{package}`,
+    `/package/manifest/{package}`, `/package/namespace/{package}`) let clients
+    browse a registry. Registries are not required to implement them; a
+    registry that does not support one answers `501` (a `404` or `405` without
+    an `Error` body is also treated as unsupported). Clients must degrade
+    gracefully. When implemented, anonymous callers see public data; a
+    supplied credential that cannot authenticate fails the request instead of
+    being ignored.
 servers:
   - url: https://registry.example.com/
 security:
@@ -133,6 +143,118 @@ paths:
               schema: { $ref: '#/components/schemas/Package' }
         '400': { $ref: '#/components/responses/Error' }
         '404': { $ref: '#/components/responses/Error' }
+        default: { $ref: '#/components/responses/Error' }
+  /search:
+    get:
+      operationId: search
+      summary: Search packages
+      description: >-
+        Optional. Paginated package search. At least one of `q`, `keywords`,
+        `maintainers` or `organizations` is required. No match is a `200`
+        with an empty `results` array.
+      security: [{}, { basicAuth: [] }, { bearerAuth: [] }]
+      parameters:
+        - { name: q, in: query, required: false, description: Free text query., schema: { type: string } }
+        - { name: keywords, in: query, required: false, description: Comma-separated keywords; packages must match all., schema: { type: string } }
+        - { name: maintainers, in: query, required: false, description: Comma-separated maintainer (user or organization) names., schema: { type: string } }
+        - { name: organizations, in: query, required: false, description: Comma-separated organization names., schema: { type: string } }
+        - { name: sort, in: query, required: false, schema: { type: string, enum: [relevance, downloads, name, updated], default: relevance } }
+        - { name: page, in: query, required: false, description: 1-based page number., schema: { type: integer, minimum: 1, default: 1 } }
+        - { name: limit, in: query, required: false, description: Page size., schema: { type: integer, minimum: 1, maximum: 25, default: 25 } }
+      responses:
+        '200':
+          description: Search result page
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Search' }
+        '400': { $ref: '#/components/responses/Error' }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '501': { $ref: '#/components/responses/Error' }
+        default: { $ref: '#/components/responses/Error' }
+  /package/info/{package}:
+    parameters:
+      - $ref: '#/components/parameters/Package'
+      - $ref: '#/components/parameters/Version'
+    get:
+      operationId: getPackageInfo
+      summary: Get package release navigation metadata
+      description: Optional. Metadata of the selected release, its versions and distribution tags.
+      security: [{}, { basicAuth: [] }, { bearerAuth: [] }]
+      responses:
+        '200':
+          description: Get package release navigation metadata
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/PackageInfo' }
+        '400': { $ref: '#/components/responses/Error' }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '501': { $ref: '#/components/responses/Error' }
+        default: { $ref: '#/components/responses/Error' }
+  /package/readme/{package}:
+    parameters:
+      - $ref: '#/components/parameters/Package'
+      - $ref: '#/components/parameters/Version'
+    get:
+      operationId: getPackageReadme
+      summary: Get package release README
+      description: Optional. `readme` is `null` when the release has no README.
+      security: [{}, { basicAuth: [] }, { bearerAuth: [] }]
+      responses:
+        '200':
+          description: Get package release README
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Readme' }
+        '400': { $ref: '#/components/responses/Error' }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '501': { $ref: '#/components/responses/Error' }
+        default: { $ref: '#/components/responses/Error' }
+  /package/manifest/{package}:
+    parameters:
+      - $ref: '#/components/parameters/Package'
+      - $ref: '#/components/parameters/Version'
+    get:
+      operationId: getPackageManifest
+      summary: Get package release manifest
+      description: Optional. The complete release manifest, including post activities.
+      security: [{}, { basicAuth: [] }, { bearerAuth: [] }]
+      responses:
+        '200':
+          description: Get package release manifest
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/PackageManifest' }
+        '400': { $ref: '#/components/responses/Error' }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '501': { $ref: '#/components/responses/Error' }
+        default: { $ref: '#/components/responses/Error' }
+  /package/namespace/{package}:
+    parameters:
+      - $ref: '#/components/parameters/Package'
+      - $ref: '#/components/parameters/Version'
+    get:
+      operationId: getPackageNamespace
+      summary: Get package release namespace
+      description: Optional. `404` when the release ships no namespace.
+      security: [{}, { basicAuth: [] }, { bearerAuth: [] }]
+      responses:
+        '200':
+          description: Get package release namespace
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Namespace' }
+        '400': { $ref: '#/components/responses/Error' }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '501': { $ref: '#/components/responses/Error' }
         default: { $ref: '#/components/responses/Error' }
   /transport/{trkorr}:
     description: Endpoint for registry transport.
@@ -898,3 +1020,106 @@ components:
           type: object
           properties:
             core: { type: string, description: trm-core version. }
+    Maintainer:
+      type: object
+      required: [name, type]
+      properties:
+        name: { type: string }
+        type: { type: string, enum: [user, organization] }
+    SearchResultItem:
+      type: object
+      required: [name, version, maintainers, release_date, downloads, private]
+      properties:
+        name: { type: string }
+        version: { type: string }
+        description: { type: string }
+        license: { type: string }
+        maintainers:
+          type: array
+          items: { $ref: '#/components/schemas/Maintainer' }
+        release_date: { type: string, format: date-time }
+        downloads: { type: integer, minimum: 0 }
+        private: { type: boolean }
+    Search:
+      type: object
+      required: [total, page, limit, results]
+      properties:
+        total: { type: integer, minimum: 0, description: Matching packages across all pages. }
+        page: { type: integer, minimum: 1 }
+        limit: { type: integer, minimum: 1 }
+        results:
+          type: array
+          items: { $ref: '#/components/schemas/SearchResultItem' }
+    PackageInfo:
+      type: object
+      required: [name, version, release_date, private, deprecated, keywords, maintainers, downloads, versions, version_dates, yanked_versions, dist_tags, dependencies, has_namespace]
+      properties:
+        name: { type: string }
+        version: { type: string }
+        description: { type: string }
+        license: { type: string }
+        release_date: { type: string, format: date-time }
+        private: { type: boolean }
+        deprecated: { type: boolean }
+        deprecated_message: { type: string }
+        website: { type: string }
+        git: { type: string }
+        keywords:
+          type: array
+          items: { type: string }
+        maintainers:
+          type: array
+          items: { $ref: '#/components/schemas/Maintainer' }
+        downloads: { type: integer, minimum: 0 }
+        versions:
+          type: array
+          items: { type: string }
+        version_dates:
+          type: object
+          additionalProperties: { type: string }
+        yanked_versions:
+          type: array
+          items: { type: string }
+        dist_tags:
+          type: object
+          additionalProperties: { type: string }
+        dependencies:
+          type: array
+          items:
+            type: object
+            required: [name, version]
+            properties:
+              name: { type: string }
+              version: { type: string, description: Version range. }
+        has_namespace: { type: boolean }
+    Readme:
+      type: object
+      required: [name, version, readme]
+      properties:
+        name: { type: string }
+        version: { type: string }
+        readme: { type: [string, 'null'], description: Markdown source. }
+    PackageManifest:
+      type: object
+      required: [name, version, manifest]
+      properties:
+        name: { type: string }
+        version: { type: string }
+        manifest:
+          type: object
+          additionalProperties: true
+          description: Artifact-defined release manifest.
+    Namespace:
+      type: object
+      required: [namespace, descriptions]
+      properties:
+        namespace: { type: string }
+        descriptions:
+          type: array
+          items:
+            type: object
+            required: [language, description]
+            properties:
+              language: { type: string }
+              description: { type: string }
+              owner: { type: string }
