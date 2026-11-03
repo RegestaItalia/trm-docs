@@ -39,24 +39,24 @@ This section lists dependency behavior exercised by this corpus's tests. It is n
 | `ACID` | <ul><li>Object without any possible dependency</li></ul> |
 | `AUTH` | <ul><li>Field data element dependency.</li><li>Check table dependency.</li></ul> |
 | `BDEF` | <ul><li>Root-entity dependency.</li><li>Persistent-table dependency.</li><li>Behavior-pool dependency.</li></ul> |
-| `CHDO` | <ul><li>Maintained table dependency detected.</li><li>Reference table dependency detected.</li><li>Generated update function group detected.</li><li>Generated writer class detected.</li></ul> |
+| `CHDO` | <ul><li>Maintained table dependency.</li><li>Reference table dependency.</li><li>Generated update function group dependency.</li><li>Generated writer class dependency.</li></ul> |
 | `CHKC` | <ul><li>Parent check category dependency.</li></ul> |
 | `CHKO` | <ul><li>Check category dependency.</li><li>Implementing check class dependency.</li></ul> |
 | `CHKV` | <ul><li>Included check dependency.</li><li>Referenced check variant dependency.</li></ul> |
-| `CLAS` | <ul><li>Superclass inheritance dependency.</li><li>Interface implementation dependency.</li><li>DDIC method-signature dependency.</li><li>Static method-call dependency.</li><li>Number-range dependency through a function-module parameter.</li><li>Dialog-text dependency through a function-module parameter.</li></ul> |
+| `CLAS` | <ul><li>Superclass inheritance dependency.</li><li>Interface implementation dependency.</li><li>DDIC method-signature dependency.</li><li>Static method-call dependency.</li><li>Function-module number-range parameter dependency.</li><li>Function-module dialog-text parameter dependency.</li></ul> |
 | `CMOD` | <ul><li>Assigned SAP enhancement dependency.</li></ul> |
-| `DCLS` | <ul><li>Protected CDS target dependency detected.</li></ul> |
-| `DDLS` | <ul><li>Table data-source dependency.</li><li>CDS data-source dependency.</li><li>Table association dependency.</li><li>Multiple table dependencies through an inner join.</li></ul> |
+| `DCLS` | <ul><li>Protected CDS target dependency.</li></ul> |
+| `DDLS` | <ul><li>Table data-source dependency.</li><li>CDS data-source dependency.</li><li>Table association dependency.</li><li>Inner-join table dependencies.</li></ul> |
 | `DDLX` | <ul><li>Metadata-extension target dependency.</li></ul> |
 | `DEVC` | <ul><li>Superpackage dependency.</li><li>Package-interface use-access dependency.</li><li>Application-component dependency.</li><li>Switch-assignment dependency.</li><li>Default-package-interface dependency.</li></ul> |
 | `DIAL` | <ul><li>Module pool program dependency.</li><li>Interface parameter reference table dependency.</li></ul> |
 | `DOMA` | <ul><li>Value-table dependency.</li><li>Conversion-routine function-group dependency.</li><li>Conversion-routine input-function dependency.</li></ul> |
 | `DTEL` | <ul><li>Domain dependency.</li><li>Class reference-type dependency.</li><li>Data-element reference-type dependency.</li><li>Attached search-help dependency.</li></ul> |
 | `ENHC` | <ul><li>Member enhancement implementation dependency.</li><li>Nested composite enhancement implementation dependency.</li></ul> |
-| `ENHO` | <ul><li>BAdI spot assignment is reported.</li><li>BAdI interface contract is reported.</li><li>Implementation class is reported.</li><li>Explicit enhancement spot is reported.</li><li>Explicit enhancement program is reported.</li></ul> |
-| `ENHS` | <ul><li>BAdI interface contract is reported.</li><li>Fallback class is reported.</li></ul> |
-| `ENQU` | <ul><li>Primary-table dependency with activation-generated lock modules.</li></ul> |
-| `ENSC` | <ul><li>Child enhancement spot dependency detected.</li><li>Nested composite enhancement spot dependency detected.</li></ul> |
+| `ENHO` | <ul><li>BAdI spot assignment dependency.</li><li>BAdI interface contract dependency.</li><li>Implementation class dependency.</li><li>Explicit enhancement spot dependency.</li><li>Explicit enhancement program dependency.</li></ul> |
+| `ENHS` | <ul><li>BAdI interface contract dependency.</li><li>Fallback class dependency.</li></ul> |
+| `ENQU` | <ul><li>Primary lock table dependency.</li></ul> |
+| `ENSC` | <ul><li>Child enhancement spot dependency.</li><li>Nested composite enhancement spot dependency.</li></ul> |
 | `FUGR` | <ul><li>DDIC function-module-interface dependency.</li><li>Static method-call dependency.</li><li>Cross-function-group call dependency.</li></ul> |
 | `IDOC` | <ul><li>Segment type dependency.</li><li>Predecessor basic type dependency.</li></ul> |
 | `IEXT` | <ul><li>Extended basic type dependency.</li><li>Extension segment type dependency.</li><li>Predecessor extension dependency.</li></ul> |
@@ -79,8 +79,8 @@ This section lists dependency behavior exercised by this corpus's tests. It is n
 | `SMIM` | <ul><li>Parent MIME folder dependency.</li><li>Owning BSP application dependency.</li></ul> |
 | `SOBJ` | <ul><li>Implementing program dependency.</li><li>Key field reference table dependency.</li><li>Implemented interface type dependency.</li><li>Object-reference attribute type dependency.</li><li>Method function group dependency.</li><li>Method function module dependency.</li><li>Method parameter reference table dependency.</li><li>Method exception message class dependency.</li><li>Supertype dependency.</li></ul> |
 | `SOTR` | <ul><li>Object without any possible dependency</li></ul> |
-| `SRVB` | <ul><li>Bound service definition dependency detected.</li></ul> |
-| `SRVD` | <ul><li>Primary exposed CDS entity dependency detected.</li><li>Dependent exposed CDS entity dependency detected.</li></ul> |
+| `SRVB` | <ul><li>Bound service definition dependency.</li></ul> |
+| `SRVD` | <ul><li>Primary exposed CDS entity dependency.</li><li>Dependent exposed CDS entity dependency.</li></ul> |
 | `SSFO` | <ul><li>Smart Style dependency.</li><li>Interface parameter structure dependency.</li><li>Interface parameter data element dependency.</li><li>Program-lines function group dependency.</li><li>Program-lines function module dependency.</li><li>Global data table type dependency.</li><li>Global data class reference dependency.</li><li>Text module dependency.</li></ul> |
 | `SSST` | <ul><li>Object without any possible dependency</li></ul> |
 | `SUSC` | <ul><li>Object without any possible dependency</li></ul> |
@@ -100,4 +100,4 @@ This section lists dependency behavior exercised by this corpus's tests. It is n
 | `WDCA` | <ul><li>Configured application dependency.</li><li>Assigned component configuration dependency.</li></ul> |
 | `WDCC` | <ul><li>Configured component dependency.</li><li>FPM UIBB component dependency.</li><li>FPM UIBB configuration dependency.</li><li>FPM feeder class dependency.</li><li>Adaptation parent configuration dependency.</li></ul> |
 | `WEBI` | <ul><li>Function-module endpoint function group dependency.</li><li>Interface type data element dependency.</li><li>Function-group endpoint dependency.</li><li>BAPI endpoint business object dependency.</li></ul> |
-| `XSLT` | <ul><li>Included transformation dependency detected.</li><li>Typed DDIC root dependency detected.</li></ul> |
+| `XSLT` | <ul><li>Included transformation dependency.</li><li>Typed DDIC root dependency.</li></ul> |
