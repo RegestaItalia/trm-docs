@@ -180,7 +180,7 @@ Optional operation, sent only when the user opted in. Events contain no system i
 ### [GET] /search
 **Search packages**
 
-Optional. Paginated package search. At least one of `q`, `keywords`, `maintainers` or `organizations` is required. No match is a `200` with an empty `results` array.
+Optional. Paginated package search. A call without `q`, `keywords`, `maintainers` or `organizations` may return a registry-chosen list (for example, popular packages) or be rejected with `400`. No match is a `200` with an empty `results` array.
 
 #### Parameters
 
