@@ -28,7 +28,7 @@ The following table lists objects and scenarios in which TRM can still detect th
 
 ## Supported object types
 
-Dependency detection status reflects behavior in `trm-server >= 8.0.1`; SAP test baseline: `SAP_BASIS 758` SP02, `SAP_ABA 75I` SP02, `S4FND 108` SP02.
+Dependency detection status reflects behavior in `trm-server >= 8.1.0`; SAP test baseline: `SAP_BASIS 758` SP02, `SAP_ABA 75I` SP02, `S4FND 108` SP02.
 
 This section lists dependency behavior exercised by this corpus's tests. It is not an exhaustive statement of support: `trm-server` may support additional object types and dependency mechanisms that are not tested here.
 
