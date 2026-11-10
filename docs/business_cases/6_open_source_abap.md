@@ -49,3 +49,9 @@ ABAP community.
 
 Start with [Publish and install](../examples/1_publish_and_install.md) and review
 the [manifest metadata](../commons/manifest.md) exposed with a release.
+
+## Related guidance
+
+- [Follow the package-manager quick start](../guide/quickstart.md)
+- [Publish a package](../commons/publish.md)
+- [Understand registry authentication](../registry/public/authentication.md)

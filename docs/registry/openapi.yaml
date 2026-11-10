@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: TRM Registry API
-  version: 4.0.0
+  version: 5.2.0
   description: |
     It describes the
     registry protocol only: endpoint inputs, outputs, and HTTP status codes.
@@ -12,6 +12,16 @@ info:
     Call `GET /` before authenticating. Its `authentication_type` selects
     unauthenticated, HTTP Basic, bearer-token, or OAuth2 authentication for
     subsequent operations.
+
+    Optional operations: the navigation operations (`/search`,
+    `/package/info/{package}`, `/package/readme/{package}`,
+    `/package/manifest/{package}`, `/package/namespace/{package}`) let clients
+    browse a registry. Registries are not required to implement them; a
+    registry that does not support one answers `501` (a `404` or `405` without
+    an `Error` body is also treated as unsupported). Clients must degrade
+    gracefully. When implemented, anonymous callers see public data; a
+    supplied credential that cannot authenticate fails the request instead of
+    being ignored.
 servers:
   - url: https://registry.example.com/
 security:
@@ -85,6 +95,38 @@ paths:
                 items: { $ref: '#/components/schemas/VersionComparison' }
         '400': { $ref: '#/components/responses/Error' }
         default: { $ref: '#/components/responses/Error' }
+  /telemetry:
+    head:
+      operationId: probeTelemetry
+      summary: Check whether the registry accepts telemetry
+      description: >-
+        Optional operation. Clients send telemetry only when this probe answers with a 2xx status;
+        registries that don't collect telemetry need not implement either `/telemetry` operation.
+      security: []
+      responses:
+        '204':
+          description: Telemetry is accepted
+        '404':
+          description: Telemetry is not supported
+    post:
+      operationId: sendTelemetry
+      summary: Submit an opt-in, anonymous telemetry event
+      description: >-
+        Optional operation, sent only when the user opted in. Events contain no system identifiers,
+        user names, credentials, or package contents. Clients ignore the response, so registries
+        should answer quickly.
+      security: [{}, { basicAuth: [] }, { bearerAuth: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/TelemetryEvent' }
+      responses:
+        '204':
+          description: Event accepted
+        '400': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+        default: { $ref: '#/components/responses/Error' }
   /package/{package}:
     parameters:
       - $ref: '#/components/parameters/Package'
@@ -101,6 +143,119 @@ paths:
               schema: { $ref: '#/components/schemas/Package' }
         '400': { $ref: '#/components/responses/Error' }
         '404': { $ref: '#/components/responses/Error' }
+        default: { $ref: '#/components/responses/Error' }
+  /search:
+    get:
+      operationId: search
+      summary: Search packages
+      description: >-
+        Optional. Paginated package search. A call without `q`, `keywords`,
+        `maintainers` or `organizations` may return a registry-chosen list
+        (for example, popular packages) or be rejected with `400`. No match
+        is a `200` with an empty `results` array.
+      security: [{}, { basicAuth: [] }, { bearerAuth: [] }]
+      parameters:
+        - { name: q, in: query, required: false, description: Free text query., schema: { type: string } }
+        - { name: keywords, in: query, required: false, description: Comma-separated keywords; packages must match all., schema: { type: string } }
+        - { name: maintainers, in: query, required: false, description: Comma-separated maintainer (user or organization) names., schema: { type: string } }
+        - { name: organizations, in: query, required: false, description: Comma-separated organization names., schema: { type: string } }
+        - { name: sort, in: query, required: false, schema: { type: string, enum: [relevance, downloads, name, updated], default: relevance } }
+        - { name: page, in: query, required: false, description: 1-based page number., schema: { type: integer, minimum: 1, default: 1 } }
+        - { name: limit, in: query, required: false, description: Page size., schema: { type: integer, minimum: 1, maximum: 25, default: 25 } }
+      responses:
+        '200':
+          description: Search result page
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Search' }
+        '400': { $ref: '#/components/responses/Error' }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '501': { $ref: '#/components/responses/Error' }
+        default: { $ref: '#/components/responses/Error' }
+  /package/info/{package}:
+    parameters:
+      - $ref: '#/components/parameters/Package'
+      - $ref: '#/components/parameters/Version'
+    get:
+      operationId: getPackageInfo
+      summary: Get package release navigation metadata
+      description: Optional. Metadata of the selected release, its versions and distribution tags.
+      security: [{}, { basicAuth: [] }, { bearerAuth: [] }]
+      responses:
+        '200':
+          description: Get package release navigation metadata
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/PackageInfo' }
+        '400': { $ref: '#/components/responses/Error' }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '501': { $ref: '#/components/responses/Error' }
+        default: { $ref: '#/components/responses/Error' }
+  /package/readme/{package}:
+    parameters:
+      - $ref: '#/components/parameters/Package'
+      - $ref: '#/components/parameters/Version'
+    get:
+      operationId: getPackageReadme
+      summary: Get package release README
+      description: Optional. `readme` is `null` when the release has no README.
+      security: [{}, { basicAuth: [] }, { bearerAuth: [] }]
+      responses:
+        '200':
+          description: Get package release README
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Readme' }
+        '400': { $ref: '#/components/responses/Error' }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '501': { $ref: '#/components/responses/Error' }
+        default: { $ref: '#/components/responses/Error' }
+  /package/manifest/{package}:
+    parameters:
+      - $ref: '#/components/parameters/Package'
+      - $ref: '#/components/parameters/Version'
+    get:
+      operationId: getPackageManifest
+      summary: Get package release manifest
+      description: Optional. The complete release manifest, including post activities.
+      security: [{}, { basicAuth: [] }, { bearerAuth: [] }]
+      responses:
+        '200':
+          description: Get package release manifest
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/PackageManifest' }
+        '400': { $ref: '#/components/responses/Error' }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '501': { $ref: '#/components/responses/Error' }
+        default: { $ref: '#/components/responses/Error' }
+  /package/namespace/{package}:
+    parameters:
+      - $ref: '#/components/parameters/Package'
+      - $ref: '#/components/parameters/Version'
+    get:
+      operationId: getPackageNamespace
+      summary: Get package release namespace
+      description: Optional. `404` when the release ships no namespace.
+      security: [{}, { basicAuth: [] }, { bearerAuth: [] }]
+      responses:
+        '200':
+          description: Get package release namespace
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Namespace' }
+        '400': { $ref: '#/components/responses/Error' }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '501': { $ref: '#/components/responses/Error' }
         default: { $ref: '#/components/responses/Error' }
   /transport/{trkorr}:
     description: Endpoint for registry transport.
@@ -141,6 +296,74 @@ paths:
         '503': { $ref: '#/components/responses/Error' }
         '504': { $ref: '#/components/responses/Error' }
         default: { $ref: '#/components/responses/Error' }
+  /diff/{package}:
+    parameters:
+      - $ref: '#/components/parameters/Package'
+      - name: from
+        in: query
+        required: true
+        description: Release version to compare from (the older side).
+        schema: { type: string }
+      - name: to
+        in: query
+        required: true
+        description: Release version to compare to (the newer side). Must differ from `from`.
+        schema: { type: string }
+    get:
+      operationId: getDiff
+      summary: Get the differences between two releases of a package
+      description: |
+        Optional capability. Comparing releases can take time, so a registry may
+        compute diffs asynchronously: while the diff is not ready it answers `202`
+        with a progress object whose `progress_pool_url` the client polls (the same
+        pattern as publication). When polling reports `current_step == steps`,
+        `data.diff_url` is the URL to request the diff from; `data.error` reports a
+        failure. A registry that does not support diffs answers `501`. A registry
+        may restrict diffs to some accounts: it then answers `401` to anonymous
+        callers and `402` to accounts whose plan does not include them; the
+        `progress_pool_url` follows the same rule.
+      security: [{}, { basicAuth: [] }, { bearerAuth: [] }]
+      responses:
+        '200':
+          description: The diff report
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Diff' }
+        '202':
+          description: The diff is being computed; poll `progress_pool_url`
+          headers:
+            Retry-After:
+              description: Suggested polling delay in seconds.
+              schema: { type: integer, minimum: 0 }
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/DiffProgress' }
+        '302':
+          description: The diff report is available at the `Location` URL (a `200` response with a `Diff` body)
+          headers:
+            Location:
+              schema: { type: string, format: uri }
+        '400': { $ref: '#/components/responses/Error' }
+        '401': { $ref: '#/components/responses/Error' }
+        '402':
+          description: The account's plan does not include release diffs (`code` `PRO_PLAN_REQUIRED`)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409':
+          description: A release cannot be compared (`code` `diff_unavailable`)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+        '422':
+          description: The comparison failed (`code` `diff_failed`) or exceeds the registry's size limits (`code` `diff_too_large`)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+        '501': { $ref: '#/components/responses/Error' }
+        default: { $ref: '#/components/responses/Error' }
   /delete:
     post:
       operationId: createDeletionTransport
@@ -166,6 +389,11 @@ paths:
               schema: { $ref: '#/components/schemas/DeletionTransportDownload' }
         '400': { $ref: '#/components/responses/Error' }
         '401': { $ref: '#/components/responses/Error' }
+        '402':
+          description: The account's plan does not include transport deletion (`code` `PRO_PLAN_REQUIRED`)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
         '403': { $ref: '#/components/responses/Error' }
         '404': { $ref: '#/components/responses/Error' }
         '409': { $ref: '#/components/responses/Error' }
@@ -331,6 +559,9 @@ components:
       required: [message]
       properties:
         message: { type: string }
+        code:
+          type: string
+          description: Optional machine-readable error code.
     Ping:
       type: object
       required: [authentication_type]
@@ -647,6 +878,91 @@ components:
         current_step_message:
           type: string
           description: Optional description of the current publication step.
+    DiffProgress:
+      type: object
+      required: [progress_pool_url, steps, current_step]
+      properties:
+        progress_pool_url:
+          type: string
+          format: uri
+          description: URL to poll for diff progress; it answers with this same object.
+        steps:
+          type: integer
+          minimum: 0
+          description: Total number of steps. The diff is ready when `current_step` equals `steps`.
+        current_step:
+          type: integer
+          minimum: 0
+        current_step_message:
+          type: string
+        data:
+          type: object
+          additionalProperties: true
+          properties:
+            diff_url:
+              type: string
+              format: uri
+              description: Set when the diff is ready; request it to obtain the report.
+            error:
+              type: string
+              description: Set when the comparison failed; polling can stop.
+            code:
+              type: string
+              enum: [diff_failed, diff_too_large]
+    Diff:
+      type: object
+      description: |
+        A `trm.transport-log-diff` report. Objects of the package are listed with
+        an `added`, `removed`, `modified`, `unchanged` or `indeterminate` status;
+        `entries` hold the changed content of each object. Clients must ignore
+        unknown properties and check `format` and `version`.
+      required: [format, version, summary, objects, entries]
+      additionalProperties: true
+      properties:
+        format: { type: string, const: trm.transport-log-diff }
+        version: { type: integer, minimum: 1 }
+        comparison: { type: object, additionalProperties: true }
+        before: { type: object, additionalProperties: true }
+        after: { type: object, additionalProperties: true }
+        summary:
+          type: object
+          additionalProperties: true
+          properties:
+            objects:
+              type: object
+              additionalProperties: { type: integer }
+            entries:
+              type: object
+              additionalProperties: { type: integer }
+            changedEntries: { type: integer, minimum: 0 }
+        objects:
+          type: array
+          items:
+            type: object
+            required: [id, type, name, status]
+            additionalProperties: true
+            properties:
+              id: { type: string }
+              pgmid: { type: string }
+              type: { type: string }
+              name: { type: string }
+              status: { type: string, enum: [added, removed, modified, unchanged, indeterminate] }
+              entryIds:
+                type: array
+                items: { type: string }
+              fidelity: { type: string, enum: [exact, rendered] }
+        entries:
+          type: array
+          items:
+            type: object
+            required: [id, objectId, kind, status]
+            additionalProperties: true
+            properties:
+              id: { type: string }
+              objectId: { type: string }
+              kind: { type: string }
+              name: { type: string }
+              status: { type: string, enum: [added, removed, modified, indeterminate] }
     DeprecationRequest:
       type: object
       required: [deprecate_note]
@@ -654,3 +970,157 @@ components:
         deprecate_note:
           type: string
           description: Message explaining why the release is deprecated.
+    TelemetryEvent:
+      type: object
+      required: [schemaVersion, event, package, outcome, durationMs, system]
+      properties:
+        schemaVersion: { type: integer, const: 1 }
+        event: { type: string, enum: [install] }
+        package:
+          type: object
+          required: [name, version]
+          properties:
+            name: { type: string }
+            version: { type: string, description: Installed release version. }
+            previousVersion: { type: string, description: Version replaced by an update. }
+        outcome: { type: string, enum: [success, failure] }
+        failure:
+          type: object
+          description: Present only when `outcome` is `failure`.
+          required: [reason]
+          properties:
+            reason: { type: string, enum: [import, sapEntries, engines, dependencies, other] }
+            step: { type: string, description: Client workflow step that failed. }
+            rc: { type: integer, description: Return code of the failed transport import. }
+        durationMs: { type: integer, minimum: 0, description: Duration of the whole action. }
+        importDurationMs: { type: integer, minimum: 0, description: Duration of the transport import alone. }
+        transports:
+          type: array
+          items:
+            type: object
+            required: [type]
+            properties:
+              type: { type: string, enum: [DEVC, TADIR, LANG, CUST, DELETION] }
+              rc: { type: integer, description: Import return code. }
+              objects:
+                type: object
+                description: Number of transport entries per object type.
+                additionalProperties: { type: integer, minimum: 0 }
+        system:
+          type: object
+          description: Non-identifying characteristics of the target SAP system.
+          properties:
+            basisRelease: { type: string }
+            basisSp: { type: string }
+            product: { type: string, enum: [S4HANA, BW4HANA, ECC, NETWEAVER] }
+            productRelease: { type: string }
+            productSp: { type: string }
+            dbSystem: { type: string }
+            kernelRelease: { type: string }
+        client:
+          type: object
+          properties:
+            core: { type: string, description: trm-core version. }
+    Maintainer:
+      type: object
+      required: [name, type]
+      properties:
+        name: { type: string }
+        type: { type: string, enum: [user, organization] }
+    SearchResultItem:
+      type: object
+      required: [name, version, maintainers, release_date, downloads, private]
+      properties:
+        name: { type: string }
+        version: { type: string }
+        description: { type: string }
+        license: { type: string }
+        maintainers:
+          type: array
+          items: { $ref: '#/components/schemas/Maintainer' }
+        release_date: { type: string, format: date-time }
+        downloads: { type: integer, minimum: 0 }
+        private: { type: boolean }
+    Search:
+      type: object
+      required: [total, page, limit, results]
+      properties:
+        total: { type: integer, minimum: 0, description: Matching packages across all pages. }
+        page: { type: integer, minimum: 1 }
+        limit: { type: integer, minimum: 1 }
+        results:
+          type: array
+          items: { $ref: '#/components/schemas/SearchResultItem' }
+    PackageInfo:
+      type: object
+      required: [name, version, release_date, private, deprecated, keywords, maintainers, downloads, versions, version_dates, yanked_versions, dist_tags, dependencies, has_namespace]
+      properties:
+        name: { type: string }
+        version: { type: string }
+        description: { type: string }
+        license: { type: string }
+        release_date: { type: string, format: date-time }
+        private: { type: boolean }
+        deprecated: { type: boolean }
+        deprecated_message: { type: string }
+        website: { type: string }
+        git: { type: string }
+        keywords:
+          type: array
+          items: { type: string }
+        maintainers:
+          type: array
+          items: { $ref: '#/components/schemas/Maintainer' }
+        downloads: { type: integer, minimum: 0 }
+        versions:
+          type: array
+          items: { type: string }
+        version_dates:
+          type: object
+          additionalProperties: { type: string }
+        yanked_versions:
+          type: array
+          items: { type: string }
+        dist_tags:
+          type: object
+          additionalProperties: { type: string }
+        dependencies:
+          type: array
+          items:
+            type: object
+            required: [name, version]
+            properties:
+              name: { type: string }
+              version: { type: string, description: Version range. }
+        has_namespace: { type: boolean }
+    Readme:
+      type: object
+      required: [name, version, readme]
+      properties:
+        name: { type: string }
+        version: { type: string }
+        readme: { type: [string, 'null'], description: Markdown source. }
+    PackageManifest:
+      type: object
+      required: [name, version, manifest]
+      properties:
+        name: { type: string }
+        version: { type: string }
+        manifest:
+          type: object
+          additionalProperties: true
+          description: Artifact-defined release manifest.
+    Namespace:
+      type: object
+      required: [namespace, descriptions]
+      properties:
+        namespace: { type: string }
+        descriptions:
+          type: array
+          items:
+            type: object
+            required: [language, description]
+            properties:
+              language: { type: string }
+              description: { type: string }
+              owner: { type: string }

@@ -24,10 +24,10 @@ The second command should print the available TRM commands.
 
 ## 3. Add the SAP connection
 
-Run the interactive setup and provide the target system details:
+Create a named system alias and provide the target system details when prompted:
 
 ```bash
-trm setup
+trm alias create <NAME>
 ```
 
 For the supported authentication and SAP Logon options, use the complete [client setup guide](../client/setup.md). SAP BTP destinations are covered separately in [Connect through SAP BTP](../client/btp_destination.md).

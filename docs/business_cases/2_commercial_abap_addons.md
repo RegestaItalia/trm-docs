@@ -52,3 +52,9 @@ into a clean target system before adding optional customizing or post-install
 automation.
 
 Continue with [Publish and install](../examples/1_publish_and_install.md).
+
+## Related guidance
+
+- [Compare ABAP package and delivery tools](../guide/abap-package-managers-compared.md)
+- [Publish a package](../commons/publish.md)
+- [Plan transport-based uninstall](../guide/uninstall-abap-software.md)

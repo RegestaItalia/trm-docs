@@ -54,3 +54,9 @@ less time negotiating bespoke handover formats.
 Learn about [registries](../registry/index.md),
 [dependencies](../commons/dependencies.md), and
 [lockfiles](../commons/lockfile.md).
+
+## Related guidance
+
+- [Manage ABAP dependencies](../guide/abap-dependency-management.md)
+- [Use registries and authentication](../registry/index.md)
+- [Compare ABAP package and delivery tools](../guide/abap-package-managers-compared.md)

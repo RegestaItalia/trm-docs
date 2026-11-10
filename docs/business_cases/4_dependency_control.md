@@ -47,10 +47,16 @@ result does not depend on heuristics or generative analysis.
 Explicit dependencies allow teams to split large solutions without making them
 harder to deliver. Shared modules can evolve independently, applications can state
 their compatibility expectations, and installation failures move earlier in the
-process—from production troubleshooting to prerequisite validation.
+process-from production troubleshooting to prerequisite validation.
 
 The result is safer reuse and a clearer architecture: components have owners,
 versions, and declared relationships.
 
 Review [dependency recognition](../commons/dependencies.md) and the
 [lockfile example](../examples/3_install_with_a_lockfile.md).
+
+## Related guidance
+
+- [Manage ABAP dependencies](../guide/abap-dependency-management.md)
+- [Declare package dependencies](../commons/dependencies.md)
+- [Install a dependency graph from a lockfile](../examples/3_install_with_a_lockfile.md)

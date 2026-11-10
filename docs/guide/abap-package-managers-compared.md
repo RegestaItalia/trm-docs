@@ -41,4 +41,11 @@ Capabilities are marked only when a public source documents them. Product behavi
 
 Open a documentation issue or pull request with a source if any cell needs correction.
 
+## Continue from the comparison
+
+- [Understand the package-manager lifecycle](what-is-an-abap-package-manager.md)
+- [Compare TRM and abapGit in detail](trm-and-abapgit.md)
+- [Follow the five-minute quick start](quickstart.md)
+- [See how TRM packages move across an SAP landscape](../commons/package_across_landscape.md)
+
 *Author: TRM maintainers. Technical review: Regesta Group engineering. Last reviewed: 19 October 2026.*

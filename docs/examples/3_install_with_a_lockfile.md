@@ -1,5 +1,5 @@
 ---
-title: Example — reproducible ABAP install with a lockfile
+title: Example - reproducible ABAP install with a lockfile
 description: Generate and use a TRM lockfile to install exact ABAP package versions and verify artifact integrity across environments.
 ---
 

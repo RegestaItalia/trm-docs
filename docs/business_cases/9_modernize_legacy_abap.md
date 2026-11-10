@@ -14,8 +14,8 @@ ABAP estate while modernization continues incrementally.
 
 ## Create boundaries before replacing technology
 
-Teams can identify a cohesive package—such as a shared utility layer, integration
-adapter, or business service—and establish it as a versioned TRM component. Its
+Teams can identify a cohesive package-such as a shared utility layer, integration
+adapter, or business service-and establish it as a versioned TRM component. Its
 dependencies and SAP prerequisites become explicit, and consumers install a
 defined release rather than copying objects.
 
@@ -57,3 +57,9 @@ versioned components while keeping existing SAP change controls in place.
 
 Start by reviewing [dependency recognition](../commons/dependencies.md) for a
 candidate package.
+
+## Related guidance
+
+- [Understand the package-manager lifecycle](../guide/what-is-an-abap-package-manager.md)
+- [Manage ABAP dependencies](../guide/abap-dependency-management.md)
+- [Compare TRM and abapGit](../guide/trm-and-abapgit.md)

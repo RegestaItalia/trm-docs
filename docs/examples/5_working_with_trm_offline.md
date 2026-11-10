@@ -1,5 +1,5 @@
 ---
-title: Example — work with TRM packages offline
+title: Example - work with TRM packages offline
 description: Export, transfer, and install portable .trm ABAP package artifacts when the target SAP environment cannot reach a registry.
 ---
 

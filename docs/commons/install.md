@@ -39,6 +39,8 @@ the first change, TRM [rolls back](#if-something-fails).
 4. **Content checks.** TRM checks that the system supports every object type in the release, that
    none of the objects is locked in an open transport request, and that none of them belongs
    somewhere else (see [Existing objects](#existing-objects)).
+   `--no-obj-types` installs objects of types the system doesn't support: TRM warns instead of
+   stopping. Their import ends with return code 8 or higher, so pass `--ignore-import-errors` too.
    If the release includes translations or customizing, TRM asks whether to import the translations
    and each customizing transport (the default answer is yes). To answer in advance,
    `--lang-tr` and `--cust-tr` import them, `--no-lang-tr` and `--no-cust-tr` skip them.
