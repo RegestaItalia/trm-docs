@@ -40,23 +40,23 @@
     <rect x="524.0" y="94" width="46.0" height="12" rx="6" fill="#2da44e"/>
     <text x="606.7" y="104" text-anchor="end" class="value">4/4</text>
   </g>
-  <g><title>CHKC: 0/1 passed (0%)</title>
+  <g><title>CHKC: 1/1 passed (100%)</title>
     <text x="626.7" y="104" class="object">CHKC</text>
     <rect x="670.7" y="94" width="46" height="12" rx="6" class="track"/>
-    <rect x="670.7" y="94" width="46" height="12" rx="6" fill="#cf222e"/>
-    <text x="753.3" y="104" text-anchor="end" class="value">0/1</text>
+    <rect x="670.7" y="94" width="46.0" height="12" rx="6" fill="#2da44e"/>
+    <text x="753.3" y="104" text-anchor="end" class="value">1/1</text>
   </g>
-  <g><title>CHKO: 0/2 passed (0%)</title>
+  <g><title>CHKO: 2/2 passed (100%)</title>
     <text x="773.3" y="104" class="object">CHKO</text>
     <rect x="817.3" y="94" width="46" height="12" rx="6" class="track"/>
-    <rect x="817.3" y="94" width="46" height="12" rx="6" fill="#cf222e"/>
-    <text x="900.0" y="104" text-anchor="end" class="value">0/2</text>
+    <rect x="817.3" y="94" width="46.0" height="12" rx="6" fill="#2da44e"/>
+    <text x="900.0" y="104" text-anchor="end" class="value">2/2</text>
   </g>
-  <g><title>CHKV: 0/2 passed (0%)</title>
+  <g><title>CHKV: 2/2 passed (100%)</title>
     <text x="40.0" y="130" class="object">CHKV</text>
     <rect x="84.0" y="120" width="46" height="12" rx="6" class="track"/>
-    <rect x="84.0" y="120" width="46" height="12" rx="6" fill="#cf222e"/>
-    <text x="166.7" y="130" text-anchor="end" class="value">0/2</text>
+    <rect x="84.0" y="120" width="46.0" height="12" rx="6" fill="#2da44e"/>
+    <text x="166.7" y="130" text-anchor="end" class="value">2/2</text>
   </g>
   <g><title>CLAS: 6/6 passed (100%)</title>
     <text x="186.7" y="130" class="object">CLAS</text>
@@ -202,11 +202,11 @@
     <rect x="84.0" y="224" width="46.0" height="12" rx="6" fill="#2da44e"/>
     <text x="166.7" y="234" text-anchor="end" class="value">1/1</text>
   </g>
-  <g><title>PINF: 3/6 passed (50%)</title>
+  <g><title>PINF: 6/6 passed (100%)</title>
     <text x="186.7" y="234" class="object">PINF</text>
     <rect x="230.7" y="224" width="46" height="12" rx="6" class="track"/>
-    <rect x="230.7" y="224" width="23.0" height="12" rx="6" fill="#bf8700"/>
-    <text x="313.3" y="234" text-anchor="end" class="value">3/6</text>
+    <rect x="230.7" y="224" width="46.0" height="12" rx="6" fill="#2da44e"/>
+    <text x="313.3" y="234" text-anchor="end" class="value">6/6</text>
   </g>
   <g><title>PROG: 5/5 passed (100%)</title>
     <text x="333.3" y="234" class="object">PROG</text>
@@ -244,11 +244,11 @@
     <rect x="230.7" y="250" width="46.0" height="12" rx="6" fill="#2da44e"/>
     <text x="313.3" y="260" text-anchor="end" class="value">3/3</text>
   </g>
-  <g><title>SHMA: 1/3 passed (33%)</title>
+  <g><title>SHMA: 3/3 passed (100%)</title>
     <text x="333.3" y="260" class="object">SHMA</text>
     <rect x="377.3" y="250" width="46" height="12" rx="6" class="track"/>
-    <rect x="377.3" y="250" width="15.3" height="12" rx="6" fill="#bf8700"/>
-    <text x="460.0" y="260" text-anchor="end" class="value">1/3</text>
+    <rect x="377.3" y="250" width="46.0" height="12" rx="6" fill="#2da44e"/>
+    <text x="460.0" y="260" text-anchor="end" class="value">3/3</text>
   </g>
   <g><title>SICF: 3/3 passed (100%)</title>
     <text x="480.0" y="260" class="object">SICF</text>
@@ -256,11 +256,11 @@
     <rect x="524.0" y="250" width="46.0" height="12" rx="6" fill="#2da44e"/>
     <text x="606.7" y="260" text-anchor="end" class="value">3/3</text>
   </g>
-  <g><title>SMIM: 0/2 passed (0%)</title>
+  <g><title>SMIM: 2/2 passed (100%)</title>
     <text x="626.7" y="260" class="object">SMIM</text>
     <rect x="670.7" y="250" width="46" height="12" rx="6" class="track"/>
-    <rect x="670.7" y="250" width="46" height="12" rx="6" fill="#cf222e"/>
-    <text x="753.3" y="260" text-anchor="end" class="value">0/2</text>
+    <rect x="670.7" y="250" width="46.0" height="12" rx="6" fill="#2da44e"/>
+    <text x="753.3" y="260" text-anchor="end" class="value">2/2</text>
   </g>
   <g><title>SOBJ: 9/9 passed (100%)</title>
     <text x="773.3" y="260" class="object">SOBJ</text>
@@ -304,11 +304,11 @@
     <rect x="817.3" y="276" width="46.0" height="12" rx="6" fill="#2da44e"/>
     <text x="900.0" y="286" text-anchor="end" class="value">1/1</text>
   </g>
-  <g><title>SUSH: 0/3 passed (0%)</title>
+  <g><title>SUSH: 3/3 passed (100%)</title>
     <text x="40.0" y="312" class="object">SUSH</text>
     <rect x="84.0" y="302" width="46" height="12" rx="6" class="track"/>
-    <rect x="84.0" y="302" width="46" height="12" rx="6" fill="#cf222e"/>
-    <text x="166.7" y="312" text-anchor="end" class="value">0/3</text>
+    <rect x="84.0" y="302" width="46.0" height="12" rx="6" fill="#2da44e"/>
+    <text x="166.7" y="312" text-anchor="end" class="value">3/3</text>
   </g>
   <g><title>SUSO: 3/3 passed (100%)</title>
     <text x="186.7" y="312" class="object">SUSO</text>
@@ -376,29 +376,29 @@
     <rect x="817.3" y="328" width="46.0" height="12" rx="6" fill="#2da44e"/>
     <text x="900.0" y="338" text-anchor="end" class="value">1/1</text>
   </g>
-  <g><title>WAPA: 2/8 passed (25%)</title>
+  <g><title>WAPA: 8/8 passed (100%)</title>
     <text x="40.0" y="364" class="object">WAPA</text>
     <rect x="84.0" y="354" width="46" height="12" rx="6" class="track"/>
-    <rect x="84.0" y="354" width="11.5" height="12" rx="6" fill="#bf8700"/>
-    <text x="166.7" y="364" text-anchor="end" class="value">2/8</text>
+    <rect x="84.0" y="354" width="46.0" height="12" rx="6" fill="#2da44e"/>
+    <text x="166.7" y="364" text-anchor="end" class="value">8/8</text>
   </g>
-  <g><title>WDCA: 0/2 passed (0%)</title>
+  <g><title>WDCA: 2/2 passed (100%)</title>
     <text x="186.7" y="364" class="object">WDCA</text>
     <rect x="230.7" y="354" width="46" height="12" rx="6" class="track"/>
-    <rect x="230.7" y="354" width="46" height="12" rx="6" fill="#cf222e"/>
-    <text x="313.3" y="364" text-anchor="end" class="value">0/2</text>
+    <rect x="230.7" y="354" width="46.0" height="12" rx="6" fill="#2da44e"/>
+    <text x="313.3" y="364" text-anchor="end" class="value">2/2</text>
   </g>
-  <g><title>WDCC: 1/5 passed (20%)</title>
+  <g><title>WDCC: 5/5 passed (100%)</title>
     <text x="333.3" y="364" class="object">WDCC</text>
     <rect x="377.3" y="354" width="46" height="12" rx="6" class="track"/>
-    <rect x="377.3" y="354" width="9.2" height="12" rx="6" fill="#bf8700"/>
-    <text x="460.0" y="364" text-anchor="end" class="value">1/5</text>
+    <rect x="377.3" y="354" width="46.0" height="12" rx="6" fill="#2da44e"/>
+    <text x="460.0" y="364" text-anchor="end" class="value">5/5</text>
   </g>
-  <g><title>WEBI: 0/4 passed (0%)</title>
+  <g><title>WEBI: 4/4 passed (100%)</title>
     <text x="480.0" y="364" class="object">WEBI</text>
     <rect x="524.0" y="354" width="46" height="12" rx="6" class="track"/>
-    <rect x="524.0" y="354" width="46" height="12" rx="6" fill="#cf222e"/>
-    <text x="606.7" y="364" text-anchor="end" class="value">0/4</text>
+    <rect x="524.0" y="354" width="46.0" height="12" rx="6" fill="#2da44e"/>
+    <text x="606.7" y="364" text-anchor="end" class="value">4/4</text>
   </g>
   <g><title>XSLT: 2/2 passed (100%)</title>
     <text x="626.7" y="364" class="object">XSLT</text>
