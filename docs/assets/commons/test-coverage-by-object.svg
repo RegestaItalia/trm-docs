@@ -118,11 +118,11 @@
     <rect x="670.7" y="146" width="46.0" height="12" rx="6" fill="#2da44e"/>
     <text x="753.3" y="156" text-anchor="end" class="value">2/2</text>
   </g>
-  <g><title>ENHO: 7/11 passed (64%)</title>
+  <g><title>ENHO: 11/11 passed (100%)</title>
     <text x="773.3" y="156" class="object">ENHO</text>
     <rect x="817.3" y="146" width="46" height="12" rx="6" class="track"/>
-    <rect x="817.3" y="146" width="29.3" height="12" rx="6" fill="#bf8700"/>
-    <text x="900.0" y="156" text-anchor="end" class="value">7/11</text>
+    <rect x="817.3" y="146" width="46.0" height="12" rx="6" fill="#2da44e"/>
+    <text x="900.0" y="156" text-anchor="end" class="value">11/11</text>
   </g>
   <g><title>ENHS: 2/2 passed (100%)</title>
     <text x="40.0" y="182" class="object">ENHS</text>
