@@ -25,6 +25,14 @@ REST is available immediately after installing the client; no additional step is
 
 When prompted for the connection, select REST and enter the SAP system address and HTTP port.
 
+To find the required URL, run transaction `/ATRM/REST` in the SAP system.
+
+<p align="center">
+    <img src="../assets/client/rest_tcode.png" alt="/ATRM/REST">
+</p>
+
+<details>
+  <summary>Get system address via SICF</summary><br>
 If you do not know the address or port:
 
 1. Open transaction `SICF` in the SAP system.
@@ -35,6 +43,7 @@ If you do not know the address or port:
 <p align="center">
     <img src="../assets/client/sicf.png" alt="SICF">
 </p>
+</details>
 
 ## Connect to SAP via BTP
 
