@@ -53,7 +53,6 @@ This section lists dependency behavior exercised by this corpus's tests. It is n
 | `DOMA` | <ul><li>Value-table dependency.</li><li>Conversion-routine function-group dependency.</li><li>Conversion-routine input-function dependency.</li></ul> |
 | `DTEL` | <ul><li>Domain dependency.</li><li>Class reference-type dependency.</li><li>Data-element reference-type dependency.</li><li>Attached search-help dependency.</li></ul> |
 | `ENHC` | <ul><li>Member enhancement implementation dependency.</li><li>Nested composite enhancement implementation dependency.</li></ul> |
-| `ENHO` | <ul><li>BAdI spot assignment dependency.</li><li>BAdI interface contract dependency.</li><li>Implementation class dependency.</li><li>Explicit enhancement spot dependency.</li><li>Explicit enhancement program dependency.</li><li>Enhancement source code table dependency.</li><li>Implicit enhancement function group dependency.</li><li>Implicit enhancement function module dependency.</li><li>Class enhancement class dependency.</li><li>Class enhancement attribute type dependency.</li><li>Function module parameter enhancement type dependency.</li></ul> |
 | `ENHS` | <ul><li>BAdI interface contract dependency.</li><li>Fallback class dependency.</li></ul> |
 | `ENQU` | <ul><li>Primary lock table dependency.</li></ul> |
 | `ENSC` | <ul><li>Child enhancement spot dependency.</li><li>Nested composite enhancement spot dependency.</li></ul> |
