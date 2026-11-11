@@ -48,8 +48,9 @@ landscape transport of an uninstall carries the package name and version only.
 | **Translations** (`L`) | The translated texts of the objects | Unless `--no-lang-tr` |
 | **Customizing** | A copy of a customizing request you chose to ship | One for each customizing request added to the release, unless `--no-cust-tr`. See [Customizing guidelines](customizing_guidelines.md) |
 
-These are *transports of copies*, released to the transport target you choose during the publish,
-so they may show up in that system's import queue. A translations or customizing transport that
+These are *transports of copies*, released to the transport target you choose during the publish
+(the system itself when it has no transport targets), so they may show up in that system's import
+queue. A translations or customizing transport that
 ends up empty is deleted right away.
 
 **Don't import them anywhere.** To deliver the package to another system, install it with

@@ -202,7 +202,7 @@ jobs:
 - `--sap-package` and `--public` (or `--private`) are needed only for the first publish. Later
   releases reuse them.
 - `-T` is the transport target of the publish transports; it can be left out when the system has
-  only one.
+  only one, or none (the system itself is then the target).
 - Everything else (description, license, dependencies, customizing...) is taken from the previous
   release, see [What TRM reuses from the previous release](publish.md#what-trm-reuses-from-the-previous-release).
   To stop carrying over customizing transports of the previous release, pass

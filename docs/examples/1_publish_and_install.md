@@ -92,7 +92,7 @@ For this demo, I’ll choose **public**.
 TRM then lists all transport targets.  
 When publishing, a certain number of transports are generated and released automatically to the selected target.  
 
-If possible, create a **virtual system** so TRM can release everything without worrying about transport targets.  
+If the system has no transport targets, TRM uses the system itself as target, so you don't need to create a virtual system just to publish.  
 Otherwise, just choose your development or another available system.
 
 <div style="display:flex; justify-content:center;">
