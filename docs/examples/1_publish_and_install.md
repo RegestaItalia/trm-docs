@@ -85,15 +85,9 @@ Since I didn’t specify a version, TRM automatically proposes `1.0.0`.
 Next, TRM asks if I want to **restrict access** to specific users or make the package **publicly available**.  
 For this demo, I’ll choose **public**.
 
-<div style="display:flex; justify-content:center;">
-  <img src="/assets/examples/1_8_publish_and_install.png" alt="Transport targets" style="max-width:100%; height:auto; border-radius:8px;">
-</div>
-
-TRM then lists all transport targets.  
-When publishing, a certain number of transports are generated and released automatically to the selected target.  
-
-If the system has no transport targets, TRM uses the system itself as target, so you don't need to create a virtual system just to publish.  
-Otherwise, just choose your development or another available system.
+When publishing, a certain number of transports are generated and released automatically. They
+target the system itself and are removed from its import queue, so no transport target or virtual
+system is needed.
 
 <div style="display:flex; justify-content:center;">
   <img src="/assets/examples/1_9_publish_and_install.png" alt="SAP Package name" style="max-width:100%; height:auto; border-radius:8px;">

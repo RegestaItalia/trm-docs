@@ -28,9 +28,9 @@ doesn't reuse a previous release, and doesn't accept the options that only make 
 ## Before you start
 
 - **trm-server** must be installed on the system you publish from. See [Server setup](../server/setup.md).
-- A transport target in TMS is **not required**. TRM creates transports of copies and releases
-  them to the target you choose; it never forwards or imports them. If the system has no transport
-  targets, TRM uses the system itself as target.
+- No transport target is needed in TMS. TRM creates transports of copies with the system itself
+  as target, releases them and removes them from its import queue; they are never forwarded or
+  imported anywhere.
 - All objects of the ABAP package must be **released**: an object still locked in an open
   transport request stops the publish. Objects excluded by the abapGit `ignore` aren't checked.
 - To publish to the public registry, log in first with `trm login`.
@@ -44,7 +44,6 @@ When you run `trm publish` interactively, TRM guides you through the release:
 | ABAP package | The SAP package (and its subpackages) that make up the release. TRM remembers it on the system: the next release of the same package starts from the same ABAP package. |
 | Version | When you don't pass one, TRM calculates it and asks you to confirm or type another one. The first release is `1.0.0`; later releases increase the latest version by the chosen increment (`-i, --increment`, `patch` by default). |
 | Visibility | Public or private. Asked only on the first publish; the public registry doesn't allow changing it afterwards. |
-| Transport target | The TMS target assigned to the transports TRM creates. If the system has only one, it is picked automatically; if it has none, the system itself is the target. |
 | Dependencies | Other TRM packages your objects use. TRM finds most of them automatically, see [Dependencies](dependencies.md). |
 | Customizing transports | Customizing requests to ship with the release. See [Customizing guidelines](customizing_guidelines.md). |
 | Manifest values | Description, authors, license, website, Git repository, [engines](engines.md), [post activities](post_activities.md), and more. See [Manifest](manifest.md). |
@@ -114,7 +113,6 @@ stops with an error:
 | --- | --- |
 | ABAP package (when the system has no record of the package, for example on the first publish) | `-P, --sap-package` |
 | Visibility (first publish only) | `--public` or `--private` |
-| Transport target (when the system has more than one) | `-T, --target` |
 
 Everything else is optional:
 

@@ -191,7 +191,6 @@ jobs:
             --no-prompts \
             --sap-package ZACME_SALES \
             --public \
-            -T QAS \
             --readme README.md \
             --changelog CHANGELOG.md \
             ${RUNNER_DEBUG:+--debug}
@@ -201,8 +200,6 @@ jobs:
   quotes or backslashes.
 - `--sap-package` and `--public` (or `--private`) are needed only for the first publish. Later
   releases reuse them.
-- `-T` is the transport target of the publish transports; it can be left out when the system has
-  only one, or none (the system itself is then the target).
 - Everything else (description, license, dependencies, customizing...) is taken from the previous
   release, see [What TRM reuses from the previous release](publish.md#what-trm-reuses-from-the-previous-release).
   To stop carrying over customizing transports of the previous release, pass
@@ -296,7 +293,7 @@ can require a manual approval before a job that touches a sensitive system.
   argument named in the error. The first publish of a package needs `--sap-package` and
   `--public`/`--private`; connection data goes in `TRM_CONNECTION_ARGS`.
 - **"Transport target was not declared":** the system has more than one transport target; pass
-  `-T` (publish) or `--landscape-tr-target` (install, uninstall).
+  `--landscape-tr-target` (install, uninstall).
 - **"Unauthorized" when publishing:** the job can't request the GitHub identity token, so TRM ran
   without authentication. Add `permissions: id-token: write` to the workflow or job. (With an
   explicit `-A '{"oidc":"github"}'` the error is "GitHub Actions OIDC token is not available".)
