@@ -77,7 +77,7 @@ RFC should now be available as an option when trying to connect to a system.
 
 > ⚠️ **Note**: The `open-rfc` connection is experimental. You can try it, but it is not recommended for production use.
 
-To connect to an SAP system through open-rfc run:
+To connect to an SAP system through [open-rfc](https://github.com/marianfoo/open-rfc) run:
 
 ```bash
 npm install -g trm-plugin-open-rfc-dest
